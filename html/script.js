@@ -1,24 +1,8 @@
-let currentEntryIndex = 0; 
-let currentTool = 0;
-let currentEntry = {}
+const svgElement = document.getElementById("template");
 
-let data = {
-}
+let currentTiles = [];
 
-$(document).ready(function () {
-    newEntry()
-
-    $("td").click(function(event){ 
-        toCords(event.target.id)
-    })
-});
-
-function newEntry() {
-    console.log("HEY EVERYBODY")
-}
-
-function toCords(cordsText) {
-    console.log(cordsText)
-    cordsText = cordsText.split(/\s+/);
-    console.log(cordsText[0][0])
+function start() {
+  currentTiles = [];
+  svgElement.src = "assets/Template.svg"
 }
