@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 454 454" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:2;">
+    <g id="Outer-Border" serif:id="Outer Border" transform="matrix(-4.16667,0,0,4.16667,556.679,-89.0011)">
+        <rect x="27" y="23.484" width="104.523" height="104.525" style="fill:none;stroke:rgb(35,31,32);stroke-width:0.96px;"/>
+    </g>
+    <g id="Movement-Grid" serif:id="Movement Grid">
+        <g id="Y4" transform="matrix(1,0,0,1,0,240)">
+            <g id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y3" transform="matrix(1,0,0,1,0,180)">
+            <g id="X41" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X31" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X21" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X11" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X01" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y2" transform="matrix(1,0,0,1,0,120)">
+            <g id="X42" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X32" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X22" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X12" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X02" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y1" transform="matrix(1,0,0,1,0,60)">
+            <g id="X43" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X33" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X23" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X13" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+            <g id="X03" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y0">
+            <g transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <g id="X4Y0">
+                    <rect id="X44" serif:id="X4" x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+                </g>
+            </g>
+            <g transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <g id="X3Y0">
+                    <rect id="X34" serif:id="X3" x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+                </g>
+            </g>
+            <g transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <g id="X2Y0">
+                    <rect id="X24" serif:id="X2" x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+                </g>
+            </g>
+            <g transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <g id="X1Y0">
+                    <rect id="X14" serif:id="X1" x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+                </g>
+            </g>
+            <g transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <g id="X0Y0">
+                    <rect id="X04" serif:id="X0" x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;stroke-linecap:round;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g id="Boxes">
+        <g id="Icon-Box" serif:id="Icon Box" transform="matrix(2.3857,0,0,7.37137,-536.224,-990.967)">
+            <rect x="357.515" y="136.7" width="50.3" height="56.977" style="fill:white;fill-opacity:0;stroke:rgb(35,31,32);stroke-width:0.73px;stroke-linecap:round;"/>
+        </g>
+        <g id="Name-Box" serif:id="Name Box" transform="matrix(2.67392,0,0,2.63381,-222.557,-630.33)">
+            <rect x="89.478" y="359.566" width="112.195" height="45.561" style="fill:white;fill-opacity:0;stroke:rgb(35,31,32);stroke-width:1.51px;stroke-linecap:round;"/>
+        </g>
+    </g>
+</svg>

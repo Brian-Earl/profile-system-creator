@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 445 445" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:2;">
+    <g id="Text">
+    </g>
+    <g id="Grid">
+        <g id="Y4" transform="matrix(1,0,0,1,-4.19395,235.623)">
+            <g id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+        </g>
+        <g id="Y3" transform="matrix(1,0,0,1,-4.19395,175.623)">
+            <g id="X41" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X31" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X21" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X11" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X01" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+        </g>
+        <g id="Y2" transform="matrix(1,0,0,1,-4.19395,115.623)">
+            <g id="X42" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X32" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X22" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X12" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X02" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+        </g>
+        <g id="Y1" transform="matrix(1,0,0,1,-4.19395,55.6233)">
+            <g id="X43" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X33" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X23" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X13" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X03" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+        </g>
+        <g id="Y0" transform="matrix(1,0,0,1,-4.19395,-4.37674)">
+            <g id="X44" serif:id="X4" transform="matrix(2.2245,0,0,2.57208,177.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X34" serif:id="X3" transform="matrix(2.2245,0,0,2.57208,118.013,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X24" serif:id="X2" transform="matrix(2.2245,0,0,2.57208,57.0133,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X14" serif:id="X1" transform="matrix(2.2245,0,0,2.57208,-2.98666,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+            <g id="X04" serif:id="X0" transform="matrix(2.2245,0,0,2.57208,-62.9867,-85.1973)">
+                <rect x="35.822" y="39.617" width="26.972" height="23.327" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+            </g>
+        </g>
+    </g>
+    <g id="Boxes">
+        <g id="Icon-Box" serif:id="Icon Box" transform="matrix(2.3857,0,0,7.37137,-540.418,-995.344)">
+            <rect x="357.515" y="136.7" width="50.3" height="56.977" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+        </g>
+        <g id="Name-Box" serif:id="Name Box" transform="matrix(2.67392,0,0,2.63381,-226.751,-634.706)">
+            <rect x="89.478" y="359.566" width="112.195" height="45.561" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.66px;"/>
+        </g>
+    </g>
+    <g id="Player-Marker" serif:id="Player Marker">
+        <g id="Non-Start-Side-Marker" serif:id="Non Start Side Marker" transform="matrix(4.21053,0,0,4.11466,146.536,136.775)">
+            <path d="M0,12.418L1,10.002L1.791,10.002C1.609,9.762 1.5,9.467 1.5,9.145L1.5,4.693C1.5,4.182 1.771,3.734 2.176,3.479C1.717,3.111 1.416,2.553 1.416,1.92C1.416,0.816 2.313,-0.08 3.416,-0.08C4.521,-0.08 5.416,0.816 5.416,1.92C5.416,2.553 5.115,3.111 4.656,3.479C5.061,3.734 5.332,4.182 5.332,4.693L5.332,9.145C5.332,9.467 5.223,9.762 5.043,10.002L5.834,10.002L6.834,12.418L0,12.418ZM-3.332,13.5L10.918,13.5L10.918,-1.082L-3.332,-1.082L-3.332,13.5Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+        </g>
+        <g id="Start-Side-Marker" serif:id="Start Side Marker" transform="matrix(1,0,0,1,-4.19395,-4.37674)">
+            <path d="M136.7,136.7L136.7,196.7L196.7,196.7L196.7,136.7L196.7,196.7L136.7,196.7L136.7,136.7ZM150.729,192.248L154.94,182.307L158.271,182.307C157.504,181.319 157.045,180.106 157.045,178.781L157.045,160.462C157.045,158.36 158.186,156.516 159.892,155.467C157.959,153.953 156.692,151.657 156.692,149.052C156.692,144.51 160.468,140.823 165.113,140.823C169.765,140.823 173.534,144.51 173.534,149.052C173.534,151.657 172.266,153.953 170.334,155.467C172.039,156.516 173.18,158.36 173.18,160.462L173.18,178.781C173.18,180.106 172.721,181.319 171.963,182.307L175.294,182.307L179.504,192.248L150.729,192.248Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>
