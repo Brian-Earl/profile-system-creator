@@ -1,73 +1,226 @@
-//https://stackoverflow.com/questions/30319227/finding-coordinates-of-center-of-rectangle-svg
+// Resources Used
+// https://stackoverflow.com/questions/30319227/finding-coordinates-of-center-of-rectangle-svg
+// https://groups.google.com/g/d3-js/c/PYuJ6RIsBdc
+// https://www.softouch.on.ca/svg/rotate1.html
 
-let testSVG = '<svg width="100%" height="100%" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g transform="matrix(0,-4.16667,-4.16667,0,20.8333,0)"><path d="M-5,-5C-7.761,-5 -10,-2.761 -10,0C-10,2.761 -7.761,5 -5,5C-2.238,5 0,2.761 0,0C0,-2.761 -2.238,-5 -5,-5" style="fill:rgb(35,31,32);fill-rule:nonzero;"/></g></svg>';
+let iconList = []
+
+// Reference to the current icon element
+// Used drawing and removing the current icon when the mouse hovers and exits a grid square
+let iconElement = null; 
+
+// Stores the current grid square SVG element the mouse is over
+// Used for drawing a new icon when chaning the current icon with the scroll wheel
+let currentGridSqure = null;
+
+// Current selected icon, correlates to the indexes of movementIcons
+let currentIcon = 0;
+
+// List of available icons where each index is the id of an SVG element
+const movementIcons = ["move", "slide", "jump", "jumpSlide", "command"]
+
+// Indicated if the current piece is on the starting side or not
+let isStartSide = true;
+
+// Get the SVG element for the entire template
+let svg = document.getElementById("svg");
+// When the mouse is over the template and the user scrolls, call mouseOnScroll()
+svg.addEventListener('wheel', mouseOnScroll)
+
+// Initialization function
+function init() {
+  console.log(iconList)
+  for(let i = 0; i < 5; i++){
+    let blankArray = []
+    for(let j = 0; j < 5; j++){
+      blankArray.push([])
+    }
+    iconList.push(blankArray)
+  }   
+}
 
 function mouseOverGridSquare(item) {
-  if(isCenter(item)) return;
+  let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  if(isCenter(gridPos)) return;
   item.style.fill="#ffc"
+  let pos = getCenter(item)
+  createIconAt(movementIcons[currentIcon], pos, gridPos);
+  currentGridSquare = item;
+  removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), false)
 }
 
 function mouseOutGridSquare(item) {
-  if(isCenter(item)) return;
+  let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  if(isCenter(gridPos)) return;
   item.style.fill="#fff"
+  if(iconElement) {
+    iconElement.remove();
+  }
+  currentGridSquare = null;
+  restoreElements(gridPos[0], gridPos[1])
 }
 
 function clickGridSquare(item) {
+  let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  if(isCenter(gridPos)) return;
   item.style.fill="#ff0";
-  idArray = item.parentElement.id.split("").slice(1).map(element => parseInt(element))
-  console.log(idArray)
-  var pos = getCenter(item)
-  console.log(pos)
-  //pos.x += (3 * 2* idArray[0])
-  //pos.y += (3 * 2* idArray[1]);
-  console.log(pos)
-  createCircleAt(pos);
-
+  console.log(gridPos)
+  console.log(iconList[gridPos[0]][gridPos[1]])
+  if(iconElement){
+    removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
+    iconList[gridPos[0]][gridPos[1]].push(iconElement)
+    iconElement = null
+  }
 }
 
-function isCenter(item) {
-  return  (item.parentElement.id === "X22") && (item.parentElement.parentElement.id === "Y2");
+function mouseOnScroll(event) {
+  if(event.deltaY > 0) {
+    currentIcon--
+  } else if (event.deltaY < 0) {
+    currentIcon++
+  }
+  if(currentIcon >= movementIcons.length) {
+    currentIcon = 0
+  }
+  if(currentIcon < 0) {
+    currentIcon = movementIcons.length-1
+  }
+
+  if(currentGridSquare) {
+    let gridPos = currentGridSquare.parentElement.id.split("").slice(1).map(element => parseInt(element));
+    
+    if(iconElement){
+      iconElement.remove()
+    }
+    let pos = getCenter(currentGridSquare)
+    createIconAt(movementIcons[currentIcon], pos, gridPos);
+    removeElement(gridPos[0], gridPos[1])
+    restoreOppositeType(gridPos[0], gridPos[1], movementIcons[currentIcon])
+    
+  }
+  
 }
 
-function sizeDownWidth(width1, width2) {
-  return 
+// Returns if the given grid position is the center of the grid
+function isCenter(gridPos) {
+  return  (gridPos[0] === 2) && (gridPos[1] === 2);
 }
 
+// Returns the x,y position of the center of the given SVG element
 function getCenter(item) {
-    var bbox = item.getBBox();
-  console.log(bbox)
-  console.log(item.parentElement.parentElement.parentElement.getBBox())
-  var ctm = item.getCTM()
-  console.log(ctm)
-  var cx = bbox.x + bbox.width/2;
-  var cy = bbox.y + bbox.height/2;
-    var pt = document.getElementById("svg").createSVGPoint();
-    pt.x = cx;
-    pt.y = cy;
-    return pt.matrixTransform(ctm);
+  let bbox = item.getBBox();
+  let ctm = item.getTransformToElement(item.nearestViewportElement)
+  let cx = bbox.x + (bbox.width/2);
+  let cy = bbox.y + (bbox.height/2);
+  let pt = item.nearestViewportElement.createSVGPoint();
+  pt.x = cx;
+  pt.y = cy;
+  return pt.matrixTransform(ctm);
 }
 
-function createRectAt(pos) {
-  var svg = document.getElementById("svg");
-  var rect = document.createElementNS(svg.namespaceURI, "rect");
-  rect.setAttribute("x", "50%");
-  rect.setAttribute("y", "50%");
-  rect.setAttribute("width", 10);
-  rect.setAttribute("height", 10);
-  rect.setAttribute("fill", "green");
-  svg.appendChild(rect);
+// Creates the given icon at the given position (pos)
+// gridPos is the current position of the icon on the grid
+function createIconAt(icon, pos, gridPos) {
+  iconElement = document.getElementById(icon).cloneNode(true);
+  let width = 42;
+  let cx = pos.x - (width/2);
+  let cy = pos.y - (width/2);
+  iconElement.setAttribute("x", cx);
+  iconElement.setAttribute("y", cy);
+  iconElement.setAttribute("width", width);
+  iconElement.setAttribute("height", width);
+  iconElement.setAttribute("id", "");
+  iconElement.setAttribute("icon", icon);
+  if(isSlide(icon)) {
+    iconElement.setAttribute("transform", rotateIcon(gridPos, cx, cy, width, width))
+  }
+  svg.appendChild(iconElement);
 }
 
-function createCircleAt(pos) {
-  var svg = document.getElementById("svg");
-  var rect = document.getElementById("circle").cloneNode(true)
-  var bbox = document.getElementById("Starting-Side").getBBox()
-  var cx = ((bbox.x + 45 + bbox.width/2) + pos.x) / 2;
-  var cy = ((bbox.y + 45 + bbox.height/2) + pos.y) / 2;
-  console.log(bbox)
-  rect.setAttribute("x", cx);
-  rect.setAttribute("y", cy);
-  rect.setAttribute("width", 50);
-  rect.setAttribute("height", 50);
-  svg.appendChild(rect);
+// Returns if the icon given is one that needs to be rotated 
+function isSlide(icon) {
+  return icon === "slide" || icon === "jumpSlide" || icon === "nonJumpSlide"
 }
+
+// Returns if the icon given is one that is full sized
+function isFullSize(icon) {
+  return icon === "command"
+}
+
+// Return transform attribute for rotating an icon
+function rotateIcon(gridPos, cx, cy, width, height) {
+  return "rotate(" + getRotateDegrees(gridPos) +" " + (cx + (width/2)) + " " + (cy + (height/2)) + ")";
+}
+
+// Find the rotation degree based on the grid position
+function getRotateDegrees(gridPos) {
+  switch(gridPos.join()) {
+    case "2,1":
+      return "0"
+      break;
+    case "3,1":
+      return "45"
+      break;
+    case "3,2":
+      return "90"
+      break;
+    case "3,3":
+      return "135"
+      break;
+    case "2,3":
+      return "180"
+    break;
+    case "1,3":
+      return "225"
+      break;
+    case "1,2":
+      return "270"
+      break;
+    case "1,1":
+      return "315"
+      break;
+  }
+  return "0"
+}
+
+// Remove all of the elements from view at the current grid location
+// removeFromList removes them from existance entirely
+function removeElement(x,y, newIcon, removeFromList = false) {
+  for(let i = 0; i < iconList[x][y].length; i++) {
+    if(isFullSize(iconList[x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
+      iconList[x][y][i].remove();
+      if(removeFromList)
+        iconList[x][y].splice(i,1);
+    } else if(!isFullSize(iconList[x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
+      iconList[x][y][i].remove();
+      if(removeFromList)
+        iconList[x][y].splice(i,1);
+    }
+  }
+}
+
+// Restores all elements into view at the current grid location
+function restoreElements(x,y) {
+  for(let i = 0; i < iconList[x][y].length; i++) {
+    iconList[x][y][i].remove();
+    svg.appendChild(iconList[x][y][i])
+  }
+}
+
+// Restores all elements into view at the current grid location
+// only elements that are of the opposite icon type of that given.
+// Used for when using scrolling to show icons
+function restoreOppositeType(x,y,newIcon) {
+  for(let i = 0; i < iconList[x][y].length; i++) {
+    if(isFullSize(iconList[x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
+      iconList[x][y][i].remove();
+      svg.appendChild(iconList[x][y][i])
+    } else if(!isFullSize(iconList[x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
+      iconList[x][y][i].remove();
+      svg.appendChild(iconList[x][y][i])
+
+    }
+  }
+}
+
+init()
