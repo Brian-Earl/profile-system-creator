@@ -138,7 +138,7 @@ function getCenter(item) {
 // gridPos is the current position of the icon on the grid
 function createIconAt(icon, pos, gridPos) {
   iconElement = document.getElementById(icon).cloneNode(true);
-  let width = 42;
+  let width = 125;
   if(isFullSize(icon))
     width = 185;
   let cx = pos.x - (width/2);
@@ -241,15 +241,16 @@ function restoreOppositeType(x,y,newIcon) {
   }
 }
 
-function createTextAt(text, pos) {
+function createTextAt(text, pos, fontSize) {
   let svgNS = "http://www.w3.org/2000/svg";
   let newText = document.createElementNS(svgNS,"text");
-  newText.setAttribute("font-size","100");
+  newText.setAttribute("font-size",fontSize);
   newText.innerHTML = text
   let cx = pos.x
   let cy = pos.y
   newText.setAttribute("x",cx);
   newText.setAttribute("y",cy);
+  newText.setAttribute("font-family", "Pieces of Eight")
   svg.appendChild(newText);
   let bbox = newText.getBBox()
   cx -= bbox.width/2
@@ -261,20 +262,19 @@ function createTextAt(text, pos) {
 
 function createPieceName(text) {
   let namePos = getCenter(nameLocation);
-  createTextAt(text, namePos);
+  createTextAt(text, namePos, 270);
 }
 
 function createPieceAbilityText(text) {
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
   iconPos.y = namePos.y + 140;
-  createTextAt(text, iconPos);
+  createTextAt(text, iconPos, 100);
 }
 
 function createPieceIcon(piece) {
   let iconPos = getCenter(pieceIconLocation);
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
-  console.log(iconPos)
   let width = 375;
   let cx = iconPos.x - (width/2) + 15;
   let cy = iconPos.y;
@@ -287,6 +287,6 @@ function createPieceIcon(piece) {
 
 init()
 
-createPieceName("DUKE")
-createPieceAbilityText("III")
+createPieceName("Duke")
+//createPieceAbilityText("III")
 createPieceIcon("dukeIcon")
