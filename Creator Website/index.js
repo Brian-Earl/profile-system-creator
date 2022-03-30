@@ -2,6 +2,12 @@
 // https://stackoverflow.com/questions/30319227/finding-coordinates-of-center-of-rectangle-svg
 // https://groups.google.com/g/d3-js/c/PYuJ6RIsBdc
 // https://www.softouch.on.ca/svg/rotate1.html
+// https://stackoverflow.com/questions/9281199/adding-text-to-svg-document-in-javascript
+// https://codepen.io/remi-grumeau/pen/AwdRyM
+
+// Lock Screen Scroll
+// Just for now
+document.getElementsByTagName('body')[0].style.overflow = 'hidden';
 
 let iconList = []
 
@@ -25,11 +31,12 @@ let isStartSide = true;
 // Get the SVG element for the entire template
 let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
-svg.addEventListener('wheel', mouseOnScroll)
+svg.addEventListener('wheel', mouseOnScroll);
+
+let nameLocation = document.getElementById("Piece-Name");
 
 // Initialization function
 function init() {
-  console.log(iconList)
   for(let i = 0; i < 5; i++){
     let blankArray = []
     for(let j = 0; j < 5; j++){
@@ -64,8 +71,6 @@ function clickGridSquare(item) {
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
   if(isCenter(gridPos)) return;
   item.style.fill="#ff0";
-  console.log(gridPos)
-  console.log(iconList[gridPos[0]][gridPos[1]])
   if(iconElement){
     removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
     iconList[gridPos[0]][gridPos[1]].push(iconElement)
@@ -123,6 +128,8 @@ function getCenter(item) {
 function createIconAt(icon, pos, gridPos) {
   iconElement = document.getElementById(icon).cloneNode(true);
   let width = 42;
+  if(isFullSize(icon))
+    width = 185;
   let cx = pos.x - (width/2);
   let cy = pos.y - (width/2);
   iconElement.setAttribute("x", cx);
@@ -223,4 +230,25 @@ function restoreOppositeType(x,y,newIcon) {
   }
 }
 
+function createTextAt(text, pos) {
+  let svgNS = "http://www.w3.org/2000/svg";
+  let newText = document.createElementNS(svgNS,"text");
+  newText.setAttribute("font-size","100");
+  newText.innerHTML = text
+  let cx = pos.x
+  let cy = pos.y
+  newText.setAttribute("x",cx);
+  newText.setAttribute("y",cy);
+  svg.appendChild(newText);
+  let bbox = newText.getBBox()
+  cx -= bbox.width/2
+  cy += bbox.height/4
+  newText.setAttribute("x",cx);
+  newText.setAttribute("y",cy);
+
+}
+
 init()
+
+let namePos = getCenter(nameLocation)
+createTextAt("DUKE", namePos)
