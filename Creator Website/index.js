@@ -9,6 +9,10 @@
 // Just for now
 document.getElementsByTagName('body')[0].style.overflow = 'hidden';
 
+// Variable that keeps track all of the current pieces created
+// An array of arrays, each array contains two arrays, both are 2D arrays
+// the first one representing the starting side and the second representing the non starting side
+// Each element of the 2D arrays are arrays that can have one or two elements themsevles
 let iconList = []
 
 // Reference to the current icon element
@@ -33,7 +37,14 @@ let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
 svg.addEventListener('wheel', mouseOnScroll);
 
+// Get the SVG element for where the piece name goes
 let nameLocation = document.getElementById("Piece-Name");
+
+// Get the SVG element for where the piece icon goes
+let pieceIconLocation = document.getElementById("Piece-Icon")
+
+// Get the SVG element for where the player marker is
+let playerMarkerLocation = document.getElementById("Starting-Side")
 
 // Initialization function
 function init() {
@@ -248,7 +259,34 @@ function createTextAt(text, pos) {
 
 }
 
+function createPieceName(text) {
+  let namePos = getCenter(nameLocation);
+  createTextAt(text, namePos);
+}
+
+function createPieceAbilityText(text) {
+  let iconPos = getCenter(pieceIconLocation);
+  let namePos = getCenter(nameLocation);
+  iconPos.y = namePos.y + 140;
+  createTextAt(text, iconPos);
+}
+
+function createPieceIcon(piece) {
+  let iconPos = getCenter(pieceIconLocation);
+  let pieceIconElement = document.getElementById(piece).cloneNode(true);
+  console.log(iconPos)
+  let width = 375;
+  let cx = iconPos.x - (width/2) + 15;
+  let cy = iconPos.y;
+  pieceIconElement.setAttribute("x", cx);
+  pieceIconElement.setAttribute("y", -100);
+  pieceIconElement.setAttribute("width", width);
+  pieceIconElement.setAttribute("id", "");
+  svg.appendChild(pieceIconElement);
+}
+
 init()
 
-let namePos = getCenter(nameLocation)
-createTextAt("DUKE", namePos)
+createPieceName("DUKE")
+createPieceAbilityText("III")
+createPieceIcon("dukeIcon")
