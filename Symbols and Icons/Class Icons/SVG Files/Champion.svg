@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="championIcon" width="100%" height="100%" viewBox="0 0 34 127" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2,0,0,2,33.25,33.212)">
+        <path d="M0,29.895C0,29.895 -2.264,30.476 -5.74,30.698C-5.897,21.725 -6.665,-16.606 -8.313,-16.606C-9.96,-16.606 -10.729,21.743 -10.885,30.705C-14.391,30.487 -16.625,29.895 -16.625,29.895L-16.625,33.309L-9.83,33.309C-10.151,34.494 -10.348,36.052 -10.348,37.764C-10.348,39.215 -10.207,40.554 -9.969,41.652C-10.608,42.147 -11.027,42.915 -11.027,43.787C-11.027,45.286 -9.812,46.501 -8.313,46.501C-6.813,46.501 -5.598,45.286 -5.598,43.787C-5.598,42.915 -6.017,42.147 -6.656,41.652C-6.418,40.554 -6.277,39.215 -6.277,37.764C-6.277,36.052 -6.474,34.494 -6.795,33.309L0,33.309L0,29.895Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>

@@ -25,7 +25,7 @@ let iconElement = null;
 
 // Stores the current grid square SVG element the mouse is over
 // Used for drawing a new icon when chaning the current icon with the scroll wheel
-let currentGridSqure = null;
+let currentGridSquare = null;
 
 // Current selected icon, correlates to the indexes of movementIcons
 let currentIcon = 0;
@@ -72,11 +72,12 @@ let currentPiece = 0;
 // though I want to future proof everything just in case 
 let exporterVersion = 1;
 
-// Add event listeners for processing new name and ability inputs
+// Add event listeners for processing new name, ability and piece icon inputs
 let nameInput = document.getElementById("nameInput");
 nameInput.addEventListener('change', changeName);
 let abilityInput = document.getElementById("abilityInput");
 abilityInput.addEventListener('change', changeAbility);
+let pieceIconInput = document.getElementById("pieceIconInput");
 
 // Initialization function
 function init() {
@@ -265,7 +266,7 @@ function restoreOppositeType(x, y, newIcon) {
 }
 
 // Creates a text element at the position given of the font size given
-function createTextAt(text, pos, fontSize) {
+function createTextAt(text, pos, fontSize, append = true) {
   let svgNS = "http://www.w3.org/2000/svg";
   let newText = document.createElementNS(svgNS, "text");
   newText.setAttribute("font-size", fontSize);
@@ -278,44 +279,51 @@ function createTextAt(text, pos, fontSize) {
   newText.setAttribute("text", text)
   svg.appendChild(newText);
   let bbox = newText.getBBox()
+  newText.remove()
   cx -= bbox.width / 2
   cy += bbox.height / 4
   newText.setAttribute("x", cx);
   newText.setAttribute("y", cy);
+  if(append)
+    svg.appendChild(newText);
   return newText;
 }
 
 // Create a text element of the given piece name
-function createPieceName(text) {
+function createPieceName(text, append = true) {
   if (iconList[currentPiece][2][0])
-    iconList[currentPiece][2][0].remove()
+    iconList[currentPiece][2][0].remove();
   let namePos = getCenter(nameLocation);
-  iconList[currentPiece][2][0] = createTextAt(text, namePos, 270);
+  return createTextAt(text, namePos, 270, append);
 }
 
 // Create a text element of the given ability number
-function createPieceAbilityText(text) {
+function createPieceAbilityText(text, append = true) {
+  if (text === "") return;
   if (iconList[currentPiece][2][1])
     iconList[currentPiece][2][1].remove()
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
   iconPos.y = namePos.y + 140;
-  iconList[currentPiece][2][1] = createTextAt(text, iconPos, 100);
-  outerBorderLocation.setAttribute("visibility", text !== "" ? "visable" : "hidden")
+  outerBorderLocation.setAttribute("visibility", text !== "" ? "visable" : "hidden");
+  return createTextAt(text, iconPos, 100, append);;
 }
 
 // Create the piece icon of the given piece name
-function createPieceIcon(piece) {
+function createPieceIcon(piece, append = true) {
   let iconPos = getCenter(pieceIconLocation);
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   let width = 370;
   let cx = iconPos.x - (width / 2) + 15;
-  let cy = iconPos.y;
+  //let cy = iconPos.y;
   pieceIconElement.setAttribute("x", cx);
   pieceIconElement.setAttribute("y", -100);
   pieceIconElement.setAttribute("width", width);
   pieceIconElement.setAttribute("id", "");
-  svg.appendChild(pieceIconElement);
+  pieceIconElement.setAttribute("text", piece);
+  if (append)
+    svg.appendChild(pieceIconElement);
+  return pieceIconElement;
 }
 
 // Create a new index in iconList for a new piece to be placed in
@@ -368,6 +376,8 @@ function clearNonBoard() {
     iconList[currentPiece][2][0].remove()
   if (iconList[currentPiece][2][1])
     iconList[currentPiece][2][1].remove()
+  if (iconList[currentPiece][2][2])
+    iconList[currentPiece][2][2].remove()
 }
 
 // Draw all elements that are not on the grid (name, ability icon)
@@ -380,6 +390,8 @@ function drawNonBoard() {
   } else {
     outerBorderLocation.setAttribute("visibility", "hidden");
   }
+  if (iconList[currentPiece][2][2])
+    svg.appendChild(iconList[currentPiece][2][2])
 }
 
 // Easy macro to create a new piece index and increment the current piece
@@ -483,6 +495,7 @@ function exportPieces() {
       }
       iconArray.push(sideArray);
     }
+    console.log(iconList[i][2][2])
     pieceObject.grid = {}
     pieceObject.grid.startSide = iconArray[1];
     pieceObject.grid.startNonSide = iconArray[0];
@@ -531,9 +544,10 @@ function setImportedData(data) {
         for (let l = 0; l < data.pieces[i].grid.startNonSide[j][k].length; l++) {
           iconList[i][0][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startNonSide[j][k][l], gridSquareCenter, gridPos, false))
         }
-        iconList[i][2][0] = data.pieces.name;
-        iconList[i][2][1] = data.pieces.ability;
-        iconList[i][2][2] = data.pieces.icon;
+        console.log(data.pieces[i])
+        iconList[i][2][0] = createPieceName(data.pieces[i].name, false);
+        iconList[i][2][1] = createPieceAbilityText(data.pieces[i].ability, false);
+        iconList[i][2][2] = createPieceIcon(data.pieces[i].icon, false);
       }
     }
   }
@@ -597,14 +611,20 @@ function romanToInt(s) {
 
 // Change the name of the current piece
 function changeName(e) {
-  createPieceName(e.target.value);
+  iconList[currentPiece][2][0] = createPieceName(e.target.value);
 }
 
 // Change the ability of the current piece
 function changeAbility(e) {
   if (e.target.value < 0 || e.target.value > 100) return;
-  createPieceAbilityText(romanize(e.target.value));
+  iconList[currentPiece][2][1] = createPieceAbilityText(romanize(e.target.value), true);
+}
+
+// Change the piece icon of the current piece
+function changePieceIcon() {
+  if (iconList[currentPiece][2][2])
+    pieceIconElement.remove()
+  iconList[currentPiece][2][2] = createPieceIcon(pieceIconInput.value)
 }
 
 init()
-createPieceIcon("dukeIcon")

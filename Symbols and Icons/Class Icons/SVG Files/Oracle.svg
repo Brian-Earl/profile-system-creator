@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="oracleIcon" width="100%" height="100%" viewBox="0 0 41 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g transform="matrix(2,0,0,2,34.0406,68.0266)">
+        <path d="M0,-30.727L-13.734,-30.727C-13.734,-17.955 -9.08,-19.333 -8.934,-15.364C-9.08,-11.394 -13.734,-12.773 -13.734,0L0,0C0,-12.773 -4.653,-11.394 -4.801,-15.364C-4.653,-19.333 0,-17.955 0,-30.727Z" style="fill:none;fill-rule:nonzero;stroke:rgb(35,31,32);stroke-width:0.65px;"/>
+    </g>
+    <g transform="matrix(-2,0,0,2,521.052,-354.374)">
+        <rect x="242.603" y="179.04" width="15.54" height="2.391" style="fill:rgb(35,31,32);"/>
+    </g>
+    <g transform="matrix(2,0,0,2,-480.44,-229.562)">
+        <rect x="242.603" y="147.837" width="15.54" height="2.391" style="fill:rgb(35,31,32);"/>
+    </g>
+</svg>

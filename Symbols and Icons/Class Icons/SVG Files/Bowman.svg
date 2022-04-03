@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="bowmanIcon" width="100%" height="100%" viewBox="0 0 23 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2,0,0,2,9.475,62.09)">
+        <path d="M0,-0.001C0,-16.012 2.451,-29.188 5.598,-30.862C5.375,-30.98 5.149,-31.045 4.919,-31.045C1.453,-31.045 -1.357,-17.147 -1.357,-0.001C-1.357,17.145 1.453,31.044 4.919,31.044C5.149,31.044 5.375,30.979 5.598,30.86C2.451,29.186 0,16.01 0,-0.001" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+    <g transform="matrix(2,0,0,2,5.1,73.354)">
+        <path d="M0,-20.284L0.251,-22.733L-2.167,-25.631L-2.55,-21.877L-0.973,-19.986L3.613,-4.987L3.173,-3.522L5.884,5.347L6.587,3.003L8.48,4.553L5.769,-4.316L4.586,-5.285L0,-20.284Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>

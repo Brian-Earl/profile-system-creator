@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="oracleNonStartIcon" width="100%" height="100%" viewBox="0 0 32 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2,0,0,2,29.25,62.406)">
+        <path d="M0,-28.812L0.915,-28.812L0.915,-31.203L-14.625,-31.203L-14.625,-28.812L-13.711,-28.812C-13.482,-17.07 -9.064,-18.273 -8.921,-14.406C-9.064,-10.539 -13.482,-11.742 -13.711,0L-14.625,0L-14.625,2.391L0.915,2.391L0.915,0L0,0C-0.228,-11.742 -4.646,-10.539 -4.789,-14.406C-4.646,-18.273 -0.228,-17.07 0,-28.812" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>
