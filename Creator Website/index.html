@@ -298,7 +298,20 @@
             <label for="nameInput">Name</label>
             <input type="text" id="nameInput">
             <label for="abilityInput">Ability</label>
-            <input type="number" id="abilityInput">
+            <input type="number" id="abilityInput" min="0" max="100">
+        </form>
+        <br>
+        <form>
+            <input type="button" id="switchSidesInput" value="Switch Sides" onclick="switchSides()">
+            <input type="button" id="newPieceInput" value="Create New Piece" onclick="createNewPiece()">
+            <input type="button" id="previousPieceInput" value="◄ Previous New Piece" onclick="backwardPiece()">
+            <input type="button" id="nextPieceInput" value="Next Piece ►" onclick="forwardPiece()">
+            <input type="button" id="exportPiececsInput" value="Export" onclick="exportPieces()">
+        </form>
+        <br>
+        <form>
+            <label for="importPiececsInput">Import:</label>
+            <input type="file" id="importPiececsInput" onchange="importPieces(this)">
         </form>
     </div>
     <div hidden="">

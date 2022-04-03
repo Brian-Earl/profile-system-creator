@@ -6,10 +6,12 @@
 // https://codepen.io/remi-grumeau/pen/AwdRyM
 // https://stackoverflow.com/questions/9083037/convert-a-number-into-a-roman-numeral-in-javascript
 // https://medium.com/swlh/how-to-build-a-roman-numeral-to-integer-function-in-javascript-8298657a26f7
+// https://stackoverflow.com/questions/34156282/how-do-i-save-json-to-local-text-file
+// https://stackoverflow.com/questions/33780271/export-a-json-object-to-a-text-file
 
 // Lock Screen Scroll
 // Just for now
-document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+//document.getElementsByTagName('body')[0].style.overflow = 'hidden';
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -52,20 +54,29 @@ let pieceIconLocation = document.getElementById("Piece-Icon")
 // Get the SVG element for where the player marker is
 let playerMarkerLocation = document.getElementById("Starting-Side")
 
+// Get the SVG element for the outer border used to indicate when a
+// piece has a special ability
+let outerBorderLocation = document.getElementById("Outer-Border");
+
+// Get element for 
+let importFileLocation = document.getElementById("importPiececsInput");
+
 // ID number of current piece being worked on
 // Used so that multiple pieces can be worked on at a given time
 let currentPiece = 0;
 
 // Add event listener for key down that call the keyboard shortcut function
-svg.addEventListener('keydown', keyboardShortcuts);
+//svg.addEventListener('keydown', keyboardShortcuts);
 
 // Current version of the exporter, isn't needed currently
 // though I want to future proof everything just in case 
 let exporterVersion = 1;
 
 // Add event listeners for processing new name and ability inputs
-document.getElementById("nameInput").addEventListener('change', changeName);
-document.getElementById("abilityInput").addEventListener('change', changeAbility);
+let nameInput = document.getElementById("nameInput");
+nameInput.addEventListener('change', changeName);
+let abilityInput = document.getElementById("abilityInput");
+abilityInput.addEventListener('change', changeAbility);
 
 // Initialization function
 function init() {
@@ -77,7 +88,7 @@ function mouseOverGridSquare(item) {
   if(isCenter(gridPos)) return;
   item.style.fill="#ffc"
   let pos = getCenter(item)
-  createIconAt(movementIcons[currentIcon], pos, gridPos);
+  iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
   currentGridSquare = item;
   removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), false)
 }
@@ -124,7 +135,7 @@ function mouseOnScroll(event) {
       iconElement.remove()
     }
     let pos = getCenter(currentGridSquare)
-    createIconAt(movementIcons[currentIcon], pos, gridPos);
+    iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
     removeElement(gridPos[0], gridPos[1])
     restoreOppositeType(gridPos[0], gridPos[1], movementIcons[currentIcon])
     
@@ -151,23 +162,25 @@ function getCenter(item) {
 
 // Creates the given icon at the given position (pos)
 // gridPos is the current position of the icon on the grid
-function createIconAt(icon, pos, gridPos) {
-  iconElement = document.getElementById(icon).cloneNode(true);
+function createIconAt(icon, pos, gridPos, append=true) {
+  newIconElement = document.getElementById(icon).cloneNode(true);
   let width = 125;
   if(isFullSize(icon))
     width = 185;
   let cx = pos.x - (width/2);
   let cy = pos.y - (width/2);
-  iconElement.setAttribute("x", cx);
-  iconElement.setAttribute("y", cy);
-  iconElement.setAttribute("width", width);
-  iconElement.setAttribute("height", width);
-  iconElement.setAttribute("id", "");
-  iconElement.setAttribute("icon", icon);
+  newIconElement.setAttribute("x", cx);
+  newIconElement.setAttribute("y", cy);
+  newIconElement.setAttribute("width", width);
+  newIconElement.setAttribute("height", width);
+  newIconElement.setAttribute("id", "");
+  newIconElement.setAttribute("icon", icon);
   if(isSlide(icon)) {
-    iconElement.setAttribute("transform", rotateIcon(gridPos, cx, cy, width, width))
+    newIconElement.setAttribute("transform", rotateIcon(gridPos, cx, cy, width, width))
   }
-  svg.appendChild(iconElement);
+  if(append)
+    svg.appendChild(newIconElement);
+  return newIconElement;
 }
 
 // Returns if the icon given is one that needs to be rotated 
@@ -284,6 +297,7 @@ function createPieceAbilityText(text) {
   let namePos = getCenter(nameLocation);
   iconPos.y = namePos.y + 140;
   iconList[currentPiece][2][1] = createTextAt(text, iconPos, 100);
+  outerBorderLocation.setAttribute("visibility", text !== "" ? "visable" : "hidden")
 }
 
 // Create the piece icon of the given piece name
@@ -356,15 +370,18 @@ function clearNonBoard() {
 function drawNonBoard() {
   if(iconList[currentPiece][2][0])
     svg.appendChild(iconList[currentPiece][2][0])
-  if(iconList[currentPiece][2][1])
+  if(iconList[currentPiece][2][1]){
     svg.appendChild(iconList[currentPiece][2][1])
+    outerBorderLocation.setAttribute("visibility", iconList[currentPiece][2][1].getAttribute("text") !== "" ? "visable" : "hidden")
+  } else {
+    outerBorderLocation.setAttribute("visibility", "hidden");
+  }
 }
 
 // Easy macro to create a new piece index and increment the current piece
 function createNewPiece() {
   createNewPieceIndex();
   forwardPiece();
-  console.log(iconList)
 }
 
 // Easy macro for switching the side of the current piece
@@ -392,6 +409,7 @@ function forwardPiece() {
   showStartSideIcons()
   drawNonBoard()
   drawBoard();
+  clearInputs();
 }
 
 // Move backwards one piece in the piece array 
@@ -403,8 +421,14 @@ function backwardPiece() {
     currentPiece = iconList.length - 1;
   isStartSide = true;
   showStartSideIcons();
-  drawNonBoard()
+  drawNonBoard();
   drawBoard();
+  clearInputs();
+}
+
+function clearInputs() {
+  nameInput.value = iconList[currentPiece][2][0] ? iconList[currentPiece][2][0].getAttribute("text") : ""
+  abilityInput.value = iconList[currentPiece][2][1] ? romanToInt(iconList[currentPiece][2][1].getAttribute("text")) : ""
 }
 
 // Process keyboard inputs 
@@ -452,14 +476,66 @@ function exportPieces() {
       }
       iconArray.push(sideArray);
     }
+    pieceObject.grid = {}
     pieceObject.grid.startSide = iconArray[1];
     pieceObject.grid.startNonSide = iconArray[0];
-    pieceObject.name = iconList[i][2][0].getAttribute("text");
-    pieceObject.ability = romanToInt(iconList[i][2][1].getAttribute("text"));
+    pieceObject.name = iconList[i][2][0] ? iconList[i][2][0].getAttribute("text") : "";
+    pieceObject.ability = iconList[i][2][1] ? romanToInt(iconList[i][2][1].getAttribute("text")) : "";
+    pieceObject.icon = iconList[i][2][2] ? iconList[i][2][2].getAttribute("text") : "";
     object.pieces.push(pieceObject);
   }
+  downloadJSON(object);
 }
 
+// Downloads given data as a json file, used for exporter 
+function downloadJSON(content) {
+  var a = document.createElement("a");
+  var file = new Blob([JSON.stringify(content)], {type: 'text/plain'});
+  a.href = URL.createObjectURL(file);
+  a.download = "exportedDuke.json";
+  a.click();
+}
+
+// Takes in a json file and formats it into a valid object
+function importPieces(element) {
+  if (element.files.length <= 0)  return;
+  let fr = new FileReader();
+  fr.onload = function (e) {
+    let result = JSON.parse(e.target.result);
+    setImportedData(result)
+  }
+  fr.readAsText(element.files.item(0));
+}
+
+// Uses imported JSON object to set the correct variables 
+function setImportedData(data) {
+  clearBoard();
+  iconList = [];
+  for(let i = 0; i < data.pieces.length; i++) {
+    createNewPieceIndex();
+    for(let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
+      for(let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
+        let gridPos = [j,k]
+        let gridSquareElement = document.getElementById("X" + gridPos[0] + gridPos[1]);
+        console.log(gridSquareElement);
+        let gridSquareCenter = getCenter(gridSquareElement)
+        for(let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++){
+          iconList[i][1][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startSide[j][k][l],gridSquareCenter, gridPos, false))
+        }
+        for(let l = 0; l < data.pieces[i].grid.startNonSide[j][k].length; l++){
+          iconList[i][0][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startNonSide[j][k][l],gridSquareCenter, gridPos, false))
+        }
+        iconList[i][2][0] = data.pieces.name;
+        iconList[i][2][1] = data.pieces.ability;
+        iconList[i][2][2] = data.pieces.icon;
+      }
+    }
+  }
+  drawBoard();
+  drawNonBoard();
+}
+
+// Turns number value into roman numerals, used for ability numbers
 function romanize (num) {
   if (isNaN(num))
       return NaN;
@@ -474,6 +550,7 @@ function romanize (num) {
   return Array(+digits.join("") + 1).join("M") + roman;
 }
 
+// Turn roman numeral string back to a number value
 const romanHash = {
   I: 1,
   V: 5,
@@ -483,8 +560,7 @@ const romanHash = {
   D: 500,
   M: 1000,
 };
-const s = "MCMLXXXIX";
-// s = 1989
+
 function romanToInt(s) {
   let accumulator = 0;for (let i = 0; i < s.length; i++) {
     if (s[i] === "I" && s[i + 1] === "V") {
@@ -512,11 +588,14 @@ function romanToInt(s) {
   return accumulator;
 }
 
+// Change the name of the current piece
 function changeName(e) {
   createPieceName(e.target.value);
 }
 
+// Change the ability of the current piece
 function changeAbility(e) {
+  if(e.target.value < 0 || e.target.value > 100) return;
   createPieceAbilityText(romanize(e.target.value));
 }
 
