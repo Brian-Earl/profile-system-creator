@@ -21,7 +21,7 @@ let iconList = []
 
 // Reference to the current icon element
 // Used drawing and removing the current icon when the mouse hovers and exits a grid square
-let iconElement = null; 
+let iconElement = null;
 
 // Stores the current grid square SVG element the mouse is over
 // Used for drawing a new icon when chaning the current icon with the scroll wheel
@@ -83,77 +83,81 @@ function init() {
   createNewPieceIndex()
 }
 
+// Handle the user mousing over a grid square
 function mouseOverGridSquare(item) {
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
-  if(isCenter(gridPos)) return;
-  item.style.fill="#ffc"
+  if (isCenter(gridPos)) return;
+  item.style.fill = "#ffc"
   let pos = getCenter(item)
   iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
   currentGridSquare = item;
   removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), false)
 }
 
+// Handle the mouse leaving a grid square
 function mouseOutGridSquare(item) {
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
-  if(isCenter(gridPos)) return;
-  item.style.fill="#fff"
-  if(iconElement) {
+  if (isCenter(gridPos)) return;
+  item.style.fill = "#fff"
+  if (iconElement) {
     iconElement.remove();
   }
   currentGridSquare = null;
   restoreElements(gridPos[0], gridPos[1])
 }
 
+// Handle clicking a grid square
 function clickGridSquare(item) {
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
-  if(isCenter(gridPos)) return;
-  item.style.fill="#ff0";
-  if(iconElement){
+  if (isCenter(gridPos)) return;
+  item.style.fill = "#ff0";
+  if (iconElement) {
     removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
     iconList[currentPiece][+ isStartSide][gridPos[0]][gridPos[1]].push(iconElement)
     iconElement = null
   }
 }
 
+// Handle the user scrolling when the mouse is over the template
 function mouseOnScroll(event) {
-  if(event.deltaY > 0) {
+  if (event.deltaY > 0) {
     currentIcon--
   } else if (event.deltaY < 0) {
     currentIcon++
   }
-  if(currentIcon >= movementIcons.length) {
+  if (currentIcon >= movementIcons.length) {
     currentIcon = 0
   }
-  if(currentIcon < 0) {
+  if (currentIcon < 0) {
     currentIcon = movementIcons.length - 1;
   }
 
-  if(currentGridSquare) {
+  if (currentGridSquare) {
     let gridPos = currentGridSquare.parentElement.id.split("").slice(1).map(element => parseInt(element));
-    
-    if(iconElement){
+
+    if (iconElement) {
       iconElement.remove()
     }
     let pos = getCenter(currentGridSquare)
     iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
     removeElement(gridPos[0], gridPos[1])
     restoreOppositeType(gridPos[0], gridPos[1], movementIcons[currentIcon])
-    
+
   }
-  
+
 }
 
 // Returns if the given grid position is the center of the grid
 function isCenter(gridPos) {
-  return  (gridPos[0] === 2) && (gridPos[1] === 2);
+  return (gridPos[0] === 2) && (gridPos[1] === 2);
 }
 
 // Returns the x,y position of the center of the given SVG element
 function getCenter(item) {
   let bbox = item.getBBox();
   let ctm = item.getTransformToElement(item.nearestViewportElement)
-  let cx = bbox.x + (bbox.width/2);
-  let cy = bbox.y + (bbox.height/2);
+  let cx = bbox.x + (bbox.width / 2);
+  let cy = bbox.y + (bbox.height / 2);
   let pt = item.nearestViewportElement.createSVGPoint();
   pt.x = cx;
   pt.y = cy;
@@ -162,23 +166,23 @@ function getCenter(item) {
 
 // Creates the given icon at the given position (pos)
 // gridPos is the current position of the icon on the grid
-function createIconAt(icon, pos, gridPos, append=true) {
+function createIconAt(icon, pos, gridPos, append = true) {
   newIconElement = document.getElementById(icon).cloneNode(true);
   let width = 125;
-  if(isFullSize(icon))
+  if (isFullSize(icon))
     width = 185;
-  let cx = pos.x - (width/2);
-  let cy = pos.y - (width/2);
+  let cx = pos.x - (width / 2);
+  let cy = pos.y - (width / 2);
   newIconElement.setAttribute("x", cx);
   newIconElement.setAttribute("y", cy);
   newIconElement.setAttribute("width", width);
   newIconElement.setAttribute("height", width);
   newIconElement.setAttribute("id", "");
   newIconElement.setAttribute("icon", icon);
-  if(isSlide(icon)) {
+  if (isSlide(icon)) {
     newIconElement.setAttribute("transform", rotateIcon(gridPos, cx, cy, width, width))
   }
-  if(append)
+  if (append)
     svg.appendChild(newIconElement);
   return newIconElement;
 }
@@ -195,12 +199,12 @@ function isFullSize(icon) {
 
 // Return transform attribute for rotating an icon
 function rotateIcon(gridPos, cx, cy, width, height) {
-  return "rotate(" + getRotateDegrees(gridPos) +" " + (cx + (width/2)) + " " + (cy + (height/2)) + ")";
+  return "rotate(" + getRotateDegrees(gridPos) + " " + (cx + (width / 2)) + " " + (cy + (height / 2)) + ")";
 }
 
 // Find the rotation degree based on the grid position
 function getRotateDegrees(gridPos) {
-  switch(gridPos.join()) {
+  switch (gridPos.join()) {
     case "2,1":
       return "0"
     case "3,1":
@@ -223,23 +227,23 @@ function getRotateDegrees(gridPos) {
 
 // Remove all of the elements from view at the current grid location
 // removeFromList removes them from existance entirely
-function removeElement(x,y, newIcon, removeFromList = false) {
-  for(let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
-    if(isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
+function removeElement(x, y, newIcon, removeFromList = false) {
+  for (let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
+    if (isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
-      if(removeFromList)
-        iconList[currentPiece][+ isStartSide][x][y].splice(i,1);
-    } else if(!isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
+      if (removeFromList)
+        iconList[currentPiece][+ isStartSide][x][y].splice(i, 1);
+    } else if (!isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
-      if(removeFromList)
-        iconList[currentPiece][+ isStartSide][x][y].splice(i,1);
+      if (removeFromList)
+        iconList[currentPiece][+ isStartSide][x][y].splice(i, 1);
     }
   }
 }
 
 // Restores all elements into view at the current grid location
-function restoreElements(x,y) {
-  for(let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
+function restoreElements(x, y) {
+  for (let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
     iconList[currentPiece][+ isStartSide][x][y][i].remove();
     svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i])
   }
@@ -248,12 +252,12 @@ function restoreElements(x,y) {
 // Restores all elements into view at the current grid location
 // only elements that are of the opposite icon type of that given.
 // Used for when using scrolling to show icons
-function restoreOppositeType(x,y,newIcon) {
-  for(let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
-    if(isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
+function restoreOppositeType(x, y, newIcon) {
+  for (let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
+    if (isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
       svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i])
-    } else if(!isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
+    } else if (!isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
       svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i])
     }
@@ -263,27 +267,27 @@ function restoreOppositeType(x,y,newIcon) {
 // Creates a text element at the position given of the font size given
 function createTextAt(text, pos, fontSize) {
   let svgNS = "http://www.w3.org/2000/svg";
-  let newText = document.createElementNS(svgNS,"text");
-  newText.setAttribute("font-size",fontSize);
+  let newText = document.createElementNS(svgNS, "text");
+  newText.setAttribute("font-size", fontSize);
   newText.innerHTML = text
   let cx = pos.x
   let cy = pos.y
-  newText.setAttribute("x",cx);
-  newText.setAttribute("y",cy);
+  newText.setAttribute("x", cx);
+  newText.setAttribute("y", cy);
   newText.setAttribute("font-family", "Pieces of Eight")
   newText.setAttribute("text", text)
   svg.appendChild(newText);
   let bbox = newText.getBBox()
-  cx -= bbox.width/2
-  cy += bbox.height/4
-  newText.setAttribute("x",cx);
-  newText.setAttribute("y",cy);
+  cx -= bbox.width / 2
+  cy += bbox.height / 4
+  newText.setAttribute("x", cx);
+  newText.setAttribute("y", cy);
   return newText;
 }
 
 // Create a text element of the given piece name
 function createPieceName(text) {
-  if(iconList[currentPiece][2][0])
+  if (iconList[currentPiece][2][0])
     iconList[currentPiece][2][0].remove()
   let namePos = getCenter(nameLocation);
   iconList[currentPiece][2][0] = createTextAt(text, namePos, 270);
@@ -291,7 +295,7 @@ function createPieceName(text) {
 
 // Create a text element of the given ability number
 function createPieceAbilityText(text) {
-  if(iconList[currentPiece][2][1])
+  if (iconList[currentPiece][2][1])
     iconList[currentPiece][2][1].remove()
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
@@ -305,7 +309,7 @@ function createPieceIcon(piece) {
   let iconPos = getCenter(pieceIconLocation);
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   let width = 370;
-  let cx = iconPos.x - (width/2) + 15;
+  let cx = iconPos.x - (width / 2) + 15;
   let cy = iconPos.y;
   pieceIconElement.setAttribute("x", cx);
   pieceIconElement.setAttribute("y", -100);
@@ -317,30 +321,30 @@ function createPieceIcon(piece) {
 // Create a new index in iconList for a new piece to be placed in
 function createNewPieceIndex() {
   let masterArray = []
-  for(let i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     let blankParentArray = []
-    for(let j = 0; j < 5; j++){
+    for (let j = 0; j < 5; j++) {
       let blankArray = []
-      for(let k = 0; k < 5; k++){
+      for (let k = 0; k < 5; k++) {
         blankArray.push([])
       }
       blankParentArray.push(blankArray)
-    } 
+    }
     masterArray.push(blankParentArray)
-  } 
+  }
   let infoArray = [];
-  for(let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     infoArray.push("");
   }
   masterArray.push(infoArray);
-  iconList.push(masterArray); 
+  iconList.push(masterArray);
 }
 
 // Clear all of the icons for the current piece and side from view
 function clearBoard() {
-  for(let i = 0; i < iconList[currentPiece][+ isStartSide].length; i++) {
-    for(let j = 0; j < iconList[currentPiece][+ isStartSide][i].length; j++){
-      for(let k = 0; k < iconList[currentPiece][+ isStartSide][i][j].length; k++) {
+  for (let i = 0; i < iconList[currentPiece][+ isStartSide].length; i++) {
+    for (let j = 0; j < iconList[currentPiece][+ isStartSide][i].length; j++) {
+      for (let k = 0; k < iconList[currentPiece][+ isStartSide][i][j].length; k++) {
         iconList[currentPiece][+ isStartSide][i][j][k].remove();
       }
     }
@@ -349,9 +353,9 @@ function clearBoard() {
 
 // Redraw all of the icons for the current piece and side from view
 function drawBoard() {
-  for(let i = 0; i < iconList[currentPiece][+ isStartSide].length; i++) {
-    for(let j = 0; j < iconList[currentPiece][+ isStartSide][i].length; j++){
-      for(let k = 0; k < iconList[currentPiece][+ isStartSide][i][j].length; k++) {
+  for (let i = 0; i < iconList[currentPiece][+ isStartSide].length; i++) {
+    for (let j = 0; j < iconList[currentPiece][+ isStartSide][i].length; j++) {
+      for (let k = 0; k < iconList[currentPiece][+ isStartSide][i][j].length; k++) {
         svg.appendChild(iconList[currentPiece][+ isStartSide][i][j][k]);
       }
     }
@@ -360,17 +364,17 @@ function drawBoard() {
 
 // Clears all elements that are not on the grid (name, ability icon)
 function clearNonBoard() {
-  if(iconList[currentPiece][2][0])
+  if (iconList[currentPiece][2][0])
     iconList[currentPiece][2][0].remove()
-  if(iconList[currentPiece][2][1])
+  if (iconList[currentPiece][2][1])
     iconList[currentPiece][2][1].remove()
 }
 
 // Draw all elements that are not on the grid (name, ability icon)
 function drawNonBoard() {
-  if(iconList[currentPiece][2][0])
+  if (iconList[currentPiece][2][0])
     svg.appendChild(iconList[currentPiece][2][0])
-  if(iconList[currentPiece][2][1]){
+  if (iconList[currentPiece][2][1]) {
     svg.appendChild(iconList[currentPiece][2][1])
     outerBorderLocation.setAttribute("visibility", iconList[currentPiece][2][1].getAttribute("text") !== "" ? "visable" : "hidden")
   } else {
@@ -403,7 +407,7 @@ function forwardPiece() {
   clearBoard();
   clearNonBoard()
   currentPiece++;
-  if(currentPiece >= iconList.length)
+  if (currentPiece >= iconList.length)
     currentPiece = 0;
   isStartSide = true;
   showStartSideIcons()
@@ -417,7 +421,7 @@ function backwardPiece() {
   clearBoard();
   clearNonBoard()
   currentPiece--;
-  if(currentPiece < 0)
+  if (currentPiece < 0)
     currentPiece = iconList.length - 1;
   isStartSide = true;
   showStartSideIcons();
@@ -426,6 +430,8 @@ function backwardPiece() {
   clearInputs();
 }
 
+// Clear the input fields and fill with the information of the new piece if there
+// is any information present
 function clearInputs() {
   nameInput.value = iconList[currentPiece][2][0] ? iconList[currentPiece][2][0].getAttribute("text") : ""
   abilityInput.value = iconList[currentPiece][2][1] ? romanToInt(iconList[currentPiece][2][1].getAttribute("text")) : ""
@@ -433,7 +439,7 @@ function clearInputs() {
 
 // Process keyboard inputs 
 function keyboardShortcuts(e) {
-  switch(e.code){
+  switch (e.code) {
     case "KeyZ":
       backwardPiece()
       break;
@@ -452,22 +458,23 @@ function keyboardShortcuts(e) {
   }
 }
 
+// Export all of the pieces and download it as a JSON file
 function exportPieces() {
   let object = {}
   object.options = {}
   object.options.exporterVersion = exporterVersion;
-  
+
   object.pieces = []
-  for(let i = 0; i < iconList.length; i++) {
+  for (let i = 0; i < iconList.length; i++) {
     let pieceObject = {};
     let iconArray = [];
-    for(let j = 0; j < 2; j++) {
+    for (let j = 0; j < 2; j++) {
       let sideArray = [];
-      for(let x = 0; x < iconList[i][j].length; x++) {
+      for (let x = 0; x < iconList[i][j].length; x++) {
         let xArray = [];
-        for(let y = 0; y < iconList[i][j][x].length; y++) {
+        for (let y = 0; y < iconList[i][j][x].length; y++) {
           let yArray = [];
-          for(let k = 0; k < iconList[i][j][x][y].length; k++) {
+          for (let k = 0; k < iconList[i][j][x][y].length; k++) {
             yArray.push(iconList[i][j][x][y][k].getAttribute("icon"))
           }
           xArray.push(yArray);
@@ -490,7 +497,7 @@ function exportPieces() {
 // Downloads given data as a json file, used for exporter 
 function downloadJSON(content) {
   var a = document.createElement("a");
-  var file = new Blob([JSON.stringify(content)], {type: 'text/plain'});
+  var file = new Blob([JSON.stringify(content)], { type: 'text/plain' });
   a.href = URL.createObjectURL(file);
   a.download = "exportedDuke.json";
   a.click();
@@ -498,7 +505,7 @@ function downloadJSON(content) {
 
 // Takes in a json file and formats it into a valid object
 function importPieces(element) {
-  if (element.files.length <= 0)  return;
+  if (element.files.length <= 0) return;
   let fr = new FileReader();
   fr.onload = function (e) {
     let result = JSON.parse(e.target.result);
@@ -511,19 +518,18 @@ function importPieces(element) {
 function setImportedData(data) {
   clearBoard();
   iconList = [];
-  for(let i = 0; i < data.pieces.length; i++) {
+  for (let i = 0; i < data.pieces.length; i++) {
     createNewPieceIndex();
-    for(let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
-      for(let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
-        let gridPos = [j,k]
+    for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
+      for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
+        let gridPos = [j, k]
         let gridSquareElement = document.getElementById("X" + gridPos[0] + gridPos[1]);
-        console.log(gridSquareElement);
         let gridSquareCenter = getCenter(gridSquareElement)
-        for(let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++){
-          iconList[i][1][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startSide[j][k][l],gridSquareCenter, gridPos, false))
+        for (let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++) {
+          iconList[i][1][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startSide[j][k][l], gridSquareCenter, gridPos, false))
         }
-        for(let l = 0; l < data.pieces[i].grid.startNonSide[j][k].length; l++){
-          iconList[i][0][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startNonSide[j][k][l],gridSquareCenter, gridPos, false))
+        for (let l = 0; l < data.pieces[i].grid.startNonSide[j][k].length; l++) {
+          iconList[i][0][gridPos[0]][gridPos[1]].push(createIconAt(data.pieces[i].grid.startNonSide[j][k][l], gridSquareCenter, gridPos, false))
         }
         iconList[i][2][0] = data.pieces.name;
         iconList[i][2][1] = data.pieces.ability;
@@ -536,17 +542,17 @@ function setImportedData(data) {
 }
 
 // Turns number value into roman numerals, used for ability numbers
-function romanize (num) {
+function romanize(num) {
   if (isNaN(num))
-      return NaN;
+    return NaN;
   var digits = String(+num).split(""),
-      key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
-             "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
-             "","I","II","III","IV","V","VI","VII","VIII","IX"],
-      roman = "",
-      i = 3;
+    key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+      "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+      "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+    roman = "",
+    i = 3;
   while (i--)
-      roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    roman = (key[+digits.pop() + (i * 10)] || "") + roman;
   return Array(+digits.join("") + 1).join("M") + roman;
 }
 
@@ -561,8 +567,9 @@ const romanHash = {
   M: 1000,
 };
 
+// Translate roman numeral string into the corrent integer value
 function romanToInt(s) {
-  let accumulator = 0;for (let i = 0; i < s.length; i++) {
+  let accumulator = 0; for (let i = 0; i < s.length; i++) {
     if (s[i] === "I" && s[i + 1] === "V") {
       accumulator += 4;
       i++;
@@ -595,7 +602,7 @@ function changeName(e) {
 
 // Change the ability of the current piece
 function changeAbility(e) {
-  if(e.target.value < 0 || e.target.value > 100) return;
+  if (e.target.value < 0 || e.target.value > 100) return;
   createPieceAbilityText(romanize(e.target.value));
 }
 
