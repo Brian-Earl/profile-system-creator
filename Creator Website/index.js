@@ -8,6 +8,7 @@
 // https://medium.com/swlh/how-to-build-a-roman-numeral-to-integer-function-in-javascript-8298657a26f7
 // https://stackoverflow.com/questions/34156282/how-do-i-save-json-to-local-text-file
 // https://stackoverflow.com/questions/33780271/export-a-json-object-to-a-text-file
+// https://css-tricks.com/transforms-on-svg-elements/
 
 // Lock Screen Scroll
 // Just for now
@@ -31,7 +32,7 @@ let currentGridSquare = null;
 let currentIcon = 0;
 
 // List of available icons where each index is the id of an SVG element
-const movementIcons = ["move", "slide", "jump", "jumpSlide", "command"]
+const movementIcons = ["move", "slide", "jump", "jumpSlide", "command", "strike"]
 
 // Indicated if the current piece is on the starting side or not
 let isStartSide = true;
@@ -68,9 +69,16 @@ let currentPiece = 0;
 // Add event listener for key down that call the keyboard shortcut function
 //svg.addEventListener('keydown', keyboardShortcuts);
 
-// Current version of the exporter, isn't needed currently
-// though I want to future proof everything just in case 
+// Current version of the exporter that creates the exported JSON files 
+// this isn't needed currently though I want to future proof everything just in case 
+// This will be used for when new features to the EXPORTER are added such as
+// allowing for custom icons that need to be stored in the json file
+// this is different from the site version which handles the actual rendering and creating
+// of the SVG files 
 let exporterVersion = 1;
+
+// Current version of the site
+let siteVersion = 1.0;
 
 // Add event listeners for processing new name, ability and piece icon inputs
 let nameInput = document.getElementById("nameInput");
@@ -169,22 +177,26 @@ function getCenter(item) {
 // gridPos is the current position of the icon on the grid
 function createIconAt(icon, pos, gridPos, append = true) {
   newIconElement = document.getElementById(icon).cloneNode(true);
-  let width = 125;
-  if (isFullSize(icon))
-    width = 185;
+  svg.appendChild(newIconElement);
+  let bbox = newIconElement.getBBox();
+  let iconScaleFactor = scaleFactor(icon);
+  let width = bbox.width
+  let height = bbox.height
+  console.log( document.getElementById("X11").getBBox())
   let cx = pos.x - (width / 2);
-  let cy = pos.y - (width / 2);
+  let cy = pos.y - (height / 2);
+  if (isSlide(icon)) {
+    newIconElement.setAttribute("transform", 
+    rotateIcon(gridPos, cx, cy, width, height))
+  }
   newIconElement.setAttribute("x", cx);
   newIconElement.setAttribute("y", cy);
   newIconElement.setAttribute("width", width);
-  newIconElement.setAttribute("height", width);
+  newIconElement.setAttribute("height", height);
   newIconElement.setAttribute("id", "");
   newIconElement.setAttribute("icon", icon);
-  if (isSlide(icon)) {
-    newIconElement.setAttribute("transform", rotateIcon(gridPos, cx, cy, width, width))
-  }
-  if (append)
-    svg.appendChild(newIconElement);
+  if (!append)
+    newIconElement.remove();
   return newIconElement;
 }
 
@@ -200,7 +212,16 @@ function isFullSize(icon) {
 
 // Return transform attribute for rotating an icon
 function rotateIcon(gridPos, cx, cy, width, height) {
-  return "rotate(" + getRotateDegrees(gridPos) + " " + (cx + (width / 2)) + " " + (cy + (height / 2)) + ")";
+  return "rotate(" + getRotateDegrees(gridPos) + ", " + (cx + (width /2)) + ", " + (cy + (height/2)) + ")";
+}
+
+function scaleIcon(icon) {
+  return "scale(" + scaleFactor(icon) + ")"
+}
+
+function scaleFactor(icon) {
+  if(isFullSize(icon)) return 4;
+  return 3;
 }
 
 // Find the rotation degree based on the grid position
