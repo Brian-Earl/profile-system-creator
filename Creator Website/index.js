@@ -180,14 +180,14 @@ function createIconAt(icon, pos, gridPos, append = true) {
   svg.appendChild(newIconElement);
   let bbox = newIconElement.getBBox();
   let iconScaleFactor = scaleFactor(icon);
-  let width = bbox.width
-  let height = bbox.height
+  let width = bbox.width * iconScaleFactor
+  let height = bbox.height * iconScaleFactor
   console.log( document.getElementById("X11").getBBox())
   let cx = pos.x - (width / 2);
   let cy = pos.y - (height / 2);
   if (isSlide(icon)) {
     newIconElement.setAttribute("transform", 
-    rotateIcon(gridPos, cx, cy, width, height))
+    rotateIcon(gridPos, cx, cy, width, height,iconScaleFactor))
   }
   newIconElement.setAttribute("x", cx);
   newIconElement.setAttribute("y", cy);
@@ -211,8 +211,9 @@ function isFullSize(icon) {
 }
 
 // Return transform attribute for rotating an icon
-function rotateIcon(gridPos, cx, cy, width, height) {
-  return "rotate(" + getRotateDegrees(gridPos) + ", " + (cx + (width /2)) + ", " + (cy + (height/2)) + ")";
+function rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor=1) {
+  return "rotate(" + getRotateDegrees(gridPos) + ", " + (cx + (width /2)) 
+  + ", " + (cy + (height/2)) + ")";
 }
 
 function scaleIcon(icon) {
@@ -334,12 +335,16 @@ function createPieceAbilityText(text, append = true) {
 function createPieceIcon(piece, append = true) {
   let iconPos = getCenter(pieceIconLocation);
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
-  let width = 370;
-  let cx = iconPos.x - (width / 2) + 15;
-  //let cy = iconPos.y;
+  svg.appendChild(pieceIconElement);
+  let bbox = pieceIconElement.getBBox();
+  let width = bbox.width * 10;
+  let height = bbox.height * 10;
+  let cx = iconPos.x - (width / 2);
+  let cy = iconPos.y - (height / 2) - 80;
   pieceIconElement.setAttribute("x", cx);
-  pieceIconElement.setAttribute("y", -100);
+  pieceIconElement.setAttribute("y", cy);
   pieceIconElement.setAttribute("width", width);
+  pieceIconElement.setAttribute("height", height);
   pieceIconElement.setAttribute("id", "");
   pieceIconElement.setAttribute("text", piece);
   if (append)
@@ -644,7 +649,7 @@ function changeAbility(e) {
 // Change the piece icon of the current piece
 function changePieceIcon() {
   if (iconList[currentPiece][2][2])
-    pieceIconElement.remove()
+    iconList[currentPiece][2][2].remove()
   iconList[currentPiece][2][2] = createPieceIcon(pieceIconInput.value)
 }
 
