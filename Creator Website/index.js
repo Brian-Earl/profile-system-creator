@@ -10,10 +10,6 @@
 // https://stackoverflow.com/questions/33780271/export-a-json-object-to-a-text-file
 // https://css-tricks.com/transforms-on-svg-elements/
 
-// Lock Screen Scroll
-// Just for now
-//document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
 // the first one representing the starting side and the second representing the non starting side
@@ -230,8 +226,9 @@ function isFullSize(icon) {
 
 // Return transform attribute for rotating an icon
 function rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor = 1) {
-  return "rotate(" + getRotateDegrees(gridPos) + ", " + (cx + (width / 2))
-    + ", " + (cy + (height / 2)) + ")";
+  return "rotate(" + getRotateDegrees(gridPos) + " " + (cx + (width / 2))
+    + " " + (cy + (height / 2)) + ")" 
+    + " translate(" + "0" + " " + getYTranslation(gridPos, height) + ")";
 }
 
 function scaleIcon(icon) {
@@ -270,6 +267,32 @@ function getRotateDegrees(gridPos) {
     case "1,1":
     case "0,0":
       return "315"
+  }
+  return "0"
+}
+
+// Find how much to translate along the Y axis based on the grid position
+// Used for fixing issues regarding the postion when translated
+function getYTranslation(gridPos, height) {
+  switch (gridPos.join()) {
+    case "2,1":
+    case "2,0":
+    case "3,2":
+    case "4,2":
+    case "2,3":
+    case "2,4":
+    case "1,2":
+    case "0,2":
+      return "0"
+    case "3,1":
+    case "4,0":
+    case "3,3":
+    case "4,4":
+    case "1,3":
+    case "0,4":
+    case "1,1":
+    case "0,0":
+      return "" + (-1 * (height / 6)); // Also try (height / 4)
   }
   return "0"
 }
