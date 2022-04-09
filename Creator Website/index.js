@@ -327,10 +327,15 @@ function createTextAt(text, pos, fontSize, append = true) {
 
 // Create a text element of the given piece name
 function createPieceName(text, append = true) {
+  let fontSize = 265;
   if (iconList[currentPiece][2][0])
     iconList[currentPiece][2][0].remove();
+  if (text.length >= 8)
+    fontSize = 245
+  if (text.length >= 10)
+    fontSize = 215
   let namePos = getCenter(nameLocation);
-  return createTextAt(text, namePos, 265, append);
+  return createTextAt(text, namePos, fontSize, append);
 }
 
 // Create a text element of the given ability number
