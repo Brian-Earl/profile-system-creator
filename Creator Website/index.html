@@ -210,6 +210,10 @@
         </svg>
     </div>
     <div>
+        <span id="currentPieceNumber">1</span> of <span id="totalPieceNumber">1</span>
+    </div>
+    <br>
+    <div>
         <form>
             <label for="nameInput">Name</label>
             <input type="text" id="nameInput">
@@ -238,6 +242,10 @@
                 <option value="seerIcon">Seer</option>
                 <option value="wizardIcon">Wizard</option>
             </select>
+            <label for="oppositeIconSideInput">Allow opposite side icons:</label>
+            <input type="checkbox" id="oppositeIconSideInput">
+            <label for="amountInput">Amount of pieces in set</label>
+            <input type="number" id="amountInput" min="0" value="1">
         </form>
         <br>
         <form>
@@ -245,6 +253,7 @@
             <input type="button" id="newPieceInput" value="Create New Piece" onclick="createNewPiece()">
             <input type="button" id="previousPieceInput" value="◄ Previous New Piece" onclick="backwardPiece()">
             <input type="button" id="nextPieceInput" value="Next Piece ►" onclick="forwardPiece()">
+            <!-- <input type="button" id="deletePieceInpit" value = "Delete Piece" onclick="deletePiece()"> -->
             <input type="button" id="exportPiececsInput" value="Export" onclick="exportPieces()">
         </form>
         <br>
@@ -572,22 +581,21 @@
                     d="M0,-28.812L0.915,-28.812L0.915,-31.203L-14.625,-31.203L-14.625,-28.812L-13.711,-28.812C-13.482,-17.07 -9.064,-18.273 -8.921,-14.406C-9.064,-10.539 -13.482,-11.742 -13.711,0L-14.625,0L-14.625,2.391L0.915,2.391L0.915,0L0,0C-0.228,-11.742 -4.646,-10.539 -4.789,-14.406C-4.646,-18.273 -0.228,-17.07 0,-28.812"
                     style="fill:rgb(35,31,32);fill-rule:nonzero;" />
             </g>
-        </svg><svg id="oracleIcon" width="100%" height="100%" viewBox="0 0 41 75" version="1.1"
+        </svg><svg id="oracleIcon" width="100%" height="100%" viewBox="0 0 32 68" version="1.1"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
             xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
-            <g transform="matrix(2,0,0,2,34.0406,68.0266)">
+            <g transform="matrix(1.99583,0,0,1.99583,29.2131,64.1868)">
                 <path
                     d="M0,-30.727L-13.734,-30.727C-13.734,-17.955 -9.08,-19.333 -8.934,-15.364C-9.08,-11.394 -13.734,-12.773 -13.734,0L0,0C0,-12.773 -4.653,-11.394 -4.801,-15.364C-4.653,-19.333 0,-17.955 0,-30.727Z"
-                    style="fill:none;fill-rule:nonzero;stroke:rgb(35,31,32);stroke-width:0.65px;" />
+                    style="fill:none;fill-rule:nonzero;stroke:rgb(35,31,32);stroke-width:0.59px;" />
             </g>
-            <g transform="matrix(-2,0,0,2,521.052,-354.374)">
+            <g transform="matrix(-1.99583,0,0,1.99583,515.209,-357.333)">
                 <rect x="242.603" y="179.04" width="15.54" height="2.391" style="fill:rgb(35,31,32);" />
             </g>
-            <g transform="matrix(2,0,0,2,-480.44,-229.562)">
+            <g transform="matrix(1.99583,0,0,1.99583,-484.194,-232.781)">
                 <rect x="242.603" y="147.837" width="15.54" height="2.391" style="fill:rgb(35,31,32);" />
             </g>
-        </svg>
-        <svg id="mountainIcon" width="100%" height="100%" viewBox="0 0 130 87" version="1.1"
+        </svg><svg id="mountainIcon" width="100%" height="100%" viewBox="0 0 130 87" version="1.1"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
             xmlns:serif="http://www.serif.com/"
             style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
