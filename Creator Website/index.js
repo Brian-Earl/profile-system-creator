@@ -311,22 +311,17 @@ function createTextAt(text, pos, fontSize, append = true) {
   let svgNS = "http://www.w3.org/2000/svg";
   let newText = document.createElementNS(svgNS, "text");
   newText.setAttribute("font-size", fontSize);
-  newText.innerHTML = text
-  let cx = pos.x
-  let cy = pos.y
-  newText.setAttribute("x", cx);
-  newText.setAttribute("y", cy);
-  newText.setAttribute("font-family", "Pieces of Eight")
-  newText.setAttribute("text", text)
+  newText.setAttribute("font-family", "Pieces of Eight");
+  newText.setAttribute("text", text);
+  newText.appendChild(document.createTextNode(text));
   svg.appendChild(newText);
-  let bbox = newText.getBBox()
-  newText.remove()
-  cx -= bbox.width / 2
-  cy += bbox.height / 4
+  let bbox = newText.getBBox();
+  let cx = pos.x - (bbox.width / 2);
+  let cy = pos.y + (bbox.height / 4);
   newText.setAttribute("x", cx);
   newText.setAttribute("y", cy);
-  if (append)
-    svg.appendChild(newText);
+  if (!append)
+    newText.remove();
   return newText;
 }
 
@@ -335,7 +330,7 @@ function createPieceName(text, append = true) {
   if (iconList[currentPiece][2][0])
     iconList[currentPiece][2][0].remove();
   let namePos = getCenter(nameLocation);
-  return createTextAt(text, namePos, 270, append);
+  return createTextAt(text, namePos, 265, append);
 }
 
 // Create a text element of the given ability number
@@ -347,7 +342,7 @@ function createPieceAbilityText(text, append = true) {
   let namePos = getCenter(nameLocation);
   iconPos.y = namePos.y + 140;
   outerBorderLocation.setAttribute("visibility", text !== "" ? "visable" : "hidden");
-  return createTextAt(text, iconPos, 100, append);;
+  return createTextAt(text, iconPos, 100, append);
 }
 
 // Create the piece icon of the given piece name
@@ -360,7 +355,7 @@ function createPieceIcon(piece, append = true) {
   let width = bbox.width * 10;
   let height = bbox.height * 10;
   let cx = iconPos.x - (width / 2);
-  let cy = iconPos.y - (height / 2) - 35;
+  let cy = iconPos.y - (height / 2);
   pieceIconElement.setAttribute("x", cx);
   pieceIconElement.setAttribute("y", cy);
   pieceIconElement.setAttribute("width", width);
