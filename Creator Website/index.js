@@ -32,7 +32,7 @@ let currentGridSquare = null;
 let currentIcon = 0;
 
 // List of available icons where each index is the id of an SVG element
-const movementIcons = ["move", "slide", "jump", "jumpSlide", "command", "strike"]
+const movementIcons = ["move", "slide", "jump", "jumpSlide", "command", "strike", "clear"]
 
 // Indicated if the current piece is on the starting side or not
 let isStartSide = true;
@@ -112,9 +112,13 @@ function mouseOverGridSquare(item) {
   if (isCenter(gridPos)) return;
   item.style.fill = "#ffc"
   let pos = getCenter(item)
-  iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
-  currentGridSquare = item;
-  removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), false)
+  if (movementIcons[currentIcon] !== "clear") {
+    iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
+    currentGridSquare = item;
+    removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), false)
+  } else {
+    removeElement(gridPos[0], gridPos[1])
+  }
 }
 
 // Handle the mouse leaving a grid square
@@ -138,6 +142,8 @@ function clickGridSquare(item) {
     removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
     iconList[currentPiece][+ isStartSide][gridPos[0]][gridPos[1]].push(iconElement)
     iconElement = null
+  } else {
+    removeElement(gridPos[0], gridPos[1], "clear", true)
   }
 }
 
@@ -188,6 +194,7 @@ function getCenter(item) {
 // Creates the given icon at the given position (pos)
 // gridPos is the current position of the icon on the grid
 function createIconAt(icon, pos, gridPos, append = true) {
+  if(icon === "clear") return;
   newIconElement = document.getElementById(icon).cloneNode(true);
   svg.appendChild(newIconElement);
   let bbox = newIconElement.getBBox();
