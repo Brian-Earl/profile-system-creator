@@ -36,10 +36,6 @@ let isStartSide = true;
 // Keeps track of if the piece has different piece icons on each side such as the Oracle 
 let hasDifferentPieceIcons = false;
 
-// Get SVG elements for the starting and non starting side icons
-let startSideIcon = document.getElementById("Starting-Side");
-let nonStartSideIcon = document.getElementById("Non-Starting-Side");
-
 // Get the SVG element for the entire template
 let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
@@ -81,7 +77,8 @@ let siteVersion = 1.0;
 
 // Will only start incrementing them after the "official release"
 
-// Add event listeners for processing new name, ability, piece icon and opposite icon side inputs
+// Add event listeners for processing new name, 
+// ability, piece icon, opposite icon side and start position inputs
 let nameInput = document.getElementById("nameInput");
 nameInput.addEventListener('change', changeName);
 let abilityInput = document.getElementById("abilityInput");
@@ -91,6 +88,10 @@ let oppositeIconSideInput = document.getElementById("oppositeIconSideInput");
 oppositeIconSideInput.addEventListener('change', toggleOppositePieceSide);
 let amountInput = document.getElementById("amountInput");
 amountInput.addEventListener('change', changeAmount);
+let xInput = document.getElementById("xInput");
+xInput.addEventListener('change', changeStartPosition);
+let yInput = document.getElementById("yInput");
+yInput.addEventListener('change', changeStartPosition);
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -106,7 +107,7 @@ function init() {
 function mouseOverGridSquare(item) {
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
   if (isCenter(gridPos)) return;
-  item.style.fill = "#ffc"
+  item.style.fill = "#ffc";
   let pos = getCenter(item)
   if (movementIcons[currentIcon] !== "clear") {
     iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
@@ -137,9 +138,12 @@ function clickGridSquare(item) {
   if (iconElement) {
     removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
     iconList[currentPiece][+ isStartSide][gridPos[0]][gridPos[1]].push(iconElement)
-    iconElement = null
+    iconElement = null;
   } else {
     removeElement(gridPos[0], gridPos[1], "clear", true)
+  }
+  if (movementIcons[currentIcon] === "clear") {
+    deleteAtPosition(gridPos[0], gridPos[1])
   }
 }
 
@@ -172,7 +176,7 @@ function mouseOnScroll(event) {
 
 // Returns if the given grid position is the center of the grid
 function isCenter(gridPos) {
-  return (gridPos[0] === 2) && (gridPos[1] === 2);
+  return (gridPos[0] === iconList[currentPiece][2][4][0]) && (gridPos[1] === iconList[currentPiece][2][4][1]);
 }
 
 // Returns the x,y position of the center of the given SVG element
@@ -189,19 +193,18 @@ function getCenter(item) {
 
 // Creates the given icon at the given position (pos)
 // gridPos is the current position of the icon on the grid
-function createIconAt(icon, pos, gridPos, append = true) {
-  if(icon === "clear") return;
+function createIconAt(icon, pos, gridPos, append = true, iconScaleFactor = scaleFactor(icon)) {
+  if (icon === "clear") return;
   newIconElement = document.getElementById(icon).cloneNode(true);
   svg.appendChild(newIconElement);
   let bbox = newIconElement.getBBox();
-  let iconScaleFactor = scaleFactor(icon);
-  let width = bbox.width * iconScaleFactor
-  let height = bbox.height * iconScaleFactor
+  let width = bbox.width * iconScaleFactor;
+  let height = bbox.height * iconScaleFactor;
   let cx = pos.x - (width / 2);
   let cy = pos.y - (height / 2);
   if (isSlide(icon)) {
     newIconElement.setAttribute("transform",
-      rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor))
+      rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor));
   }
   newIconElement.setAttribute("x", cx);
   newIconElement.setAttribute("y", cy);
@@ -209,9 +212,17 @@ function createIconAt(icon, pos, gridPos, append = true) {
   newIconElement.setAttribute("height", height);
   newIconElement.setAttribute("id", "");
   newIconElement.setAttribute("icon", icon);
+  newIconElement.setAttribute("visibility", "visible")
   if (!append)
     newIconElement.remove();
   return newIconElement;
+}
+
+function createStartIconsAt(x, y, append=true) {
+  return [
+    createIconAt("NonStartSide", getCenter(document.getElementById("X" + x + y)), [x, y], (!isStartSide && append), 1),
+    createIconAt("StartSide", getCenter(document.getElementById("X" + x + y)), [x, y], (isStartSide && append), 1)
+  ]
 }
 
 // Returns if the icon given is one that needs to be rotated 
@@ -227,7 +238,7 @@ function isFullSize(icon) {
 // Return transform attribute for rotating an icon
 function rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor = 1) {
   return "rotate(" + getRotateDegrees(gridPos) + " " + (cx + (width / 2))
-    + " " + (cy + (height / 2)) + ")" 
+    + " " + (cy + (height / 2)) + ")"
     + " translate(" + "0" + " " + getYTranslation(gridPos, height) + ")";
 }
 
@@ -403,8 +414,9 @@ function createPieceIcon(piece, append = true) {
 }
 
 // Create a new index in iconList for a new piece to be placed in
-function createNewPieceIndex() {
+function createNewPieceIndex(x=2,y=2,append=true) {
   let masterArray = []
+  // Create the two grids for the start and non start sides
   for (let i = 0; i < 2; i++) {
     let blankParentArray = []
     for (let j = 0; j < 5; j++) {
@@ -412,16 +424,26 @@ function createNewPieceIndex() {
       for (let k = 0; k < 5; k++) {
         blankArray.push([])
       }
-      blankParentArray.push(blankArray)
+      blankParentArray.push(blankArray);
     }
-    masterArray.push(blankParentArray)
+    masterArray.push(blankParentArray);
   }
   let infoArray = [];
+  // Store the name and ability number
+  // First is name and second is ability number 
   for (let i = 0; i < 2; i++) {
     infoArray.push("");
   }
-  infoArray.push(["", ""])
+  // Store the piece icons
+  // Second one is for if the piece has a different one for each side
+  infoArray.push(["", ""]);
+  // Store the number of pieces in the set
   infoArray.push(1);
+  // Store the position of the start location 
+  // 2,2 is the default and should be ignored unless it is different
+  infoArray.push([x, y]);
+  infoArray.push(createStartIconsAt(x, y, append));
+
   masterArray.push(infoArray);
   iconList.push(masterArray);
   displayListLength();
@@ -452,25 +474,38 @@ function drawBoard() {
 // Clears all elements that are not on the grid (name, ability icon)
 function clearNonBoard() {
   if (iconList[currentPiece][2][0])
-    iconList[currentPiece][2][0].remove()
+    iconList[currentPiece][2][0].remove();
   if (iconList[currentPiece][2][1])
-    iconList[currentPiece][2][1].remove()
+    iconList[currentPiece][2][1].remove();
   if (iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)])
-    iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)].remove()
+    iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)].remove();
+  if (iconList[currentPiece][2][5][+ isStartSide])
+    iconList[currentPiece][2][5][+ isStartSide].remove()
 }
 
 // Draw all elements that are not on the grid (name, ability icon)
 function drawNonBoard() {
   if (iconList[currentPiece][2][0])
-    svg.appendChild(iconList[currentPiece][2][0])
+    svg.appendChild(iconList[currentPiece][2][0]);
   if (iconList[currentPiece][2][1]) {
-    svg.appendChild(iconList[currentPiece][2][1])
-    outerBorderLocation.setAttribute("visibility", iconList[currentPiece][2][1].getAttribute("text") !== "" ? "visable" : "hidden")
+    svg.appendChild(iconList[currentPiece][2][1]);
+    outerBorderLocation.setAttribute("visibility", iconList[currentPiece][2][1].getAttribute("text") !== "" ? "visable" : "hidden");
   } else {
     outerBorderLocation.setAttribute("visibility", "hidden");
   }
   if (iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)])
-    svg.appendChild(iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)])
+    svg.appendChild(iconList[currentPiece][2][2][+ (!isStartSide && hasDifferentPieceIcons)]);
+  if (iconList[currentPiece][2][5][+ isStartSide])
+    svg.appendChild(iconList[currentPiece][2][5][+ isStartSide])
+}
+
+// Delete all icons at position x,y in movement grid
+function deleteAtPosition(x,y) {
+  console.log(iconList[currentPiece][+ isStartSide][x][y])
+  for (let i = 0; i <= iconList[currentPiece][+ isStartSide][x][y].length ; i++) {
+    iconList[currentPiece][+ isStartSide][x][y][i].remove()
+    iconList[currentPiece][+ isStartSide][x][y] = []
+  }
 }
 
 function displayListLength() {
@@ -488,7 +523,7 @@ function deletePiece() {
   if (iconList.length <= 1) {
     clearBoard();
     clearNonBoard();
-    iconList = []
+    iconList = [];
     createNewPieceIndex();
   } else {
     let indexToDelete = currentPiece;
@@ -503,15 +538,8 @@ function switchSides() {
   clearBoard()
   clearNonBoard();
   isStartSide = !isStartSide;
-  showStartSideIcons()
   drawNonBoard();
   drawBoard();
-}
-
-// Easy macro for changing the visability of the start and non start side icons
-function showStartSideIcons() {
-  startSideIcon.setAttribute("visibility", isStartSide ? "visable" : "hidden")
-  nonStartSideIcon.setAttribute("visibility", !isStartSide ? "visable" : "hidden")
 }
 
 // Move forward one piece in the piece array 
@@ -522,7 +550,6 @@ function forwardPiece() {
   if (currentPiece >= iconList.length)
     currentPiece = 0;
   isStartSide = true;
-  showStartSideIcons();
   drawNonBoard();
   drawBoard();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
@@ -538,7 +565,6 @@ function backwardPiece() {
   if (currentPiece < 0)
     currentPiece = iconList.length - 1;
   isStartSide = true;
-  showStartSideIcons();
   drawNonBoard();
   drawBoard();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
@@ -554,6 +580,8 @@ function clearInputs() {
   nameInput.value = iconList[currentPiece][2][0] ? iconList[currentPiece][2][0].getAttribute("text") : ""
   abilityInput.value = iconList[currentPiece][2][1] ? romanToInt(iconList[currentPiece][2][1].getAttribute("text")) : ""
   amountInput.value = iconList[currentPiece][2][3] ? iconList[currentPiece][2][3] : 1
+  xInput.value = iconList[currentPiece][2][4][0]
+  yInput.value = iconList[currentPiece][2][4][1] 
 }
 
 function pieceHasDifferentIcons() {
@@ -617,6 +645,7 @@ function exportPieces() {
     pieceObject.icon = iconList[i][2][2][0] ? iconList[i][2][2][0].getAttribute("text") : "";
     pieceObject.altIcon = iconList[i][2][2][1] ? iconList[i][2][2][1].getAttribute("text") : "";
     pieceObject.amount = iconList[i][2][3] ? iconList[i][2][3] : 1;
+    pieceObject.startPosition = iconList[i][2][4]
     object.pieces.push(pieceObject);
   }
   downloadJSON(object);
@@ -646,10 +675,11 @@ function importPieces(element) {
 
 // Uses imported JSON object to set the correct variables 
 function setImportedData(data) {
+  clearNonBoard();
   clearBoard();
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
-    createNewPieceIndex();
+    createNewPieceIndex(data.pieces[i].startPosition[0], data.pieces[i].startPosition[1], false);
     for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
       for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
         let gridPos = [j, k]
@@ -668,6 +698,8 @@ function setImportedData(data) {
     iconList[i][2][2][0] = createPieceIcon(data.pieces[i].icon, false);
     iconList[i][2][2][1] = createPieceIcon(data.pieces[i].altIcon, false);
     iconList[i][2][3] = data.pieces[i].amount;
+    iconList[i][2][4] = data.pieces[i].startPosition;
+    iconList[i][2][5] = createStartIconsAt(iconList[i][2][4][0], iconList[i][2][4][1], false);
   }
   drawBoard();
   drawNonBoard();
@@ -741,7 +773,7 @@ function changeAbility(e) {
 // Change the amount of pieces that appear in the set
 function changeAmount(e) {
   if (e.target.value < 0) return;
-  iconList[currentPiece][2][3] = e.target.value;
+  iconList[currentPiece][2][3] = parseInt(e.target.value);
 }
 
 // Change the piece icon of the current piece
@@ -756,6 +788,18 @@ function changePieceIcon() {
 // Toggle if the non start side of the piece has a different icon from the start side
 function toggleOppositePieceSide() {
   hasDifferentPieceIcons = oppositeIconSideInput.checked
+}
+
+// Change the position of the start piece location
+function changeStartPosition() {
+  let x = parseInt(xInput.value);
+  let y = parseInt(yInput.value);
+  if (x < 0 || x > 4 || y < 0 || y > 4) return;
+  iconList[currentPiece][2][5][0].remove();
+  iconList[currentPiece][2][5][1].remove();
+  iconList[currentPiece][2][5] = createStartIconsAt(x, y);
+  iconList[currentPiece][2][4] = [x, y];
+  svg.appendChild(iconList[currentPiece][2][5][+ isStartSide])
 }
 
 init()

@@ -193,14 +193,14 @@
                 </g>
             </g>
             <g id="Player-Marker" serif:id="Player Marker">
-                <g visibility="hidden" id="Non-Starting-Side" serif:id="Non-Starting Side"
+                <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side"
                     transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
                     <path
                         d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z"
                         style="fill:rgb(35,31,32);fill-rule:nonzero;">
                     </path>
                 </g>
-                <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+                <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
                     <path
                         d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z"
                         style="fill:rgb(35,31,32);fill-rule:nonzero;">
@@ -255,6 +255,13 @@
         </form>
         <br>
         <form>
+            <label for="xInput">X:</label>
+            <input type="number" id="xInput" min="0" max= "4" value="2">
+            <label for="yInput">Y:</label>
+            <input type="number" id="yInput" min="0" max="4" value="2">
+        </form>
+        <br>
+        <form>
             <input type="button" id="switchSidesInput" value="Switch Sides" onclick="switchSides()">
             <input type="button" id="newPieceInput" value="Create New Piece" onclick="createNewPiece()">
             <input type="button" id="previousPieceInput" value="◄ Previous New Piece" onclick="backwardPiece()">
@@ -268,7 +275,17 @@
             <input type="file" id="importPiececsInput" onchange="importPieces(this)">
         </form>
     </div>
-    <div hidden="">
+    <div hidden="hidden">
+        <svg id="StartSide" width="100%" height="100%" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+                <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+            </g>
+        </svg>
+        <svg id="NonStartSide" width="100%" height="100%" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g id="Non-Starting-Side" serif:id="Non Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+                <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+            </g>
+        </svg>
         <svg id="move" width="100%" height="100%" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
             style="fill-rule:evenodd;clip-rule:evenodd;">
