@@ -9,6 +9,7 @@
 // https://stackoverflow.com/questions/34156282/how-do-i-save-json-to-local-text-file
 // https://stackoverflow.com/questions/33780271/export-a-json-object-to-a-text-file
 // https://css-tricks.com/transforms-on-svg-elements/
+// https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -808,6 +809,7 @@ function changeStartPosition() {
   svg.appendChild(iconList[currentPiece][2][5][+ isStartSide])
 }
 
+// Export the current list of pieces as a grid
 function exportPiecesAsGrid() {
   let width = parseInt(widthInput.value)
   let height = parseInt(heightInput.value)
@@ -864,6 +866,8 @@ function exportPiecesAsGrid() {
   }
 }
 
+// Draw a line between the two points given
+// Used for when adding the cut lines 
 function createLine(x1, y1, x2, y2) {
   let newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
   newLine.setAttribute('x1', x1);
@@ -872,6 +876,30 @@ function createLine(x1, y1, x2, y2) {
   newLine.setAttribute('y2', y2);
   newLine.setAttribute("stroke", "black")
   return newLine
+}
+
+// Save SVG to a file of the given name
+// Credit to senz on stackoverflow
+function saveSvg(svgEl, name) {
+  svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+  var svgData = svgEl.outerHTML;
+  var preface = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n';
+  var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+  var svgUrl = URL.createObjectURL(svgBlob);
+  var downloadLink = document.createElement("a");
+  downloadLink.href = svgUrl;
+  downloadLink.download = name;
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+function downloadStartSideRender() {
+  saveSvg(document.getElementById("startSideCanvas"), "startside.svg")
+}
+
+function downloadNonStartSideRender() {
+  saveSvg(document.getElementById("nonStartSideCanvas"), "nonstartside.svg")
 }
 
 init()
