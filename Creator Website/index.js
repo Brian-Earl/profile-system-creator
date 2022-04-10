@@ -13,7 +13,6 @@
 // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
 
 // TODO:
-// Add more comments
 // Add piece deletion
 // Add rest of movement icons 
 // Add rest of class icons
@@ -126,10 +125,15 @@ function init() {
 
 // Handle the user mousing over a grid square
 function mouseOverGridSquare(item) {
+  // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  // If the selected item is the player position, return 
   if (isCenter(gridPos)) return;
   item.style.fill = "#ffc";
+  // Get the center of the given item
   let pos = getCenter(item)
+  // If the selected icon is not the clear command, draw the selected icon
+  // else, remove the icon on the given square
   if (movementIcons[currentIcon] !== "clear") {
     iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
     currentGridSquare = item;
@@ -141,21 +145,28 @@ function mouseOverGridSquare(item) {
 
 // Handle the mouse leaving a grid square
 function mouseOutGridSquare(item) {
+  // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  // If the selected item is the player position, return 
   if (isCenter(gridPos)) return;
   item.style.fill = "#fff"
+  // Remove the current icon if it exists
   if (iconElement) {
     iconElement.remove();
   }
+  // Restore icon to its original state
   currentGridSquare = null;
   restoreElements(gridPos[0], gridPos[1])
 }
 
 // Handle clicking a grid square
 function clickGridSquare(item) {
+  // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
   let gridPos = item.parentElement.id.split("").slice(1).map(element => parseInt(element));
+  // If the selected item is the player position, return 
   if (isCenter(gridPos)) return;
   item.style.fill = "#ff0";
+  // If an icon is selected, append it to the current position else remove it 
   if (iconElement) {
     removeElement(gridPos[0], gridPos[1], iconElement.getAttribute("icon"), true)
     iconList[currentPiece][+ isStartSide][gridPos[0]][gridPos[1]].push(iconElement)
@@ -163,6 +174,7 @@ function clickGridSquare(item) {
   } else {
     removeElement(gridPos[0], gridPos[1], "clear", true)
   }
+  // If the selected icon is the clear command, delete the icons at the given position
   if (movementIcons[currentIcon] === "clear") {
     deleteAtPosition(gridPos[0], gridPos[1])
   }
@@ -170,11 +182,15 @@ function clickGridSquare(item) {
 
 // Handle the user scrolling when the mouse is over the template
 function mouseOnScroll(event) {
+  // If the mouse wheel is scrolling up, increment the current icon
+  // If it is scrolling down, decrement it
   if (event.deltaY > 0) {
     currentIcon--
   } else if (event.deltaY < 0) {
     currentIcon++
   }
+
+  // If the current icon number goes out of bounds, wrap it around to the other side
   if (currentIcon >= movementIcons.length) {
     currentIcon = 0
   }
@@ -182,12 +198,18 @@ function mouseOnScroll(event) {
     currentIcon = movementIcons.length - 1;
   }
 
+  // If the mouse is over a grid square, change the icon that is currently drawn there 
   if (currentGridSquare) {
+
+    // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
     let gridPos = currentGridSquare.parentElement.id.split("").slice(1).map(element => parseInt(element));
 
+    // Remove any existing icons 
     if (iconElement) {
       iconElement.remove()
     }
+
+    // Draw new icon at the center of the current square 
     let pos = getCenter(currentGridSquare)
     iconElement = createIconAt(movementIcons[currentIcon], pos, gridPos);
     removeElement(gridPos[0], gridPos[1])
@@ -215,6 +237,7 @@ function getCenter(item) {
 // Creates the given icon at the given position (pos)
 // gridPos is the current position of the icon on the grid
 function createIconAt(icon, pos, gridPos, append = true, iconScaleFactor = scaleFactor(icon)) {
+  // If the given icon is the clear command, return 
   if (icon === "clear") return;
   newIconElement = document.getElementById(icon).cloneNode(true);
   svg.appendChild(newIconElement);
@@ -360,10 +383,10 @@ function restoreOppositeType(x, y, newIcon) {
   for (let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
     if (isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && !isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
-      svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i])
+      svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i]);
     } else if (!isFullSize(iconList[currentPiece][+ isStartSide][x][y][i].getAttribute("icon")) && isFullSize(newIcon)) {
       iconList[currentPiece][+ isStartSide][x][y][i].remove();
-      svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i])
+      svg.appendChild(iconList[currentPiece][+ isStartSide][x][y][i]);
     }
   }
 }
@@ -402,6 +425,7 @@ function createPieceName(text, append = true) {
 
 // Create a text element of the given ability number
 function createPieceAbilityText(text, append = true) {
+  // If no text is input, return
   if (text === "") return;
   if (iconList[currentPiece][2][1])
     iconList[currentPiece][2][1].remove()
@@ -530,6 +554,7 @@ function deleteAtPosition(x, y) {
   iconList[currentPiece][+ isStartSide][x][y] = []
 }
 
+// Display the current piece shown and the total amount of pieces
 function displayListLength() {
   currentPieceNumberElement.innerHTML = currentPiece + 1;
   totalPieceNumberElement.innerHTML = iconList.length;
@@ -541,6 +566,8 @@ function createNewPiece() {
   forwardPiece();
 }
 
+// Delete the current piece
+// WARNING: DOES NOT WORK - WIP
 function deletePiece() {
   if (iconList.length <= 1) {
     clearBoard();
@@ -557,21 +584,27 @@ function deletePiece() {
 
 // Easy macro for switching the side of the current piece
 function switchSides() {
+  // Clear all of the drawn svgs from the board 
   clearBoard()
   clearNonBoard();
+  // Flip what current side is shown
   isStartSide = !isStartSide;
+  // Redraw the board
   drawNonBoard();
   drawBoard();
 }
 
 // Move forward one piece in the piece array 
 function forwardPiece() {
+  // Clear all of the drawn svgs from the board 
   clearBoard();
   clearNonBoard();
+  // Move forewards a piece and reset the what side is shown
   currentPiece++;
   if (currentPiece >= iconList.length)
     currentPiece = 0;
   isStartSide = true;
+  // Redraw the board and update the rest of the UI
   drawNonBoard();
   drawBoard();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
@@ -581,21 +614,23 @@ function forwardPiece() {
 
 // Move backwards one piece in the piece array 
 function backwardPiece() {
+  // Clear all of the drawn svgs from the board 
   clearBoard();
   clearNonBoard();
+  // Move backwards a piece and reset the what side is shown
   currentPiece--;
   if (currentPiece < 0)
     currentPiece = iconList.length - 1;
   isStartSide = true;
   drawNonBoard();
   drawBoard();
+  // Redraw the board and update the rest of the UI
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   clearInputs();
   displayListLength();
 }
 
-// Clear the input fields and fill with the information of the new piece if there
-// is any information present
+// Clear the input fields and fill with the information of the new piece if there is any information present
 function clearInputs() {
   pieceIconInput.value = ""
   oppositeIconSideInput.checked = hasDifferentPieceIcons;
@@ -789,12 +824,14 @@ function changeName(e) {
 
 // Change the ability of the current piece
 function changeAbility(e) {
+   // If the input is outside of the desired range, return
   if (e.target.value < 0 || e.target.value > 100) return;
   iconList[currentPiece][2][1] = createPieceAbilityText(romanize(e.target.value), true);
 }
 
 // Change the amount of pieces that appear in the set
 function changeAmount(e) {
+  // If the input is outside of the desired range, return
   if (e.target.value < 0) return;
   iconList[currentPiece][2][3] = parseInt(e.target.value);
 }
@@ -817,9 +854,12 @@ function toggleOppositePieceSide() {
 function changeStartPosition() {
   let x = parseInt(xInput.value);
   let y = parseInt(yInput.value);
+  // If outside the range of the board, return 
   if (x < 0 || x > 4 || y < 0 || y > 4) return;
+  // Remove the drawn start position icons
   iconList[currentPiece][2][5][0].remove();
   iconList[currentPiece][2][5][1].remove();
+  // Create a new icon at given location and append
   iconList[currentPiece][2][5] = createStartIconsAt(x, y);
   iconList[currentPiece][2][4] = [x, y];
   svg.appendChild(iconList[currentPiece][2][5][+ isStartSide])
@@ -912,18 +952,6 @@ function exportPiecesAsGrid(drawCuts = true, drawPieces = true, lineColor = "blu
         let trX = ((spacing + pieceSize) * x) + pieceSize + offset + lineDistance
         let tlY = ((spacing + pieceSize) * y) + offset - lineDistance
         let trY = ((spacing + pieceSize) * y) + pieceSize + offset + lineDistance
-        // // Top Line
-        // startSideCanvas.append(createLine(tlX, tlY, trX, tlY))
-        // nonStartSideCanvas.append(createLine(tlX, tlY, trX, tlY))
-        // // Bottom Line
-        // startSideCanvas.append(createLine(tlX, trY, trX, trY))
-        // nonStartSideCanvas.append(createLine(tlX, trY, trX, trY))
-        // // Left Line
-        // startSideCanvas.append(createLine(tlX, tlY, tlX, trY))
-        // nonStartSideCanvas.append(createLine(tlX, tlY, tlX, trY))
-        // // Right Line
-        // startSideCanvas.append(createLine(trX, tlY, trX, trY))
-        // nonStartSideCanvas.append(createLine(trX, tlY, trX, trY))
 
         // Sqaure
         startSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor))
@@ -944,6 +972,7 @@ function exportPiecesAsGrid(drawCuts = true, drawPieces = true, lineColor = "blu
     startSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
     nonStartSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
   }
+  // Reset canvas height to fit the amount of pieces generated
   canvasHeight = (pieceSize + spacing + offset) * (i);
   startSideCanvas.setAttribute("width", canvasWidth)
   startSideCanvas.setAttribute("height", canvasHeight)
@@ -996,6 +1025,7 @@ function saveSvg(svgEl, name) {
 
 // Download the starting side grid render as an svg
 function downloadStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+  // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas")
   removeAllChildNodes(startSideCanvas)
   startSideCanvas.append(exportStyle)
@@ -1005,6 +1035,7 @@ function downloadStartSideRender(drawCuts = true, drawPieces = true, lineColor =
 
 // Download the non starting side grid render as an svg
 function downloadNonStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+  // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
   removeAllChildNodes(nonStartSideCanvas)
   nonStartSideCanvas.append(exportStyle)
@@ -1012,7 +1043,7 @@ function downloadNonStartSideRender(drawCuts = true, drawPieces = true, lineColo
   saveSvg(document.getElementById("nonStartSideCanvas"), "nonstartside.svg")
 }
 
-// Remove all children node 
+// Remove all children node of the given element
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
