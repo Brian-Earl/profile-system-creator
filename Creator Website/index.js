@@ -911,18 +911,21 @@ function exportPiecesAsGrid() {
         let trX = ((spacing + pieceSize) * x) + pieceSize + offset + lineDistance
         let tlY = ((spacing + pieceSize) * y) + offset - lineDistance
         let trY = ((spacing + pieceSize) * y) + pieceSize + offset + lineDistance
-        // Top Line
-        startSideCanvas.append(createLine(tlX, tlY, trX, tlY))
-        nonStartSideCanvas.append(createLine(tlX, tlY, trX, tlY))
-        // Bottom Line
-        startSideCanvas.append(createLine(tlX, trY, trX, trY))
-        nonStartSideCanvas.append(createLine(tlX, trY, trX, trY))
-        // Left Line
-        startSideCanvas.append(createLine(tlX, tlY, tlX, trY))
-        nonStartSideCanvas.append(createLine(tlX, tlY, tlX, trY))
-        // Right Line
-        startSideCanvas.append(createLine(trX, tlY, trX, trY))
-        nonStartSideCanvas.append(createLine(trX, tlY, trX, trY))
+        // // Top Line
+        // startSideCanvas.append(createLine(tlX, tlY, trX, tlY))
+        // nonStartSideCanvas.append(createLine(tlX, tlY, trX, tlY))
+        // // Bottom Line
+        // startSideCanvas.append(createLine(tlX, trY, trX, trY))
+        // nonStartSideCanvas.append(createLine(tlX, trY, trX, trY))
+        // // Left Line
+        // startSideCanvas.append(createLine(tlX, tlY, tlX, trY))
+        // nonStartSideCanvas.append(createLine(tlX, tlY, tlX, trY))
+        // // Right Line
+        // startSideCanvas.append(createLine(trX, tlY, trX, trY))
+        // nonStartSideCanvas.append(createLine(trX, tlY, trX, trY))
+
+        // Sqaure
+        startSideCanvas.append(createRect(tlX, tlY, trX, trY))
       }
     }
   }
@@ -951,6 +954,21 @@ function createLine(x1, y1, x2, y2) {
   newLine.setAttribute('y2', y2);
   newLine.setAttribute("stroke", "black")
   return newLine
+}
+
+// Draw a rectangle around the given points
+// Used for when adding the cut lines 
+function createRect(x1, y1, x2, y2) {
+  let newRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  let height = y2 - y1
+  let width = x2 - x1
+  newRect.setAttribute('x', x1);
+  newRect.setAttribute('y', y1);
+  newRect.setAttribute('width', width);
+  newRect.setAttribute('height', height);
+  newRect.setAttribute("stroke", "black")
+  newRect.setAttribute("fill", "transparent")
+  return newRect
 }
 
 // Save SVG to a file of the given name
