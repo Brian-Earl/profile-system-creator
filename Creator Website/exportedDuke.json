@@ -102,7 +102,11 @@
             "ability": "",
             "icon": "footmanIcon",
             "altIcon": "",
-            "amount": "3"
+            "amount": "3",
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -217,7 +221,11 @@
             "ability": "",
             "icon": "seerIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -324,7 +332,11 @@
             "ability": "",
             "icon": "priestIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -438,7 +450,11 @@
             "ability": "",
             "icon": "marshallIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -543,7 +559,11 @@
             "ability": "",
             "icon": "knightIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -644,7 +664,11 @@
             "ability": "",
             "icon": "pikemanIcon",
             "altIcon": "",
-            "amount": "3"
+            "amount": "3",
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -761,7 +785,11 @@
             "ability": "",
             "icon": "championIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -878,7 +906,11 @@
             "ability": "",
             "icon": "generalIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -985,7 +1017,11 @@
             "ability": "",
             "icon": "bowmanIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1088,7 +1124,11 @@
             "ability": "",
             "icon": "rangerIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1203,7 +1243,11 @@
             "ability": "",
             "icon": "wizardIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1294,7 +1338,11 @@
             "ability": "",
             "icon": "dukeIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1397,9 +1445,13 @@
             },
             "name": "Dragoon",
             "ability": "",
-            "icon": "",
+            "icon": "dragoonIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1506,7 +1558,11 @@
             "ability": 1,
             "icon": "duchessIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
@@ -1521,17 +1577,6 @@
                     [
                         [],
                         [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
                         [],
                         [
                             "move"
@@ -1545,6 +1590,17 @@
                             "move"
                         ],
                         [],
+                        [
+                            "move"
+                        ]
+                    ],
+                    [
+                        [],
+                        [],
+                        [],
+                        [
+                            "move"
+                        ],
                         []
                     ],
                     [
@@ -1576,7 +1632,9 @@
                         [
                             "strike"
                         ],
-                        [],
+                        [
+                            "strike"
+                        ],
                         [],
                         [],
                         []
@@ -1601,9 +1659,13 @@
             },
             "name": "Longbowman",
             "ability": "",
-            "icon": "",
+            "icon": "longbowmanIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                3
+            ]
         },
         {
             "grid": {
@@ -1694,15 +1756,17 @@
             "ability": 2,
             "icon": "oracleIcon",
             "altIcon": "oracleNonStartIcon",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         },
         {
             "grid": {
                 "startSide": [
                     [
-                        [
-                            "jumpSlide"
-                        ],
+                        [],
                         [],
                         [],
                         [],
@@ -1791,7 +1855,11 @@
             "ability": "",
             "icon": "assassinIcon",
             "altIcon": "",
-            "amount": 1
+            "amount": 1,
+            "startPosition": [
+                2,
+                2
+            ]
         }
     ]
 }
