@@ -281,38 +281,36 @@
             <input type="number" id="widthInput" min="1" value="1">
             <label for="heightInput">Width:</label>
             <input type="number" id="heightInput" min="1" value="1">
-            <input type="button" id="exportPieceGridSVGInput" value="Export Grid" onclick="exportPiecesAsGrid()">
+            <input type="button" id="exportPieceGridSVGInput" value="Export Grid Preview" onclick="exportPiecesAsGrid()">
         </form>
     </div>
     <br><br>
     <div>
-        <p>Start Side Render: <input type="button" value="Download" onclick="downloadStartSideRender()"></p>
+        <p>Start Side Render: 
+            <input type="button" value="Download Full" onclick="downloadStartSideRender(true, true, 'blue')">
+            <input type="button" value="Download Cuts Outline" onclick="downloadStartSideRender(true, false)">
+            <input type="button" value="Download Pieces" onclick="downloadStartSideRender(false, true)">
+        </p>
         <svg id="startSideCanvas">
-            <defs>
-                <style>
-                    @font-face {
-                        font-family: 'Pieces of Eight';
-                        font-style: normal;
-                        font-weight: 400;
-                        src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
-                    }
-                </style>
-            </defs>
         </svg>
         <br><br>
-        <p>Non Start Side Render: <input type="button" value="Download" onclick="downloadNonStartSideRender()"></p>
+        <p>Non Start Side Render: 
+            <input type="button" value="Download" onclick="downloadNonStartSideRender(true, true, 'blue')">
+            <input type="button" value="Download Cuts Outline" onclick="downloadNonStartSideRender(true, false)">
+            <input type="button" value="Download Pieces" onclick="downloadNonStartSideRender(false, true)">
+        </p>
         <svg id="nonStartSideCanvas">
-            <defs>
-                <style>
-                    @font-face {
-                        font-family: 'Pieces of Eight';
-                        font-style: normal;
-                        font-weight: 400;
-                        src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
-                    }
-                </style>
-            </defs>
         </svg>
+        <defs id="exportStyles">
+            <style>
+                @font-face {
+                    font-family: 'Pieces of Eight';
+                    font-style: normal;
+                    font-weight: 400;
+                    src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+                }
+            </style>
+        </defs>
     </div>
     <div hidden="hidden">
         <svg id="StartSide" width="100%" height="100%" viewBox="0 0 188 188" version="1.1"

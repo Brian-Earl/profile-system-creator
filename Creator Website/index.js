@@ -10,7 +10,7 @@
 // https://stackoverflow.com/questions/33780271/export-a-json-object-to-a-text-file
 // https://css-tricks.com/transforms-on-svg-elements/
 // https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
-
+// https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
 
 // TODO:
 // Add more comments
@@ -111,6 +111,9 @@ let totalPieceNumberElement = document.getElementById("totalPieceNumber");
 // Get elements for the width and height when generation the grid svg
 let widthInput = document.getElementById("widthInput");
 let heightInput = document.getElementById("heightInput");
+
+// Get element for the styles appended onto the SVG before it is exported
+let exportStyle = document.getElementById("exportStyles")
 
 // Should use the legacy version of the cut line generator
 let isLegacyCutLines = false
@@ -825,7 +828,7 @@ function changeStartPosition() {
 // Export the current list of pieces as a grid
 // WARNING: THE WIDTH AND HEIGHT ARE ALL TOPSY TERVEY AND MESSED UP
 // WARNING WARNING, IF MESSED WITH IT WILL BE CONFUSING
-function exportPiecesAsGrid() {
+function exportPiecesAsGrid(drawCuts = true, drawPieces = true, lineColor = "blue") {
   // Get the width and height of the rendered grid
   let width = parseInt(widthInput.value)
   let height = parseInt(heightInput.value)
@@ -848,18 +851,14 @@ function exportPiecesAsGrid() {
   let canvasWidth = (pieceSize + spacing + offset) * (height + 1);
   let canvasHeight = (pieceSize + spacing + offset) * (width + 1);
   let startSideCanvas = document.getElementById("startSideCanvas")
-  startSideCanvas.setAttribute("width", canvasWidth)
-  startSideCanvas.setAttribute("height", canvasHeight)
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
-  nonStartSideCanvas.setAttribute("width", canvasWidth)
-  nonStartSideCanvas.setAttribute("height", canvasHeight)
   // Keep track of the index so that generation can be cut off early 
   let index = 0;
   // Store the value of i and j so that they can be used in calculations later
   let i = 0
   let j = 0
   for (i = 0; i < width; i++) {
-    if (isLegacyCutLines) {
+    if (isLegacyCutLines && drawCuts) {
       // Creates horizontal lines that extended across the entire canvas
       let heightSpacing = ((pieceSize + spacing) * i) - (spacing / 2) + offset;
       let canvasHeightSpacing = ((pieceSize + spacing) * height) - (spacing / 2) + offset
@@ -871,21 +870,23 @@ function exportPiecesAsGrid() {
       if (index >= iconList.length) {
         break
       }
-      // Clone the current piece and add the start and non start side to the two different renders
-      let svgStartSideClone = svg.cloneNode(true)
-      startSideCanvas.append(svgStartSideClone)
-      // Calcuate the transformation of the current piece and apply to both sides
-      let translation = "translate(" + (((spacing + pieceSize) * j) + offset) + " " + (((spacing + pieceSize) * i) + offset) + ")"
-      svgStartSideClone.setAttribute("transform", translation)
-      svgStartSideClone.setAttribute("width", pieceSize)
-      svgStartSideClone.setAttribute("height", pieceSize)
-      switchSides()
-      let svgNonStartSideClone = svg.cloneNode(true)
-      nonStartSideCanvas.append(svgNonStartSideClone)
-      svgNonStartSideClone.setAttribute("transform", translation)
-      svgNonStartSideClone.setAttribute("width", pieceSize)
-      svgNonStartSideClone.setAttribute("height", pieceSize)
-      switchSides()
+      if (drawPieces) {
+        // Clone the current piece and add the start and non start side to the two different renders
+        let svgStartSideClone = svg.cloneNode(true)
+        startSideCanvas.append(svgStartSideClone)
+        // Calcuate the transformation of the current piece and apply to both sides
+        let translation = "translate(" + (((spacing + pieceSize) * j) + offset) + " " + (((spacing + pieceSize) * i) + offset) + ")"
+        svgStartSideClone.setAttribute("transform", translation)
+        svgStartSideClone.setAttribute("width", pieceSize)
+        svgStartSideClone.setAttribute("height", pieceSize)
+        switchSides()
+        let svgNonStartSideClone = svg.cloneNode(true)
+        nonStartSideCanvas.append(svgNonStartSideClone)
+        svgNonStartSideClone.setAttribute("transform", translation)
+        svgNonStartSideClone.setAttribute("width", pieceSize)
+        svgNonStartSideClone.setAttribute("height", pieceSize)
+        switchSides()
+      }
       // Increment the amount of times the piece has been seen in the current render
       // If it has been used the correct number of times, move onto the next piece
       repeatPeice++
@@ -894,13 +895,13 @@ function exportPiecesAsGrid() {
         index++
         forwardPiece()
       }
-      if (isLegacyCutLines) {
+      if (isLegacyCutLines && drawCuts) {
         // Creates vertical lines that extrended across the entire canvas
         let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
         let canvasWidthSpacing = ((pieceSize + spacing) * width) - (spacing / 2) + offset
         startSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
         nonStartSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
-      } else {
+      } else if (drawCuts) {
         // Just for ease
         let x = j
         let y = i
@@ -925,12 +926,12 @@ function exportPiecesAsGrid() {
         // nonStartSideCanvas.append(createLine(trX, tlY, trX, trY))
 
         // Sqaure
-        startSideCanvas.append(createRect(tlX, tlY, trX, trY))
-        nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY))
+        startSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor))
+        nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor))
       }
     }
   }
-  if (isLegacyCutLines) {
+  if (isLegacyCutLines && drawCuts) {
     // Create extra lines at the end of the vertical and horizontals of the grids that are missed during normal generation
     // Create extra vertical line at the very right of the canvas that extends the entire height
     let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
@@ -943,23 +944,28 @@ function exportPiecesAsGrid() {
     startSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
     nonStartSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
   }
+  canvasHeight = (pieceSize + spacing + offset) * (i);
+  startSideCanvas.setAttribute("width", canvasWidth)
+  startSideCanvas.setAttribute("height", canvasHeight)
+  nonStartSideCanvas.setAttribute("width", canvasWidth)
+  nonStartSideCanvas.setAttribute("height", canvasHeight)
 }
 
 // Draw a line between the two points given
 // Used for when adding the cut lines 
-function createLine(x1, y1, x2, y2) {
+function createLine(x1, y1, x2, y2, color="black") {
   let newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
   newLine.setAttribute('x1', x1);
   newLine.setAttribute('y1', y1);
   newLine.setAttribute('x2', x2);
   newLine.setAttribute('y2', y2);
-  newLine.setAttribute("stroke", "black")
+  newLine.setAttribute("stroke", color)
   return newLine
 }
 
 // Draw a rectangle around the given points
 // Used for when adding the cut lines 
-function createRect(x1, y1, x2, y2) {
+function createRect(x1, y1, x2, y2, color="blue") {
   let newRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
   let height = y2 - y1
   let width = x2 - x1
@@ -967,7 +973,7 @@ function createRect(x1, y1, x2, y2) {
   newRect.setAttribute('y', y1);
   newRect.setAttribute('width', width);
   newRect.setAttribute('height', height);
-  newRect.setAttribute("stroke", "black")
+  newRect.setAttribute("stroke", color)
   newRect.setAttribute("fill", "transparent")
   return newRect
 }
@@ -989,13 +995,28 @@ function saveSvg(svgEl, name) {
 }
 
 // Download the starting side grid render as an svg
-function downloadStartSideRender() {
+function downloadStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+  let startSideCanvas = document.getElementById("startSideCanvas")
+  removeAllChildNodes(startSideCanvas)
+  startSideCanvas.append(exportStyle)
+  exportPiecesAsGrid(drawCuts, drawPieces, lineColor)
   saveSvg(document.getElementById("startSideCanvas"), "startside.svg")
 }
 
 // Download the non starting side grid render as an svg
-function downloadNonStartSideRender() {
+function downloadNonStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+  let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
+  removeAllChildNodes(nonStartSideCanvas)
+  nonStartSideCanvas.append(exportStyle)
+  exportPiecesAsGrid(drawCuts, drawPieces, lineColor)
   saveSvg(document.getElementById("nonStartSideCanvas"), "nonstartside.svg")
+}
+
+// Remove all children node 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
 }
 
 init()
