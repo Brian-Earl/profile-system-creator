@@ -810,6 +810,8 @@ function changeStartPosition() {
 }
 
 // Export the current list of pieces as a grid
+// WARNING: THE WIDTH AND HEIGHT ARE ALL TOPSY TERVEY AND MESSED UP
+// WARNING WARNING, IF MESSED WITH IT WILL BE CONFUSING
 function exportPiecesAsGrid() {
   let width = parseInt(widthInput.value)
   let height = parseInt(heightInput.value)
@@ -818,11 +820,11 @@ function exportPiecesAsGrid() {
   let spacing = 10;
   let offset = 10;
   let repeatPeice = 0;
-  let canvasWidth = (pieceSize + spacing + offset) * (width + 1);
-  let canvasHeight = (pieceSize + spacing + offset) * (height);
+  let canvasWidth = (pieceSize + spacing + offset) * (height + 1);
+  let canvasHeight = (pieceSize + spacing + offset) * (width);
   let startSideCanvas = document.getElementById("startSideCanvas")
   startSideCanvas.setAttribute("width", canvasWidth)
-  startSideCanvas.setAttribute("height", (pieceSize + spacing) * height)
+  startSideCanvas.setAttribute("height", canvasHeight)
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
   nonStartSideCanvas.setAttribute("width", canvasWidth)
   nonStartSideCanvas.setAttribute("height", canvasHeight)
@@ -831,8 +833,9 @@ function exportPiecesAsGrid() {
   let j = 0
   for (i = 0; i < width; i++) {
     let heightSpacing = ((pieceSize + spacing) * i) - (spacing / 2) + offset;
-    startSideCanvas.append(createLine(0, heightSpacing, canvasHeight, heightSpacing))
-    nonStartSideCanvas.append(createLine(0, heightSpacing, canvasHeight, heightSpacing))
+    let canvasHeightSpacing = ((pieceSize + spacing) * height) - (spacing / 2) + offset
+    startSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
+    nonStartSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
     for (j = 0; j < height; j++) {
       if (index >= iconList.length) {
         continue
@@ -857,13 +860,19 @@ function exportPiecesAsGrid() {
         forwardPiece()
       }
       let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
-      startSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
-      nonStartSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
+      let canvasWidthSpacing = ((pieceSize + spacing) * width) - (spacing / 2) + offset
+      startSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
+      nonStartSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
     }
     let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
-    startSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
-    nonStartSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
+    let canvasWidthSpacing = ((pieceSize + spacing) * width) - (spacing / 2) + offset
+    startSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
+    nonStartSideCanvas.append(createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing))
   }
+  let heightSpacing = ((pieceSize + spacing) * i) - (spacing / 2) + offset;
+  let canvasHeightSpacing = ((pieceSize + spacing) * height) - (spacing / 2) + offset
+  startSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
+  nonStartSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
 }
 
 // Draw a line between the two points given
@@ -884,7 +893,7 @@ function saveSvg(svgEl, name) {
   svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
   var svgData = svgEl.outerHTML;
   var preface = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n';
-  var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+  var svgBlob = new Blob([preface, svgData], { type: "image/svg+xml;charset=utf-8" });
   var svgUrl = URL.createObjectURL(svgBlob);
   var downloadLink = document.createElement("a");
   downloadLink.href = svgUrl;
