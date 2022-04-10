@@ -926,6 +926,7 @@ function exportPiecesAsGrid() {
 
         // Sqaure
         startSideCanvas.append(createRect(tlX, tlY, trX, trY))
+        nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY))
       }
     }
   }
