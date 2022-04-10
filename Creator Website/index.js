@@ -670,7 +670,7 @@ function downloadJSON(content) {
 function importPieces(element) {
   if (element.files.length <= 0) return;
   let fr = new FileReader();
-  fr.onload = function (e) {
+  fr.onload = function(e) {
     let result = JSON.parse(e.target.result);
     setImportedData(result)
     hasDifferentPieceIcons = pieceHasDifferentIcons();
@@ -816,11 +816,14 @@ function exportPiecesAsGrid() {
   let width = parseInt(widthInput.value)
   let height = parseInt(heightInput.value)
   if (width < 1 || height < 1) return;
-  let pieceSize = 45
+  // Size of the pieces in the svg
+  let pieceSize = 200
+  // Spacing between the individual peices
   let spacing = 10;
+  // Offset so that the grid can be fully drawn on the svg
   let offset = 10;
   let repeatPeice = 0;
-  let canvasWidth = (pieceSize + spacing + offset) * (height + 1);
+  let canvasWidth = (pieceSize + spacing + offset) * (height);
   let canvasHeight = (pieceSize + spacing + offset) * (width);
   let startSideCanvas = document.getElementById("startSideCanvas")
   startSideCanvas.setAttribute("width", canvasWidth)
@@ -831,12 +834,12 @@ function exportPiecesAsGrid() {
   let index = 0;
   let i = 0
   let j = 0
-  for (i = 0; i < width; i++) {
+  for (i = 0; i <= width; i++) {
     let heightSpacing = ((pieceSize + spacing) * i) - (spacing / 2) + offset;
     let canvasHeightSpacing = ((pieceSize + spacing) * height) - (spacing / 2) + offset
     startSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
     nonStartSideCanvas.append(createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing))
-    for (j = 0; j < height; j++) {
+    for (j = 0; j <= height; j++) {
       if (index >= iconList.length) {
         continue
       }
@@ -903,10 +906,12 @@ function saveSvg(svgEl, name) {
   document.body.removeChild(downloadLink);
 }
 
+// Download the starting side grid render as an svg
 function downloadStartSideRender() {
   saveSvg(document.getElementById("startSideCanvas"), "startside.svg")
 }
 
+// Download the non starting side grid render as an svg
 function downloadNonStartSideRender() {
   saveSvg(document.getElementById("nonStartSideCanvas"), "nonstartside.svg")
 }
