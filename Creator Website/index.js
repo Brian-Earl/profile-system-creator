@@ -814,22 +814,30 @@ function exportPiecesAsGrid() {
   if (width < 1 || height < 1) return;
   let pieceSize = 45
   let spacing = 10;
+  let offset = 10;
   let repeatPeice = 0;
+  let canvasWidth = (pieceSize + spacing + offset) * (width + 1);
+  let canvasHeight = (pieceSize + spacing + offset) * (height);
   let startSideCanvas = document.getElementById("startSideCanvas")
-  startSideCanvas.setAttribute("width", (pieceSize + spacing) * width)
+  startSideCanvas.setAttribute("width", canvasWidth)
   startSideCanvas.setAttribute("height", (pieceSize + spacing) * height)
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
-  nonStartSideCanvas.setAttribute("width", (pieceSize + spacing) * width)
-  nonStartSideCanvas.setAttribute("height", (pieceSize + spacing) * height)
+  nonStartSideCanvas.setAttribute("width", canvasWidth)
+  nonStartSideCanvas.setAttribute("height", canvasHeight)
   let index = 0;
-  for (let i = 0; i < width; i++) {
-    for (let j = 0; j < height; j++) {
+  let i = 0
+  let j = 0
+  for (i = 0; i < width; i++) {
+    let heightSpacing = ((pieceSize + spacing) * i) - (spacing / 2) + offset;
+    startSideCanvas.append(createLine(0, heightSpacing, canvasHeight, heightSpacing))
+    nonStartSideCanvas.append(createLine(0, heightSpacing, canvasHeight, heightSpacing))
+    for (j = 0; j < height; j++) {
       if (index >= iconList.length) {
-        return
+        continue
       }
       let svgStartSideClone = svg.cloneNode(true)
       startSideCanvas.append(svgStartSideClone)
-      let translation = "translate(" + ((spacing + pieceSize) * j) + " " + ((spacing + pieceSize) * i) + ")"
+      let translation = "translate(" + (((spacing + pieceSize) * j) + offset) + " " + (((spacing + pieceSize) * i) + offset) + ")"
       svgStartSideClone.setAttribute("transform", translation)
       svgStartSideClone.setAttribute("width", pieceSize)
       svgStartSideClone.setAttribute("height", pieceSize)
@@ -846,8 +854,24 @@ function exportPiecesAsGrid() {
         index++
         forwardPiece()
       }
+      let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
+      startSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
+      nonStartSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
     }
+    let widthSpacing = ((pieceSize + spacing) * j) - (spacing / 2) + offset;
+    startSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
+    nonStartSideCanvas.append(createLine(widthSpacing, 0, widthSpacing, canvasWidth))
   }
+}
+
+function createLine(x1, y1, x2, y2) {
+  let newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  newLine.setAttribute('x1', x1);
+  newLine.setAttribute('y1', y1);
+  newLine.setAttribute('x2', x2);
+  newLine.setAttribute('y2', y2);
+  newLine.setAttribute("stroke", "black")
+  return newLine
 }
 
 init()
