@@ -17,7 +17,6 @@
 
 // TODO:
 // Add piece deletion
-// Add rest of movement icons 
 // Add rest of class icons
 // Add custom SVG icon support
 // Add some more letiable control in the web version such as for controlling the spacing in the render
@@ -25,6 +24,7 @@
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Allow selection of legacty render
 // Linting for consistency across file
+// Add multiple pages for renders when all of the peices cannot fit on one
 
 // letiable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -44,7 +44,7 @@ let currentGridSquare = null;
 let currentIcon = 0;
 
 // List of available icons where each index is the id of an SVG element
-const movementIcons = ["move", "slide", "jump", "jumpSlide", "command", "strike", "clear"]
+const movementIcons = ["move", "slide", "jump", "jumpSlide", "command", "strike", "defense", "dread", "fullFormation", "hammer", "sheildDefense", "smash",  "clear"]
 
 // Indicated if the current piece is on the starting side or not
 let isStartSide = true;
@@ -281,7 +281,7 @@ function isSlide(icon) {
 
 // Returns if the icon given is one that is full sized
 function isFullSize(icon) {
-  return icon === "command"
+  return icon === "command" || icon === "singleFormation" || icon === "fullFormation"
 }
 
 // Return transform attribute for rotating an icon
@@ -296,6 +296,8 @@ function scaleIcon(icon) {
 }
 
 function scaleFactor(icon) {
+  if(icon === "fullFormation") return 5;
+  if(icon === "singleFormation") return 5.5;
   if (isFullSize(icon)) return 4;
   return 3;
 }
@@ -878,12 +880,14 @@ function exportPiecesAsGrid(drawCuts = true, drawPieces = true, lineColor = "blu
   let height = parseInt(heightInput.value)
   // If the user has put in a number that is too small (done through typing in a number less than zero) exit the function
   if (width < 1 || height < 1) return;
+  // Used for scaling render up to higher resolutions
+  let scale = 1
   // Size of the pieces in the svg
-  let pieceSize = 200
+  let pieceSize = 200 * scale
   // Spacing between the individual peices
-  let spacing = 20;
+  let spacing = 20 * scale;
   // Offset so that the grid can be fully drawn on the svg
-  let offset = 10;
+  let offset = 10 * scale;
   // Distance between the piece and the cut lines box
   let lineDistance = 5;
   // Keep track of how many times the current piece has been used in the render 
