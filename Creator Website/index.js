@@ -11,19 +11,22 @@
 // https://css-tricks.com/transforms-on-svg-elements/
 // https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
 // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+// https://cjav.dev/posts/svg-to-png-with-js/
+// https://stackoverflow.com/questions/48105468/including-fonts-when-converting-svg-to-png
+// https://alligatr.co.uk/blog/render-an-svg-using-external-fonts-to-a-canvas/
 
 // TODO:
 // Add piece deletion
 // Add rest of movement icons 
 // Add rest of class icons
 // Add custom SVG icon support
-// Add some more variable control in the web version such as for controlling the spacing in the render
+// Add some more letiable control in the web version such as for controlling the spacing in the render
 // Better scroll control when selecting movement icon
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Allow selection of legacty render
 // Linting for consistency across file
 
-// Variable that keeps track all of the current pieces created
+// letiable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
 // the first one representing the starting side and the second representing the non starting side
 // Each element of the 2D arrays are arrays that can have one or two elements themsevles
@@ -102,6 +105,8 @@ let xInput = document.getElementById("xInput");
 xInput.addEventListener('change', changeStartPosition);
 let yInput = document.getElementById("yInput");
 yInput.addEventListener('change', changeStartPosition);
+let svgInput = document.getElementById("svgInput")
+let pngInput = document.getElementById("pngInput")
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -546,7 +551,6 @@ function drawNonBoard() {
 
 // Delete all icons at position x,y in movement grid
 function deleteAtPosition(x, y) {
-  console.log(iconList[currentPiece][+ isStartSide][x][y])
   for (let i = 0; i < iconList[currentPiece][+ isStartSide][x][y].length; i++) {
     if (iconList[currentPiece][+ isStartSide][x][y][i])
       iconList[currentPiece][+ isStartSide][x][y][i].remove()
@@ -710,8 +714,8 @@ function exportPieces() {
 
 // Downloads given data as a json file, used for exporter 
 function downloadJSON(content) {
-  var a = document.createElement("a");
-  var file = new Blob([JSON.stringify(content)], { type: 'text/plain' });
+  let a = document.createElement("a");
+  let file = new Blob([JSON.stringify(content)], { type: 'text/plain' });
   a.href = URL.createObjectURL(file);
   a.download = "exportedDuke.json";
   a.click();
@@ -730,7 +734,7 @@ function importPieces(element) {
   fr.readAsText(element.files.item(0));
 }
 
-// Uses imported JSON object to set the correct variables 
+// Uses imported JSON object to set the correct letiables 
 function setImportedData(data) {
   clearNonBoard();
   clearBoard();
@@ -767,7 +771,7 @@ function setImportedData(data) {
 function romanize(num) {
   if (isNaN(num))
     return NaN;
-  var digits = String(+num).split(""),
+  let digits = String(+num).split(""),
     key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
       "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
       "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
@@ -824,7 +828,7 @@ function changeName(e) {
 
 // Change the ability of the current piece
 function changeAbility(e) {
-   // If the input is outside of the desired range, return
+  // If the input is outside of the desired range, return
   if (e.target.value < 0 || e.target.value > 100) return;
   iconList[currentPiece][2][1] = createPieceAbilityText(romanize(e.target.value), true);
 }
@@ -982,7 +986,7 @@ function exportPiecesAsGrid(drawCuts = true, drawPieces = true, lineColor = "blu
 
 // Draw a line between the two points given
 // Used for when adding the cut lines 
-function createLine(x1, y1, x2, y2, color="black") {
+function createLine(x1, y1, x2, y2, color = "black") {
   let newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
   newLine.setAttribute('x1', x1);
   newLine.setAttribute('y1', y1);
@@ -994,7 +998,7 @@ function createLine(x1, y1, x2, y2, color="black") {
 
 // Draw a rectangle around the given points
 // Used for when adding the cut lines 
-function createRect(x1, y1, x2, y2, color="blue") {
+function createRect(x1, y1, x2, y2, color = "blue") {
   let newRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
   let height = y2 - y1
   let width = x2 - x1
@@ -1011,11 +1015,11 @@ function createRect(x1, y1, x2, y2, color="blue") {
 // Credit to senz on stackoverflow
 function saveSvg(svgEl, name) {
   svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  var svgData = svgEl.outerHTML;
-  var preface = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n';
-  var svgBlob = new Blob([preface, svgData], { type: "image/svg+xml;charset=utf-8" });
-  var svgUrl = URL.createObjectURL(svgBlob);
-  var downloadLink = document.createElement("a");
+  let svgData = svgEl.outerHTML;
+  let preface = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n';
+  let svgBlob = new Blob([preface, svgData], { type: "image/svg+xml;charset=utf-8,base64" });
+  let svgUrl = URL.createObjectURL(svgBlob);
+  let downloadLink = document.createElement("a");
   downloadLink.href = svgUrl;
   downloadLink.download = name;
   document.body.appendChild(downloadLink);
@@ -1023,30 +1027,67 @@ function saveSvg(svgEl, name) {
   document.body.removeChild(downloadLink);
 }
 
+// Convert SVG to PNG and download to file of the given name
+function savePng(svgEl, name) {
+  let svgText = new XMLSerializer().serializeToString(svgEl);
+  let bbox = svgEl.getBBox()
+  let canvas = document.createElement('canvas');
+  canvas.width = bbox.width + 20; // + 20 only there to prevent cut off
+  canvas.height = bbox.height + 20;
+  let ctx = canvas.getContext("2d");
+  let img = new Image();
+  let svgBlob = new Blob([svgText], { type: "image/svg+xml;base64,charset=utf-8" }); // The base64 is needed for font to show up in the png
+  let url = URL.createObjectURL(svgBlob);
+  img.src = url;
+  img.onload = function () {
+    ctx.drawImage(img, 0, 0);
+    let png = canvas.toDataURL("image/png");
+    let pngContainer = document.getElementById("pngContainer")
+    pngContainer.setAttribute("src", png)
+    let imgURI = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = imgURI;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+}
+
 // Download the starting side grid render as an svg
-function downloadStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+function downloadStartSideRender(drawCuts = true, drawPieces = true, filename = "startside", lineColor = "blue") {
   // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas")
   removeAllChildNodes(startSideCanvas)
   startSideCanvas.append(exportStyle)
   exportPiecesAsGrid(drawCuts, drawPieces, lineColor)
-  saveSvg(document.getElementById("startSideCanvas"), "startside.svg")
+  if(svgInput.checked) {
+    saveSvg(startSideCanvas, filename + ".svg")
+  } else if (pngInput.checked) { 
+    savePng(startSideCanvas, filename + ".png")
+  }
 }
 
 // Download the non starting side grid render as an svg
-function downloadNonStartSideRender(drawCuts = true, drawPieces = true, lineColor = "blue") {
+function downloadNonStartSideRender(drawCuts = true, drawPieces = true, filename = "nonStartside", lineColor = "blue") {
   // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas")
   removeAllChildNodes(nonStartSideCanvas)
   nonStartSideCanvas.append(exportStyle)
   exportPiecesAsGrid(drawCuts, drawPieces, lineColor)
-  saveSvg(document.getElementById("nonStartSideCanvas"), "nonstartside.svg")
+  if(svgInput.checked) {
+    saveSvg(nonStartSideCanvas, filename + ".svg")
+  } else if (pngInput.checked) { 
+    savePng(nonStartSideCanvas, filename + ".png")
+  }
 }
 
 // Remove all children node of the given element
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+    parent.removeChild(parent.firstChild);
   }
 }
 
