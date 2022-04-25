@@ -60,6 +60,18 @@ const movementIcons = [
   "clear",
 ];
 
+// List of available fonts
+const availableFonts = new Map();
+availableFonts.set("dukeFont", "Pieces of Eight"); 
+availableFonts.set("arthurFont", "Xenippa");
+availableFonts.set("musketeersFont", "Lucida Blackletter");
+availableFonts.set("conanFont", "hiroshige-std-black");
+availableFonts.set("jarlFont", "Comic Runes");
+availableFonts.set("centurionFont", "CCElektrakution W01 Light");
+
+// Default the font to Pieces of Eight
+let currentFont = "dukeFont";
+
 // Indicated if the current piece is on the starting side or not
 let isStartSide = true;
 
@@ -130,6 +142,7 @@ let xLineInput1 = document.getElementById("xLineInput1");
 let yLineInput1 = document.getElementById("yLineInput1");
 let xLineInput2 = document.getElementById("xLineInput2");
 let yLineInput2 = document.getElementById("yLineInput2");
+let fontInput = document.getElementById("fontInput");
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -500,11 +513,17 @@ function restoreOppositeType(x, y, newIcon) {
 }
 
 // Creates a text element at the position given of the font size given
-function createTextAt(text, pos, fontSize, append = true) {
+function createTextAt(
+  text,
+  pos,
+  fontSize,
+  fontFamily = "Pieces of Eight",
+  append = true
+) {
   let svgNS = "http://www.w3.org/2000/svg";
   let newText = document.createElementNS(svgNS, "text");
   newText.setAttribute("font-size", fontSize);
-  newText.setAttribute("font-family", "Pieces of Eight");
+  newText.setAttribute("font-family", fontFamily);
   newText.setAttribute("text", text);
   newText.appendChild(document.createTextNode(text));
   svg.appendChild(newText);
@@ -524,7 +543,7 @@ function createPieceName(text, append = true) {
   if (text.length >= 8) fontSize = 245;
   if (text.length >= 10) fontSize = 215;
   let namePos = getCenter(nameLocation);
-  return createTextAt(text, namePos, fontSize, append);
+  return createTextAt(text, namePos, fontSize, availableFonts.get(currentFont), append);
 }
 
 // Create a text element of the given ability number
@@ -539,7 +558,7 @@ function createPieceAbilityText(text, append = true) {
     "visibility",
     text !== "" ? "visible" : "hidden"
   );
-  return createTextAt(text, iconPos, 100, append);
+  return createTextAt(text, iconPos, 100, "Pieces of Eight", append);
 }
 
 // Create the piece icon of the given piece name
@@ -831,6 +850,7 @@ function exportPieces() {
   let object = {};
   object.options = {};
   object.options.exporterVersion = exporterVersion;
+  object.options.font = currentFont;
 
   object.pieces = [];
   for (let i = 0; i < iconList.length; i++) {
@@ -901,6 +921,8 @@ function importPieces(element) {
 function setImportedData(data) {
   clearNonBoard();
   clearBoard();
+  if(data.options.font && availableFonts.get(data.options.font))
+    currentFont = data.options.font; 
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
     let startPos = [
@@ -980,12 +1002,12 @@ function setImportedData(data) {
     );
     iconList[i][2][6] = data.pieces[i].connections;
     iconList[i][2][7] = [[], []];
-    for(let j = 0; j < iconList[i][2][6].length; j++) {
-      for(let k = 0; k < iconList[i][2][6][j].length; k++) {
+    for (let j = 0; j < iconList[i][2][6].length; j++) {
+      for (let k = 0; k < iconList[i][2][6][j].length; k++) {
         let x1 = iconList[i][2][6][j][k][0][0];
-        let y1 =  iconList[i][2][6][j][k][0][1];
+        let y1 = iconList[i][2][6][j][k][0][1];
         let x2 = iconList[i][2][6][j][k][1][0];
-        let y2 =  iconList[i][2][6][j][k][1][1];
+        let y2 = iconList[i][2][6][j][k][1][1];
         let center1 = getCenter(document.getElementById("X" + x1 + y1));
         let center2 = getCenter(document.getElementById("X" + x2 + y2));
         let line = createLine(
@@ -1490,10 +1512,15 @@ function connectionExists(x1, y1, x2, y2) {
         equals(iconList[currentPiece][2][6][+isStartSide][i][1], [x2, y2])) ||
       (equals(iconList[currentPiece][2][6][+isStartSide][i][1], [x1, y1]) &&
         equals(iconList[currentPiece][2][6][+isStartSide][i][0], [x2, y2]))
-    ) 
-    return true;
+    )
+      return true;
   }
   return false;
+}
+
+function changeFont() {
+  currentFont = fontInput.value;
+  iconList[currentPiece][2][0] = createPieceName(nameInput.value);
 }
 
 init();
