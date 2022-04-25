@@ -66,6 +66,9 @@ let isStartSide = true;
 // Keeps track of if the piece has different piece icons on each side such as the Oracle
 let hasDifferentPieceIcons = false;
 
+// Keeps track of if the piece has different starting locations
+let hasDifferentStartLocations = false;
+
 // Get the SVG element for the entire template
 let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
@@ -97,7 +100,7 @@ let currentPiece = 0;
 // allowing for custom icons that need to be stored in the json file
 // this is different from the site version which handles the actual rendering and creating
 // of the SVG files
-let exporterVersion = 1;
+let exporterVersion = 2;
 
 // Current version of the site
 let siteVersion = 1.0;
@@ -113,6 +116,8 @@ abilityInput.addEventListener("change", changeAbility);
 let pieceIconInput = document.getElementById("pieceIconInput");
 let oppositeIconSideInput = document.getElementById("oppositeIconSideInput");
 oppositeIconSideInput.addEventListener("change", toggleOppositePieceSide);
+let oppositeStartSideInput = document.getElementById("oppositeStartSideInput");
+oppositeStartSideInput.addEventListener("change", toggleOppositeStartLocation);
 let amountInput = document.getElementById("amountInput");
 amountInput.addEventListener("change", changeAmount);
 let xInput = document.getElementById("xInput");
@@ -262,8 +267,8 @@ function mouseOnScroll(event) {
 // Returns if the given grid position is the center of the grid
 function isCenter(gridPos) {
   return (
-    gridPos[0] === iconList[currentPiece][2][4][0] &&
-    gridPos[1] === iconList[currentPiece][2][4][1]
+    gridPos[0] === iconList[currentPiece][2][4][+isStartSide][0] &&
+    gridPos[1] === iconList[currentPiece][2][4][+isStartSide][1]
   );
 }
 
@@ -314,11 +319,11 @@ function createIconAt(
   return newIconElement;
 }
 
-function createStartIconsAt(x, y, append = true) {
+function createStartIconsAt(x, y, x2, y2, append = true) {
   return [
     createIconAt(
       "NonStartSide",
-      getCenter(document.getElementById("X" + x + y)),
+      getCenter(document.getElementById("X" + x2 + y2)),
       [x, y],
       !isStartSide && append,
       1
@@ -556,7 +561,7 @@ function createPieceIcon(piece, append = true) {
 }
 
 // Create a new index in iconList for a new piece to be placed in
-function createNewPieceIndex(x = 2, y = 2, append = true) {
+function createNewPieceIndex(x = 2, y = 2, x2 = 2, y2 = 2, append = true) {
   let masterArray = [];
   // Create the two grids for the start and non start sides
   for (let i = 0; i < 2; i++) {
@@ -583,8 +588,11 @@ function createNewPieceIndex(x = 2, y = 2, append = true) {
   infoArray.push(1);
   // Store the position of the start location
   // 2,2 is the default and should be ignored unless it is different
-  infoArray.push([x, y]);
-  infoArray.push(createStartIconsAt(x, y, append));
+  infoArray.push([
+    [x, y],
+    [x2, y2],
+  ]);
+  infoArray.push(createStartIconsAt(x, y, x2, y2, append));
 
   masterArray.push(infoArray);
   iconList.push(masterArray);
@@ -703,6 +711,7 @@ function switchSides() {
   // Redraw the board
   drawNonBoard();
   drawBoard();
+  clearInputs();
 }
 
 // Move forward one piece in the piece array
@@ -718,6 +727,7 @@ function forwardPiece() {
   drawNonBoard();
   drawBoard();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
+  hasDifferentStartLocations = pieceHasDifferentStartPositions();
   clearInputs();
   displayListLength();
 }
@@ -731,10 +741,11 @@ function backwardPiece() {
   currentPiece--;
   if (currentPiece < 0) currentPiece = iconList.length - 1;
   isStartSide = true;
+  // Redraw the board and update the rest of the UI
   drawNonBoard();
   drawBoard();
-  // Redraw the board and update the rest of the UI
   hasDifferentPieceIcons = pieceHasDifferentIcons();
+  hasDifferentStartLocations = pieceHasDifferentStartPositions();
   clearInputs();
   displayListLength();
 }
@@ -743,6 +754,7 @@ function backwardPiece() {
 function clearInputs() {
   pieceIconInput.value = "";
   oppositeIconSideInput.checked = hasDifferentPieceIcons;
+  oppositeStartSideInput.checked = hasDifferentStartLocations;
   nameInput.value = iconList[currentPiece][2][0]
     ? iconList[currentPiece][2][0].getAttribute("text")
     : "";
@@ -752,10 +764,15 @@ function clearInputs() {
   amountInput.value = iconList[currentPiece][2][3]
     ? iconList[currentPiece][2][3]
     : 1;
-  xInput.value = iconList[currentPiece][2][4][0];
-  yInput.value = iconList[currentPiece][2][4][1];
+  xInput.value = iconList[currentPiece][2][4][+isStartSide][0]
+    ? iconList[currentPiece][2][4][+isStartSide][0]
+    : 2;
+  yInput.value = iconList[currentPiece][2][4][+isStartSide][1]
+    ? iconList[currentPiece][2][4][+isStartSide][1]
+    : 2;
 }
 
+// Check if the current piece has different icons
 function pieceHasDifferentIcons() {
   if (iconList[currentPiece][2][2][1] && iconList[currentPiece][2][2][0]) {
     return (
@@ -764,6 +781,14 @@ function pieceHasDifferentIcons() {
     );
   }
   return false;
+}
+
+// Check if the current piece has different starting positions
+function pieceHasDifferentStartPositions() {
+  return (
+    iconList[currentPiece][2][4][0][0] !== iconList[currentPiece][2][4][1][0] ||
+    iconList[currentPiece][2][4][0][1] !== iconList[currentPiece][2][4][1][1]
+  );
 }
 
 // Process keyboard inputs
@@ -851,6 +876,7 @@ function importPieces(element) {
     let result = JSON.parse(e.target.result);
     setImportedData(result);
     hasDifferentPieceIcons = pieceHasDifferentIcons();
+    hasDifferentStartLocations = pieceHasDifferentStartPositions();
     clearInputs();
   };
   fr.readAsText(element.files.item(0));
@@ -862,10 +888,32 @@ function setImportedData(data) {
   clearBoard();
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
-    let startPos = data.pieces[i].startPosition
-      ? data.pieces[i].startPosition
-      : [2, 2];
-    createNewPieceIndex(startPos[0], startPos[1], false);
+    let startPos = [
+      [2, 2],
+      [2, 2],
+    ];
+    if (data.options.exporterVersion === 1) {
+      startPos = data.pieces[i].startPosition
+        ? [data.pieces[i].startPosition, data.pieces[i].startPosition]
+        : [
+            [2, 2],
+            [2, 2],
+          ];
+    } else {
+      startPos = data.pieces[i].startPosition
+        ? data.pieces[i].startPosition
+        : [
+            [2, 2],
+            [2, 2],
+          ];
+    }
+    createNewPieceIndex(
+      startPos[1][0],
+      startPos[1][1],
+      startPos[0][0],
+      startPos[0][1],
+      false
+    );
     for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
       for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
         let gridPos = [j, k];
@@ -908,7 +956,13 @@ function setImportedData(data) {
     iconList[i][2][2][1] = createPieceIcon(data.pieces[i].altIcon, false);
     iconList[i][2][3] = data.pieces[i].amount;
     iconList[i][2][4] = startPos;
-    iconList[i][2][5] = createStartIconsAt(startPos[0], startPos[1], false);
+    iconList[i][2][5] = createStartIconsAt(
+      startPos[1][0],
+      startPos[1][1],
+      startPos[0][0],
+      startPos[0][1],
+      false
+    );
   }
   drawBoard();
   drawNonBoard();
@@ -1031,6 +1085,10 @@ function toggleOppositePieceSide() {
   hasDifferentPieceIcons = oppositeIconSideInput.checked;
 }
 
+function toggleOppositeStartLocation() {
+  hasDifferentStartLocations = oppositeStartSideInput.checked;
+}
+
 // Change the position of the start piece location
 function changeStartPosition() {
   let x = parseInt(xInput.value);
@@ -1041,8 +1099,19 @@ function changeStartPosition() {
   iconList[currentPiece][2][5][0].remove();
   iconList[currentPiece][2][5][1].remove();
   // Create a new icon at given location and append
-  iconList[currentPiece][2][5] = createStartIconsAt(x, y);
-  iconList[currentPiece][2][4] = [x, y];
+  if (hasDifferentStartLocations) {
+    iconList[currentPiece][2][4][+isStartSide] = [x, y];
+  } else {
+    iconList[currentPiece][2][4] = [
+      [x, y],
+      [x, y],
+    ];
+  }
+  x1 = iconList[currentPiece][2][4][1][0];
+  y1 = iconList[currentPiece][2][4][1][1];
+  x2 = iconList[currentPiece][2][4][0][0];
+  y2 = iconList[currentPiece][2][4][0][1];
+  iconList[currentPiece][2][5] = createStartIconsAt(x1, y1, x2, y2);
   svg.appendChild(iconList[currentPiece][2][5][+isStartSide]);
 }
 
