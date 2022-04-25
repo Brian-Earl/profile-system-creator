@@ -540,8 +540,9 @@ function createPieceIcon(piece, append = true) {
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   svg.appendChild(pieceIconElement);
   let bbox = pieceIconElement.getBBox();
-  let width = bbox.width * 10;
-  let height = bbox.height * 10;
+  let scale = 10;
+  let width = bbox.width * scale;
+  let height = bbox.height * scale;
   let cx = iconPos.x - width / 2;
   let cy = iconPos.y - height / 2;
   pieceIconElement.setAttribute("x", cx);
