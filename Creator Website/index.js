@@ -23,10 +23,10 @@
 // Better scroll control when selecting movement icon
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Allow selection of legacy render
-// Linting for consistency across file
 // Add multiple pages for renders when all of the pieces cannot fit on one
+// Revamp UI
 
-// variable that keeps track all of the current pieces created
+// Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
 // the first one representing the starting side and the second representing the non starting side
 // Each element of the 2D arrays are arrays that can have one or two elements themselves
@@ -126,6 +126,10 @@ let yInput = document.getElementById("yInput");
 yInput.addEventListener("change", changeStartPosition);
 let svgInput = document.getElementById("svgInput");
 let pngInput = document.getElementById("pngInput");
+let xLineInput1 = document.getElementById("xLineInput1");
+let yLineInput1 = document.getElementById("yLineInput1");
+let xLineInput2 = document.getElementById("xLineInput2");
+let yLineInput2 = document.getElementById("yLineInput2");
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -593,6 +597,10 @@ function createNewPieceIndex(x = 2, y = 2, x2 = 2, y2 = 2, append = true) {
     [x2, y2],
   ]);
   infoArray.push(createStartIconsAt(x, y, x2, y2, append));
+  // Store the grid locations of connecting lines
+  infoArray.push([[], []]);
+  // Store the line objects of connecting lines
+  infoArray.push([[], []]);
 
   masterArray.push(infoArray);
   iconList.push(masterArray);
@@ -612,6 +620,9 @@ function clearBoard() {
       }
     }
   }
+  for (let i = 0; i < iconList[currentPiece][2][7][+isStartSide].length; i++) {
+    iconList[currentPiece][2][7][+isStartSide][i].remove();
+  }
 }
 
 // Redraw all of the icons for the current piece and side from view
@@ -626,6 +637,9 @@ function drawBoard() {
         svg.appendChild(iconList[currentPiece][+isStartSide][i][j][k]);
       }
     }
+  }
+  for (let i = 0; i < iconList[currentPiece][2][7][+isStartSide].length; i++) {
+    svg.appendChild(iconList[currentPiece][2][7][+isStartSide][i]);
   }
 }
 
@@ -854,6 +868,7 @@ function exportPieces() {
       : "";
     pieceObject.amount = iconList[i][2][3] ? iconList[i][2][3] : 1;
     pieceObject.startPosition = iconList[i][2][4];
+    pieceObject.connections = iconList[i][2][6];
     object.pieces.push(pieceObject);
   }
   downloadJSON(object);
@@ -963,6 +978,27 @@ function setImportedData(data) {
       startPos[0][1],
       false
     );
+    iconList[i][2][6] = data.pieces[i].connections;
+    iconList[i][2][7] = [[], []];
+    for(let j = 0; j < iconList[i][2][6].length; j++) {
+      for(let k = 0; k < iconList[i][2][6][j].length; k++) {
+        let x1 = iconList[i][2][6][j][k][0][0];
+        let y1 =  iconList[i][2][6][j][k][0][1];
+        let x2 = iconList[i][2][6][j][k][1][0];
+        let y2 =  iconList[i][2][6][j][k][1][1];
+        let center1 = getCenter(document.getElementById("X" + x1 + y1));
+        let center2 = getCenter(document.getElementById("X" + x2 + y2));
+        let line = createLine(
+          center1.x,
+          center1.y,
+          center2.x,
+          center2.y,
+          "rgb(35, 31, 32)",
+          "20"
+        );
+        iconList[i][2][7][j].push(line);
+      }
+    }
   }
   drawBoard();
   drawNonBoard();
@@ -1273,19 +1309,27 @@ function exportPiecesAsGrid(
 
 // Draw a line between the two points given
 // Used for when adding the cut lines
-function createLine(x1, y1, x2, y2, color = "black") {
+function createLine(
+  x1,
+  y1,
+  x2,
+  y2,
+  color = "rgb(35, 31, 32)",
+  strokeWidth = "1"
+) {
   let newLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
   newLine.setAttribute("x1", x1);
   newLine.setAttribute("y1", y1);
   newLine.setAttribute("x2", x2);
   newLine.setAttribute("y2", y2);
   newLine.setAttribute("stroke", color);
+  newLine.setAttribute("stroke-width", strokeWidth);
   return newLine;
 }
 
 // Draw a rectangle around the given points
 // Used for when adding the cut lines
-function createRect(x1, y1, x2, y2, color = "blue") {
+function createRect(x1, y1, x2, y2, color = "blue", strokeWidth = "1") {
   let newRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   let height = y2 - y1;
   let width = x2 - x1;
@@ -1295,6 +1339,7 @@ function createRect(x1, y1, x2, y2, color = "blue") {
   newRect.setAttribute("height", height);
   newRect.setAttribute("stroke", color);
   newRect.setAttribute("fill", "transparent");
+  newLine.setAttribute("stroke-width", strokeWidth);
   return newRect;
 }
 
@@ -1390,6 +1435,64 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+
+// Add a line connecting two different movement icons
+function addLineConnector() {
+  let x1 = parseInt(xLineInput1.value);
+  let y1 = parseInt(yLineInput1.value);
+  let x2 = parseInt(xLineInput2.value);
+  let y2 = parseInt(yLineInput2.value);
+  // If outside the range of the board or not defined, return
+  if (
+    !x1 ||
+    !y1 ||
+    x1 < 0 ||
+    x1 > 4 ||
+    y1 < 0 ||
+    y1 > 4 ||
+    !x2 ||
+    !y2 ||
+    x2 < 0 ||
+    x2 > 4 ||
+    y2 < 0 ||
+    y2 > 4 ||
+    (x1 === x2 && y1 === y2) ||
+    connectionExists(x1, y1, x2, y2)
+  )
+    return;
+  iconList[currentPiece][2][6][+isStartSide].push([
+    [x1, y1],
+    [x2, y2],
+  ]);
+  let center1 = getCenter(document.getElementById("X" + x1 + y1));
+  let center2 = getCenter(document.getElementById("X" + x2 + y2));
+  let line = createLine(
+    center1.x,
+    center1.y,
+    center2.x,
+    center2.y,
+    "rgb(35, 31, 32)",
+    "20"
+  );
+  iconList[currentPiece][2][7][+isStartSide].push(line);
+  svg.appendChild(line);
+}
+
+// Checks if a line connection already exists in the current piece
+// Used to make sure no duplicate lines are placed onto the board
+function connectionExists(x1, y1, x2, y2) {
+  const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  for (let i = 0; i < iconList[currentPiece][2][6][+isStartSide].length; i++) {
+    if (
+      (equals(iconList[currentPiece][2][6][+isStartSide][i][0], [x1, y1]) &&
+        equals(iconList[currentPiece][2][6][+isStartSide][i][1], [x2, y2])) ||
+      (equals(iconList[currentPiece][2][6][+isStartSide][i][1], [x1, y1]) &&
+        equals(iconList[currentPiece][2][6][+isStartSide][i][0], [x2, y2]))
+    ) 
+    return true;
+  }
+  return false;
 }
 
 init();
