@@ -627,6 +627,9 @@ function clearBoard() {
 
 // Redraw all of the icons for the current piece and side from view
 function drawBoard() {
+  for (let i = 0; i < iconList[currentPiece][2][7][+isStartSide].length; i++) {
+    svg.appendChild(iconList[currentPiece][2][7][+isStartSide][i]);
+  }
   for (let i = 0; i < iconList[currentPiece][+isStartSide].length; i++) {
     for (let j = 0; j < iconList[currentPiece][+isStartSide][i].length; j++) {
       for (
@@ -637,9 +640,6 @@ function drawBoard() {
         svg.appendChild(iconList[currentPiece][+isStartSide][i][j][k]);
       }
     }
-  }
-  for (let i = 0; i < iconList[currentPiece][2][7][+isStartSide].length; i++) {
-    svg.appendChild(iconList[currentPiece][2][7][+isStartSide][i]);
   }
 }
 
@@ -1476,7 +1476,8 @@ function addLineConnector() {
     "20"
   );
   iconList[currentPiece][2][7][+isStartSide].push(line);
-  svg.appendChild(line);
+  clearBoard();
+  drawBoard();
 }
 
 // Checks if a line connection already exists in the current piece
