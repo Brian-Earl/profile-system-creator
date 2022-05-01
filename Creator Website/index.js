@@ -1407,7 +1407,7 @@ function createRect(x1, y1, x2, y2, color = "blue", strokeWidth = "1") {
   newRect.setAttribute("height", height);
   newRect.setAttribute("stroke", color);
   newRect.setAttribute("fill", "transparent");
-  newLine.setAttribute("stroke-width", strokeWidth);
+  newRect.setAttribute("stroke-width", strokeWidth);
   return newRect;
 }
 
