@@ -14,6 +14,7 @@
 // https://cjav.dev/posts/svg-to-png-with-js/
 // https://stackoverflow.com/questions/48105468/including-fonts-when-converting-svg-to-png
 // https://alligatr.co.uk/blog/render-an-svg-using-external-fonts-to-a-canvas/
+// https://bobbyhadz.com/blog/javascript-round-number-down-to-nearest-ten
 
 // TODO:
 // Add piece deletion
@@ -440,61 +441,38 @@ function scaleFactor(icon) {
   return 3;
 }
 
+// Calculate the angle in which to rotate the current movement
+// icon by depending on the start position of the piece
+function getAngle(x, y) {
+  return roundDownToNearest45(
+    Math.abs(
+      (Math.atan2(
+        y - iconList[currentPiece].startPos[+isStartSide][1],
+        x - iconList[currentPiece].startPos[+isStartSide][0]
+      ) *
+        180) /
+        Math.PI -
+        180
+    )
+  );
+}
+
+// Round the given number down to the nearest multiple of 45
+// This is used when calculating the angle in which to rotate
+// a movement icon by
+function roundDownToNearest45(num) {
+  return Math.floor(num / 45) * 45;
+}
+
 // Find the rotation degree based on the grid position
 function getRotateDegrees(gridPos) {
-  switch (gridPos.join()) {
-    case "2,1":
-    case "2,0":
-      return "0";
-    case "3,1":
-    case "4,0":
-      return "45";
-    case "3,2":
-    case "4,2":
-      return "90";
-    case "3,3":
-    case "4,4":
-      return "135";
-    case "2,3":
-    case "2,4":
-      return "180";
-    case "1,3":
-    case "0,4":
-      return "225";
-    case "1,2":
-    case "0,2":
-      return "270";
-    case "1,1":
-    case "0,0":
-      return "315";
-  }
-  return "0";
+  return getAngle(gridPos[1], gridPos[0]);
 }
 
 // Find how much to translate along the Y axis based on the grid position
 // Used for fixing issues regarding the position when translated
 function getYTranslation(gridPos, height) {
-  switch (gridPos.join()) {
-    case "2,1":
-    case "2,0":
-    case "3,2":
-    case "4,2":
-    case "2,3":
-    case "2,4":
-    case "1,2":
-    case "0,2":
-      return "0";
-    case "3,1":
-    case "4,0":
-    case "3,3":
-    case "4,4":
-    case "1,3":
-    case "0,4":
-    case "1,1":
-    case "0,0":
-      return "" + -1 * (height / 6); // Also try (height / 4)
-  }
-  return "0";
+  return getAngle(gridPos[1], gridPos[0]) % 90 === 0 ? 0 : -1 * (height / 6);
 }
 
 // Remove all of the elements from view at the current grid location
@@ -1064,7 +1042,6 @@ function setImportedData(data) {
       startPos[0][1],
       false
     );
-    console.log(data.pieces[i].connections);
     if (data.pieces[i].connections)
       iconList[i].connections = data.pieces[i].connections;
     iconList[i].storage.connections = [[], []];
