@@ -381,6 +381,9 @@ function createIconAt(
   return newIconElement;
 }
 
+// Create a start icons at the two given positions
+// x and y are for the start side
+// x2 and y2 are for the non start side
 function createStartIconsAt(x, y, x2, y2, append = true) {
   return [
     createIconAt(
@@ -430,10 +433,12 @@ function rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor = 1) {
   );
 }
 
+// Returns transformation attribute for scaling an icon
 function scaleIcon(icon) {
   return "scale(" + scaleFactor(icon) + ")";
 }
 
+// Returns how much to scale a certain icon by
 function scaleFactor(icon) {
   if (icon === "fullFormation") return 5;
   if (icon === "singleFormation") return 5.5;
