@@ -23,7 +23,6 @@
 // Add some more variable control in the web version such as for controlling the spacing in the render
 // Better scroll control when selecting movement icon
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
-// Allow selection of legacy render
 // Add multiple pages for renders when all of the pieces cannot fit on one
 // Revamp UI
 
@@ -155,9 +154,6 @@ let heightInput = document.getElementById("heightInput");
 
 // Get element for the styles appended onto the SVG before it is exported
 let exportStyle = document.getElementById("exportStyles");
-
-// Should use the legacy version of the cut line generator
-let isLegacyCutLines = false;
 
 class GamePiece {
   constructor(x = 2, y = 2, x2 = 2, y2 = 2, append = true) {
@@ -1246,7 +1242,7 @@ function exportPiecesAsGrid(
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
   // Distance between the piece and the cut lines box
-  let lineDistance = 5;
+  let lineDistance = 1;
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
@@ -1263,28 +1259,6 @@ function exportPiecesAsGrid(
   let i = 0;
   let j = 0;
   for (i = 0; i < width; i++) {
-    if (isLegacyCutLines && drawCuts) {
-      // Creates horizontal lines that extended across the entire canvas
-      let heightSpacing = (pieceSize + spacing) * i - spacing / 2 + offset;
-      let canvasHeightSpacing =
-        (pieceSize + spacing) * height - spacing / 2 + offset;
-      startSideCanvas.append(
-        createLine(
-          offset / 2,
-          heightSpacing,
-          canvasHeightSpacing,
-          heightSpacing
-        )
-      );
-      nonStartSideCanvas.append(
-        createLine(
-          offset / 2,
-          heightSpacing,
-          canvasHeightSpacing,
-          heightSpacing
-        )
-      );
-    }
     for (j = 0; j < height; j++) {
       // If there are no more pieces to render, exit the loop
       if (index >= iconList.length) {
@@ -1320,18 +1294,8 @@ function exportPiecesAsGrid(
         index++;
         forwardPiece();
       }
-      if (isLegacyCutLines && drawCuts) {
-        // Creates vertical lines that extended across the entire canvas
-        let widthSpacing = (pieceSize + spacing) * j - spacing / 2 + offset;
-        let canvasWidthSpacing =
-          (pieceSize + spacing) * width - spacing / 2 + offset;
-        startSideCanvas.append(
-          createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing)
-        );
-        nonStartSideCanvas.append(
-          createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing)
-        );
-      } else if (drawCuts) {
+      
+      if (drawCuts) {
         // Just for ease
         let x = j;
         let y = i;
@@ -1348,29 +1312,6 @@ function exportPiecesAsGrid(
         nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor));
       }
     }
-  }
-  if (isLegacyCutLines && drawCuts) {
-    // Create extra lines at the end of the vertical and horizontals of the grids that are missed during normal generation
-    // Create extra vertical line at the very right of the canvas that extends the entire height
-    let widthSpacing = (pieceSize + spacing) * j - spacing / 2 + offset;
-    let canvasWidthSpacing =
-      (pieceSize + spacing) * width - spacing / 2 + offset;
-    startSideCanvas.append(
-      createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing)
-    );
-    nonStartSideCanvas.append(
-      createLine(widthSpacing, offset / 2, widthSpacing, canvasWidthSpacing)
-    );
-    // Create extra horizontal line at the bottom of the canvas that extends the entire width
-    let heightSpacing = (pieceSize + spacing) * i - spacing / 2 + offset;
-    let canvasHeightSpacing =
-      (pieceSize + spacing) * height - spacing / 2 + offset;
-    startSideCanvas.append(
-      createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing)
-    );
-    nonStartSideCanvas.append(
-      createLine(offset / 2, heightSpacing, canvasHeightSpacing, heightSpacing)
-    );
   }
   // Reset canvas height to fit the amount of pieces generated
   canvasHeight = (pieceSize + spacing + offset) * i;
