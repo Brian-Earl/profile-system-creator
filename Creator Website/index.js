@@ -1242,7 +1242,8 @@ function exportPiecesAsGrid(
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
   // Distance between the piece and the cut lines box
-  let lineDistance = 1;
+  // Original was 5 
+  let lineDistance = 1.2;
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
