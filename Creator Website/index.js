@@ -20,7 +20,6 @@
 // Add piece deletion
 // Add rest of class icons
 // Add custom SVG icon support
-// Add some more variable control in the web version such as for controlling the spacing in the render
 // Better scroll control when selecting movement icon
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Add multiple pages for renders when all of the pieces cannot fit on one
@@ -151,6 +150,7 @@ let totalPieceNumberElement = document.getElementById("totalPieceNumber");
 // Get elements for the width and height when generation the grid svg
 let widthInput = document.getElementById("widthInput");
 let heightInput = document.getElementById("heightInput");
+let spacingInput = document.getElementById("spacingInput");
 
 // Get element for the styles appended onto the SVG before it is exported
 let exportStyle = document.getElementById("exportStyles");
@@ -1238,7 +1238,7 @@ function exportPiecesAsGrid(
   // Size of the pieces in the svg
   let pieceSize = 200 * scale;
   // Spacing between the individual piece
-  let spacing = 20 * scale;
+  let spacing = spacingInput.value * scale;
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
   // Distance between the piece and the cut lines box
@@ -1253,7 +1253,9 @@ function exportPiecesAsGrid(
   let canvasWidth = (pieceSize + spacing + offset) * (height + 1);
   let canvasHeight = (pieceSize + spacing + offset) * (width + 1);
   let startSideCanvas = document.getElementById("startSideCanvas");
+  startSideCanvas.innerHTML = "";
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
+  nonStartSideCanvas.innerHTML = "";
   // Keep track of the index so that generation can be cut off early
   let index = 0;
   // Store the value of i and j so that they can be used in calculations later
