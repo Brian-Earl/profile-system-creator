@@ -137,9 +137,8 @@ let yInput = document.getElementById("yInput");
 yInput.addEventListener("change", changeStartPosition);
 let svgInput = document.getElementById("svgInput");
 let pngInput = document.getElementById("pngInput");
-let oneXScaleInput = document.getElementById("1xScaleInput");
-let threeXScaleInput = document.getElementById("3xScaleInput");
-let fiveXScaleInput = document.getElementById("5xScaleInput");
+let renderScaleInput = document.getElementById("renderScaleInput");
+renderScaleInput.addEventListener("change", handleRenderScale);
 let xLineInput1 = document.getElementById("xLineInput1");
 let yLineInput1 = document.getElementById("yLineInput1");
 let xLineInput2 = document.getElementById("xLineInput2");
@@ -1560,16 +1559,16 @@ function enableScroll() {
   //body.style.overflow = "auto";
 }
 
+// Make sure that the scale never falls to or below zero
+function handleRenderScale(e) {
+  let value = e.target.value
+  if(value <= 0)
+    renderScaleInput.value = 1;
+}
+
 // Get the amount of scaling that should be applied to the render
 function getRenderScale() {
-  if(oneXScaleInput.checked) {
-    return 1;
-  } else if(threeXScaleInput.checked) {
-    return 3;
-  } else if(fiveXScaleInput.checked) {
-    return 5;
-  }
-  return 1;
+  return parseInt(renderScaleInput.value)
 }
 
 init();
