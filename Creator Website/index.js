@@ -1275,9 +1275,6 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
-        // Clone the current piece and add the start and non start side to the two different renders
-        let svgStartSideClone = svg.cloneNode(true);
-        startSideCanvas.append(svgStartSideClone);
         // Calculate the transformation of the current piece and apply to both sides
         let translation =
           "translate(" +
@@ -1285,6 +1282,10 @@ function exportPiecesAsGrid(
           " " +
           ((spacing + pieceSize) * i + offset) +
           ")";
+          
+        // Clone the current piece and add the start and non start side to the two different renders
+        let svgStartSideClone = svg.cloneNode(true);
+        startSideCanvas.append(svgStartSideClone);
         svgStartSideClone.setAttribute("transform", translation);
         svgStartSideClone.setAttribute("width", pieceSize);
         svgStartSideClone.setAttribute("height", pieceSize);
@@ -1329,6 +1330,14 @@ function exportPiecesAsGrid(
   startSideCanvas.setAttribute("height", canvasHeight);
   nonStartSideCanvas.setAttribute("width", canvasWidth);
   nonStartSideCanvas.setAttribute("height", canvasHeight);
+  // Add styling for fonts
+  // Export style needs to be cloned as if it isnt then the styling
+  // will only be applied to the second element that it is appended to
+  // (nonStartSideCanvas in this case). This is because if you append it without cloning
+  // then you are really just moving the single element from one place to the other. You need
+  // to clone it so that each will have their own style element 
+  startSideCanvas.append(exportStyle.cloneNode(true));
+  nonStartSideCanvas.append(exportStyle.cloneNode(true));
 }
 
 // Draw a line between the two points given
@@ -1398,7 +1407,7 @@ function savePng(svgEl, name) {
   let ctx = canvas.getContext("2d");
   let img = new Image();
   let svgBlob = new Blob([svgText], {
-    type: "image/svg+xml;base64,",
+    type: "image/svg+xml;charset=utf-8,base64,",
   }); // The base64 is needed for font to show up in the png
   let url = URL.createObjectURL(svgBlob);
   img.src = url;
@@ -1430,7 +1439,6 @@ function downloadStartSideRender(
   // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas");
   removeAllChildNodes(startSideCanvas);
-  startSideCanvas.append(exportStyle);
   exportPiecesAsGrid(drawCuts, drawPieces, lineColor);
   if (svgInput.checked) {
     saveSvg(startSideCanvas, filename + ".svg");
@@ -1449,7 +1457,6 @@ function downloadNonStartSideRender(
   // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
   removeAllChildNodes(nonStartSideCanvas);
-  nonStartSideCanvas.append(exportStyle);
   exportPiecesAsGrid(drawCuts, drawPieces, lineColor);
   if (svgInput.checked) {
     saveSvg(nonStartSideCanvas, filename + ".svg");
