@@ -381,7 +381,11 @@ function createIconAt(
   newIconElement.setAttribute("id", "");
   newIconElement.setAttribute("icon", icon);
   newIconElement.setAttribute("visibility", "visible");
-  newIconElement.setAttribute("style", "pointer-events: none;")
+  // Add this styling so that movement icons will ignore mouse events
+  // If not set then the icons are placed in front of the mouse, canceling the mouse
+  // event of the grid square, making the icon disappear and requiring the user to move their
+  // mouse into a particular location to prevent this issue.
+  newIconElement.style.pointerEvents = "none";
   if (!append) newIconElement.remove();
   return newIconElement;
 }
