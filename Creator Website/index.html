@@ -4,7 +4,8 @@
 
 <head>
   <title>The Duke</title>
-  <link href="http://fonts.cdnfonts.com/css/pieces-of-eight" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.js" integrity="sha512-eROF+rLuEUiVuYGmMqhsT8/OwSLcVw5RLjhhJrWLTznvDcwG0WtXrV6w7Ko4Nw7LyWzDZOGlQjfzQd7kUYLQcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <link href="http://fonts.cdnfonts.com/css/pieces-of-eight" rel="stylesheet" /> -->
   <link href="http://fonts.cdnfonts.com/css/xenippa" rel="stylesheet" />
   <link href="http://fonts.cdnfonts.com/css/lucida-blackletter" rel="stylesheet" />
   <link
@@ -30,6 +31,17 @@
       src: url("//fast.fonts.net/dv2/14/8f55151c-2c58-4e0a-8dc7-c7e222491212.woff2?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff2"),
         url("//fast.fonts.net/dv2/3/f02392f2-679b-4430-a801-4165cceae77d.woff?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff");
     }
+
+    /* 
+    Needed to save SVG as PNG
+    Link CDN breaks the download
+    */
+    @font-face {
+    font-family: 'Pieces of Eight';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+    }
   </style>
 </head>
 
@@ -39,6 +51,7 @@
       xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
       style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" onmouseover="disableScroll()"
       onmouseout="enableScroll()">
+      <rect width="100%" height="100%" fill="#fff" />
       <g visibility="hidden" id="Outer-Border" serif:id="Outer Border"
         transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
         <rect x="3.354" y="3.755" width="326.634" height="326.641"
@@ -435,7 +448,7 @@
     <p>
       Start Side Render:
       <input type="button" value="Download Full"
-        onclick="downloadStartSideRender(true, true, 'startSideFull', 'blue')" />
+        onclick="downloadStartSideRender(true, true, 'startSideFull', 'red')" />
       <input type="button" value="Download Cuts Outline"
         onclick="downloadStartSideRender(true, false, 'startSideCuts')" />
       <input type="button" value="Download Pieces" onclick="downloadStartSideRender(false, true, 'startSidePieces')" />
@@ -445,7 +458,7 @@
     <p>
       Non Start Side Render:
       <input type="button" value="Download Full"
-        onclick="downloadNonStartSideRender(true, true, 'nonStartSideFull', 'blue')" />
+        onclick="downloadNonStartSideRender(true, true, 'nonStartSideFull', 'red')" />
       <input type="button" value="Download Cuts Outline"
         onclick="downloadNonStartSideRender(true, false, 'nonStartSideCuts')" />
       <input type="button" value="Download Pieces"
@@ -457,9 +470,10 @@
     <defs id="exportStyles">
       <style type="text/css">
         @font-face {
-          font-family: "Pieces of Eight";
-          src: url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.eot");
-          src: url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.woff") format("woff"), url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/e7acd6745405f785a37c82247356be75.svg#Pieces of Eight") format("svg");
+          font-family: 'Pieces of Eight';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
         }
       </style>
     </defs>
@@ -618,11 +632,14 @@
           style="fill:rgb(35,31,32);fill-rule:nonzero;" />
       </g>
     </svg>
-    <svg id="fullFormation" width="100%" height="100%" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <svg id="fullFormation" width="100%" height="100%" viewBox="0 0 188 188" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
       <g transform="matrix(-5.11216,5.07871,5.09708,5.09574,153.028,153.492)">
-          <rect x="-8.324" y="-19.914" width="16.554" height="16.473" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.85px;"/>
+        <rect x="-8.324" y="-19.914" width="16.554" height="16.473"
+          style="fill:none;stroke:rgb(35,31,32);stroke-width:1.85px;" />
       </g>
-  </svg>
+    </svg>
     <svg id="hammer" width="100%" height="100%" viewBox="0 0 122 140" version="1.1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
       style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -632,12 +649,14 @@
           style="fill:rgb(35,31,32);fill-rule:nonzero;" />
       </g>
     </svg>
-    <svg id="shieldDefense" width="100%" height="100%" viewBox="0 0 140 141" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <svg id="shieldDefense" width="100%" height="100%" viewBox="0 0 140 141" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
       <g transform="matrix(-5.89089,0,0,5.89654,404.287,-1499.59)">
-          <rect x="46.44" y="255.879" width="20.6" height="20.601" style="fill:white;stroke:black;stroke-width:3.17px;"/>
+        <rect x="46.44" y="255.879" width="20.6" height="20.601" style="fill:white;stroke:black;stroke-width:3.17px;" />
       </g>
-  </svg>
-  
+    </svg>
+
     <svg id="singleFormation" width="100%" height="100%" viewBox="0 0 45 45" version="1.1"
       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
       xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd">

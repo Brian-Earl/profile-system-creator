@@ -356,7 +356,6 @@ function createIconAt(
   newIconElement = document.getElementById(icon).cloneNode(true);
   svg.appendChild(newIconElement);
   let bbox = newIconElement.getBBox();
-  console.log(bbox);
   let width = bbox.width * iconScaleFactor;
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
@@ -1392,7 +1391,7 @@ function savePng(svgEl, name) {
   let ctx = canvas.getContext("2d");
   let img = new Image();
   let svgBlob = new Blob([svgText], {
-    type: "image/svg+xml;base64,charset=utf-8",
+    type: "image/svg+xml;base64,",
   }); // The base64 is needed for font to show up in the png
   let url = URL.createObjectURL(svgBlob);
   img.src = url;
@@ -1401,6 +1400,7 @@ function savePng(svgEl, name) {
     let png = canvas.toDataURL("image/png");
     let pngContainer = document.getElementById("pngContainer");
     pngContainer.setAttribute("src", png);
+    console.log(pngContainer)
     let imgURI = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
@@ -1428,7 +1428,8 @@ function downloadStartSideRender(
   if (svgInput.checked) {
     saveSvg(startSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
-    savePng(startSideCanvas, filename + ".png");
+    saveSvgAsPng(startSideCanvas, filename + ".svg")
+    // savePng(startSideCanvas, filename + ".svg");
   }
 }
 
@@ -1447,7 +1448,8 @@ function downloadNonStartSideRender(
   if (svgInput.checked) {
     saveSvg(nonStartSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
-    savePng(nonStartSideCanvas, filename + ".png");
+    saveSvgAsPng(nonStartSideCanvas, filename + ".png");
+    // savePng(nonStartSideCanvas, filename + ".png");
   }
 }
 
