@@ -1244,7 +1244,7 @@ function changeStartPosition() {
 function exportPiecesAsGrid(
   drawCuts = true,
   drawPieces = true,
-  lineColor = "blue"
+  lineColor = "red"
 ) {
   // Get the width and height of the rendered grid
   let width = parseInt(widthInput.value);
@@ -1260,8 +1260,9 @@ function exportPiecesAsGrid(
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
   // Distance between the piece and the cut lines box
-  // Original was 5 
   let lineDistance = 1.2;
+  // Stroke width of the cut lines
+  let strokeWidth = 1;
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
@@ -1324,14 +1325,15 @@ function exportPiecesAsGrid(
         // Creates a box around the current piece for cutting
         // Allows for having a clean cut, while also leaving a hole
         // Constructed using four separate lines though might be possible with a square element
-        let tlX = (spacing + pieceSize) * x + offset - lineDistance;
-        let trX = (spacing + pieceSize) * x + pieceSize + offset + lineDistance;
-        let tlY = (spacing + pieceSize) * y + offset - lineDistance;
-        let trY = (spacing + pieceSize) * y + pieceSize + offset + lineDistance;
-
+        // Adjust the line distance by half of the stroke width so that the distance will remain
+        // the same as the width of the line changes
+        let tlX = (spacing + pieceSize) * x + offset - (lineDistance + (strokeWidth/2));
+        let trX = (spacing + pieceSize) * x + pieceSize + offset + (lineDistance + (strokeWidth/2));
+        let tlY = (spacing + pieceSize) * y + offset - (lineDistance + (strokeWidth/2));
+        let trY = (spacing + pieceSize) * y + pieceSize + offset + (lineDistance + (strokeWidth/2));
         // Square
-        startSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor));
-        nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor));
+        startSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor, strokeWidth));
+        nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor, strokeWidth));
       }
     }
   }
@@ -1373,7 +1375,7 @@ function createLine(
 
 // Draw a rectangle around the given points
 // Used for when adding the cut lines
-function createRect(x1, y1, x2, y2, color = "blue", strokeWidth = "1") {
+function createRect(x1, y1, x2, y2, color = "red", strokeWidth = 1) {
   let newRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   let height = y2 - y1;
   let width = x2 - x1;
