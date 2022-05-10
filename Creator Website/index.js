@@ -15,6 +15,7 @@
 // https://stackoverflow.com/questions/48105468/including-fonts-when-converting-svg-to-png
 // https://alligatr.co.uk/blog/render-an-svg-using-external-fonts-to-a-canvas/
 // https://bobbyhadz.com/blog/javascript-round-number-down-to-nearest-ten
+// https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
 
 // TODO:
 // Add piece deletion
@@ -52,7 +53,6 @@ const movementIcons = [
   "strike",
   "defense",
   "dread",
-  "fullFormation",
   "hammer",
   "shieldDefense",
   "smash",
@@ -98,7 +98,7 @@ let playerMarkerLocation = document.getElementById("Starting-Side");
 // piece has a special ability
 let outerBorderLocation = document.getElementById("Outer-Border");
 
-// Get element for
+// Get element for importing JSONs for pieces
 let importFileLocation = document.getElementById("importPiecesInput");
 
 // ID number of current piece being worked on
@@ -356,6 +356,7 @@ function createIconAt(
   newIconElement = document.getElementById(icon).cloneNode(true);
   svg.appendChild(newIconElement);
   let bbox = newIconElement.getBBox();
+  console.log(bbox);
   let width = bbox.width * iconScaleFactor;
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
@@ -436,10 +437,13 @@ function scaleIcon(icon) {
 
 // Returns how much to scale a certain icon by
 function scaleFactor(icon) {
-  if (icon === "fullFormation") return 5;
-  if (icon === "singleFormation") return 5.5;
-  if (isFullSize(icon)) return 4;
-  return 3;
+  if(icon === "slide") return 0.95
+  if(icon === "jumpSlide") return 1.1
+  if(icon === "strike") return 1.1
+  if(icon === "hammer") return 1.1
+  if(icon === "defense") return 0.95
+  if(icon === "shieldDefense") return 1.1
+  return 1;
 }
 
 // Calculate the angle in which to rotate the current movement
@@ -1523,6 +1527,16 @@ function connectionExists(x1, y1, x2, y2) {
 function changeFont() {
   currentFont = fontInput.value;
   iconList[currentPiece].name = createPieceName(nameInput.value);
+}
+
+// Disables Scrolling
+function disableScroll() {
+  //body.style.overflow = "hidden";
+}
+
+// Enables Scrolling
+function enableScroll() {
+  //body.style.overflow = "auto";
 }
 
 init();
