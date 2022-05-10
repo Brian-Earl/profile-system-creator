@@ -15,13 +15,12 @@
 // https://stackoverflow.com/questions/48105468/including-fonts-when-converting-svg-to-png
 // https://alligatr.co.uk/blog/render-an-svg-using-external-fonts-to-a-canvas/
 // https://bobbyhadz.com/blog/javascript-round-number-down-to-nearest-ten
-// https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
+// https://alvarotrigo.com/blog/prevent-scroll-on-scrollable-element-js/
 
 // TODO:
 // Add piece deletion
 // Add rest of class icons
 // Add custom SVG icon support
-// Better scroll control when selecting movement icon
 // Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Add multiple pages for renders when all of the pieces cannot fit on one
 // Revamp UI
@@ -42,6 +41,9 @@ let currentGridSquare = null;
 
 // Current selected icon, correlates to the indexes of movementIcons
 let currentIcon = 0;
+
+// Keeps track of if the user can scroll the screen
+let canScroll = true;
 
 // List of available icons where each index is the id of an SVG element
 const movementIcons = [
@@ -209,6 +211,8 @@ function init() {
 
 // Handle the user mousing over a grid square
 function mouseOverGridSquare(item) {
+  // Disable scrolling
+  disableScroll()
   // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
   let gridPos = item.parentElement.id
     .split("")
@@ -237,6 +241,8 @@ function mouseOverGridSquare(item) {
 
 // Handle the mouse leaving a grid square
 function mouseOutGridSquare(item) {
+  // Reenable scrolling
+  enableScroll()
   // Turn the item's id into an array of two numbers representing the coordinates of the grid spaces
   let gridPos = item.parentElement.id
     .split("")
@@ -375,6 +381,7 @@ function createIconAt(
   newIconElement.setAttribute("id", "");
   newIconElement.setAttribute("icon", icon);
   newIconElement.setAttribute("visibility", "visible");
+  newIconElement.setAttribute("style", "pointer-events: none;")
   if (!append) newIconElement.remove();
   return newIconElement;
 }
@@ -1549,21 +1556,36 @@ function connectionExists(x1, y1, x2, y2) {
   return false;
 }
 
+// Change font to the inputted value
 function changeFont() {
   currentFont = fontInput.value;
   iconList[currentPiece].name = createPieceName(nameInput.value);
 }
 
-// FIXME
 // Disables Scrolling
 function disableScroll() {
-  //body.style.overflow = "hidden";
+  if(canScroll) {
+    canScroll = false;
+    console.log("scrolling disablled")
+    document.querySelector('.scrollable').addEventListener('wheel', preventScroll);
+  }
 }
 
-// FIXME
 // Enables Scrolling
 function enableScroll() {
-  //body.style.overflow = "auto";
+  if(!canScroll) {
+    canScroll = true;
+    console.log("Scroll enabled")
+    document.querySelector('.scrollable').removeEventListener('wheel', preventScroll);
+  }
+}
+
+// Prevent the screen from scrolling
+function preventScroll(e){
+  e.preventDefault();
+  e.stopPropagation();
+
+  return false;
 }
 
 // Make sure that the scale never falls to or below zero
