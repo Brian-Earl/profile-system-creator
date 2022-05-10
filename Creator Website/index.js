@@ -1426,7 +1426,7 @@ function downloadStartSideRender(
   drawCuts = true,
   drawPieces = true,
   filename = "startside",
-  lineColor = "blue"
+  lineColor = "red"
 ) {
   // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas");
@@ -1445,7 +1445,7 @@ function downloadNonStartSideRender(
   drawCuts = true,
   drawPieces = true,
   filename = "nonStartside",
-  lineColor = "blue"
+  lineColor = "red"
 ) {
   // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
@@ -1457,6 +1457,17 @@ function downloadNonStartSideRender(
   } else if (pngInput.checked) {
     saveSvgAsPng(nonStartSideCanvas, filename + ".png");
   }
+}
+
+function downloadBothSidesRender(
+  drawCuts = true,
+  drawPieces = true,
+  startSidefilename = "startside",
+  nonStartSideFileName = "nonStartside",
+  lineColor = "red"
+) {
+  downloadStartSideRender(drawCuts, drawPieces, startSidefilename, lineColor);
+  downloadNonStartSideRender(drawCuts, drawPieces, nonStartSideFileName, lineColor);
 }
 
 // Remove all children node of the given element
@@ -1549,6 +1560,7 @@ function enableScroll() {
   //body.style.overflow = "auto";
 }
 
+// Get the amount of scaling that should be applied to the render
 function getRenderScale() {
   if(oneXScaleInput.checked) {
     return 1;

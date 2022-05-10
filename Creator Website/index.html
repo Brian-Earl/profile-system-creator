@@ -458,6 +458,15 @@
   <br /><br />
   <div>
     <p>
+      Both Side Renders:
+      <input type="button" value="Download Full"
+        onclick="downloadBothSidesRender(true, true, 'startSideFull', 'nonStartSideFull', 'red')" />
+      <input type="button" value="Download Cuts Outline"
+        onclick="downloadBothSidesRender(true, false, 'startSideCuts', 'nonStartSideFull')" />
+      <input type="button" value="Download Pieces" onclick="downloadBothSidesRender(false, true, 'startSidePieces', 'nonStartSideFull')" />
+    </p>
+    <br />
+    <p>
       Start Side Render:
       <input type="button" value="Download Full"
         onclick="downloadStartSideRender(true, true, 'startSideFull', 'red')" />
