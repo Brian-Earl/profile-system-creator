@@ -137,6 +137,9 @@ let yInput = document.getElementById("yInput");
 yInput.addEventListener("change", changeStartPosition);
 let svgInput = document.getElementById("svgInput");
 let pngInput = document.getElementById("pngInput");
+let oneXScaleInput = document.getElementById("1xScaleInput");
+let threeXScaleInput = document.getElementById("3xScaleInput");
+let fiveXScaleInput = document.getElementById("5xScaleInput");
 let xLineInput1 = document.getElementById("xLineInput1");
 let yLineInput1 = document.getElementById("yLineInput1");
 let xLineInput2 = document.getElementById("xLineInput2");
@@ -1239,7 +1242,7 @@ function exportPiecesAsGrid(
   // If the user has put in a number that is too small (done through typing in a number less than zero) exit the function
   if (width < 1 || height < 1) return;
   // Used for scaling render up to higher resolutions
-  let scale = 1;
+  let scale = getRenderScale();
   // Size of the pieces in the svg
   let pieceSize = 200 * scale;
   // Spacing between the individual piece
@@ -1384,6 +1387,9 @@ function saveSvg(svgEl, name) {
 }
 
 // Convert SVG to PNG and download to file of the given name
+// Now deprecated as it has been decided to use saveSvgAsPng.js as it is easier
+// to use, specifically because it saves fonts to the png which this function
+// struggles to do. I will keep this function here for now as I see no harm in it 
 function savePng(svgEl, name) {
   let svgText = new XMLSerializer().serializeToString(svgEl);
   let bbox = svgEl.getBBox();
@@ -1431,7 +1437,6 @@ function downloadStartSideRender(
     saveSvg(startSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
     saveSvgAsPng(startSideCanvas, filename + ".svg")
-    // savePng(startSideCanvas, filename + ".svg");
   }
 }
 
@@ -1451,7 +1456,6 @@ function downloadNonStartSideRender(
     saveSvg(nonStartSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
     saveSvgAsPng(nonStartSideCanvas, filename + ".png");
-    // savePng(nonStartSideCanvas, filename + ".png");
   }
 }
 
@@ -1533,14 +1537,27 @@ function changeFont() {
   iconList[currentPiece].name = createPieceName(nameInput.value);
 }
 
+// FIXME
 // Disables Scrolling
 function disableScroll() {
   //body.style.overflow = "hidden";
 }
 
+// FIXME
 // Enables Scrolling
 function enableScroll() {
   //body.style.overflow = "auto";
+}
+
+function getRenderScale() {
+  if(oneXScaleInput.checked) {
+    return 1;
+  } else if(threeXScaleInput.checked) {
+    return 3;
+  } else if(fiveXScaleInput.checked) {
+    return 5;
+  }
+  return 1;
 }
 
 init();

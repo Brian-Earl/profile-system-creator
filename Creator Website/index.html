@@ -4,7 +4,9 @@
 
 <head>
   <title>The Duke</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.js" integrity="sha512-eROF+rLuEUiVuYGmMqhsT8/OwSLcVw5RLjhhJrWLTznvDcwG0WtXrV6w7Ko4Nw7LyWzDZOGlQjfzQd7kUYLQcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/save-svg-as-png/1.4.17/saveSvgAsPng.js"
+    integrity="sha512-eROF+rLuEUiVuYGmMqhsT8/OwSLcVw5RLjhhJrWLTznvDcwG0WtXrV6w7Ko4Nw7LyWzDZOGlQjfzQd7kUYLQcQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <link href="http://fonts.cdnfonts.com/css/pieces-of-eight" rel="stylesheet" /> -->
   <link href="http://fonts.cdnfonts.com/css/xenippa" rel="stylesheet" />
   <link href="http://fonts.cdnfonts.com/css/lucida-blackletter" rel="stylesheet" />
@@ -37,10 +39,10 @@
     Link CDN breaks the download
     */
     @font-face {
-    font-family: 'Pieces of Eight';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+      font-family: 'Pieces of Eight';
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
     }
   </style>
 </head>
@@ -442,6 +444,16 @@
       <input type="radio" id="pngInput" name="format" value="png" />
       <label for="png">Save as PNG</label>
     </form>
+    <br />
+    <form>
+      Render Scale:
+      <input type="radio" id="1xScaleInput" name="format" value="1" checked />
+      <label for="svg">1x</label>
+      <input type="radio" id="3xScaleInput" name="format" value="3" checked />
+      <label for="svg">3x</label>
+      <input type="radio" id="5xScaleInput" name="format" value="5" checked />
+      <label for="svg">5x</label>
+    </form>
   </div>
   <br /><br />
   <div>
@@ -468,12 +480,12 @@
     <br />
     <img hidden="hidden" id="pngContainer" />
     <defs id="exportStyles">
-      <style type="text/css">
+      <style>
         @font-face {
           font-family: 'Pieces of Eight';
           font-style: normal;
           font-weight: 400;
-          src: local('Pieces of Eight'), url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+          src: url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
         }
       </style>
     </defs>
