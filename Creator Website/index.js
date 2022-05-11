@@ -17,6 +17,10 @@
 // https://bobbyhadz.com/blog/javascript-round-number-down-to-nearest-ten
 // https://alvarotrigo.com/blog/prevent-scroll-on-scrollable-element-js/
 // https://stackoverflow.com/questions/5891552/more-usage-of-gettransformtoelement
+// https://www.freecodecamp.org/news/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb/
+// https://bobbyhadz.com/blog/javascript-split-string-only-on-first-instance-of-character
+// https://www.oreilly.com/library/view/svg-text-layout/9781491933817/ch04.html
+// https://stackoverflow.com/questions/1731190/check-if-a-string-has-white-space
 
 // TODO:
 // Add piece deletion
@@ -580,6 +584,7 @@ function restoreOppositeType(x, y, newIcon) {
 
 // Creates a text element at the position given of the font size given
 function createTextAt(
+  textElem,
   text,
   pos,
   fontSize,
@@ -591,7 +596,8 @@ function createTextAt(
   newText.setAttribute("font-size", fontSize);
   newText.setAttribute("font-family", fontFamily);
   newText.setAttribute("text", text);
-  newText.appendChild(document.createTextNode(text));
+  textElem.forEach(elem => newText.appendChild(elem));
+  //newText.appendChild(document.createTextNode(text));
   svg.appendChild(newText);
   let bbox = newText.getBBox();
   let cx = pos.x - bbox.width / 2;
@@ -604,10 +610,11 @@ function createTextAt(
 
 // Create a text element of the given piece name
 function createPieceName(text, append = true) {
-  let fontSize = getFontSize(text.length);
+  let fontSize = getFontSize(text.length, hasWhiteSpace(text));
   if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
   let namePos = getCenter(nameLocation);
   return createTextAt(
+    processText(text),
     text,
     namePos,
     fontSize,
@@ -628,7 +635,7 @@ function createPieceAbilityText(text, append = true) {
     "visibility",
     text !== "" ? "visible" : "hidden"
   );
-  return createTextAt(text, iconPos, 100, "Pieces of Eight", append);
+  return createTextAt(document.createTextNode(text), text, iconPos, 100, "Pieces of Eight", append);
 }
 
 // Create the piece icon of the given piece name
@@ -1635,10 +1642,13 @@ function getCutLineWidth() {
 
 // Return the correct font size depending on the 
 // current font and the length of the text
-function getFontSize(length = 1) {
+function getFontSize(length = 1, hasSpace = false) {
   if (currentFont === "dukeFont") {
-    if (length >= 8) return 245;
+    console.log(hasSpace)
+    console.log(length)
+    if (length >= 12 && hasSpace) return 200;
     if (length >= 10) return 215;
+    if (length >= 8) return 245;
     return 265;
   } else if (currentFont === "musketeersFont") {
     if (length >= 9) return 185;
@@ -1647,6 +1657,73 @@ function getFontSize(length = 1) {
     return 170;
   }
   return 200;
+}
+
+// Process text and create the appropriate elements to add to the image
+// if the text has a space and is above a certain lenth then split the 
+// text into two different lines, otherwise use the normal method 
+// for creating an element
+function processText(text) {
+  if (currentFont === "dukeFont") {
+    if (text.length > 10) {
+      if(hasWhiteSpace(text)) {
+        let splitText = splitAtLastSpace(text)
+        console.log(splitText)
+        let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+        tspanFirstElem.setAttribute("dy", "-0.6em");
+        tspanFirstElem.setAttribute("x", "1em");
+        tspanFirstElem.setAttribute("dx", "-.1em");
+        // tspanFirstElem.setAttribute("x", "1em");
+        tspanFirstElem.textContent = splitText[0]
+        let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+        tspanSecondElem.setAttribute("dy", "0.7em");
+        tspanFirstElem.setAttribute("x", "1em");
+        tspanSecondElem.setAttribute("dx", "-2.57em");
+        // tspanSecondElem.setAttribute("x", "1.6em");
+        tspanSecondElem.textContent = splitText[1];
+        return [tspanFirstElem, tspanSecondElem]
+      }
+      return [document.createTextNode(text)]
+    }
+  }
+  return [document.createTextNode(text)]
+}
+
+// Splits text at the last space
+function splitAtLastSpace(text) {
+  return splitAtFirstOccurance(reverseString(text), " ")
+    .reverse()
+    .map(value => {
+      return reverseString(value)
+    });
+}
+
+// Splits text only at the first occurance of a character
+function splitAtFirstOccurance(text, split) {
+  return [first, ...rest] = text.split(split)
+}
+
+// Reverse a string
+function reverseString(str) {
+  // Step 1. Use the split() method to return a new array
+  var splitString = str.split(""); // var splitString = "hello".split("");
+  // ["h", "e", "l", "l", "o"]
+
+  // Step 2. Use the reverse() method to reverse the new created array
+  var reverseArray = splitString.reverse(); // var reverseArray = ["h", "e", "l", "l", "o"].reverse();
+  // ["o", "l", "l", "e", "h"]
+
+  // Step 3. Use the join() method to join all elements of the array into a string
+  var joinArray = reverseArray.join(""); // var joinArray = ["o", "l", "l", "e", "h"].join("");
+  // "olleh"
+
+  //Step 4. Return the reversed string
+  return joinArray; // "olleh"
+}
+
+// Checks if the given text has a whitespace in it
+function hasWhiteSpace(text) {
+  return /\s/g.test(text);
 }
 
 init();
