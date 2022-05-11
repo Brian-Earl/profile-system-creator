@@ -1008,6 +1008,7 @@ function importPieces(element) {
 function setImportedData(data) {
   clearNonBoard();
   clearBoard();
+  currentPiece = 0;
   if (data.options.font && availableFonts.get(data.options.font))
     currentFont = data.options.font;
   iconList = [];
@@ -1672,25 +1673,25 @@ function processText(text) {
     if (text.length > 10) {
       if(hasWhiteSpace(text)) {
         let splitText = splitAtLastSpace(text)
-        console.log(splitText)
         let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
         tspanFirstElem.setAttribute("dy", "-0.6em");
         tspanFirstElem.setAttribute("x", "1em");
         tspanFirstElem.setAttribute("dx", "-.1em");
-        // tspanFirstElem.setAttribute("x", "1em");
         tspanFirstElem.textContent = splitText[0]
         let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
         tspanSecondElem.setAttribute("dy", "0.7em");
         tspanFirstElem.setAttribute("x", "1em");
         tspanSecondElem.setAttribute("dx", "-2.57em");
-        // tspanSecondElem.setAttribute("x", "1.6em");
+        //tspanSecondElem.setAttribute("x", "24.25%");
         tspanSecondElem.textContent = splitText[1];
         return [tspanFirstElem, tspanSecondElem]
       }
-      return [document.createTextNode(text)]
     }
   }
-  return [document.createTextNode(text)]
+  let textElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+  textElem.textContent = text;
+  // return [document.createTextNode(text)]
+  return [textElem]
 }
 
 // Splits text at the last space
