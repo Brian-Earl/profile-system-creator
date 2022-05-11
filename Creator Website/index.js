@@ -610,7 +610,7 @@ function createPieceAbilityText(text, append = true) {
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
-  iconPos.y = namePos.y + 140;
+  iconPos.y = namePos.y + 115;
   outerBorderLocation.setAttribute(
     "visibility",
     text !== "" ? "visible" : "hidden"
