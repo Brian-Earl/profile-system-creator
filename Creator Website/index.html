@@ -10,6 +10,7 @@
   <!-- <link href="http://fonts.cdnfonts.com/css/pieces-of-eight" rel="stylesheet" /> -->
   <link href="http://fonts.cdnfonts.com/css/xenippa" rel="stylesheet" />
   <!-- <link href="http://fonts.cdnfonts.com/css/lucida-blackletter" rel="stylesheet" /> -->
+  <!-- <link href="http://fonts.cdnfonts.com/css/goudy-old-style" rel="stylesheet"> -->
   <link
     href="https://www.dafontfree.net/embed/aGlyb3NoaWdlLXN0ZC1ibGFjayZkYXRhLzQ4L2gvNDQyMDMvSGlyb3NoaWdlU3RkLUJsYWNrLm90Zg"
     rel="stylesheet" type="text/css" />
@@ -50,6 +51,13 @@
       font-style: normal;
       font-weight: 400;
       src: local('Lucida Blackletter'), url('https://fonts.cdnfonts.com/s/14008/Lucida Blackletter Regular.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Goudy Old Style';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Goudy Old Style'), url('https://fonts.cdnfonts.com/s/14850/GOUDOS.woff') format('woff');
     }
   </style>
 </head>
@@ -381,6 +389,7 @@
         <option value="dukeFont">Duke</option>
         <option value="arthurFont">Arthur</option>
         <option value="musketeersFont">Musketeers</option>
+        <option value="robinHoodFont">Robin Hood</option>
         <option value="conanFont">Conan</option>
         <option value="jarlFont">Jarl</option>
         <option value="centurionFont">Centurion</option>
@@ -444,8 +453,10 @@
     </form>
     <br />
     <form>
-      <label for="spacingInput">Spacing:</label>
+      <label for="spacingInput">Spacing between pieces:</label>
       <input type="number" id="spacingInput" min="1" value="20" />
+      <label for="cutLineWidthInput">Cut line width:</label>
+      <input type="number" id="cutLineWidthInput" min="1" value="1" />
     </form>
     <br />
     <form>
@@ -505,6 +516,13 @@
           font-style: normal;
           font-weight: 400;
           src: local('Lucida Blackletter'), url('https://fonts.cdnfonts.com/s/14008/Lucida Blackletter Regular.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Goudy Old Style';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Goudy Old Style'), url('https://fonts.cdnfonts.com/s/14850/GOUDOS.woff') format('woff');
         }
       </style>
     </defs>

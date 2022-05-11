@@ -68,6 +68,7 @@ availableFonts.set("musketeersFont", "Lucida Blackletter");
 availableFonts.set("conanFont", "hiroshige-std-black");
 availableFonts.set("jarlFont", "Comic Runes");
 availableFonts.set("centurionFont", "CCElektrakution W01 Light");
+availableFonts.set("robinHoodFont", "Goudy Old Style");
 
 // Default the font to Pieces of Eight
 let currentFont = "dukeFont";
@@ -140,6 +141,8 @@ let svgInput = document.getElementById("svgInput");
 let pngInput = document.getElementById("pngInput");
 let renderScaleInput = document.getElementById("renderScaleInput");
 renderScaleInput.addEventListener("change", handleRenderScale);
+let cutLineWidthInput = document.getElementById("cutLineWidthInput");
+cutLineWidthInput.addEventListener("change", handleCutLineWidth);
 let xLineInput1 = document.getElementById("xLineInput1");
 let yLineInput1 = document.getElementById("yLineInput1");
 let xLineInput2 = document.getElementById("xLineInput2");
@@ -1265,7 +1268,7 @@ function exportPiecesAsGrid(
   // Distance between the piece and the cut lines box
   let lineDistance = 1.2;
   // Stroke width of the cut lines
-  let strokeWidth = 1;
+  let strokeWidth = getCutLineWidth();
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
@@ -1600,11 +1603,25 @@ function handleRenderScale(e) {
     renderScaleInput.value = 1;
 }
 
+// Make sure that cut line width never falls to or below zero
+function handleCutLineWidth(e) {
+  let value = e.target.value
+  if (value <= 0)
+    cutLineWidthInput.value = 1;
+}
+
 // Get the amount of scaling that should be applied to the render
 function getRenderScale() {
   return parseInt(renderScaleInput.value)
 }
 
+// Get the width of the cut lines
+function getCutLineWidth() {
+  return parseFloat(cutLineWidthInput.value)
+}
+
+// Return the correct font size depending on the 
+// current font and the length of the text
 function getFontSize(length = 1) {
   if (currentFont === "dukeFont") {
     if (length >= 8) return 245;
@@ -1613,6 +1630,8 @@ function getFontSize(length = 1) {
   } else if (currentFont === "musketeersFont") {
     if (length >= 9) return 185;
     return 200;
+  } else if( currentFont === "robinHoodFont") {
+    return 175;
   }
   return 200;
 }
