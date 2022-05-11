@@ -359,7 +359,7 @@ function getCenter(item) {
 // It seems that the function is depricated or something and I can hardly find
 // anything on it besides posts from over 10 years ago
 function getTransformToElement(fromElement, toElement) {
-  return toElement.getScreenCTM().inverse().multiply( fromElement.getScreenCTM())
+  return toElement.getScreenCTM().inverse().multiply(fromElement.getScreenCTM())
 }
 
 // Creates the given icon at the given position (pos)
@@ -1302,24 +1302,27 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
+        let x = ((spacing + pieceSize) * j + offset);
+        let y = ((spacing + pieceSize) * i + offset);
         // Calculate the transformation of the current piece and apply to both sides
-        let translation =
-          "translate(" +
-          ((spacing + pieceSize) * j + offset) +
-          " " +
-          ((spacing + pieceSize) * i + offset) +
-          ")";
+        // Setting the x and y should be used instead of translation as viewing the SVG 
+        // in some browsers (all but firefox) will not place the icons in the correct location 
+        let translation = "translate(" + x + " " + y + ")";
 
         // Clone the current piece and add the start and non start side to the two different renders
         let svgStartSideClone = svg.cloneNode(true);
         startSideCanvas.append(svgStartSideClone);
-        svgStartSideClone.setAttribute("transform", translation);
+        //svgStartSideClone.setAttribute("transform", translation);
         svgStartSideClone.setAttribute("width", pieceSize);
         svgStartSideClone.setAttribute("height", pieceSize);
+        svgStartSideClone.setAttribute("x", x);
+        svgStartSideClone.setAttribute("y", y);
         switchSides();
         let svgNonStartSideClone = svg.cloneNode(true);
         nonStartSideCanvas.append(svgNonStartSideClone);
-        svgNonStartSideClone.setAttribute("transform", translation);
+        //svgNonStartSideClone.setAttribute("transform", translation);
+        svgNonStartSideClone.setAttribute("x", x);
+        svgNonStartSideClone.setAttribute("y", y);
         svgNonStartSideClone.setAttribute("width", pieceSize);
         svgNonStartSideClone.setAttribute("height", pieceSize);
         switchSides();
@@ -1639,7 +1642,7 @@ function getFontSize(length = 1) {
   } else if (currentFont === "musketeersFont") {
     if (length >= 9) return 185;
     return 200;
-  } else if( currentFont === "robinHoodFont") {
+  } else if (currentFont === "robinHoodFont") {
     return 170;
   }
   return 200;
