@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="catapultIcon" width="100%" height="100%" viewBox="0 0 29 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2.06878,0,0,2.06878,18.2735,20.4747)">
+        <path d="M0,23.71L0,-0.228L0.972,-0.228L1.908,-2.885L0,-2.885L0,-9.897L-3.708,-9.897L-3.708,-2.885L-5.511,-2.885L-6.447,-0.228L-3.708,-0.228L-3.708,23.709C-5.62,24.452 -6.979,26.308 -6.979,28.483C-6.979,31.314 -4.685,33.607 -1.855,33.607C0.976,33.607 3.27,31.314 3.27,28.483C3.27,26.308 1.912,24.453 0,23.71" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+    <g transform="matrix(2.06878,0,0,2.06878,0,14.5063)">
+        <path d="M0,2.657L0.537,2.657L1.473,0L0,0L0,2.657Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+    <g transform="matrix(-0.686724,1.95147,1.95147,0.686724,29.2332,17.745)">
+        <path d="M-0.965,-1.973L1.851,-1.973L1.087,0.198L-1.419,-0.684L-0.965,-1.973Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>

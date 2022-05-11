@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="batteringRamIcon" width="100%" height="100%" viewBox="0 0 30 105" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2.184,0,0,2.184,29.0603,75.2802)">
+        <path d="M0,-20.861L0,-22.388L-3.708,-22.388L-3.708,-32.205L-4.585,-32.205L-6.025,-34.469L-7.314,-34.469L-8.755,-32.205L-9.598,-32.205L-9.598,-22.388L-13.306,-22.388L-13.306,-20.861L-9.598,-20.861L-9.598,-10.063L-13.306,-10.063L-13.306,-8.535L-9.598,-8.535L-9.598,2.264L-13.306,2.264L-13.306,3.791L-9.598,3.791L-9.598,13.608L-3.708,13.608L-3.708,3.791L0,3.791L0,2.264L-3.708,2.264L-3.708,-8.535L0,-8.535L0,-10.063L-3.708,-10.063L-3.708,-20.861L0,-20.861Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>

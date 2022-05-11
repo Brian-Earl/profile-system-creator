@@ -360,12 +360,16 @@
       <label for="pieceIconInput">Icons:</label>
       <select name="pieceIconInput" id="pieceIconInput" onchange="changePieceIcon()">
         <option value="assassinIcon">Assassin</option>
+        <option value="ballistaIcon">Ballista</option>
+        <option value="batteringRamIcon">Battering Ram</option>
         <option value="bowmanIcon">Bowman</option>
+        <option value="catapultIcon">Catapult</option>
         <option value="championIcon">Champion</option>
         <option value="deWinterIcon">de Winter</option>
         <option value="dragoonIcon">Dragoon</option>
         <option value="duchessIcon">Duchess</option>
         <option value="dukeIcon">Duke</option>
+        <option value="engineerIcon">Engineer</option>
         <option value="flagIcon">Flag</option>
         <option value="footmanIcon">Footman</option>
         <option value="friarTuckIcon">Friar Tuck</option>
@@ -389,6 +393,7 @@
         <option value="seerIcon">Seer</option>
         <option value="sheriffIcon">Sheriff</option>
         <option value="sirGuyIcon">Sir Guy</option>
+        <option value="trebuchetIcon">Trebuchet</option>
         <option value="wizardIcon">Wizard</option>
       </select>
       <label for="fontInput">Font:</label>
@@ -563,7 +568,6 @@
           style="fill: rgb(35, 31, 32); fill-rule: nonzero" />
       </g>
     </svg>
-
     <svg id="move" width="100%" height="100%" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
       style="fill-rule:evenodd;clip-rule:evenodd;">
@@ -571,7 +575,6 @@
         <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;" />
       </g>
     </svg>
-
     <svg id="slide" width="100%" height="100%" viewBox="0 0 140 122" version="1.1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
       style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -579,7 +582,6 @@
         <path d="M0,-8.551L-4.937,0L4.938,-0.002L0,-8.551Z" style="fill:rgb(35,31,32);fill-rule:nonzero;" />
       </g>
     </svg>
-
     <svg id="jump" width="100%" height="100%" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
       style="fill-rule:evenodd;clip-rule:evenodd;">
@@ -587,8 +589,6 @@
         <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;" />
       </g>
     </svg>
-
-
     <svg id="jumpSlide" width="100%" height="100%" viewBox="0 0 140 122" version="1.1"
       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
       xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:20;">
@@ -597,22 +597,11 @@
           style="fill:white;fill-rule:nonzero;stroke:rgb(35,31,32);stroke-width:1.13px;" />
       </g>
     </svg>
-
-
-    <svg id="nonCaptureMove" width="100%" height="100%" viewbox="0 0 57 57" version="1.1"
-      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-      xmlns:serif="http://www.serif.com/" style="
-          fill-rule: evenodd;
-          clip-rule: evenodd;
-          stroke-linejoin: round;
-          stroke-miterlimit: 2;
-        ">
-      <g transform="matrix(5.55556,0,0,5.55556,28.3111,0)">
-        <path
-          d="M0,10.193C2.815,10.193 5.096,7.911 5.096,5.097C5.096,2.282 2.815,0 0,0C-2.815,0 -5.096,2.282 -5.096,5.097C-5.096,7.911 -2.815,10.193 0,10.193"
-          style="fill-rule: nonzero"></path>
+    <svg id="nonCaptureMove" width="100%" height="100%" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+      <g transform="matrix(-6.22215e-32,-6.57058,-6.57058,0,35.55,2.6971)">
+          <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"/>
       </g>
-    </svg>
+  </svg>
     <svg id="nonCaptureSlide" width="100%" height="100%" viewbox="0 0 10 9" version="1.1"
       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
       xmlns:serif="http://www.serif.com/" style="
@@ -1313,6 +1302,65 @@
           style="fill:rgb(35,31,32);fill-rule:nonzero;" />
       </g>
     </svg>
+    <svg id="ballistaIcon" width="100%" height="100%" viewBox="0 0 33 85" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <g transform="matrix(2.02246,0,0,2.02246,19.6442,65.5277)">
+        <path
+          d="M0,-22.772L0,-26.085L-1.095,-26.085L-1.095,-29.43L0.048,-29.43L-1.668,-32.4L-3.384,-29.43L-2.24,-29.43L-2.24,-26.085L-3.336,-26.085L-3.336,-22.772C-6.975,-22.021 -9.713,-18.865 -9.713,-15.095L-8.536,-15.095C-8.536,-18.214 -6.317,-20.833 -3.336,-21.56L-3.336,9.628L0,9.628L0,-21.559C2.982,-20.833 5.199,-18.214 5.199,-15.095L6.377,-15.095C6.377,-18.865 3.639,-22.02 0,-22.772"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+    </svg>
+    <svg id="batteringRamIcon" width="100%" height="100%" viewBox="0 0 30 105" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <g transform="matrix(2.184,0,0,2.184,29.0603,75.2802)">
+        <path
+          d="M0,-20.861L0,-22.388L-3.708,-22.388L-3.708,-32.205L-4.585,-32.205L-6.025,-34.469L-7.314,-34.469L-8.755,-32.205L-9.598,-32.205L-9.598,-22.388L-13.306,-22.388L-13.306,-20.861L-9.598,-20.861L-9.598,-10.063L-13.306,-10.063L-13.306,-8.535L-9.598,-8.535L-9.598,2.264L-13.306,2.264L-13.306,3.791L-9.598,3.791L-9.598,13.608L-3.708,13.608L-3.708,3.791L0,3.791L0,2.264L-3.708,2.264L-3.708,-8.535L0,-8.535L0,-10.063L-3.708,-10.063L-3.708,-20.861L0,-20.861Z"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+    </svg>
+    <svg id="catapultIcon" width="100%" height="100%" viewBox="0 0 29 90" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <g transform="matrix(2.06878,0,0,2.06878,18.2735,20.4747)">
+        <path
+          d="M0,23.71L0,-0.228L0.972,-0.228L1.908,-2.885L0,-2.885L0,-9.897L-3.708,-9.897L-3.708,-2.885L-5.511,-2.885L-6.447,-0.228L-3.708,-0.228L-3.708,23.709C-5.62,24.452 -6.979,26.308 -6.979,28.483C-6.979,31.314 -4.685,33.607 -1.855,33.607C0.976,33.607 3.27,31.314 3.27,28.483C3.27,26.308 1.912,24.453 0,23.71"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+      <g transform="matrix(2.06878,0,0,2.06878,0,14.5063)">
+        <path d="M0,2.657L0.537,2.657L1.473,0L0,0L0,2.657Z" style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+      <g transform="matrix(-0.686724,1.95147,1.95147,0.686724,29.2332,17.745)">
+        <path d="M-0.965,-1.973L1.851,-1.973L1.087,0.198L-1.419,-0.684L-0.965,-1.973Z"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+    </svg>
+    <svg id="trebuchetIcon" width="100%" height="100%" viewBox="0 0 18 105" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <g transform="matrix(1.95062,0,0,1.95062,15.802,15.9639)">
+        <path
+          d="M0,37.461C0.361,36.368 0.571,35.087 0.571,33.699C0.571,30.497 -0.528,27.846 -2.102,26.835L-2.102,-0.44L0.734,-0.44L0.734,-1.749L-2.102,-1.749L-2.102,-8.184L-4.937,-8.184L-4.937,-1.749L-7.773,-1.749L-7.773,-0.44L-4.937,-0.44L-4.937,26.835C-6.511,27.846 -7.61,30.497 -7.61,33.699C-7.61,35.087 -7.4,36.368 -7.039,37.461C-7.701,38.326 -8.101,39.439 -8.101,40.654C-8.101,43.41 -6.05,45.645 -3.52,45.645C-0.989,45.645 1.062,43.41 1.062,40.654C1.062,39.439 0.662,38.326 0,37.461M-4.711,27.483L-2.328,27.483C-1.033,28.444 -0.083,30.9 -0.083,33.699C-0.083,34.846 -0.244,35.935 -0.521,36.888C-1.324,36.127 -2.371,35.664 -3.52,35.664C-4.668,35.664 -5.715,36.127 -6.52,36.888C-6.795,35.935 -6.956,34.846 -6.956,33.699C-6.956,30.9 -6.006,28.444 -4.711,27.483"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+    </svg>
+    <svg id="engineerIcon" width="100%" height="100%" viewBox="0 0 30 85" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+      xmlns:serif="http://www.serif.com/"
+      style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <g transform="matrix(2.0334,0,0,2.0334,19.6141,85)">
+        <path
+          d="M0,-41.802L-9.646,-41.802L-9.646,-33.769L-4.18,-33.769L-4.18,0L-0.608,0L-0.608,-33.769L3.033,-33.769L4.858,-34.466L4.858,-37.615L0,-41.802Z"
+          style="fill:rgb(35,31,32);fill-rule:nonzero;" />
+      </g>
+    </svg>
+
+
   </div>
   <script src="index.js"></script>
 </body>

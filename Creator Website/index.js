@@ -56,8 +56,9 @@ const movementIcons = [
   "defense",
   "dread",
   "hammer",
-  "shieldDefense",
+  //"shieldDefense",
   "smash",
+  "nonCaptureMove",
   "clear",
 ];
 
@@ -678,10 +679,10 @@ function clearBoard() {
   // Remove connection lines
   for (
     let i = 0;
-    i < iconList[currentPiece].connections[+isStartSide].length;
+    i < iconList[currentPiece].storage.connections[+isStartSide].length;
     i++
   ) {
-    iconList[currentPiece].connections[+isStartSide][i].remove();
+    iconList[currentPiece].storage.connections[+isStartSide][i].remove();
   }
 }
 
@@ -690,10 +691,10 @@ function drawBoard() {
   // Draw connection lines
   for (
     let i = 0;
-    i < iconList[currentPiece].connections[+isStartSide].length;
+    i < iconList[currentPiece].storage.connections[+isStartSide].length;
     i++
   ) {
-    svg.appendChild(iconList[currentPiece].connections[+isStartSide][i]);
+    svg.appendChild(iconList[currentPiece].storage.connections[+isStartSide][i]);
   }
   for (let i = 0; i < iconList[currentPiece].grid[+isStartSide].length; i++) {
     for (
@@ -1537,7 +1538,7 @@ function addLineConnector() {
     connectionExists(x1, y1, x2, y2)
   )
     return;
-  iconList[currentPiece].startPos[+isStartSide].push([
+  iconList[currentPiece].connections[+isStartSide].push([
     [x1, y1],
     [x2, y2],
   ]);
@@ -1551,7 +1552,7 @@ function addLineConnector() {
     "rgb(35, 31, 32)",
     "20"
   );
-  iconList[currentPiece].connections[+isStartSide].push(line);
+  iconList[currentPiece].storage.connections[+isStartSide].push(line);
   clearBoard();
   drawBoard();
 }
