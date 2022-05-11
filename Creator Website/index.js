@@ -21,7 +21,6 @@
 // Add piece deletion
 // Add rest of class icons
 // Add custom SVG icon support
-// Allow movement icon to be selected using a dropdown similar to the class icon that also reacts to the scroll selection
 // Add multiple pages for renders when all of the pieces cannot fit on one
 // Revamp UI
 
@@ -207,6 +206,7 @@ class GamePiece {
 function init() {
   createNewPieceIndex();
   clearInputs();
+  initInputs();
 }
 
 // Handle the user mousing over a grid square
@@ -449,14 +449,14 @@ function scaleIcon(icon) {
 
 // Returns how much to scale a certain icon by
 function scaleFactor(icon) {
-  if(icon === "move") return 1.05
-  if(icon === "jump") return 1.1
-  if(icon === "slide") return 0.95
-  if(icon === "jumpSlide") return 1.1
-  if(icon === "strike") return 1.1
-  if(icon === "hammer") return 1.1
-  if(icon === "defense") return 0.95
-  if(icon === "shieldDefense") return 1.1
+  if (icon === "move") return 1.05
+  if (icon === "jump") return 1.1
+  if (icon === "slide") return 0.95
+  if (icon === "jumpSlide") return 1.1
+  if (icon === "strike") return 1.1
+  if (icon === "hammer") return 1.1
+  if (icon === "defense") return 0.95
+  if (icon === "shieldDefense") return 1.1
   return 1;
 }
 
@@ -470,8 +470,8 @@ function getAngle(x, y) {
         x - iconList[currentPiece].startPos[+isStartSide][0]
       ) *
         180) /
-        Math.PI -
-        180
+      Math.PI -
+      180
     )
   );
 }
@@ -582,7 +582,7 @@ function createTextAt(
   svg.appendChild(newText);
   let bbox = newText.getBBox();
   let cx = pos.x - bbox.width / 2;
-  let cy = pos.y + bbox.height / 4;
+  let cy = pos.y + bbox.height / 3;
   newText.setAttribute("x", cx);
   newText.setAttribute("y", cy);
   if (!append) newText.remove();
@@ -591,10 +591,8 @@ function createTextAt(
 
 // Create a text element of the given piece name
 function createPieceName(text, append = true) {
-  let fontSize = 265;
+  let fontSize = getFontSize(text.length);
   if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
-  if (text.length >= 8) fontSize = 245;
-  if (text.length >= 10) fontSize = 215;
   let namePos = getCenter(nameLocation);
   return createTextAt(
     text,
@@ -708,7 +706,7 @@ function clearNonBoard() {
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   if (
     iconList[currentPiece].storage.icons[
-      +(!isStartSide && hasDifferentPieceIcons)
+    +(!isStartSide && hasDifferentPieceIcons)
     ]
   )
     iconList[currentPiece].storage.icons[
@@ -734,12 +732,12 @@ function drawNonBoard() {
   }
   if (
     iconList[currentPiece].storage.icons[
-      +(!isStartSide && hasDifferentPieceIcons)
+    +(!isStartSide && hasDifferentPieceIcons)
     ]
   )
     svg.appendChild(
       iconList[currentPiece].storage.icons[
-        +(!isStartSide && hasDifferentPieceIcons)
+      +(!isStartSide && hasDifferentPieceIcons)
       ]
     );
   if (iconList[currentPiece].storage.start[+isStartSide])
@@ -767,7 +765,7 @@ function displayListLength() {
 
 // Easy macro to create a new piece index and increment the current piece
 function createNewPiece() {
-  createNewPieceIndex();
+  createNewPieceIndex(x = 2, y = 2, x2 = 2, y2 = 2, append = false);
   forwardPiece();
 }
 
@@ -858,6 +856,11 @@ function clearInputs() {
     : 2;
 }
 
+// Reset input fields only to be set on init
+function initInputs() {
+  fontInput.value = "dukeFont"
+}
+
 // Check if the current piece has different icons
 function pieceHasDifferentIcons() {
   if (
@@ -876,9 +879,9 @@ function pieceHasDifferentIcons() {
 function pieceHasDifferentStartPositions() {
   return (
     iconList[currentPiece].startPos[0][0] !==
-      iconList[currentPiece].startPos[1][0] ||
+    iconList[currentPiece].startPos[1][0] ||
     iconList[currentPiece].startPos[0][1] !==
-      iconList[currentPiece].startPos[1][1]
+    iconList[currentPiece].startPos[1][1]
   );
 }
 
@@ -991,16 +994,16 @@ function setImportedData(data) {
       startPos = data.pieces[i].startPosition
         ? [data.pieces[i].startPosition, data.pieces[i].startPosition]
         : [
-            [2, 2],
-            [2, 2],
-          ];
+          [2, 2],
+          [2, 2],
+        ];
     } else {
       startPos = data.pieces[i].startPosition
         ? data.pieces[i].startPosition
         : [
-            [2, 2],
-            [2, 2],
-          ];
+          [2, 2],
+          [2, 2],
+        ];
     }
     createNewPieceIndex(
       startPos[1][0],
@@ -1294,7 +1297,7 @@ function exportPiecesAsGrid(
           " " +
           ((spacing + pieceSize) * i + offset) +
           ")";
-          
+
         // Clone the current piece and add the start and non start side to the two different renders
         let svgStartSideClone = svg.cloneNode(true);
         startSideCanvas.append(svgStartSideClone);
@@ -1317,7 +1320,7 @@ function exportPiecesAsGrid(
         index++;
         forwardPiece();
       }
-      
+
       if (drawCuts) {
         // Just for ease
         let x = j;
@@ -1327,10 +1330,10 @@ function exportPiecesAsGrid(
         // Constructed using four separate lines though might be possible with a square element
         // Adjust the line distance by half of the stroke width so that the distance will remain
         // the same as the width of the line changes
-        let tlX = (spacing + pieceSize) * x + offset - (lineDistance + (strokeWidth/2));
-        let trX = (spacing + pieceSize) * x + pieceSize + offset + (lineDistance + (strokeWidth/2));
-        let tlY = (spacing + pieceSize) * y + offset - (lineDistance + (strokeWidth/2));
-        let trY = (spacing + pieceSize) * y + pieceSize + offset + (lineDistance + (strokeWidth/2));
+        let tlX = (spacing + pieceSize) * x + offset - (lineDistance + (strokeWidth / 2));
+        let trX = (spacing + pieceSize) * x + pieceSize + offset + (lineDistance + (strokeWidth / 2));
+        let tlY = (spacing + pieceSize) * y + offset - (lineDistance + (strokeWidth / 2));
+        let trY = (spacing + pieceSize) * y + pieceSize + offset + (lineDistance + (strokeWidth / 2));
         // Square
         startSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor, strokeWidth));
         nonStartSideCanvas.append(createRect(tlX, tlY, trX, trY, lineColor, strokeWidth));
@@ -1429,7 +1432,6 @@ function savePng(svgEl, name) {
     let png = canvas.toDataURL("image/png");
     let pngContainer = document.getElementById("pngContainer");
     pngContainer.setAttribute("src", png);
-    console.log(pngContainer)
     let imgURI = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
@@ -1570,40 +1572,49 @@ function changeFont() {
 
 // Disables Scrolling
 function disableScroll() {
-  if(canScroll) {
+  if (canScroll) {
     canScroll = false;
-    console.log("scrolling disablled")
     document.querySelector('.scrollable').addEventListener('wheel', preventScroll);
   }
 }
 
 // Enables Scrolling
 function enableScroll() {
-  if(!canScroll) {
+  if (!canScroll) {
     canScroll = true;
-    console.log("Scroll enabled")
     document.querySelector('.scrollable').removeEventListener('wheel', preventScroll);
   }
 }
 
 // Prevent the screen from scrolling
-function preventScroll(e){
+function preventScroll(e) {
   e.preventDefault();
   e.stopPropagation();
-
   return false;
 }
 
 // Make sure that the scale never falls to or below zero
 function handleRenderScale(e) {
   let value = e.target.value
-  if(value <= 0)
+  if (value <= 0)
     renderScaleInput.value = 1;
 }
 
 // Get the amount of scaling that should be applied to the render
 function getRenderScale() {
   return parseInt(renderScaleInput.value)
+}
+
+function getFontSize(length = 1) {
+  if (currentFont === "dukeFont") {
+    if (length >= 8) return 245;
+    if (length >= 10) return 215;
+    return 265;
+  } else if (currentFont === "musketeersFont") {
+    if (length >= 9) return 185;
+    return 200;
+  }
+  return 200;
 }
 
 init();
