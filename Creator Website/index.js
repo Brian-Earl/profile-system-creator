@@ -1521,14 +1521,14 @@ function addLineConnector() {
   let y2 = parseInt(yLineInput2.value);
   // If outside the range of the board or not defined, return
   if (
-    !x1 ||
-    !y1 ||
+    isNaN(x1) ||
+    isNaN(y1) ||
     x1 < 0 ||
     x1 > 4 ||
     y1 < 0 ||
     y1 > 4 ||
-    !x2 ||
-    !y2 ||
+    isNaN(x2) ||
+    isNaN(y2) ||
     x2 < 0 ||
     x2 > 4 ||
     y2 < 0 ||
