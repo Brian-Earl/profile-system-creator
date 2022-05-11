@@ -455,7 +455,7 @@ function scaleFactor(icon) {
   if (icon === "move") return 1.05
   if (icon === "jump") return 1.1
   if (icon === "slide") return 0.95
-  if (icon === "jumpSlide") return 1.1
+  if (icon === "jumpSlide") return 1.15
   if (icon === "strike") return 1.1
   if (icon === "hammer") return 1.1
   if (icon === "defense") return 0.95
@@ -1631,7 +1631,7 @@ function getFontSize(length = 1) {
     if (length >= 9) return 185;
     return 200;
   } else if( currentFont === "robinHoodFont") {
-    return 175;
+    return 170;
   }
   return 200;
 }

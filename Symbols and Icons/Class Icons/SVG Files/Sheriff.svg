@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="sheriffIcon" width="100%" height="100%" viewBox="0 0 32 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.90153,0,0,1.90153,0,88.4232)">
+        <path d="M0,-29.895C0,-29.895 3.994,-29.447 5.739,-30.698C5.897,-21.726 6.665,16.606 8.313,16.606C9.961,16.606 10.728,-21.743 10.885,-30.704C14.392,-30.487 15.194,-32.786 16.625,-30.574L16.625,-33.309C16.625,-35.703 9.83,-33.309 9.83,-33.309C10.151,-34.494 10.348,-37.765 10.348,-37.765C10.348,-37.765 10.207,-40.555 9.969,-41.651C10.607,-42.148 11.026,-43.787 11.026,-43.787C11.026,-43.787 9.811,-46.501 8.313,-46.501C6.813,-46.501 5.598,-43.787 5.598,-43.787C5.598,-43.787 6.017,-42.148 6.655,-41.651C6.418,-40.555 6.276,-37.765 6.276,-37.765C6.276,-37.765 6.474,-34.494 6.795,-33.309C6.795,-33.309 0.781,-32.025 0,-33.309L0,-29.895Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>
