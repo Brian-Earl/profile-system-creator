@@ -1276,6 +1276,7 @@ function exportPiecesAsGrid(
   drawPieces = true,
   lineColor = "red"
 ) {
+  if(!isStartSide) switchSides();
   // Get the width and height of the rendered grid
   let width = parseInt(widthInput.value);
   let height = parseInt(heightInput.value);
