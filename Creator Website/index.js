@@ -24,10 +24,11 @@
 
 // TODO:
 // Add piece deletion
-// Add rest of class icons
 // Add custom SVG icon support
 // Add multiple pages for renders when all of the pieces cannot fit on one
 // Revamp UI
+// Full size piece support
+// Redo Icons (look at Start Side Icon Affinity File)
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -640,7 +641,7 @@ function createPieceAbilityText(text, append = true) {
     "visibility",
     text !== "" ? "visible" : "hidden"
   );
-  return createTextAt(document.createTextNode(text), text, iconPos, 100, "Pieces of Eight", append);
+  return createTextAt([document.createTextNode(text)], text, iconPos, 100, "Pieces of Eight", append);
 }
 
 // Create the piece icon of the given piece name
@@ -1649,8 +1650,6 @@ function getCutLineWidth() {
 // current font and the length of the text
 function getFontSize(length = 1, hasSpace = false) {
   if (currentFont === "dukeFont") {
-    console.log(hasSpace)
-    console.log(length)
     if (length >= 12 && hasSpace) return 200;
     if (length >= 10) return 215;
     if (length >= 8) return 245;
