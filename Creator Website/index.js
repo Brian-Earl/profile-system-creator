@@ -16,6 +16,7 @@
 // https://alligatr.co.uk/blog/render-an-svg-using-external-fonts-to-a-canvas/
 // https://bobbyhadz.com/blog/javascript-round-number-down-to-nearest-ten
 // https://alvarotrigo.com/blog/prevent-scroll-on-scrollable-element-js/
+// https://stackoverflow.com/questions/5891552/more-usage-of-gettransformtoelement
 
 // TODO:
 // Add piece deletion
@@ -344,13 +345,21 @@ function isCenter(gridPos) {
 // Returns the x,y position of the center of the given SVG element
 function getCenter(item) {
   let bbox = item.getBBox();
-  let ctm = item.getTransformToElement(item.nearestViewportElement);
+  let ctm = getTransformToElement(item, item.nearestViewportElement)
+  //let ctm = item.getTransformToElement(item.nearestViewportElement);
   let cx = bbox.x + bbox.width / 2;
   let cy = bbox.y + bbox.height / 2;
   let pt = item.nearestViewportElement.createSVGPoint();
   pt.x = cx;
   pt.y = cy;
   return pt.matrixTransform(ctm);
+}
+
+// Replacement for getTransformToElement() as it throws errors in other browsers
+// It seems that the function is depricated or something and I can hardly find
+// anything on it besides posts from over 10 years ago
+function getTransformToElement(fromElement, toElement) {
+  return toElement.getScreenCTM().inverse().multiply( fromElement.getScreenCTM())
 }
 
 // Creates the given icon at the given position (pos)
