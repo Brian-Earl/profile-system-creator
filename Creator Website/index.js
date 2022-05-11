@@ -63,6 +63,8 @@ const movementIcons = [
   //"shieldDefense",
   "smash",
   "nonCaptureMove",
+  "nonCaptureJump",
+  "nonCaptureSlide",
   "clear",
 ];
 
@@ -431,7 +433,7 @@ function createStartIconsAt(x, y, x2, y2, append = true) {
 
 // Returns if the icon given is one that needs to be rotated
 function isSlide(icon) {
-  return icon === "slide" || icon === "jumpSlide" || icon === "nonJumpSlide";
+  return icon === "slide" || icon === "jumpSlide" || icon === "nonCaptureSlide";
 }
 
 // Returns if the icon given is one that is full sized
@@ -467,8 +469,11 @@ function scaleIcon(icon) {
 // Returns how much to scale a certain icon by
 function scaleFactor(icon) {
   if (icon === "move") return 1.05
+  if (icon === "nonCaptureMove") return 1.05
   if (icon === "jump") return 1.1
+  if (icon === "nonCaptureJump") return 1.15
   if (icon === "slide") return 0.95
+  if (icon === "nonCaptureSlide") return 0.95
   if (icon === "jumpSlide") return 1.15
   if (icon === "strike") return 1.1
   if (icon === "hammer") return 1.1
