@@ -117,6 +117,9 @@ let importFileLocation = document.getElementById("importPiecesInput");
 // Used so that multiple pieces can be worked on at a given time
 let currentPiece = 0;
 
+// Store the color black used for the pieces 
+let blackColor = "rgb(35, 31, 32)";
+
 // Current version of the exporter that creates the exported JSON files
 // this isn't needed currently though I want to future proof everything just in case
 // This will be used for when new features to the EXPORTER are added such as
@@ -603,6 +606,7 @@ function createTextAt(
   newText.setAttribute("font-size", fontSize);
   newText.setAttribute("font-family", fontFamily);
   newText.setAttribute("text", text);
+  newText.setAttribute("fill", "currentColor");
   textElem.forEach(elem => newText.appendChild(elem));
   //newText.appendChild(document.createTextNode(text));
   svg.appendChild(newText);
@@ -1108,7 +1112,6 @@ function setImportedData(data) {
           center1.y,
           center2.x,
           center2.y,
-          "rgb(35, 31, 32)",
           "20"
         );
         iconList[i].storage.connections[j].push(line);
@@ -1277,7 +1280,7 @@ function exportPiecesAsGrid(
   drawPieces = true,
   lineColor = "red"
 ) {
-  if(!isStartSide) switchSides();
+  if (!isStartSide) switchSides();
   // Get the width and height of the rendered grid
   let width = parseInt(widthInput.value);
   let height = parseInt(heightInput.value);
@@ -1288,6 +1291,8 @@ function exportPiecesAsGrid(
   // Size of the pieces in the svg
   let pieceSize = 200 * scale;
   // Spacing between the individual piece
+  // Reccomended to not use a number <= 10
+  // Try out 15 next time
   let spacing = spacingInput.value * scale;
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
@@ -1395,7 +1400,6 @@ function createLine(
   y1,
   x2,
   y2,
-  color = "rgb(35, 31, 32)",
   strokeWidth = "1"
 ) {
   let newLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -1403,7 +1407,7 @@ function createLine(
   newLine.setAttribute("y1", y1);
   newLine.setAttribute("x2", x2);
   newLine.setAttribute("y2", y2);
-  newLine.setAttribute("stroke", color);
+  newLine.setAttribute("stroke", "currentColor");
   newLine.setAttribute("stroke-width", strokeWidth);
   return newLine;
 }
@@ -1476,13 +1480,14 @@ function savePng(svgEl, name) {
   };
 }
 
-// Download the starting side grid render as an svg
+// Download the starting side grid render
 function downloadStartSideRender(
   drawCuts = true,
   drawPieces = true,
   filename = "startside",
   lineColor = "red"
 ) {
+  setGridColor("blue");
   // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas");
   removeAllChildNodes(startSideCanvas);
@@ -1492,15 +1497,17 @@ function downloadStartSideRender(
   } else if (pngInput.checked) {
     saveSvgAsPng(startSideCanvas, filename + ".svg")
   }
+  setGridColor(blackColor);
 }
 
-// Download the non starting side grid render as an svg
+// Download the non starting side grid render
 function downloadNonStartSideRender(
   drawCuts = true,
   drawPieces = true,
   filename = "nonStartside",
   lineColor = "red"
 ) {
+  setGridColor("blue");
   // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
   removeAllChildNodes(nonStartSideCanvas);
@@ -1510,8 +1517,10 @@ function downloadNonStartSideRender(
   } else if (pngInput.checked) {
     saveSvgAsPng(nonStartSideCanvas, filename + ".png");
   }
+  setGridColor(blackColor);
 }
 
+// Download render of both sides
 function downloadBothSidesRender(
   drawCuts = true,
   drawPieces = true,
@@ -1519,8 +1528,17 @@ function downloadBothSidesRender(
   nonStartSideFileName = "nonStartside",
   lineColor = "red"
 ) {
+  setGridColor("blue");
   downloadStartSideRender(drawCuts, drawPieces, startSidefilename, lineColor);
   downloadNonStartSideRender(drawCuts, drawPieces, nonStartSideFileName, lineColor);
+  setGridColor(blackColor);
+}
+
+// Render a preview of the downloadable image
+function renderPreview() {
+  setGridColor("blue");
+  exportPiecesAsGrid();
+  setGridColor(blackColor);
 }
 
 // Remove all children node of the given element
@@ -1565,7 +1583,6 @@ function addLineConnector() {
     center1.y,
     center2.x,
     center2.y,
-    "rgb(35, 31, 32)",
     "20"
   );
   iconList[currentPiece].storage.connections[+isStartSide].push(line);
@@ -1673,7 +1690,7 @@ function getFontSize(length = 1, hasSpace = false) {
 function processText(text) {
   if (currentFont === "dukeFont") {
     if (text.length > 10) {
-      if(hasWhiteSpace(text)) {
+      if (hasWhiteSpace(text)) {
         let splitText = splitAtLastSpace(text)
         let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
         tspanFirstElem.setAttribute("dy", "-0.6em");
@@ -1710,10 +1727,10 @@ function splitAtFirstOccurance(text, split) {
   return [first, ...rest] = text.split(split)
 }
 
-// Reverse a string
+// Reverse the given string
 function reverseString(str) {
-  let splitString = str.split(""); 
-  let reverseArray = splitString.reverse(); 
+  let splitString = str.split("");
+  let reverseArray = splitString.reverse();
   let joinArray = reverseArray.join("");
   return joinArray; // "olleh"
 }
@@ -1721,6 +1738,13 @@ function reverseString(str) {
 // Checks if the given text has a whitespace in it
 function hasWhiteSpace(text) {
   return /\s/g.test(text);
+}
+
+// Set the color of the grid and all its children
+// Used so that grid isnt required to be black and can be set to other colors
+// for better customization and for laser cutting
+function setGridColor(color) {
+  svg.style.color = color;
 }
 
 init();
