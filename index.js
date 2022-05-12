@@ -54,19 +54,19 @@ let canScroll = true;
 // List of available icons where each index is the id of an SVG element
 const movementIcons = [
   "move",
-  "slide",
   "jump",
+  "slide",
   "jumpSlide",
-  "command",
+  "hammer",
   "strike",
   "defense",
-  "dread",
-  "hammer",
   //"shieldDefense",
+  "dread",
   "smash",
   "nonCaptureMove",
   "nonCaptureJump",
   "nonCaptureSlide",
+  "command",
   "clear",
 ];
 
