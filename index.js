@@ -75,7 +75,7 @@ const availableFonts = new Map();
 availableFonts.set("dukeFont", "Pieces of Eight");
 availableFonts.set("arthurFont", "Xenippa");
 availableFonts.set("musketeersFont", "Lucida Blackletter");
-availableFonts.set("conanFont", "hiroshige-std-black");
+availableFonts.set("conanFont", "Hiroshige LT Medium");
 availableFonts.set("jarlFont", "Comic Runes");
 availableFonts.set("centurionFont", "CCElektrakution W01 Light");
 availableFonts.set("robinHoodFont", "Goudy Old Style");
@@ -119,6 +119,9 @@ let currentPiece = 0;
 
 // Store the color black used for the pieces 
 let blackColor = "rgb(35, 31, 32)";
+
+// How much to scale down pieces by is they have abilities 
+const scaleDownFactor = (100.8 / 104.5);
 
 // Current version of the exporter that creates the exported JSON files
 // this isn't needed currently though I want to future proof everything just in case
@@ -1297,7 +1300,8 @@ function exportPiecesAsGrid(
   // Offset so that the grid can be fully drawn on the svg
   let offset = 10 * scale;
   // Distance between the piece and the cut lines box
-  let lineDistance = 1.2;
+  // Originally 1.2
+  let lineDistance = -2;
   // Stroke width of the cut lines
   let strokeWidth = getCutLineWidth();
   // Keep track of how many times the current piece has been used in the render
@@ -1324,29 +1328,31 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
-        let x = ((spacing + pieceSize) * j + offset);
-        let y = ((spacing + pieceSize) * i + offset);
+        let scaleDownBy = iconList[currentPiece].ability && iconList[currentPiece].ability.getAttribute("text") !== ""
+          ? scaleDownFactor
+          : 1
+
         // Calculate the transformation of the current piece and apply to both sides
         // Setting the x and y should be used instead of translation as viewing the SVG 
         // in some browsers (all but firefox) will not place the icons in the correct location 
-        let translation = "translate(" + x + " " + y + ")";
+        let x = ((spacing + pieceSize) * j + offset) + (((spacing + pieceSize) * (1 - scaleDownBy)) / 2);
+        let y = ((spacing + pieceSize) * i + offset) + (((spacing + pieceSize) * (1 - scaleDownBy)) / 2);
 
         // Clone the current piece and add the start and non start side to the two different renders
         let svgStartSideClone = svg.cloneNode(true);
         startSideCanvas.append(svgStartSideClone);
-        //svgStartSideClone.setAttribute("transform", translation);
-        svgStartSideClone.setAttribute("width", pieceSize);
-        svgStartSideClone.setAttribute("height", pieceSize);
+        console.log(scaleDownBy)
+        svgStartSideClone.setAttribute("width", pieceSize * scaleDownBy);
+        svgStartSideClone.setAttribute("height", pieceSize * scaleDownBy);
         svgStartSideClone.setAttribute("x", x);
         svgStartSideClone.setAttribute("y", y);
         switchSides();
         let svgNonStartSideClone = svg.cloneNode(true);
         nonStartSideCanvas.append(svgNonStartSideClone);
-        //svgNonStartSideClone.setAttribute("transform", translation);
+        svgNonStartSideClone.setAttribute("width", pieceSize * scaleDownBy);
+        svgNonStartSideClone.setAttribute("height", pieceSize * scaleDownBy);
         svgNonStartSideClone.setAttribute("x", x);
         svgNonStartSideClone.setAttribute("y", y);
-        svgNonStartSideClone.setAttribute("width", pieceSize);
-        svgNonStartSideClone.setAttribute("height", pieceSize);
         switchSides();
       }
       // Increment the amount of times the piece has been seen in the current render
