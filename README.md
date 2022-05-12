@@ -1,6 +1,15 @@
-These are the preliminary files for creating a system that automates asset creation for games that run of the Profile System, the game system that powers games such as The Duke. These files were created using resources freely and openly available by the creators of the games and not through other means such as files uploaded to BBG, paid for material or other resources. Each data for each piece is stored as multiple JSON files, with pieces separated by
+A website used to create and generate the game pieces used for games that run of the Profile System, the game system that powers games such as The Duke. Multiple pieces can be created and worked on at once and then downloaded as a set of pieces. Sets of pieces are stored in a JSON file that can later be imported back into the sit. Additionally, all of the current pieces can be rendered in a grid format, optimized for laser cutting.
 
-Games on the Profile System:
-The Duke
-Jarl
-Centurion
+***
+
+Games on the Profile System:&#x20;
+
+*   &#x20;The Duke
+
+*   &#x20;Jarl&#x20;
+
+*   Centurion
+
+***
+
+The files present in this project were created using resources that are available freely and openly by the creators of the games on their websites.
