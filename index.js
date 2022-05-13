@@ -640,11 +640,11 @@ function createTextAt(
 function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
   let fontSize = getFontSize(text.length, hasWhiteSpace(text));
   let namePos = getCenter(nameLocation);
-  if(!isImport) {
+  if (!isImport) {
     if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
-    if((iconList[currentPiece].type  && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
+    if ((iconList[currentPiece].type && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
   } else {
-    if(isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
+    if (isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
   }
   return createTextAt(
     processText(text),
@@ -1015,8 +1015,8 @@ function exportPieces() {
       pieceObject.connections = iconList[i].connections;
     }
     pieceObject.name = iconList[i].name
-        ? iconList[i].name.getAttribute("text")
-        : "";
+      ? iconList[i].name.getAttribute("text")
+      : "";
     pieceObject.icon = iconList[i].storage.icons[0]
       ? iconList[i].storage.icons[0].getAttribute("text")
       : "";
@@ -1090,7 +1090,7 @@ function setImportedData(data) {
       false
     );
 
-    if(data.options.exporterVersion < 3)
+    if (data.options.exporterVersion < 3)
       data.pieces[i].type = "normal"
 
     iconList[i].storage.icons[0] = createPieceIcon(data.pieces[i].icon, false, data.pieces[i].type);
@@ -1173,7 +1173,7 @@ function setImportedData(data) {
       }
     }
   }
-  if(iconList[currentPiece].type === "singleIcon")
+  if (iconList[currentPiece].type === "singleIcon")
     singleIconPiece()
   drawBoard();
   drawNonBoard();
@@ -1382,9 +1382,9 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
-        if(iconList[currentPiece].type === "singleIcon")
+        if (iconList[currentPiece].type === "singleIcon")
           singleIconPiece()
-        else if(iconList[currentPiece].type === "normal")
+        else if (iconList[currentPiece].type === "normal")
           normalGamePiece()
         let scaleDownBy = iconList[currentPiece].ability && iconList[currentPiece].ability.getAttribute("text") !== ""
           ? scaleDownFactor
@@ -1752,22 +1752,50 @@ function getFontSize(length = 1, hasSpace = false) {
 // for creating an element
 function processText(text) {
   if (currentFont === "dukeFont") {
-    if (text.length > 10) {
-      if (hasWhiteSpace(text)) {
-        let splitText = splitAtLastSpace(text)
-        let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-        tspanFirstElem.setAttribute("dy", "-0.6em");
-        tspanFirstElem.setAttribute("x", "1em");
-        tspanFirstElem.setAttribute("dx", "-.1em");
-        tspanFirstElem.textContent = splitText[0]
-        let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-        tspanSecondElem.setAttribute("dy", "0.7em");
-        tspanFirstElem.setAttribute("x", "1em");
-        tspanSecondElem.setAttribute("dx", "-2.57em");
-        //tspanSecondElem.setAttribute("x", "24.25%");
-        tspanSecondElem.textContent = splitText[1];
-        return [tspanFirstElem, tspanSecondElem]
-      }
+    if (hasNewLine(text) && splitAtFirstOccurance(text, "\\n").length > 1) {
+      let splitText = splitAtFirstOccurance(text, "\\n");
+      console.log(splitText)
+      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanFirstElem.setAttribute("dy", "-0.6em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanFirstElem.setAttribute("dx", "-.1em");
+      tspanFirstElem.textContent = splitText[0]
+      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanSecondElem.setAttribute("dy", "0.7em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanSecondElem.setAttribute("dx", "-2.57em");
+      tspanSecondElem.textContent = splitText[1];
+      return [tspanFirstElem, tspanSecondElem]
+    } else if (text.length > 10 && hasWhiteSpace(text)) {
+      let splitText = splitAtLastSpace(text)
+      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanFirstElem.setAttribute("dy", "-0.6em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanFirstElem.setAttribute("dx", "-.1em");
+      tspanFirstElem.textContent = splitText[0]
+      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanSecondElem.setAttribute("dy", "0.7em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanSecondElem.setAttribute("dx", "-2.57em");
+      //tspanSecondElem.setAttribute("x", "24.25%");
+      tspanSecondElem.textContent = splitText[1];
+      return [tspanFirstElem, tspanSecondElem]
+    }
+  }
+  else if(currentFont === "conanFont") {
+    if (hasNewLine(text) && splitAtFirstOccurance(text, "\\n").length > 1) {
+      let splitText = splitAtFirstOccurance(text, "\\n");
+      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanFirstElem.setAttribute("dy", "-0.6em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanFirstElem.setAttribute("dx", "-.1em");
+      tspanFirstElem.textContent = splitText[0]
+      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspanSecondElem.setAttribute("dy", "0.7em");
+      tspanFirstElem.setAttribute("x", "1em");
+      tspanSecondElem.setAttribute("dx", "-2.57em");
+      tspanSecondElem.textContent = splitText[1];
+      return [tspanFirstElem, tspanSecondElem]
     }
   }
   let textElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
@@ -1801,6 +1829,11 @@ function reverseString(str) {
 // Checks if the given text has a whitespace in it
 function hasWhiteSpace(text) {
   return /\s/g.test(text);
+}
+
+// Checks if the given text has a whitespace in it
+function hasNewLine(text) {
+  return /[\s\S]/g.test(text);
 }
 
 // Set the color of the grid and all its children
@@ -1848,12 +1881,12 @@ function changePieceType(e) {
   }
 
   let name = ""
-  if (iconList[currentPiece].name){
+  if (iconList[currentPiece].name) {
     name = iconList[currentPiece].name
-    ? iconList[currentPiece].name.getAttribute("text")
-    : "";
+      ? iconList[currentPiece].name.getAttribute("text")
+      : "";
     iconList[currentPiece].name.remove();
-  } 
+  }
   iconList[currentPiece].storage.icons[0] = createPieceIcon(nonStartIconName, isStartSide, e.target.value);
   iconList[currentPiece].storage.icons[1] = createPieceIcon(startIconName, !isStartSide, e.target.value);
 
