@@ -1382,6 +1382,10 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
+        if(iconList[currentPiece].type === "singleIcon")
+          singleIconPiece()
+        else if(iconList[currentPiece].type === "normal")
+          normalGamePiece()
         let scaleDownBy = iconList[currentPiece].ability && iconList[currentPiece].ability.getAttribute("text") !== ""
           ? scaleDownFactor
           : 1
