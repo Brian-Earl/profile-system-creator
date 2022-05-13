@@ -701,17 +701,21 @@ function createPieceAbilityText(text, append = true) {
 // Create the piece icon of the given piece name
 function createPieceIcon(piece, append = true, type = "normal") {
   if (piece === "") return;
+  let heightAdjust = 2;
   let iconPos = getCenter(pieceIconLocation);
-  if (type === "singleIcon")
+  let scale = 10;
+  if (type === "singleIcon") {
     iconPos = getCenter(singleIconLocation)
+    heightAdjust = 1.6
+    scale = 12
+  }
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   svg.appendChild(pieceIconElement);
   let bbox = pieceIconElement.getBBox();
-  let scale = 10;
   let width = bbox.width * scale;
   let height = bbox.height * scale;
   let cx = iconPos.x - width / 2;
-  let cy = iconPos.y - height / 2;
+  let cy = iconPos.y - height / heightAdjust;
   pieceIconElement.setAttribute("x", cx);
   pieceIconElement.setAttribute("y", cy);
   pieceIconElement.setAttribute("width", width);
@@ -1082,6 +1086,7 @@ function importPieces(element) {
 
 // Uses imported JSON object to set the correct variables
 function setImportedData(data) {
+  normalGamePiece()
   clearNonBoard();
   clearBoard();
   currentPiece = 0;
