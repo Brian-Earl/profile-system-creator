@@ -632,7 +632,7 @@ function createTextAt(
     newText.setAttribute("fill", "currentColor");
     newText.setAttribute("text-anchor", "middle");
     newText.setAttribute("dominant-baseline", "middle")
-    let cy = 0;
+    let cy = (heightJig * 2) / 3;
     if (textList.length > 1) {
       if (index === 0)
         cy = heightJig * -1;
