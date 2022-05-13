@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="kullIcon" width="100%" height="100%" viewBox="0 0 37 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.41099,0,0,0.411328,-96.3279,-3.91091)">
+        <rect x="234.38" y="9.508" width="90" height="315" style="fill:white;fill-opacity:0;stroke:rgb(35,31,32);stroke-opacity:0;stroke-width:3px;"/>
+    </g>
+    <g transform="matrix(2.00946,0,0,1.91147,32.8914,119.246)">
+        <path d="M0,-56.984C-1.809,-55.192 -4.31,-54.285 -5.828,-53.871L-5.828,-54.241L-6.634,-54.241L-7.164,-55.158L-7.693,-54.241L-8.5,-54.241L-8.5,-53.871C-10.019,-54.285 -12.521,-55.192 -14.329,-56.984C-14.329,-56.984 -16.419,-39.644 -12.354,-35.58C-12.354,-35.58 -11.654,-38.485 -10.625,-39.986C-10.644,-40.13 -10.669,-40.271 -10.669,-40.419C-10.669,-42.054 -9.544,-43.416 -8.029,-43.803L-8.029,0L-6.299,0L-6.299,-43.803C-4.784,-43.416 -3.659,-42.054 -3.659,-40.419C-3.659,-40.27 -3.686,-40.129 -3.702,-39.985C-2.675,-38.485 -1.975,-35.58 -1.975,-35.58C2.09,-39.644 0,-56.984 0,-56.984" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>

@@ -663,8 +663,7 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
     if (isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
   }
   let processedText = processText(text);
-  let fontSize = getFontSize(processedText[0].length, hasWhiteSpace(text));
-  console.log(nameLocation.getBBox().height * 1.25)
+  let fontSize = getFontSize(processedText[0].length, hasWhiteSpace(text), isAllCaps(processedText[0]));
   return createTextAt(
     processedText,
     text,
@@ -673,7 +672,7 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
     fontSize,
     availableFonts.get(currentFont),
     append,
-    processedText.length > 1 ? getFontSize(processedText[1].length, true) : fontSize
+    processedText.length > 1 ? getFontSize(processedText[1].length, true, isAllCaps(processedText[1])) : fontSize
   );
 }
 
@@ -1043,7 +1042,7 @@ function exportPieces() {
       pieceObject.connections = iconList[i].connections;
     }
     pieceObject.name = iconList[i].name
-      ? iconList[i].name.getAttribute("text")
+      ? iconList[i].name[0].getAttribute("text")
       : "";
     pieceObject.icon = iconList[i].storage.icons[0]
       ? iconList[i].storage.icons[0].getAttribute("text")
@@ -1764,7 +1763,7 @@ function getCutLineWidth() {
 
 // Return the correct font size depending on the 
 // current font and the length of the text
-function getFontSize(length = 1, hasSpace = false) {
+function getFontSize(length = 1, hasSpace = false, isAllCaps = false) {
   if (currentFont === "dukeFont") {
     if (length >= 3 && hasSpace) return 200;
     if (length >= 10) return 215;
@@ -1776,8 +1775,10 @@ function getFontSize(length = 1, hasSpace = false) {
   } else if (currentFont === "robinHoodFont") {
     return 170;
   } else if (currentFont === "conanFont") {
-    if (length >= 13)
-      return 100;
+    if (length >= 13 && isAllCaps)
+      return 90;
+    else if(length >= 10)
+      return 130;
   }
   return 200;
 }
@@ -1903,6 +1904,11 @@ function changePieceType(e) {
   }
 
   iconList[currentPiece].name = createPieceName(name);
+}
+
+// Check if a string is in all caps
+function isAllCaps(text) {
+  return text === text.toUpperCase()
 }
 
 init();

@@ -1,0 +1,121 @@
+{
+  "options": { "exporterVersion": 3, "font": "conanFont" },
+  "pieces": [
+    {
+      "grid": {
+        "startSide": [
+          [["move"], [], ["move"], [], []],
+          [[], ["move"], ["move"], [], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], ["move"], [], []],
+          [["move"], [], ["move"], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["move"], [], []],
+          [[], ["strike"], ["strike"], [], []],
+          [["move"], ["strike"], [], [], []],
+          [[], ["strike"], ["strike"], [], []],
+          [[], [], ["move"], [], []]
+        ]
+      },
+      "ability": "",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Conan\\nTHE BARBARIAN",
+      "icon": "conanIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], ["command"], []],
+          [[], ["move"], [], ["command"], []],
+          [[], ["move"], [], ["command"], []],
+          [[], ["move"], [], ["command"], []],
+          [[], [], [], ["command"], []]
+        ],
+        "startNonSide": [
+          [["command"], ["command"], ["command"], ["command"], ["move"]],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], [], []],
+          [["command"], ["command"], ["command"], ["command"], ["move"]]
+        ]
+      },
+      "ability": "",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Kull\\nTHE CONQUEROR",
+      "icon": "kullIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [["jump"], [], [], [], []],
+          [[], ["move"], [], [], ["jump"]],
+          [["jump"], [], [], [], []],
+          [[], ["move"], [], [], ["jump"]],
+          [["jump"], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["slide"], [], ["strike"], []],
+          [[], [], [], ["strike"], []],
+          [[], ["slide"], [], ["strike"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Dark Agnes\\nde Chastillon",
+      "icon": "darkAgnesIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], [], [], []],
+          [["move"], [], [], ["move"], []],
+          [[], [], [], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["move"], ["jump"], []],
+          [["strike"], ["slide"], [], ["move"], []],
+          [[], ["strike"], [], [], []],
+          [["strike"], ["slide"], [], ["move"], []],
+          [[], [], ["move"], ["jump"], []]
+        ]
+      },
+      "ability": "",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Solomon\\nKane",
+      "icon": "solomanIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    }
+  ]
+}
