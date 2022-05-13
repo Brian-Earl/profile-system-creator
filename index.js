@@ -97,11 +97,17 @@ let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
 svg.addEventListener("wheel", mouseOnScroll);
 
+// Get elements for the grid and single icon border
+let gridElement = document.getElementById("Grid");
+let pieceGraphicsBorderElement = document.getElementById("Piece-Graphics");
+let singleIconBorderElement = document.getElementById("SingleIconBorder");
+
 // Get the SVG element for where the piece name goes
 let nameLocation = document.getElementById("Piece-Name");
 
 // Get the SVG element for where the piece icon goes
 let pieceIconLocation = document.getElementById("Piece-Icon");
+let singleIconLocation = document.getElementById("Inner-Border");
 
 // Get the SVG element for where the player marker is
 let playerMarkerLocation = document.getElementById("Starting-Side");
@@ -129,12 +135,11 @@ const scaleDownFactor = (100.8 / 104.5);
 // allowing for custom icons that need to be stored in the json file
 // this is different from the site version which handles the actual rendering and creating
 // of the SVG files
-let exporterVersion = 2;
+let exporterVersion = 3;
 
 // Current version of the site
-let siteVersion = 1.0;
-
 // Will only start incrementing them after the "official release"
+let siteVersion = 1.0;
 
 // Add event listeners for processing new name,
 // ability, piece icon, opposite icon side and start position inputs
@@ -164,6 +169,10 @@ let yLineInput1 = document.getElementById("yLineInput1");
 let xLineInput2 = document.getElementById("xLineInput2");
 let yLineInput2 = document.getElementById("yLineInput2");
 let fontInput = document.getElementById("fontInput");
+let normalTypeInput = document.getElementById("normalTypeInput");
+normalTypeInput.addEventListener("change", changePieceType);
+let singleIconTypeInput = document.getElementById("singleIconTypeInput");
+singleIconTypeInput.addEventListener("change", changePieceType);
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -178,7 +187,12 @@ let spacingInput = document.getElementById("spacingInput");
 let exportStyle = document.getElementById("exportStyles");
 
 class GamePiece {
-  constructor(x = 2, y = 2, x2 = 2, y2 = 2, append = true) {
+  constructor(x = 2, y = 2, x2 = 2, y2 = 2, type = "normal", append = true) {
+
+    // Keep track of what type the current piece
+    // It can either be "normal" or "singleIcon"
+    this.type = type;
+
     this.grid = [];
     // Create the two grids for the start and non start sides
     for (let i = 0; i < 2; i++) {
@@ -623,10 +637,15 @@ function createTextAt(
 }
 
 // Create a text element of the given piece name
-function createPieceName(text, append = true) {
+function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
   let fontSize = getFontSize(text.length, hasWhiteSpace(text));
-  if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
   let namePos = getCenter(nameLocation);
+  if(!isImport) {
+    if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
+    if((iconList[currentPiece].type  && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
+  } else {
+    if(isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
+  }
   return createTextAt(
     processText(text),
     text,
@@ -653,9 +672,11 @@ function createPieceAbilityText(text, append = true) {
 }
 
 // Create the piece icon of the given piece name
-function createPieceIcon(piece, append = true) {
+function createPieceIcon(piece, append = true, type = "normal") {
   if (piece === "") return;
   let iconPos = getCenter(pieceIconLocation);
+  if (type === "singleIcon")
+    iconPos = getCenter(singleIconLocation)
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   svg.appendChild(pieceIconElement);
   let bbox = pieceIconElement.getBBox();
@@ -676,59 +697,63 @@ function createPieceIcon(piece, append = true) {
 
 // Create a new index in iconList for a new piece to be placed in
 function createNewPieceIndex(x = 2, y = 2, x2 = 2, y2 = 2, append = true) {
-  iconList.push(new GamePiece(x, y, x2, y2, append));
+  iconList.push(new GamePiece(x, y, x2, y2, "normal", append));
   displayListLength();
 }
 
 // Clear all of the icons for the current piece and side from view
 function clearBoard() {
-  for (let i = 0; i < iconList[currentPiece].grid[+isStartSide].length; i++) {
-    for (
-      let j = 0;
-      j < iconList[currentPiece].grid[+isStartSide][i].length;
-      j++
-    ) {
+  if (iconList[currentPiece].type === "normal") {
+    for (let i = 0; i < iconList[currentPiece].grid[+isStartSide].length; i++) {
       for (
-        let k = 0;
-        k < iconList[currentPiece].grid[+isStartSide][i][j].length;
-        k++
+        let j = 0;
+        j < iconList[currentPiece].grid[+isStartSide][i].length;
+        j++
       ) {
-        iconList[currentPiece].grid[+isStartSide][i][j][k].remove();
+        for (
+          let k = 0;
+          k < iconList[currentPiece].grid[+isStartSide][i][j].length;
+          k++
+        ) {
+          iconList[currentPiece].grid[+isStartSide][i][j][k].remove();
+        }
       }
     }
-  }
-  // Remove connection lines
-  for (
-    let i = 0;
-    i < iconList[currentPiece].storage.connections[+isStartSide].length;
-    i++
-  ) {
-    iconList[currentPiece].storage.connections[+isStartSide][i].remove();
+    // Remove connection lines
+    for (
+      let i = 0;
+      i < iconList[currentPiece].storage.connections[+isStartSide].length;
+      i++
+    ) {
+      iconList[currentPiece].storage.connections[+isStartSide][i].remove();
+    }
   }
 }
 
 // Redraw all of the icons for the current piece and side from view
 function drawBoard() {
-  // Draw connection lines
-  for (
-    let i = 0;
-    i < iconList[currentPiece].storage.connections[+isStartSide].length;
-    i++
-  ) {
-    svg.appendChild(iconList[currentPiece].storage.connections[+isStartSide][i]);
-  }
-  for (let i = 0; i < iconList[currentPiece].grid[+isStartSide].length; i++) {
+  if (iconList[currentPiece].type === "normal") {
+    // Draw connection lines
     for (
-      let j = 0;
-      j < iconList[currentPiece].grid[+isStartSide][i].length;
-      j++
+      let i = 0;
+      i < iconList[currentPiece].storage.connections[+isStartSide].length;
+      i++
     ) {
+      svg.appendChild(iconList[currentPiece].storage.connections[+isStartSide][i]);
+    }
+    for (let i = 0; i < iconList[currentPiece].grid[+isStartSide].length; i++) {
       for (
-        let k = 0;
-        k < iconList[currentPiece].grid[+isStartSide][i][j].length;
-        k++
+        let j = 0;
+        j < iconList[currentPiece].grid[+isStartSide][i].length;
+        j++
       ) {
-        svg.appendChild(iconList[currentPiece].grid[+isStartSide][i][j][k]);
+        for (
+          let k = 0;
+          k < iconList[currentPiece].grid[+isStartSide][i][j].length;
+          k++
+        ) {
+          svg.appendChild(iconList[currentPiece].grid[+isStartSide][i][j][k]);
+        }
       }
     }
   }
@@ -736,8 +761,12 @@ function drawBoard() {
 
 // Clears all elements that are not on the grid (name, ability icon)
 function clearNonBoard() {
+  if (iconList[currentPiece].type === "normal") {
+    if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
+    if (iconList[currentPiece].storage.start[+isStartSide])
+      iconList[currentPiece].storage.start[+isStartSide].remove();
+  }
   if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
-  if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -746,24 +775,26 @@ function clearNonBoard() {
     iconList[currentPiece].storage.icons[
       +(!isStartSide && hasDifferentPieceIcons)
     ].remove();
-  if (iconList[currentPiece].storage.start[+isStartSide])
-    iconList[currentPiece].storage.start[+isStartSide].remove();
 }
 
 // Draw all elements that are not on the grid (name, ability icon)
 function drawNonBoard() {
-  if (iconList[currentPiece].name) svg.appendChild(iconList[currentPiece].name);
-  if (iconList[currentPiece].ability) {
-    svg.appendChild(iconList[currentPiece].ability);
-    outerBorderLocation.setAttribute(
-      "visibility",
-      iconList[currentPiece].ability.getAttribute("text") !== ""
-        ? "visible"
-        : "hidden"
-    );
-  } else {
-    outerBorderLocation.setAttribute("visibility", "hidden");
+  if (iconList[currentPiece].type === "normal") {
+    if (iconList[currentPiece].ability) {
+      svg.appendChild(iconList[currentPiece].ability);
+      outerBorderLocation.setAttribute(
+        "visibility",
+        iconList[currentPiece].ability.getAttribute("text") !== ""
+          ? "visible"
+          : "hidden"
+      );
+    } else {
+      outerBorderLocation.setAttribute("visibility", "hidden");
+    }
+    if (iconList[currentPiece].storage.start[+isStartSide])
+      svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
   }
+  if (iconList[currentPiece].name) svg.appendChild(iconList[currentPiece].name);
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -774,8 +805,6 @@ function drawNonBoard() {
       +(!isStartSide && hasDifferentPieceIcons)
       ]
     );
-  if (iconList[currentPiece].storage.start[+isStartSide])
-    svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
 }
 
 // Delete all icons at position x,y in movement grid
@@ -799,7 +828,10 @@ function displayListLength() {
 
 // Easy macro to create a new piece index and increment the current piece
 function createNewPiece() {
+  clearBoard();
+  clearNonBoard();
   createNewPieceIndex(x = 2, y = 2, x2 = 2, y2 = 2, append = false);
+  currentPiece = iconList.length - 2;
   forwardPiece();
 }
 
@@ -841,9 +873,10 @@ function forwardPiece() {
   currentPiece++;
   if (currentPiece >= iconList.length) currentPiece = 0;
   isStartSide = true;
-  // Redraw the board and update the rest of the UI
-  drawNonBoard();
-  drawBoard();
+  if (iconList[currentPiece].type === "normal")
+    normalGamePiece();
+  else if (iconList[currentPiece].type === "singleIcon")
+    singleIconPiece();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
   clearInputs();
@@ -859,9 +892,10 @@ function backwardPiece() {
   currentPiece--;
   if (currentPiece < 0) currentPiece = iconList.length - 1;
   isStartSide = true;
-  // Redraw the board and update the rest of the UI
-  drawNonBoard();
-  drawBoard();
+  if (iconList[currentPiece].type === "normal")
+    normalGamePiece();
+  else if (iconList[currentPiece].type === "singleIcon")
+    singleIconPiece();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
   clearInputs();
@@ -888,11 +922,14 @@ function clearInputs() {
   yInput.value = iconList[currentPiece].startPos[+isStartSide][1]
     ? iconList[currentPiece].startPos[+isStartSide][1]
     : 2;
+  normalTypeInput.checked = iconList[currentPiece].type === "normal";
+  singleIconTypeInput.checked = iconList[currentPiece].type === "singleIcon"
 }
 
 // Reset input fields only to be set on init
 function initInputs() {
   fontInput.value = "dukeFont"
+  normalTypeInput.checked = true;
 }
 
 // Check if the current piece has different icons
@@ -946,35 +983,40 @@ function exportPieces() {
   object.options = {};
   object.options.exporterVersion = exporterVersion;
   object.options.font = currentFont;
-
   object.pieces = [];
   for (let i = 0; i < iconList.length; i++) {
     let pieceObject = {};
-    let iconArray = [];
-    for (let j = 0; j < 2; j++) {
-      let sideArray = [];
-      for (let x = 0; x < iconList[i].grid[j].length; x++) {
-        let xArray = [];
-        for (let y = 0; y < iconList[i].grid[j][x].length; y++) {
-          let yArray = [];
-          for (let k = 0; k < iconList[i].grid[j][x][y].length; k++) {
-            yArray.push(iconList[i].grid[j][x][y][k].getAttribute("icon"));
+    if (iconList[i].type === "normal") {
+      let iconArray = [];
+      for (let j = 0; j < 2; j++) {
+        let sideArray = [];
+        for (let x = 0; x < iconList[i].grid[j].length; x++) {
+          let xArray = [];
+          for (let y = 0; y < iconList[i].grid[j][x].length; y++) {
+            let yArray = [];
+            for (let k = 0; k < iconList[i].grid[j][x][y].length; k++) {
+              yArray.push(iconList[i].grid[j][x][y][k].getAttribute("icon"));
+            }
+            xArray.push(yArray);
           }
-          xArray.push(yArray);
+          sideArray.push(xArray);
         }
-        sideArray.push(xArray);
+        iconArray.push(sideArray);
       }
-      iconArray.push(sideArray);
+      pieceObject.grid = {};
+      pieceObject.grid.startSide = iconArray[1];
+      pieceObject.grid.startNonSide = iconArray[0];
+
+      pieceObject.ability = iconList[i].ability
+        ? romanToInt(iconList[i].ability.getAttribute("text"))
+        : "";
+
+      pieceObject.startPosition = iconList[i].startPos;
+      pieceObject.connections = iconList[i].connections;
     }
-    pieceObject.grid = {};
-    pieceObject.grid.startSide = iconArray[1];
-    pieceObject.grid.startNonSide = iconArray[0];
     pieceObject.name = iconList[i].name
-      ? iconList[i].name.getAttribute("text")
-      : "";
-    pieceObject.ability = iconList[i].ability
-      ? romanToInt(iconList[i].ability.getAttribute("text"))
-      : "";
+        ? iconList[i].name.getAttribute("text")
+        : "";
     pieceObject.icon = iconList[i].storage.icons[0]
       ? iconList[i].storage.icons[0].getAttribute("text")
       : "";
@@ -982,8 +1024,7 @@ function exportPieces() {
       ? iconList[i].storage.icons[1].getAttribute("text")
       : "";
     pieceObject.amount = iconList[i].count ? iconList[i].count : 1;
-    pieceObject.startPosition = iconList[i].startPos;
-    pieceObject.connections = iconList[i].connections;
+    pieceObject.type = iconList[i].type ? iconList[i].type : "normal";
     object.pieces.push(pieceObject);
   }
   downloadJSON(object);
@@ -1017,6 +1058,7 @@ function setImportedData(data) {
   clearNonBoard();
   clearBoard();
   currentPiece = 0;
+  singleIconBorderElement.setAttribute("visibility", "visable");
   if (data.options.font && availableFonts.get(data.options.font))
     currentFont = data.options.font;
   iconList = [];
@@ -1047,80 +1089,92 @@ function setImportedData(data) {
       startPos[0][1],
       false
     );
-    for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
-      for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
-        let gridPos = [j, k];
-        let gridSquareElement = document.getElementById(
-          "X" + gridPos[0] + gridPos[1]
-        );
-        let gridSquareCenter = getCenter(gridSquareElement);
-        for (let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++) {
-          iconList[i].grid[1][gridPos[0]][gridPos[1]].push(
-            createIconAt(
-              data.pieces[i].grid.startSide[j][k][l],
-              gridSquareCenter,
-              gridPos,
-              false
-            )
-          );
-        }
-        for (
-          let l = 0;
-          l < data.pieces[i].grid.startNonSide[j][k].length;
-          l++
-        ) {
-          iconList[i].grid[0][gridPos[0]][gridPos[1]].push(
-            createIconAt(
-              data.pieces[i].grid.startNonSide[j][k][l],
-              gridSquareCenter,
-              gridPos,
-              false
-            )
-          );
-        }
-      }
-    }
-    iconList[i].name = createPieceName(data.pieces[i].name, false);
-    iconList[i].ability = createPieceAbilityText(
-      romanize(data.pieces[i].ability),
-      false
-    );
-    iconList[i].storage.icons[0] = createPieceIcon(data.pieces[i].icon, false);
+
+    if(data.options.exporterVersion < 3)
+      data.pieces[i].type = "normal"
+
+    iconList[i].storage.icons[0] = createPieceIcon(data.pieces[i].icon, false, data.pieces[i].type);
     iconList[i].storage.icons[1] = createPieceIcon(
       data.pieces[i].altIcon,
-      false
+      false,
+      data.pieces[i].type
     );
     iconList[i].count = data.pieces[i].amount;
-    iconList[i].startPos = startPos;
-    iconList[i].storage.start = createStartIconsAt(
-      startPos[1][0],
-      startPos[1][1],
-      startPos[0][0],
-      startPos[0][1],
-      false
-    );
-    if (data.pieces[i].connections)
-      iconList[i].connections = data.pieces[i].connections;
-    iconList[i].storage.connections = [[], []];
-    for (let j = 0; j < iconList[i].connections.length; j++) {
-      for (let k = 0; k < iconList[i].connections[j].length; k++) {
-        let x1 = iconList[i].connections[j][k][0][0];
-        let y1 = iconList[i].connections[j][k][0][1];
-        let x2 = iconList[i].connections[j][k][1][0];
-        let y2 = iconList[i].connections[j][k][1][1];
-        let center1 = getCenter(document.getElementById("X" + x1 + y1));
-        let center2 = getCenter(document.getElementById("X" + x2 + y2));
-        let line = createLine(
-          center1.x,
-          center1.y,
-          center2.x,
-          center2.y,
-          "20"
-        );
-        iconList[i].storage.connections[j].push(line);
+    iconList[i].type = data.pieces[i].type;
+    iconList[i].name = createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
+    if (data.pieces[i].type === "normal") {
+      for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
+        for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
+          let gridPos = [j, k];
+          let gridSquareElement = document.getElementById(
+            "X" + gridPos[0] + gridPos[1]
+          );
+          let gridSquareCenter = getCenter(gridSquareElement);
+          for (let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++) {
+            iconList[i].grid[1][gridPos[0]][gridPos[1]].push(
+              createIconAt(
+                data.pieces[i].grid.startSide[j][k][l],
+                gridSquareCenter,
+                gridPos,
+                false
+              )
+            );
+          }
+          for (
+            let l = 0;
+            l < data.pieces[i].grid.startNonSide[j][k].length;
+            l++
+          ) {
+            iconList[i].grid[0][gridPos[0]][gridPos[1]].push(
+              createIconAt(
+                data.pieces[i].grid.startNonSide[j][k][l],
+                gridSquareCenter,
+                gridPos,
+                false
+              )
+            );
+          }
+        }
+      }
+
+      iconList[i].ability = createPieceAbilityText(
+        romanize(data.pieces[i].ability),
+        false
+      );
+
+      iconList[i].startPos = startPos;
+      iconList[i].storage.start = createStartIconsAt(
+        startPos[1][0],
+        startPos[1][1],
+        startPos[0][0],
+        startPos[0][1],
+        false
+      );
+      if (data.pieces[i].connections)
+        iconList[i].connections = data.pieces[i].connections;
+      iconList[i].storage.connections = [[], []];
+      for (let j = 0; j < iconList[i].connections.length; j++) {
+        for (let k = 0; k < iconList[i].connections[j].length; k++) {
+          let x1 = iconList[i].connections[j][k][0][0];
+          let y1 = iconList[i].connections[j][k][0][1];
+          let x2 = iconList[i].connections[j][k][1][0];
+          let y2 = iconList[i].connections[j][k][1][1];
+          let center1 = getCenter(document.getElementById("X" + x1 + y1));
+          let center2 = getCenter(document.getElementById("X" + x2 + y2));
+          let line = createLine(
+            center1.x,
+            center1.y,
+            center2.x,
+            center2.y,
+            "20"
+          );
+          iconList[i].storage.connections[j].push(line);
+        }
       }
     }
   }
+  if(iconList[currentPiece].type === "singleIcon")
+    singleIconPiece()
   drawBoard();
   drawNonBoard();
 }
@@ -1237,7 +1291,7 @@ function changePieceIcon() {
     iconList[currentPiece].storage.icons[1].remove();
   iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
-  ] = createPieceIcon(pieceIconInput.value);
+  ] = createPieceIcon(pieceIconInput.value, true, iconList[currentPiece].type);
 }
 
 // Toggle if the non start side of the piece has a different icon from the start side
@@ -1341,7 +1395,6 @@ function exportPiecesAsGrid(
         // Clone the current piece and add the start and non start side to the two different renders
         let svgStartSideClone = svg.cloneNode(true);
         startSideCanvas.append(svgStartSideClone);
-        console.log(scaleDownBy)
         svgStartSideClone.setAttribute("width", pieceSize * scaleDownBy);
         svgStartSideClone.setAttribute("height", pieceSize * scaleDownBy);
         svgStartSideClone.setAttribute("x", x);
@@ -1738,7 +1791,7 @@ function reverseString(str) {
   let splitString = str.split("");
   let reverseArray = splitString.reverse();
   let joinArray = reverseArray.join("");
-  return joinArray; // "olleh"
+  return joinArray;
 }
 
 // Checks if the given text has a whitespace in it
@@ -1751,6 +1804,63 @@ function hasWhiteSpace(text) {
 // for better customization and for laser cutting
 function setGridColor(color) {
   svg.style.color = color;
+}
+
+// Set up the board for a single icon piece
+function singleIconPiece() {
+  clearBoard();
+  clearNonBoard();
+  gridElement.setAttribute("visibility", "hidden");
+  pieceGraphicsBorderElement.setAttribute("visibility", "hidden");
+  singleIconBorderElement.setAttribute("visibility", "visable");
+  iconList[currentPiece].type = "singleIcon"
+  drawBoard();
+  drawNonBoard();
+}
+
+// Set up the board for a normal game piece
+function normalGamePiece() {
+  clearBoard();
+  clearNonBoard();
+  gridElement.setAttribute("visibility", "visable");
+  pieceGraphicsBorderElement.setAttribute("visibility", "visable");
+  singleIconBorderElement.setAttribute("visibility", "hidden");
+  iconList[currentPiece].type = "normal"
+  drawBoard();
+  drawNonBoard();
+}
+
+// Handle changing piece type
+function changePieceType(e) {
+  let nonStartIconName = "";
+  if (iconList[currentPiece].storage.icons[0]) {
+    nonStartIconName = iconList[currentPiece].storage.icons[0].getAttribute("text")
+    iconList[currentPiece].storage.icons[0].remove()
+  }
+  let startIconName = "";
+  if (iconList[currentPiece].storage.icons[1]) {
+    startIconName = iconList[currentPiece].storage.icons[1].getAttribute("text")
+    iconList[currentPiece].storage.icons[1].remove()
+  }
+
+  let name = ""
+  if (iconList[currentPiece].name){
+    name = iconList[currentPiece].name
+    ? iconList[currentPiece].name.getAttribute("text")
+    : "";
+    iconList[currentPiece].name.remove();
+  } 
+  iconList[currentPiece].storage.icons[0] = createPieceIcon(nonStartIconName, isStartSide, e.target.value);
+  iconList[currentPiece].storage.icons[1] = createPieceIcon(startIconName, !isStartSide, e.target.value);
+
+  if (e.target.value === "normal") {
+    normalGamePiece();
+  }
+  else if (e.target.value === "singleIcon") {
+    singleIconPiece();
+  }
+
+  iconList[currentPiece].name = createPieceName(name);
 }
 
 init();

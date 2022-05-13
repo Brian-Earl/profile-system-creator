@@ -16,7 +16,7 @@
     href="https://www.dafontfree.net/embed/aGlyb3NoaWdlLXN0ZC1ibGFjayZkYXRhLzQ4L2gvNDQyMDMvSGlyb3NoaWdlU3RkLUJsYWNrLm90Zg"
     rel="stylesheet" type="text/css" /> -->
 
-  <style type="text/css" id="webfont-style-0">
+  <style type="text/css">
     /* 
     Needed to save SVG as PNG
     Link CDN breaks the download
@@ -358,6 +358,14 @@
               "></rect>
         </g>
       </g>
+      <g id="SingleIconBorder" transform="matrix(3.06842,0,0,3.06842,0,0)">
+        <g id="Outer-Border" serif:id="Outer Border" transform="matrix(-4.24357,0,0,4.24349,562.69,-95.0915)" visibility="hidden">
+            <rect x="27" y="23.484" width="104.523" height="104.525" style="fill:none;stroke:black;stroke-width:0.97px;"/>
+        </g>
+        <g id="Inner-Border" serif:id="Inner Border" transform="matrix(-4.24354,0,0,4.24337,563.017,-94.7567)">
+            <rect x="28.863" y="25.346" width="100.799" height="100.803" style="fill:none;stroke:rgb(35,31,32);stroke-width:0.97px;"/>
+        </g>
+    </g>
       <g id="Player-Marker" serif:id="Player Marker">
         <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side"
           transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
@@ -462,6 +470,14 @@
     <form>
       <label for="oppositeStartSideInput">Allow opposite start positions:</label>
       <input type="checkbox" id="oppositeStartSideInput" />
+    </form>
+    <br />
+    <form>
+      Piece type:
+      <input type="radio" id="normalTypeInput" name="format" value="normal" checked />
+      <label for="svg">Normal</label>
+      <input type="radio" id="singleIconTypeInput" name="format" value="singleIcon" />
+      <label for="png">Single Icon</label>
     </form>
     <br />
     <form>
@@ -1455,7 +1471,8 @@
       </g>
     </svg>
   </div>
-  <script src="index.js"></script>
 </body>
+
+<script src="index.js"></script>
 
 </html>
