@@ -30,6 +30,7 @@
 // Full size piece support
 // Redo Icons (look at Start Side Icon Affinity File)
 // Store what peices (if any) a piece should replace
+// Fix new line name implementation
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -611,48 +612,68 @@ function restoreOppositeType(x, y, newIcon) {
 
 // Creates a text element at the position given of the font size given
 function createTextAt(
-  textElem,
+  textList,
   text,
   pos,
+  heightJig,
   fontSize,
   fontFamily = "Pieces of Eight",
-  append = true
+  append = true,
+  altFontSize = 0
 ) {
-  let svgNS = "http://www.w3.org/2000/svg";
-  let newText = document.createElementNS(svgNS, "text");
-  newText.setAttribute("font-size", fontSize);
-  newText.setAttribute("font-family", fontFamily);
-  newText.setAttribute("text", text);
-  newText.setAttribute("fill", "currentColor");
-  textElem.forEach(elem => newText.appendChild(elem));
-  //newText.appendChild(document.createTextNode(text));
-  svg.appendChild(newText);
-  let bbox = newText.getBBox();
-  let cx = pos.x - bbox.width / 2;
-  let cy = pos.y + bbox.height / 3;
-  newText.setAttribute("x", cx);
-  newText.setAttribute("y", cy);
-  if (!append) newText.remove();
-  return newText;
+  let newTexts = []
+  textList.forEach((elem, index) => {
+    let svgNS = "http://www.w3.org/2000/svg";
+    let newText = document.createElementNS(svgNS, "text");
+    newText.setAttribute("font-size", fontSize);
+    newText.setAttribute("font-family", fontFamily);
+    newText.setAttribute("font-weight", getFontWeight())
+    newText.setAttribute("text", text);
+    newText.setAttribute("fill", "currentColor");
+    newText.setAttribute("text-anchor", "middle");
+    newText.setAttribute("dominant-baseline", "middle")
+    let cy = 0;
+    if (textList.length > 1) {
+      if (index === 0)
+        cy = heightJig * -1;
+      else {
+        cy = heightJig * 2;
+        if (currentFont === "conanFont")
+          cy = heightJig * 2.5
+        newText.setAttribute("font-size", altFontSize);
+      }
+    }
+    newText.setAttribute("x", pos.x);
+    newText.setAttribute("y", pos.y + cy);
+    newText.appendChild(document.createTextNode(elem));
+    svg.appendChild(newText);
+    if (!append) newText.remove();
+    newTexts.push(newText);
+  });
+  return newTexts;
 }
 
 // Create a text element of the given piece name
 function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
-  let fontSize = getFontSize(text.length, hasWhiteSpace(text));
   let namePos = getCenter(nameLocation);
   if (!isImport) {
-    if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
+    if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());;
     if ((iconList[currentPiece].type && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
   } else {
     if (isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
   }
+  let processedText = processText(text);
+  let fontSize = getFontSize(processedText[0].length, hasWhiteSpace(text));
+  console.log(nameLocation.getBBox().height * 1.25)
   return createTextAt(
-    processText(text),
+    processedText,
     text,
     namePos,
+    nameLocation.getBBox().height / 2,
     fontSize,
     availableFonts.get(currentFont),
-    append
+    append,
+    processedText.length > 1 ? getFontSize(processedText[1].length, true) : fontSize
   );
 }
 
@@ -663,12 +684,19 @@ function createPieceAbilityText(text, append = true) {
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
-  iconPos.y = namePos.y + 115;
+  iconPos.y = namePos.y + (nameLocation.getBBox().height * 1.25); // Used to be + 115
   outerBorderLocation.setAttribute(
     "visibility",
     text !== "" ? "visible" : "hidden"
   );
-  return createTextAt([document.createTextNode(text)], text, iconPos, 100, "Pieces of Eight", append);
+  return createTextAt(
+    [text],
+    text,
+    iconPos,
+    0,
+    100,
+    "Pieces of Eight",
+    append)[0];
 }
 
 // Create the piece icon of the given piece name
@@ -766,7 +794,7 @@ function clearNonBoard() {
     if (iconList[currentPiece].storage.start[+isStartSide])
       iconList[currentPiece].storage.start[+isStartSide].remove();
   }
-  if (iconList[currentPiece].name) iconList[currentPiece].name.remove();
+  if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -794,7 +822,7 @@ function drawNonBoard() {
     if (iconList[currentPiece].storage.start[+isStartSide])
       svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
   }
-  if (iconList[currentPiece].name) svg.appendChild(iconList[currentPiece].name);
+  if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => svg.appendChild(elem));
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -908,7 +936,7 @@ function clearInputs() {
   oppositeIconSideInput.checked = hasDifferentPieceIcons;
   oppositeStartSideInput.checked = hasDifferentStartLocations;
   nameInput.value = iconList[currentPiece].name
-    ? iconList[currentPiece].name.getAttribute("text")
+    ? iconList[currentPiece].name[0].getAttribute("text")
     : "";
   abilityInput.value = iconList[currentPiece].ability
     ? romanToInt(iconList[currentPiece].ability.getAttribute("text"))
@@ -1268,6 +1296,11 @@ function changeName(e) {
 
 // Change the ability of the current piece
 function changeAbility(e) {
+  if(e.target.value === "") {
+    iconList[currentPiece].ability.remove();
+    outerBorderLocation.setAttribute("visibility", "hidden");
+    return
+  }
   // If the input is outside of the desired range, return
   if (e.target.value < 0 || e.target.value > 100) return;
   iconList[currentPiece].ability = createPieceAbilityText(
@@ -1733,7 +1766,7 @@ function getCutLineWidth() {
 // current font and the length of the text
 function getFontSize(length = 1, hasSpace = false) {
   if (currentFont === "dukeFont") {
-    if (length >= 12 && hasSpace) return 200;
+    if (length >= 3 && hasSpace) return 200;
     if (length >= 10) return 215;
     if (length >= 8) return 245;
     return 265;
@@ -1742,8 +1775,18 @@ function getFontSize(length = 1, hasSpace = false) {
     return 200;
   } else if (currentFont === "robinHoodFont") {
     return 170;
+  } else if (currentFont === "conanFont") {
+    if (length >= 13)
+      return 100;
   }
   return 200;
+}
+
+// Get the weight that should be used for the current font
+function getFontWeight() {
+  if (currentFont === "conanFont")
+    return "bold"
+  return "normal"
 }
 
 // Process text and create the appropriate elements to add to the image
@@ -1753,55 +1796,17 @@ function getFontSize(length = 1, hasSpace = false) {
 function processText(text) {
   if (currentFont === "dukeFont") {
     if (hasNewLine(text) && splitAtFirstOccurance(text, "\\n").length > 1) {
-      let splitText = splitAtFirstOccurance(text, "\\n");
-      console.log(splitText)
-      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanFirstElem.setAttribute("dy", "-0.6em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanFirstElem.setAttribute("dx", "-.1em");
-      tspanFirstElem.textContent = splitText[0]
-      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanSecondElem.setAttribute("dy", "0.7em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanSecondElem.setAttribute("dx", "-2.57em");
-      tspanSecondElem.textContent = splitText[1];
-      return [tspanFirstElem, tspanSecondElem]
+      return splitAtFirstOccurance(text, "\\n");
     } else if (text.length > 10 && hasWhiteSpace(text)) {
-      let splitText = splitAtLastSpace(text)
-      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanFirstElem.setAttribute("dy", "-0.6em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanFirstElem.setAttribute("dx", "-.1em");
-      tspanFirstElem.textContent = splitText[0]
-      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanSecondElem.setAttribute("dy", "0.7em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanSecondElem.setAttribute("dx", "-2.57em");
-      //tspanSecondElem.setAttribute("x", "24.25%");
-      tspanSecondElem.textContent = splitText[1];
-      return [tspanFirstElem, tspanSecondElem]
+      return splitAtLastSpace(text)
     }
   }
-  else if(currentFont === "conanFont") {
+  else if (currentFont === "conanFont") {
     if (hasNewLine(text) && splitAtFirstOccurance(text, "\\n").length > 1) {
-      let splitText = splitAtFirstOccurance(text, "\\n");
-      let tspanFirstElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanFirstElem.setAttribute("dy", "-0.6em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanFirstElem.setAttribute("dx", "-.1em");
-      tspanFirstElem.textContent = splitText[0]
-      let tspanSecondElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspanSecondElem.setAttribute("dy", "0.7em");
-      tspanFirstElem.setAttribute("x", "1em");
-      tspanSecondElem.setAttribute("dx", "-2.57em");
-      tspanSecondElem.textContent = splitText[1];
-      return [tspanFirstElem, tspanSecondElem]
+      return splitAtFirstOccurance(text, "\\n")
     }
   }
-  let textElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-  textElem.textContent = text;
-  // return [document.createTextNode(text)]
-  return [textElem]
+  return [text]
 }
 
 // Splits text at the last space
@@ -1882,10 +1887,10 @@ function changePieceType(e) {
 
   let name = ""
   if (iconList[currentPiece].name) {
-    name = iconList[currentPiece].name
-      ? iconList[currentPiece].name.getAttribute("text")
+    name = iconList[currentPiece].name[0]
+      ? iconList[currentPiece].name[0].getAttribute("text")
       : "";
-    iconList[currentPiece].name.remove();
+    iconList[currentPiece].name.forEach(elem => elem.remove());
   }
   iconList[currentPiece].storage.icons[0] = createPieceIcon(nonStartIconName, isStartSide, e.target.value);
   iconList[currentPiece].storage.icons[1] = createPieceIcon(startIconName, !isStartSide, e.target.value);
