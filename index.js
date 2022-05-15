@@ -29,7 +29,7 @@
 // Revamp UI
 // Full size piece support
 // Redo Icons (look at Start Side Icon Affinity File)
-// Store what peices (if any) a piece should replace
+// Store what peices (if any) a piece should replace such as how Arthur replaces the Duke
 // Fix new line name implementation
 
 // Variable that keeps track all of the current pieces created
@@ -54,6 +54,7 @@ let canScroll = true;
 
 // List of available icons where each index is the id of an SVG element
 const movementIcons = [
+  // "testIcon",
   "move",
   "jump",
   "slide",
@@ -61,13 +62,16 @@ const movementIcons = [
   "hammer",
   "strike",
   "defense",
-  //"shieldDefense",
+  "shieldDefense",
   "dread",
   "smash",
   "nonCaptureMove",
   "nonCaptureJump",
   "nonCaptureSlide",
+  "nonCaptureJumpSlide",
   "command",
+  "singleFormation",
+  "fullFormation",
   "clear",
 ];
 
@@ -416,10 +420,10 @@ function createIconAt(
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
   let cy = pos.y - height / 2;
-  if (isSlide(icon)) {
+  if (isRotate(icon)) {
     newIconElement.setAttribute(
       "transform",
-      rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor)
+      rotateIcon(gridPos, cx, cy, width, height)
     );
   }
   newIconElement.setAttribute("x", cx);
@@ -461,19 +465,26 @@ function createStartIconsAt(x, y, x2, y2, append = true) {
 }
 
 // Returns if the icon given is one that needs to be rotated
-function isSlide(icon) {
-  return icon === "slide" || icon === "jumpSlide" || icon === "nonCaptureSlide";
+function isRotate(icon) {
+  return icon === "slide" ||
+    icon === "jumpSlide" ||
+    icon === "nonCaptureSlide" ||
+    icon === "nonCaptureJumpSlide" ||
+    icon === "smash";
 }
 
 // Returns if the icon given is one that is full sized
+// This is used for determining which "slot" a icon should take up
+// so that multiple icons can be placed on the same grid location
+// such as a command and a slide or a singe formation and a non capture jump
 function isFullSize(icon) {
-  return (
-    icon === "command" || icon === "singleFormation" || icon === "fullFormation"
-  );
+  return icon === "command" ||
+    icon === "singleFormation" ||
+    icon === "fullFormation"
 }
 
 // Return transform attribute for rotating an icon
-function rotateIcon(gridPos, cx, cy, width, height, iconScaleFactor = 1) {
+function rotateIcon(gridPos, cx, cy, width, height) {
   return (
     "rotate(" +
     getRotateDegrees(gridPos) +
@@ -497,17 +508,20 @@ function scaleIcon(icon) {
 
 // Returns how much to scale a certain icon by
 function scaleFactor(icon) {
-  if (icon === "move") return 1.05
-  if (icon === "nonCaptureMove") return 1.05
-  if (icon === "jump") return 1.1
-  if (icon === "nonCaptureJump") return 1.15
-  if (icon === "slide") return 0.95
-  if (icon === "nonCaptureSlide") return 0.95
-  if (icon === "jumpSlide") return 1.15
-  if (icon === "strike") return 1.1
-  if (icon === "hammer") return 1.1
-  if (icon === "defense") return 0.95
-  if (icon === "shieldDefense") return 1.1
+  if (icon === "move") return 1.05;
+  if (icon === "nonCaptureMove") return 1.05;
+  if (icon === "jump") return 1.1;
+  if (icon === "nonCaptureJump") return 1.15;
+  if (icon === "slide") return 0.95;
+  if (icon === "nonCaptureSlide") return 0.95;
+  if (icon === "nonCaptureJumpSlide") return 1.25;
+  if (icon === "jumpSlide") return 1.15;
+  if (icon === "strike") return 1.1;
+  if (icon === "hammer") return 1.1;
+  if (icon === "defense") return 0.95;
+  if (icon === "shieldDefense") return 0.95;
+  if (icon === "singleFormation") return 0.95;
+  if (icon === "fullFormation") return 1.1;
   return 1;
 }
 
