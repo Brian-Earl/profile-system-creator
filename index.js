@@ -97,6 +97,9 @@ let hasDifferentPieceIcons = false;
 // Keeps track of if the piece has different starting locations
 let hasDifferentStartLocations = false;
 
+// Keeps track of which side the ability should be shown on
+let showAbilitySide = 'both';
+
 // Get the SVG element for the entire template
 let svg = document.getElementById("svg");
 // When the mouse is over the template and the user scrolls, call mouseOnScroll()
@@ -140,7 +143,7 @@ const scaleDownFactor = (100.8 / 104.5);
 // allowing for custom icons that need to be stored in the json file
 // this is different from the site version which handles the actual rendering and creating
 // of the SVG files
-let exporterVersion = 4;
+let exporterVersion = 5;
 
 // Current version of the site
 // Will only start incrementing them after the "official release"
@@ -180,6 +183,12 @@ let normalTypeInput = document.getElementById("normalTypeInput");
 normalTypeInput.addEventListener("change", changePieceType);
 let singleIconTypeInput = document.getElementById("singleIconTypeInput");
 singleIconTypeInput.addEventListener("change", changePieceType);
+let bothSideAbiltyInput = document.getElementById("bothSideAbiltyInput");
+bothSideAbiltyInput.addEventListener("change", changeAbilitySide);
+let startSideAbiltyInput = document.getElementById("startSideAbiltyInput");
+startSideAbiltyInput.addEventListener("change", changeAbilitySide);
+let nonStartSideAbiltyInput = document.getElementById("nonStartSideAbiltyInput");
+nonStartSideAbiltyInput.addEventListener("change", changeAbilitySide);
 
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
@@ -219,6 +228,7 @@ class GamePiece {
     this.altName = "";
     // Store the ability number
     this.ability = "";
+    this.abilitySide = "both";
     // Store the position of the start location
     // 2,2 is the default and should be ignored unless it is different
     this.startPos = [
@@ -840,7 +850,10 @@ function drawBoard() {
 // Clears all elements that are not on the grid (name, ability icon)
 function clearNonBoard() {
   if (iconList[currentPiece].type === "normal") {
-    if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
+    if (iconList[currentPiece].ability) {
+      iconList[currentPiece].ability.remove();
+      outerBorderLocation.setAttribute("visibility", "hidden")
+    }
     if (iconList[currentPiece].storage.start[+isStartSide])
       iconList[currentPiece].storage.start[+isStartSide].remove();
   }
@@ -864,13 +877,20 @@ function clearNonBoard() {
 function drawNonBoard() {
   if (iconList[currentPiece].type === "normal") {
     if (iconList[currentPiece].ability) {
-      svg.appendChild(iconList[currentPiece].ability);
-      outerBorderLocation.setAttribute(
-        "visibility",
-        iconList[currentPiece].ability.getAttribute("text") !== ""
-          ? "visible"
-          : "hidden"
-      );
+      if ((isStartSide &&
+        (iconList[currentPiece].abilitySide === "both"
+          || iconList[currentPiece].abilitySide === "start")) ||
+        (!isStartSide &&
+          (iconList[currentPiece].abilitySide === "both"
+            || iconList[currentPiece].abilitySide === "nonStart"))) {
+        svg.appendChild(iconList[currentPiece].ability);
+        outerBorderLocation.setAttribute(
+          "visibility",
+          iconList[currentPiece].ability.getAttribute("text") !== ""
+            ? "visible"
+            : "hidden"
+        );
+      }
     } else {
       outerBorderLocation.setAttribute("visibility", "hidden");
     }
@@ -1036,6 +1056,9 @@ function clearInputs() {
     : 2;
   normalTypeInput.checked = iconList[currentPiece].type === "normal";
   singleIconTypeInput.checked = iconList[currentPiece].type === "singleIcon"
+  bothSideAbiltyInput.checked = iconList[currentPiece].abilitySide === "both";
+  startSideAbiltyInput.checked = iconList[currentPiece].abilitySide === "start";
+  nonStartSideAbiltyInput.checked = iconList[currentPiece].abilitySide === "nonStart";
 }
 
 // Reset input fields only to be set on init
@@ -1128,6 +1151,8 @@ function exportPieces() {
       pieceObject.ability = iconList[i].ability
         ? romanToInt(iconList[i].ability.getAttribute("text"))
         : "";
+
+      pieceObject.abilitySide = iconList[i].abilitySide;
 
       pieceObject.startPosition = iconList[i].startPos;
       pieceObject.connections = iconList[i].connections;
@@ -1267,6 +1292,9 @@ function setImportedData(data) {
         romanize(data.pieces[i].ability),
         false
       );
+
+      if (data.options.exporterVersion >= 5)
+        iconList[i].abilitySide = data.pieces[i].abilitySide;
 
       iconList[i].startPos = startPos;
       iconList[i].storage.start = createStartIconsAt(
@@ -2012,6 +2040,13 @@ function changePieceType(e) {
   }
 
   iconList[currentPiece].name = createPieceName(name);
+}
+
+// Handle chaning what side the ability is shown on
+function changeAbilitySide(e) {
+  iconList[currentPiece].abilitySide = e.target.value;
+  clearNonBoard();
+  drawNonBoard();
 }
 
 // Check if a string is in all caps
