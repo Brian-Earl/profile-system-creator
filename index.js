@@ -79,7 +79,7 @@ availableFonts.set("arthurFont", "Xenippa");
 availableFonts.set("musketeersFont", "Lucida Blackletter");
 availableFonts.set("conanFont", "Hiroshige LT Medium");
 availableFonts.set("jarlFont", "Comic Runes");
-availableFonts.set("centurionFont", "CCElektrakution W01 Light");
+availableFonts.set("centurionFont", "Xtra");
 availableFonts.set("robinHoodFont", "Goudy Old Style");
 
 // Default the font to Pieces of Eight
@@ -420,7 +420,7 @@ function createIconAt(
   if (isRotate(icon)) {
     newIconElement.setAttribute(
       "transform",
-      rotateIcon(gridPos, cx, cy, width, height)
+      rotateIcon(gridPos, cx, cy, width, height, isNintyDegrees(icon))
     );
   }
   newIconElement.setAttribute("x", cx);
@@ -470,6 +470,11 @@ function isRotate(icon) {
     icon === "smash";
 }
 
+// Returns if an icon should only be rotated by 90 degrees
+function isNintyDegrees(icon) {
+  return icon === "smash"
+}
+
 // Returns if the icon given is one that is full sized
 // This is used for determining which "slot" a icon should take up
 // so that multiple icons can be placed on the same grid location
@@ -481,10 +486,10 @@ function isFullSize(icon) {
 }
 
 // Return transform attribute for rotating an icon
-function rotateIcon(gridPos, cx, cy, width, height) {
+function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false) {
   return (
     "rotate(" +
-    getRotateDegrees(gridPos) +
+    getRotateDegrees(gridPos, nintyDegrees) +
     " " +
     (cx + width / 2) +
     " " +
@@ -493,7 +498,7 @@ function rotateIcon(gridPos, cx, cy, width, height) {
     " translate(" +
     "0" +
     " " +
-    getYTranslation(gridPos, height) +
+    getYTranslation(gridPos, height, nintyDegrees) +
     ")"
   );
 }
@@ -524,8 +529,8 @@ function scaleFactor(icon) {
 
 // Calculate the angle in which to rotate the current movement
 // icon by depending on the start position of the piece
-function getAngle(x, y) {
-  return roundDownToNearest45(
+function getAngle(x, y, nintyDegrees = false) {
+  return !nintyDegrees ? roundDownToNearest45(
     Math.abs(
       (Math.atan2(
         y - iconList[currentPiece].startPos[+isStartSide][1],
@@ -535,7 +540,18 @@ function getAngle(x, y) {
       Math.PI -
       180
     )
-  );
+  ) :
+    roundDownToNearest90(
+      Math.abs(
+        (Math.atan2(
+          y - iconList[currentPiece].startPos[+isStartSide][1],
+          x - iconList[currentPiece].startPos[+isStartSide][0]
+        ) *
+          180) /
+        Math.PI -
+        180
+      )
+    )
 }
 
 // Round the given number down to the nearest multiple of 45
@@ -545,15 +561,26 @@ function roundDownToNearest45(num) {
   return Math.floor(num / 45) * 45;
 }
 
+// Round the given number down to the nearest multiple of 90
+// This is used when calculating the angle in which to rotate
+// a movement icon by
+function roundDownToNearest90(num) {
+  if (num < 90 && num > 0)
+    return 0;
+  if (num < 270 && num > 180)
+    return 180
+  return Math.ceil(num / 90) * 90;
+}
+
 // Find the rotation degree based on the grid position
-function getRotateDegrees(gridPos) {
-  return getAngle(gridPos[1], gridPos[0]);
+function getRotateDegrees(gridPos, nintyDegrees = false) {
+  return getAngle(gridPos[1], gridPos[0], nintyDegrees);
 }
 
 // Find how much to translate along the Y axis based on the grid position
 // Used for fixing issues regarding the position when translated
-function getYTranslation(gridPos, height) {
-  return getAngle(gridPos[1], gridPos[0]) % 90 === 0 ? 0 : -1 * (height / 6);
+function getYTranslation(gridPos, height, nintyDegrees = false) {
+  return getAngle(gridPos[1], gridPos[0]) % 90 === 0 || nintyDegrees ? 0 : -1 * (height / 6);
 }
 
 // Remove all of the elements from view at the current grid location
@@ -650,6 +677,7 @@ function createTextAt(
     newText.setAttribute("text-anchor", "middle");
     newText.setAttribute("dominant-baseline", "middle")
     let cy = (heightJig * 2) / 3;
+    // If there are multiple lines of text, change height accordingly
     if (textList.length > 1) {
       if (index === 0)
         cy = heightJig * -1;
@@ -659,6 +687,9 @@ function createTextAt(
           cy = heightJig * 2.5
         newText.setAttribute("font-size", altFontSize);
       }
+    } else {
+      if (currentFont === "jarlFont" || currentFont === "centurionFont")
+        cy = 0
     }
     newText.setAttribute("x", pos.x);
     newText.setAttribute("y", pos.y + cy);
