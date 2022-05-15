@@ -23,14 +23,11 @@
 // https://stackoverflow.com/questions/1731190/check-if-a-string-has-white-space
 
 // TODO:
-// Add piece deletion
-// Add custom SVG icon support
 // Add multiple pages for renders when all of the pieces cannot fit on one
+// Add custom SVG icon support
 // Revamp UI
-// Full size piece support
 // Redo Icons (look at Start Side Icon Affinity File)
 // Store what peices (if any) a piece should replace such as how Arthur replaces the Duke
-// Fix new line name implementation
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -895,18 +892,28 @@ function createNewPiece() {
 }
 
 // Delete the current piece
-// WARNING: DOES NOT WORK - WIP
 function deletePiece() {
+  clearBoard();
+  clearNonBoard();
   if (iconList.length <= 1) {
-    clearBoard();
-    clearNonBoard();
     iconList = [];
     createNewPieceIndex();
   } else {
-    let indexToDelete = currentPiece;
-    backwardPiece();
-    iconList = iconList.splice(indexToDelete, indexToDelete);
+    iconList.splice(currentPiece, 1);
+    if (currentPiece >= iconList.length)
+      currentPiece--;
   }
+  isStartSide = true;
+  if (iconList[currentPiece].type === "normal")
+    normalGamePiece();
+  else if (iconList[currentPiece].type === "singleIcon")
+    singleIconPiece();
+  hasDifferentPieceIcons = pieceHasDifferentIcons();
+  hasDifferentStartLocations = pieceHasDifferentStartPositions();
+  hasDifferentNames = pieceHasDifferentNames();
+  clearInputs();
+  drawNonBoard();
+  drawBoard();
   displayListLength();
 }
 
