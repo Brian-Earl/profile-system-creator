@@ -1,0 +1,2101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="startSideCanvas" width="1800" height="225" xmlns="http://www.w3.org/2000/svg"><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="10" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="200" font-family="Lucida Blackletter" text="Porthos" x="149.83291625976562" y="1242.365702311198"><tspan>Porthos</tspan></text><svg id="" width="244.3882942199707" height="1199.9980926513672" viewBox="0 0 25 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1041.8900814056396" y="95.4197769165039" text="musketeerIcon">
+      <g transform="matrix(1.92994,0,0,1.92994,24.4389,14.7255)">
+        <path d="M0,46.918L-4.245,47.081C-3.788,46.815 -3.41,46.432 -3.41,45.898C-3.41,44.93 -4.646,44.208 -5.354,43.873C-5.388,31.692 -5.555,-7.63 -6.333,-7.63C-7.116,-7.63 -7.278,32.304 -7.31,44.149C-8.283,44.668 -10.068,45.893 -8.085,47.094L-12.663,46.918L-12.663,47.831L-6.866,47.645C-6.964,48.243 -7.023,48.984 -7.023,49.8C-7.023,50.894 -6.917,51.86 -6.755,52.507C-6.884,52.729 -7.087,53.006 -7.307,53.006L-6.961,54.548L-5.723,54.548L-5.358,52.986C-5.358,52.986 -5.673,52.775 -5.825,52.496C-5.665,51.848 -5.562,50.888 -5.562,49.8C-5.562,49.209 -5.595,48.66 -5.647,48.17C-5.361,48.022 -4.742,48.092 -3.665,49.998C-2.082,52.796 -4.712,53.136 -4.712,53.136C-4.712,53.136 -5.079,53.277 -4.966,53.588C-4.853,53.899 -4.457,53.787 -4.457,53.787C-4.457,53.787 -2.309,53.418 -2.704,50.252C-2.886,48.803 -3.451,48.074 -4.078,47.701L0,47.831L0,46.918ZM-4.372,45.955C-4.372,46.688 -4.916,46.903 -5.348,46.962C-5.349,46.463 -5.351,45.578 -5.354,44.374C-5.072,44.52 -4.372,44.981 -4.372,45.955M-7.312,44.817C-7.314,45.905 -7.315,46.691 -7.315,47.1C-7.733,46.842 -8.132,46.452 -8.132,45.898C-8.132,45.37 -7.74,45.031 -7.312,44.817" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="63.216087341308594" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="64.9094612121582" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="813.2166976928711" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="814.9100715637207" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="225" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="200" font-family="Lucida Blackletter" text="Aramis" x="188.48016357421875" y="1242.365702311198"><tspan>Aramis</tspan></text><svg id="" width="244.3882942199707" height="1199.9980926513672" viewBox="0 0 25 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1041.8900814056396" y="95.4197769165039" text="musketeerIcon">
+      <g transform="matrix(1.92994,0,0,1.92994,24.4389,14.7255)">
+        <path d="M0,46.918L-4.245,47.081C-3.788,46.815 -3.41,46.432 -3.41,45.898C-3.41,44.93 -4.646,44.208 -5.354,43.873C-5.388,31.692 -5.555,-7.63 -6.333,-7.63C-7.116,-7.63 -7.278,32.304 -7.31,44.149C-8.283,44.668 -10.068,45.893 -8.085,47.094L-12.663,46.918L-12.663,47.831L-6.866,47.645C-6.964,48.243 -7.023,48.984 -7.023,49.8C-7.023,50.894 -6.917,51.86 -6.755,52.507C-6.884,52.729 -7.087,53.006 -7.307,53.006L-6.961,54.548L-5.723,54.548L-5.358,52.986C-5.358,52.986 -5.673,52.775 -5.825,52.496C-5.665,51.848 -5.562,50.888 -5.562,49.8C-5.562,49.209 -5.595,48.66 -5.647,48.17C-5.361,48.022 -4.742,48.092 -3.665,49.998C-2.082,52.796 -4.712,53.136 -4.712,53.136C-4.712,53.136 -5.079,53.277 -4.966,53.588C-4.853,53.899 -4.457,53.787 -4.457,53.787C-4.457,53.787 -2.309,53.418 -2.704,50.252C-2.886,48.803 -3.451,48.074 -4.078,47.701L0,47.831L0,46.918ZM-4.372,45.955C-4.372,46.688 -4.916,46.903 -5.348,46.962C-5.349,46.463 -5.351,45.578 -5.354,44.374C-5.072,44.52 -4.372,44.981 -4.372,45.955M-7.312,44.817C-7.314,45.905 -7.315,46.691 -7.315,47.1C-7.733,46.842 -8.132,46.452 -8.132,45.898C-8.132,45.37 -7.74,45.031 -7.312,44.817" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="63.216087341308594" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="64.9094612121582" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="813.2166976928711" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="814.9100715637207" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="440" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="200" font-family="Lucida Blackletter" text="Athos" x="251.63906860351562" y="1242.365702311198"><tspan>Athos</tspan></text><svg id="" width="244.3882942199707" height="1199.9980926513672" viewBox="0 0 25 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1041.8900814056396" y="95.4197769165039" text="musketeerIcon">
+      <g transform="matrix(1.92994,0,0,1.92994,24.4389,14.7255)">
+        <path d="M0,46.918L-4.245,47.081C-3.788,46.815 -3.41,46.432 -3.41,45.898C-3.41,44.93 -4.646,44.208 -5.354,43.873C-5.388,31.692 -5.555,-7.63 -6.333,-7.63C-7.116,-7.63 -7.278,32.304 -7.31,44.149C-8.283,44.668 -10.068,45.893 -8.085,47.094L-12.663,46.918L-12.663,47.831L-6.866,47.645C-6.964,48.243 -7.023,48.984 -7.023,49.8C-7.023,50.894 -6.917,51.86 -6.755,52.507C-6.884,52.729 -7.087,53.006 -7.307,53.006L-6.961,54.548L-5.723,54.548L-5.358,52.986C-5.358,52.986 -5.673,52.775 -5.825,52.496C-5.665,51.848 -5.562,50.888 -5.562,49.8C-5.562,49.209 -5.595,48.66 -5.647,48.17C-5.361,48.022 -4.742,48.092 -3.665,49.998C-2.082,52.796 -4.712,53.136 -4.712,53.136C-4.712,53.136 -5.079,53.277 -4.966,53.588C-4.853,53.899 -4.457,53.787 -4.457,53.787C-4.457,53.787 -2.309,53.418 -2.704,50.252C-2.886,48.803 -3.451,48.074 -4.078,47.701L0,47.831L0,46.918ZM-4.372,45.955C-4.372,46.688 -4.916,46.903 -5.348,46.962C-5.349,46.463 -5.351,45.578 -5.354,44.374C-5.072,44.52 -4.372,44.981 -4.372,45.955M-7.312,44.817C-7.314,45.905 -7.315,46.691 -7.315,47.1C-7.733,46.842 -8.132,46.452 -8.132,45.898C-8.132,45.37 -7.74,45.031 -7.312,44.817" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="63.216087341308594" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="64.9094612121582" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="813.2166976928711" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="814.9100715637207" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="655" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="185" font-family="Lucida Blackletter" text="D'Artgnan" x="70.33291625976562" y="1236.350565592448"><tspan>D'Artgnan</tspan></text><svg id="" width="244.3882942199707" height="1199.9980926513672" viewBox="0 0 25 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1041.8900814056396" y="95.4197769165039" text="musketeerIcon">
+      <g transform="matrix(1.92994,0,0,1.92994,24.4389,14.7255)">
+        <path d="M0,46.918L-4.245,47.081C-3.788,46.815 -3.41,46.432 -3.41,45.898C-3.41,44.93 -4.646,44.208 -5.354,43.873C-5.388,31.692 -5.555,-7.63 -6.333,-7.63C-7.116,-7.63 -7.278,32.304 -7.31,44.149C-8.283,44.668 -10.068,45.893 -8.085,47.094L-12.663,46.918L-12.663,47.831L-6.866,47.645C-6.964,48.243 -7.023,48.984 -7.023,49.8C-7.023,50.894 -6.917,51.86 -6.755,52.507C-6.884,52.729 -7.087,53.006 -7.307,53.006L-6.961,54.548L-5.723,54.548L-5.358,52.986C-5.358,52.986 -5.673,52.775 -5.825,52.496C-5.665,51.848 -5.562,50.888 -5.562,49.8C-5.562,49.209 -5.595,48.66 -5.647,48.17C-5.361,48.022 -4.742,48.092 -3.665,49.998C-2.082,52.796 -4.712,53.136 -4.712,53.136C-4.712,53.136 -5.079,53.277 -4.966,53.588C-4.853,53.899 -4.457,53.787 -4.457,53.787C-4.457,53.787 -2.309,53.418 -2.704,50.252C-2.886,48.803 -3.451,48.074 -4.078,47.701L0,47.831L0,46.918ZM-4.372,45.955C-4.372,46.688 -4.916,46.903 -5.348,46.962C-5.349,46.463 -5.351,45.578 -5.354,44.374C-5.072,44.52 -4.372,44.981 -4.372,45.955M-7.312,44.817C-7.314,45.905 -7.315,46.691 -7.315,47.1C-7.733,46.842 -8.132,46.452 -8.132,45.898C-8.132,45.37 -7.74,45.031 -7.312,44.817" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="63.216087341308594" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="64.9094612121582" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="813.2166976928711" y="250.80514106750488" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="814.9100715637207" y="814.993628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="870" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="185" font-family="Lucida Blackletter" text="Rochefort" x="112.43887329101562" y="1236.350565592448"><tspan>Rochefort</tspan></text><svg id="" width="244.3807029724121" height="1199.9993896484375" viewBox="0 0 25 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1041.893877029419" y="95.41912841796875" text="rochefortIcon">
+      <g transform="matrix(1.92988,0,0,1.92988,0,105.273)">
+        <path d="M0,-46.918L4.245,-47.081C3.787,-46.816 3.41,-46.433 3.41,-45.899C3.41,-44.93 4.644,-44.209 5.354,-43.873C5.387,-31.692 5.555,7.631 6.332,7.631C7.115,7.631 7.278,-32.305 7.311,-44.149C8.283,-44.668 10.068,-45.894 8.084,-47.094L12.663,-46.918L12.663,-47.831L6.866,-47.646C6.963,-48.243 7.022,-48.984 7.022,-49.8C7.022,-50.895 6.917,-51.86 6.755,-52.508C6.884,-52.73 7.086,-53.006 7.307,-53.006L6.96,-54.549L5.723,-54.549L5.358,-52.986C5.358,-52.986 5.672,-52.775 5.824,-52.496C5.664,-51.849 5.561,-50.889 5.561,-49.8C5.561,-49.209 5.594,-48.66 5.646,-48.171C5.36,-48.023 4.742,-48.093 3.664,-49.998C2.082,-52.797 4.711,-53.136 4.711,-53.136C4.711,-53.136 5.078,-53.277 4.966,-53.589C4.852,-53.9 4.457,-53.787 4.457,-53.787C4.457,-53.787 2.309,-53.418 2.703,-50.252C2.885,-48.803 3.451,-48.074 4.078,-47.701L0,-47.831L0,-46.918ZM4.372,-45.955C4.372,-46.689 4.915,-46.903 5.348,-46.962C5.349,-46.464 5.35,-45.577 5.353,-44.373C5.072,-44.52 4.372,-44.981 4.372,-45.955M7.311,-44.817C7.315,-45.905 7.315,-46.691 7.315,-47.101C7.733,-46.842 8.132,-46.451 8.132,-45.899C8.132,-45.37 7.739,-45.031 7.311,-44.817" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="250.71623992919922" y="813.3052021026612" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="64.9936897277832" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="625.7998886108398" y="813.3052021026612" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="1085" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="visible" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="200" font-family="Lucida Blackletter" text="Richlieu" x="147.97824096679688" y="1242.365702311198"><tspan>Richlieu</tspan></text><text font-size="100" font-family="Pieces of Eight" text="III" x="1121.0760116577148" y="1317.2648010253906">III</text><svg id="" width="366.949462890625" height="750.14404296875" viewBox="0 0 42 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;" x="980.6094970703125" y="320.3468017578125" text="richlieuIcon">
+      <g transform="matrix(2.26568,0,0,2.26568,20.9532,0.405448)">
+        <path d="M0,30.804C2.517,30.804 4.975,30.977 7.353,31.303C7.497,29.322 7.576,27.255 7.576,25.124C7.576,10.973 4.184,-0.499 0,-0.499C-4.185,-0.499 -7.576,10.973 -7.576,25.124C-7.576,27.255 -7.498,29.322 -7.353,31.303C-4.975,30.977 -2.518,30.804 0,30.804" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(-2.26568,0,0,2.26568,1142.26,-1196.07)">
+        <rect x="493.138" y="527.106" width="3.54" height="33.109" style="fill:white;"></rect>
+      </g>
+      <g transform="matrix(2.26568,0,0,2.26568,-1100.35,-1203.72)">
+        <rect x="486.81" y="543.175" width="16.196" height="4.348" style="fill:white;"></rect>
+      </g>
+      <g transform="matrix(2.26568,0,0,2.26568,20.9532,1.85548)">
+        <path d="M0,30.164C2.517,30.164 4.975,30.337 7.353,30.663C7.497,28.682 7.576,26.615 7.576,24.484C7.576,12.296 5.06,2.094 1.689,-0.499L-1.796,-0.499C-5.113,2.227 -7.576,12.425 -7.576,24.484C-7.576,26.615 -7.498,28.682 -7.353,30.663C-4.975,30.337 -2.518,30.164 0,30.164Z" style="fill:none;fill-rule:nonzero;stroke:rgb(35,31,32);stroke-width:0.59px;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="63.216087341308594" y="625.8052021026612" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="226.58358764648438" y="226.66754150390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="439.99362869262694" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0795593261719" y="39.16766357421875" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="439.9055854797363" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="601.667236328125" y="226.66754150390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="439.99362869262694" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="139.2346954345703" height="139.22480087280275" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="813.2166976928711" y="625.8052021026612" icon="jump" visibility="visible">
+      <g transform="matrix(5.22483e-20,-12.6568,-12.6577,5.22483e-20,70,6.71601)">
+        <circle cx="-5" cy="0" r="5" style="fill:none;stroke:rgb(35,31,32);stroke-width:1.05px;"></circle>
+      </g>
+    </svg></svg><svg id="svg" width="200" height="200" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-miterlimit: 2" x="1300" y="10">
+      <rect width="100%" height="100%" fill="#fff"></rect>
+      <g visibility="hidden" id="Outer-Border" serif:id="Outer Border" transform="matrix(4.16667,0,0,4.16667,0,-1.67333)">
+        <rect x="3.354" y="3.755" width="326.634" height="326.641" style="fill: none; stroke: rgb(35, 31, 32); stroke-width: 3px"></rect>
+      </g>
+      <g id="Grid">
+        <g id="Y4">
+          <g id="X44" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X34" transform="matrix(4.16667,0,0,4.16667,-3.04167,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X24" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X14" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X04" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y3">
+          <g id="X43" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X33" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X23" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X13" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X03" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-562.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y2">
+          <g id="X42" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X32" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X22" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X12" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X02" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-750.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y1">
+          <g id="X41" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X31" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X21" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X11" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X01" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-937.95)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+        <g id="Y0">
+          <g id="X40" serif:id="X4" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="189.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X30" serif:id="X3" transform="matrix(4.16667,0,0,4.16667,-3.04167,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="145.13" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X20" serif:id="X2" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="99.379" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X10" serif:id="X1" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="54.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+          <g id="X00" serif:id="X0" transform="matrix(4.16667,0,0,4.16667,0,-1125.45)">
+            <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)" onclick="clickGridSquare(this)" x="9.38" y="279.508" width="45" height="45" style="
+                  fill: #fff;
+                  stroke: rgb(35, 31, 32);
+                  stroke-width: 3px;
+                  stroke-linecap: round;
+                "></rect>
+          </g>
+        </g>
+      </g>
+      <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon" transform="matrix(4.16667,0,0,4.16667,0,-0.448333)">
+          <rect x="234.38" y="9.508" width="90" height="315" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name" transform="matrix(4.16667,0,0,4.16667,0,937.052)">
+          <rect x="9.38" y="9.508" width="225" height="90" style="
+                fill: white;
+                fill-opacity: 0;
+                stroke: rgb(35, 31, 32);
+                stroke-width: 3px;
+                stroke-linecap: round;
+              "></rect>
+        </g>
+      </g>
+      <g id="Player-Marker" serif:id="Player Marker">
+        <g visibility="hidden" id="Non-Starting-SideAlt" serif:id="Non-Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169ZM99.379,234.508L144.38,234.508L144.38,189.508L99.379,189.508L99.379,234.508Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+        <g visibility="hidden" id="Starting-SideAlt" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,0,-375.45)">
+          <path d="M99.379,189.508L99.379,234.508L144.38,234.508L144.38,189.508L144.38,234.508L99.379,234.508L99.379,189.508ZM109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill: rgb(35, 31, 32); fill-rule: nonzero"></path>
+        </g>
+      </g>
+    <text font-size="185" font-family="Lucida Blackletter" text="de Winter" x="117.95272827148438" y="1236.350565592448"><tspan>de Winter</tspan></text><svg id="" width="250.0000762939453" height="888.1820678710938" viewBox="0 0 25 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" x="1039.0841903686523" y="251.32778930664062" text="deWinterIcon">
+      <g transform="matrix(1.89394,0,0,1.89394,23.6136,35.8523)">
+        <path d="M0,9.036C-0.205,9.036 -0.389,9.121 -0.522,9.257L-3.711,9.257C-3.372,8.885 -3.387,8.365 -3.387,8.365C-3.387,-12.685 -5.454,-18.064 -5.868,-18.93C-6.282,-18.064 -8.35,-12.685 -8.35,8.365C-8.35,8.365 -8.364,8.885 -8.024,9.257L-11.214,9.257C-11.347,9.121 -11.531,9.036 -11.736,9.036C-12.141,9.036 -12.468,9.363 -12.468,9.767C-12.468,10.172 -12.141,10.499 -11.736,10.499C-11.45,10.499 -11.205,10.333 -11.085,10.094L-7.218,10.094C-7.218,10.094 -7.88,13.656 -7.88,15.498C-7.88,17.341 -7.616,23.543 -7.88,24.771C-7.88,24.771 -9.47,27.966 -7.218,27.966L-4.518,27.966C-2.268,27.966 -3.855,24.771 -3.855,24.771C-4.121,23.543 -3.855,17.341 -3.855,15.498C-3.855,13.656 -4.518,10.094 -4.518,10.094L-0.651,10.094C-0.53,10.333 -0.286,10.499 0,10.499C0.404,10.499 0.732,10.172 0.732,9.767C0.732,9.363 0.404,9.036 0,9.036" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5037384033203" height="187.49932861328125" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0776901245117" y="414.1679382324219" icon="StartSide" visibility="visible">
+      <g id="Starting-Side" serif:id="Starting Side" transform="matrix(4.16667,0,0,4.16667,-414.079,-789.617)">
+        <g transform="matrix(1,0,0,1,1.187,0.123)">
+          <path d="M109.902,231.169L113.06,223.714L115.557,223.714C114.983,222.973 114.638,222.063 114.638,221.069L114.638,207.33C114.638,205.753 115.494,204.371 116.773,203.584C115.324,202.448 114.373,200.726 114.373,198.773C114.373,195.366 117.206,192.601 120.689,192.601C124.178,192.601 127.005,195.366 127.005,198.773C127.005,200.726 126.054,202.448 124.605,203.584C125.884,204.371 126.74,205.753 126.74,207.33L126.74,221.069C126.74,222.063 126.395,222.973 125.827,223.714L128.325,223.714L131.483,231.169L109.902,231.169Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(3.13573,0,0,4.90461,56.5856,-15.8765)">
+          <rect x="13.647" y="41.876" width="14.351" height="9.175" style="fill:white;fill-opacity:0;"></rect>
+        </g>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="226.58358764648438" y="414.1676025390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="252.40961380004882" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0795593261719" y="226.66754150390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="414.0795593261719" y="601.6676025390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="252.4935676574707" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg><svg id="" width="187.5" height="187.5" viewBox="0 0 188 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2; pointer-events: none;" x="601.667236328125" y="414.1676025390625" icon="command" visibility="visible">
+      <g transform="matrix(13.2122,0,0,13.289,0,0)">
+        <path d="M0,4.918L4.918,0L0,0L0,4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+      <g transform="matrix(13.2122,0,0,13.289,187.5,187.5)">
+        <path d="M0,-4.918L-4.918,0L0,0L0,-4.918Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"></path>
+      </g>
+    </svg><svg id="" width="135.8479476928711" height="135.8479476928711" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; pointer-events: none;" x="627.4932624816895" y="627.493628692627" icon="move" visibility="visible">
+      <g transform="matrix(-1.22518e-31,-12.9379,-12.9379,0,70,5.31074)">
+        <circle cx="-5" cy="0" r="5" style="fill:rgb(35,31,32);stroke:rgb(35,31,32);stroke-width:0.77px;"></circle>
+      </g>
+    </svg></svg><defs id="exportStyles">
+      <style>
+        @font-face {
+          font-family: 'Pieces of Eight';
+          src: url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Lucida Blackletter';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Lucida Blackletter'), url('https://fonts.cdnfonts.com/s/14008/Lucida Blackletter Regular.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Goudy Old Style';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Goudy Old Style'), url('https://fonts.cdnfonts.com/s/14850/GOUDOS.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Xenippa';
+          font-style: normal;
+          font-weight: 500;
+          src: local('Xenippa'), url('https://fonts.cdnfonts.com/s/7902/xenippa1.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Comic Runes';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Comic Runes'), url('https://fonts.cdnfonts.com/s/71082/ComicRunes.woff') format('woff');
+        }
+      </style>
+    </defs></svg>
