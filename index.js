@@ -747,13 +747,18 @@ function createPieceAbilityText(text, append = true) {
     "visibility",
     text !== "" ? "visible" : "hidden"
   );
+  let font = availableFonts.get("dukeFont");
+  if (currentFont === "jarlFont")
+    font = availableFonts.get("jarlFont");
+  if (currentFont === "centurionFont")
+    font = availableFonts.get("centurionFont");
   return createTextAt(
     [text],
     text,
     iconPos,
     0,
     100,
-    "Pieces of Eight",
+    font,
     append)[0];
 }
 
@@ -1556,14 +1561,14 @@ function exportPiecesAsGrid(
         else if (iconList[currentPiece].type === "normal")
           normalGamePiece()
         let scaleStartDownBy = iconList[currentPiece].ability &&
-          iconList[currentPiece].ability.getAttribute("text") !== "" && 
+          iconList[currentPiece].ability.getAttribute("text") !== "" &&
           (iconList[currentPiece].abilitySide === "both" || iconList[currentPiece].abilitySide === "start")
           ? scaleDownFactor
           : 1
 
-        let scaleNonStartDownBy = iconList[currentPiece].ability && 
-        iconList[currentPiece].ability.getAttribute("text") !== "" && 
-        (iconList[currentPiece].abilitySide === "both" || iconList[currentPiece].abilitySide === "nonStart")
+        let scaleNonStartDownBy = iconList[currentPiece].ability &&
+          iconList[currentPiece].ability.getAttribute("text") !== "" &&
+          (iconList[currentPiece].abilitySide === "both" || iconList[currentPiece].abilitySide === "nonStart")
           ? scaleDownFactor
           : 1
 
@@ -1857,8 +1862,14 @@ function connectionExists(x1, y1, x2, y2) {
 
 // Change font to the inputted value
 function changeFont() {
+  clearNonBoard();
   currentFont = fontInput.value;
   iconList[currentPiece].name = createPieceName(nameInput.value);
+  if (iconList[currentPiece].ability) {
+    let abilityText = iconList[currentPiece].ability.getAttribute("text");
+    iconList[currentPiece].ability = createPieceAbilityText(abilityText);
+  }
+  drawNonBoard();
 }
 
 // Disables Scrolling
