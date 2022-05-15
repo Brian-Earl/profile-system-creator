@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="conanIcon" width="100%" height="100%" viewBox="0 0 37 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.410935,0,0,0.411002,-96.315,-3.9078)">
+        <rect x="234.38" y="9.508" width="90" height="315" style="fill:white;fill-opacity:0;"/>
+    </g>
+    <g transform="matrix(2.01328,0,0,1.91384,35.2275,32.2138)">
+        <path d="M0,33.983L-5.74,32.751L-6.824,-11.178L-8.37,-14.571L-9.801,-11.178L-10.886,32.756L-16.625,33.983L-16.625,35.361L-9.83,35.361L-10.349,39.817L-9.97,43.704L-11.027,45.84L-8.313,48.554L-5.599,45.84L-6.656,43.704L-6.277,39.817L-6.795,35.361L0,35.361L0,33.983Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+    </g>
+</svg>
