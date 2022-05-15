@@ -87,6 +87,9 @@ let currentFont = "dukeFont";
 // Indicated if the current piece is on the starting side or not
 let isStartSide = true;
 
+// Keeps track of if each side of the piece has a different name
+let hasDifferentNames = false;
+
 // Keeps track of if the piece has different piece icons on each side such as the Oracle
 let hasDifferentPieceIcons = false;
 
@@ -136,7 +139,7 @@ const scaleDownFactor = (100.8 / 104.5);
 // allowing for custom icons that need to be stored in the json file
 // this is different from the site version which handles the actual rendering and creating
 // of the SVG files
-let exporterVersion = 3;
+let exporterVersion = 4;
 
 // Current version of the site
 // Will only start incrementing them after the "official release"
@@ -153,6 +156,8 @@ let oppositeIconSideInput = document.getElementById("oppositeIconSideInput");
 oppositeIconSideInput.addEventListener("change", toggleOppositePieceSide);
 let oppositeStartSideInput = document.getElementById("oppositeStartSideInput");
 oppositeStartSideInput.addEventListener("change", toggleOppositeStartLocation);
+let oppositeNameSideInput = document.getElementById("oppositeNameSideInput");
+oppositeNameSideInput.addEventListener("change", toggleOppositeName);
 let amountInput = document.getElementById("amountInput");
 amountInput.addEventListener("change", changeAmount);
 let xInput = document.getElementById("xInput");
@@ -208,8 +213,9 @@ class GamePiece {
       this.grid.push(blankParentArray);
     }
 
-    // Store the name
+    // Store the name and alt name
     this.name = "";
+    this.altName = "";
     // Store the ability number
     this.ability = "";
     // Store the position of the start location
@@ -657,7 +663,8 @@ function createTextAt(
 function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
   let namePos = getCenter(nameLocation);
   if (!isImport) {
-    if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());;
+    if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
+    if (iconList[currentPiece].altName) iconList[currentPiece].altName.forEach(elem => elem.remove());
     if ((iconList[currentPiece].type && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
   } else {
     if (isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
@@ -706,8 +713,6 @@ function createPieceIcon(piece, append = true, type = "normal") {
   let scale = 10;
   if (type === "singleIcon") {
     iconPos = getCenter(singleIconLocation)
-    heightAdjust = 1.6
-    scale = 12
   }
   let pieceIconElement = document.getElementById(piece).cloneNode(true);
   svg.appendChild(pieceIconElement);
@@ -797,7 +802,12 @@ function clearNonBoard() {
     if (iconList[currentPiece].storage.start[+isStartSide])
       iconList[currentPiece].storage.start[+isStartSide].remove();
   }
-  if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
+  if (hasDifferentNames && iconList[currentPiece].altName) {
+    iconList[currentPiece].altName.forEach(elem => elem.remove());
+  }
+  if (iconList[currentPiece].name) {
+    iconList[currentPiece].name.forEach(elem => elem.remove());
+  }
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -825,7 +835,11 @@ function drawNonBoard() {
     if (iconList[currentPiece].storage.start[+isStartSide])
       svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
   }
-  if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => svg.appendChild(elem));
+  if (hasDifferentNames && !isStartSide && iconList[currentPiece].altName) {
+    iconList[currentPiece].altName.forEach(elem => svg.appendChild(elem));
+  } else if (((hasDifferentNames && isStartSide) || !hasDifferentNames) && iconList[currentPiece].name) {
+    iconList[currentPiece].name.forEach(elem => svg.appendChild(elem));
+  }
   if (
     iconList[currentPiece].storage.icons[
     +(!isStartSide && hasDifferentPieceIcons)
@@ -910,6 +924,7 @@ function forwardPiece() {
     singleIconPiece();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
+  hasDifferentNames = pieceHasDifferentNames();
   clearInputs();
   displayListLength();
 }
@@ -929,6 +944,7 @@ function backwardPiece() {
     singleIconPiece();
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
+  hasDifferentNames = pieceHasDifferentNames();
   clearInputs();
   displayListLength();
 }
@@ -938,9 +954,22 @@ function clearInputs() {
   pieceIconInput.value = "";
   oppositeIconSideInput.checked = hasDifferentPieceIcons;
   oppositeStartSideInput.checked = hasDifferentStartLocations;
-  nameInput.value = iconList[currentPiece].name
-    ? iconList[currentPiece].name[0].getAttribute("text")
-    : "";
+  oppositeNameSideInput.checked = hasDifferentNames;
+  if (hasDifferentNames) {
+    if (isStartSide) {
+      nameInput.value = iconList[currentPiece].name
+        ? iconList[currentPiece].name[0].getAttribute("text")
+        : "";
+    } else {
+      nameInput.value = iconList[currentPiece].altName
+        ? iconList[currentPiece].altName[0].getAttribute("text")
+        : "";
+    }
+  } else {
+    nameInput.value = iconList[currentPiece].name
+      ? iconList[currentPiece].name[0].getAttribute("text")
+      : "";
+  }
   abilityInput.value = iconList[currentPiece].ability
     ? romanToInt(iconList[currentPiece].ability.getAttribute("text"))
     : "";
@@ -985,6 +1014,12 @@ function pieceHasDifferentStartPositions() {
     iconList[currentPiece].startPos[0][1] !==
     iconList[currentPiece].startPos[1][1]
   );
+}
+
+// Check if the piece has different names on each side
+function pieceHasDifferentNames() {
+  return (iconList[currentPiece].altName !== "" &&
+    iconList[currentPiece].altName !== iconList[currentPiece].name)
 }
 
 // Process keyboard inputs
@@ -1048,6 +1083,9 @@ function exportPieces() {
     pieceObject.name = iconList[i].name
       ? iconList[i].name[0].getAttribute("text")
       : "";
+    pieceObject.altName = iconList[i].altName
+      ? iconList[i].altName[0].getAttribute("text")
+      : "";
     pieceObject.icon = iconList[i].storage.icons[0]
       ? iconList[i].storage.icons[0].getAttribute("text")
       : "";
@@ -1079,6 +1117,7 @@ function importPieces(element) {
     setImportedData(result);
     hasDifferentPieceIcons = pieceHasDifferentIcons();
     hasDifferentStartLocations = pieceHasDifferentStartPositions();
+    hasDifferentNames = pieceHasDifferentNames();
     clearInputs();
   };
   fr.readAsText(element.files.item(0));
@@ -1134,6 +1173,9 @@ function setImportedData(data) {
     iconList[i].count = data.pieces[i].amount;
     iconList[i].type = data.pieces[i].type;
     iconList[i].name = createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
+    if (data.options.exporterVersion >= 4 && data.pieces[i].altName !== "") {
+      iconList[i].altName = createPieceName(data.pieces[i].altName, false, true, data.pieces[i].type === "singleIcon");
+    }
     if (data.pieces[i].type === "normal") {
       for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
         for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
@@ -1295,12 +1337,13 @@ function romanToInt(s) {
 
 // Change the name of the current piece
 function changeName(e) {
-  iconList[currentPiece].name = createPieceName(e.target.value);
+  if (hasDifferentNames && !isStartSide) iconList[currentPiece].altName = createPieceName(e.target.value);
+  else if ((hasDifferentNames && isStartSide) || !hasDifferentNames) iconList[currentPiece].name = createPieceName(e.target.value);
 }
 
 // Change the ability of the current piece
 function changeAbility(e) {
-  if(e.target.value === "") {
+  if (e.target.value === "") {
     iconList[currentPiece].ability.remove();
     outerBorderLocation.setAttribute("visibility", "hidden");
     return
@@ -1336,8 +1379,14 @@ function toggleOppositePieceSide() {
   hasDifferentPieceIcons = oppositeIconSideInput.checked;
 }
 
+// Toggle if the non start side has a different start location
 function toggleOppositeStartLocation() {
   hasDifferentStartLocations = oppositeStartSideInput.checked;
+}
+
+// Toggle if the non start side has a different name
+function toggleOppositeName() {
+  hasDifferentNames = oppositeNameSideInput.checked;
 }
 
 // Change the position of the start piece location
@@ -1770,9 +1819,11 @@ function getCutLineWidth() {
 // current font and the length of the text
 function getFontSize(length = 1, hasSpace = false, isAllCaps = false) {
   if (currentFont === "dukeFont") {
-    if (length >= 3 && hasSpace) return 200;
-    if (length >= 10) return 215;
-    if (length >= 8) return 245;
+    if (iconList[currentPiece].type === "normal") {
+      if (length >= 3 && hasSpace) return 200;
+      if (length >= 10) return 215;
+      if (length >= 8) return 245;
+    }
     return 265;
   } else if (currentFont === "musketeersFont") {
     if (length >= 9) return 185;
@@ -1782,7 +1833,7 @@ function getFontSize(length = 1, hasSpace = false, isAllCaps = false) {
   } else if (currentFont === "conanFont") {
     if (length >= 13 && isAllCaps)
       return 90;
-    else if(length >= 10)
+    else if (length >= 10)
       return 130;
   }
   return 200;
