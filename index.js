@@ -1423,6 +1423,7 @@ function changeName(e) {
 
 // Change the ability of the current piece
 function changeAbility(e) {
+  clearNonBoard();
   if (e.target.value === "") {
     iconList[currentPiece].ability.remove();
     outerBorderLocation.setAttribute("visibility", "hidden");
@@ -1432,8 +1433,9 @@ function changeAbility(e) {
   if (e.target.value < 0 || e.target.value > 100) return;
   iconList[currentPiece].ability = createPieceAbilityText(
     romanize(e.target.value),
-    true
+    false
   );
+  drawNonBoard();
 }
 
 // Change the amount of pieces that appear in the set
@@ -1548,34 +1550,45 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
+        console.log(iconList[currentPiece].abilitySide)
         if (iconList[currentPiece].type === "singleIcon")
           singleIconPiece()
         else if (iconList[currentPiece].type === "normal")
           normalGamePiece()
-        let scaleDownBy = iconList[currentPiece].ability && iconList[currentPiece].ability.getAttribute("text") !== ""
+        let scaleStartDownBy = iconList[currentPiece].ability &&
+          iconList[currentPiece].ability.getAttribute("text") !== "" && 
+          (iconList[currentPiece].abilitySide === "both" || iconList[currentPiece].abilitySide === "start")
+          ? scaleDownFactor
+          : 1
+
+        let scaleNonStartDownBy = iconList[currentPiece].ability && 
+        iconList[currentPiece].ability.getAttribute("text") !== "" && 
+        (iconList[currentPiece].abilitySide === "both" || iconList[currentPiece].abilitySide === "nonStart")
           ? scaleDownFactor
           : 1
 
         // Calculate the transformation of the current piece and apply to both sides
         // Setting the x and y should be used instead of translation as viewing the SVG 
         // in some browsers (all but firefox) will not place the icons in the correct location 
-        let x = ((spacing + pieceSize) * j + offset) + (((spacing + pieceSize) * (1 - scaleDownBy)) / 2);
-        let y = ((spacing + pieceSize) * i + offset) + (((spacing + pieceSize) * (1 - scaleDownBy)) / 2);
+        let startX = ((spacing + pieceSize) * j + offset) + (((spacing + pieceSize) * (1 - scaleStartDownBy)) / 2);
+        let startY = ((spacing + pieceSize) * i + offset) + (((spacing + pieceSize) * (1 - scaleStartDownBy)) / 2);
+        let nonStartX = ((spacing + pieceSize) * j + offset) + (((spacing + pieceSize) * (1 - scaleNonStartDownBy)) / 2);
+        let nonStartY = ((spacing + pieceSize) * i + offset) + (((spacing + pieceSize) * (1 - scaleNonStartDownBy)) / 2);
 
         // Clone the current piece and add the start and non start side to the two different renders
         let svgStartSideClone = svg.cloneNode(true);
         startSideCanvas.append(svgStartSideClone);
-        svgStartSideClone.setAttribute("width", pieceSize * scaleDownBy);
-        svgStartSideClone.setAttribute("height", pieceSize * scaleDownBy);
-        svgStartSideClone.setAttribute("x", x);
-        svgStartSideClone.setAttribute("y", y);
+        svgStartSideClone.setAttribute("width", pieceSize * scaleStartDownBy);
+        svgStartSideClone.setAttribute("height", pieceSize * scaleStartDownBy);
+        svgStartSideClone.setAttribute("x", startX);
+        svgStartSideClone.setAttribute("y", startY);
         switchSides();
         let svgNonStartSideClone = svg.cloneNode(true);
         nonStartSideCanvas.append(svgNonStartSideClone);
-        svgNonStartSideClone.setAttribute("width", pieceSize * scaleDownBy);
-        svgNonStartSideClone.setAttribute("height", pieceSize * scaleDownBy);
-        svgNonStartSideClone.setAttribute("x", x);
-        svgNonStartSideClone.setAttribute("y", y);
+        svgNonStartSideClone.setAttribute("width", pieceSize * scaleNonStartDownBy);
+        svgNonStartSideClone.setAttribute("height", pieceSize * scaleNonStartDownBy);
+        svgNonStartSideClone.setAttribute("x", nonStartX);
+        svgNonStartSideClone.setAttribute("y", nonStartY);
         switchSides();
       }
       // Increment the amount of times the piece has been seen in the current render
