@@ -1070,6 +1070,15 @@ function clearInputs() {
 function initInputs() {
   fontInput.value = "dukeFont"
   normalTypeInput.checked = true;
+  widthInput.value = 1;
+  heightInput.value = 1;
+  renderScaleInput.value = 1;
+  spacingInput.value = 20;
+  cutLineWidthInput.value = 1;
+  xLineInput1.value = "";
+  yLineInput1.value = "";
+  xLineInput2.value = "";
+  yLineInput2.value = "";
 }
 
 // Check if the current piece has different icons
@@ -1214,6 +1223,9 @@ function setImportedData(data) {
   singleIconBorderElement.setAttribute("visibility", "visable");
   if (data.options.font && availableFonts.get(data.options.font))
     currentFont = data.options.font;
+  // By default, set the imported pieces to be arranged as one since line across
+  heightInput.value = 1;
+  widthInput.value = data.pieces.length
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
     let startPos = [
@@ -1503,12 +1515,11 @@ function changeStartPosition() {
 }
 
 // Export the current list of pieces as a grid
-// WARNING: THE WIDTH AND HEIGHT ARE ALL TOPSY TURVY AND MESSED UP
-// WARNING WARNING, IF MESSED WITH IT WILL BE CONFUSING
 function exportPiecesAsGrid(
   drawCuts = true,
   drawPieces = true,
-  lineColor = "red"
+  lineColor = "red",
+  exportType = "svg"
 ) {
   if (!isStartSide) switchSides();
   // Get the width and height of the rendered grid
@@ -1517,18 +1528,17 @@ function exportPiecesAsGrid(
   // If the user has put in a number that is too small (done through typing in a number less than zero) exit the function
   if (width < 1 || height < 1) return;
   // Used for scaling render up to higher resolutions
-  let scale = getRenderScale();
+  let scale = exportType !== "svg" ? getRenderScale() : 1;
   // Size of the pieces in the svg
   let pieceSize = 200 * scale;
   // Spacing between the individual piece
   // Reccomended to not use a number <= 10
   // Try out 15 next time
   let spacing = spacingInput.value * scale;
-  // Offset so that the grid can be fully drawn on the svg
-  let offset = 10 * scale;
   // Distance between the piece and the cut lines box
-  // Originally 1.2
-  let lineDistance = -2;
+  let lineDistance = 0.4 * scale;
+  // Offset so that the grid can be fully drawn on the svg
+  let offset = (lineDistance + 5);
   // Stroke width of the cut lines
   let strokeWidth = getCutLineWidth();
   // Keep track of how many times the current piece has been used in the render
@@ -1537,8 +1547,8 @@ function exportPiecesAsGrid(
   // Calculate and set the width and height of the canvas so that all of the pieces will fit in view
   // Add + 1 to the width and height just to make sure that nothing is cut off
   // This won't affect anything when laser cutting
-  let canvasWidth = (pieceSize + spacing + offset) * (height + 1);
-  let canvasHeight = (pieceSize + spacing + offset) * (width + 1);
+  let canvasWidth = (pieceSize + spacing + offset) * (width + 1);
+  let canvasHeight = (pieceSize + spacing + offset) * (height + 1);
   let startSideCanvas = document.getElementById("startSideCanvas");
   startSideCanvas.innerHTML = "";
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
@@ -1548,8 +1558,8 @@ function exportPiecesAsGrid(
   // Store the value of i and j so that they can be used in calculations later
   let i = 0;
   let j = 0;
-  for (i = 0; i < width; i++) {
-    for (j = 0; j < height; j++) {
+  for (i = 0; i < height; i++) {
+    for (j = 0; j < width; j++) {
       // If there are no more pieces to render, exit the loop
       if (index >= iconList.length) {
         break;
@@ -1738,11 +1748,12 @@ function downloadStartSideRender(
   // Get the start side render canvas, remove all of the children, append the style and the render and save
   let startSideCanvas = document.getElementById("startSideCanvas");
   removeAllChildNodes(startSideCanvas);
-  exportPiecesAsGrid(drawCuts, drawPieces, lineColor);
   if (svgInput.checked) {
+    exportPiecesAsGrid(drawCuts, drawPieces, lineColor, "svg");
     saveSvg(startSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
-    saveSvgAsPng(startSideCanvas, filename + ".svg")
+    exportPiecesAsGrid(drawCuts, drawPieces, lineColor, "png");
+    saveSvgAsPng(startSideCanvas, filename + ".svg");
   }
   setGridColor(blackColor);
 }
@@ -1758,10 +1769,11 @@ function downloadNonStartSideRender(
   // Get the non start side render canvas, remove all of the children, append the style and the render and save
   let nonStartSideCanvas = document.getElementById("nonStartSideCanvas");
   removeAllChildNodes(nonStartSideCanvas);
-  exportPiecesAsGrid(drawCuts, drawPieces, lineColor);
   if (svgInput.checked) {
+    exportPiecesAsGrid(drawCuts, drawPieces, lineColor, "svg");
     saveSvg(nonStartSideCanvas, filename + ".svg");
   } else if (pngInput.checked) {
+    exportPiecesAsGrid(drawCuts, drawPieces, lineColor, "png");
     saveSvgAsPng(nonStartSideCanvas, filename + ".png");
   }
   setGridColor(blackColor);
