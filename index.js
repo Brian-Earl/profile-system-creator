@@ -1225,7 +1225,7 @@ function setImportedData(data) {
     currentFont = data.options.font;
   // By default, set the imported pieces to be arranged as one since line across
   heightInput.value = 1;
-  widthInput.value = data.pieces.length
+  widthInput.value = getNumberOfPieces(data.pieces)
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
     let startPos = [
@@ -1514,6 +1514,15 @@ function changeStartPosition() {
   svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
 }
 
+// Reset the current piece back to the first
+function setToFirstPiece() {
+  clearBoard();
+  clearNonBoard();
+  currentPiece = 0;
+  drawBoard();
+  drawNonBoard()
+}
+
 // Export the current list of pieces as a grid
 function exportPiecesAsGrid(
   drawCuts = true,
@@ -1523,6 +1532,7 @@ function exportPiecesAsGrid(
 ) {
   if (!isStartSide) switchSides();
   // Get the width and height of the rendered grid
+  setToFirstPiece()
   let width = parseInt(widthInput.value);
   let height = parseInt(heightInput.value);
   // If the user has put in a number that is too small (done through typing in a number less than zero) exit the function
@@ -1536,11 +1546,11 @@ function exportPiecesAsGrid(
   // Try out 15 next time
   let spacing = spacingInput.value * scale;
   // Distance between the piece and the cut lines box
-  let lineDistance = 0.4 * scale;
-  // Offset so that the grid can be fully drawn on the svg
-  let offset = (lineDistance + 5);
+  let lineDistance = 0.5 * scale;
   // Stroke width of the cut lines
-  let strokeWidth = getCutLineWidth();
+  let strokeWidth = getCutLineWidth() * scale;
+  // Offset so that the grid can be fully drawn on the svg
+  let offset = (lineDistance + (strokeWidth/2) + 5);
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
@@ -1565,7 +1575,6 @@ function exportPiecesAsGrid(
         break;
       }
       if (drawPieces) {
-        console.log(iconList[currentPiece].abilitySide)
         if (iconList[currentPiece].type === "singleIcon")
           singleIconPiece()
         else if (iconList[currentPiece].type === "normal")
@@ -2088,6 +2097,16 @@ function changeAbilitySide(e) {
 // Check if a string is in all caps
 function isAllCaps(text) {
   return text === text.toUpperCase()
+}
+
+// Get the total number of pieces in a set,
+// Used on importing a new set of pieces
+function getNumberOfPieces(pieces) {
+  let count = 0
+  pieces.forEach(elem => {
+    count += elem.amount;
+  })
+  return count;
 }
 
 init();
