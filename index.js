@@ -461,7 +461,6 @@ function createIconAt(
 // x and y are for the start side
 // x2 and y2 are for the non start side
 function createStartIconsAt(x, y, x2, y2, append = true, bothStartSides = false) {
-  console.log(bothStartSides)
   return [
     createIconAt(
       (!bothStartSides ? "NonStartSide" : "StartSide"),
