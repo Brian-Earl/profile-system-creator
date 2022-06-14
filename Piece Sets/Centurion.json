@@ -1,5 +1,5 @@
 {
-  "options": { "exporterVersion": 5, "font": "centurionFont" },
+  "options": { "exporterVersion": 6, "font": "centurionFont" },
   "pieces": [
     {
       "grid": {
@@ -30,7 +30,8 @@
       "icon": "onagerIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -61,7 +62,8 @@
       "icon": "slingersIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -92,7 +94,8 @@
       "icon": "legionnaireIcon",
       "altIcon": "",
       "amount": 6,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -123,7 +126,8 @@
       "icon": "hastatiIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -154,7 +158,8 @@
       "icon": "centurionIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -185,7 +190,8 @@
       "icon": "warDogsIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": true
     },
     {
       "grid": {
@@ -216,7 +222,8 @@
       "icon": "tribuneIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -247,7 +254,8 @@
       "icon": "primusPilusIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -278,7 +286,8 @@
       "icon": "velitesIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -309,7 +318,8 @@
       "icon": "optioIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -340,7 +350,8 @@
       "icon": "explorerIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -371,7 +382,8 @@
       "icon": "triariiIcon",
       "altIcon": "",
       "amount": 1,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     },
     {
       "grid": {
@@ -402,7 +414,8 @@
       "icon": "equitesIcon",
       "altIcon": "",
       "amount": 2,
-      "type": "normal"
+      "type": "normal",
+      "bothStartSides": false
     }
   ]
 }

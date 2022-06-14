@@ -97,6 +97,9 @@ let hasDifferentPieceIcons = false;
 // Keeps track of if the piece has different starting locations
 let hasDifferentStartLocations = false;
 
+// Keeps track of if both the pieces sides are start sides
+let hasBothStartSides = false;
+
 // Keeps track of which side the ability should be shown on
 let showAbilitySide = 'both';
 
@@ -143,7 +146,7 @@ const scaleDownFactor = (100.8 / 104.5);
 // allowing for custom icons that need to be stored in the json file
 // this is different from the site version which handles the actual rendering and creating
 // of the SVG files
-let exporterVersion = 5;
+let exporterVersion = 6;
 
 // Current version of the site
 // Will only start incrementing them after the "official release"
@@ -160,6 +163,8 @@ let oppositeIconSideInput = document.getElementById("oppositeIconSideInput");
 oppositeIconSideInput.addEventListener("change", toggleOppositePieceSide);
 let oppositeStartSideInput = document.getElementById("oppositeStartSideInput");
 oppositeStartSideInput.addEventListener("change", toggleOppositeStartLocation);
+let bothStartSideInput = document.getElementById("bothStartSideInput");
+bothStartSideInput.addEventListener("change", toggleBothStartLocation);
 let oppositeNameSideInput = document.getElementById("oppositeNameSideInput");
 oppositeNameSideInput.addEventListener("change", toggleOppositeName);
 let amountInput = document.getElementById("amountInput");
@@ -193,6 +198,7 @@ nonStartSideAbiltyInput.addEventListener("change", changeAbilitySide);
 // Get elements for the display of the current piece index and total piece number
 let currentPieceNumberElement = document.getElementById("currentPieceNumber");
 let totalPieceNumberElement = document.getElementById("totalPieceNumber");
+let currentSideNumber = document.getElementById("currentSideNumber");
 
 // Get elements for the width and height when generation the grid svg
 let widthInput = document.getElementById("widthInput");
@@ -203,7 +209,7 @@ let spacingInput = document.getElementById("spacingInput");
 let exportStyle = document.getElementById("exportStyles");
 
 class GamePiece {
-  constructor(x = 2, y = 2, x2 = 2, y2 = 2, type = "normal", append = true) {
+  constructor(x = 2, y = 2, x2 = 2, y2 = 2, type = "normal", append = true, bothStartSides = false) {
 
     // Keep track of what type the current piece
     // It can either be "normal" or "singleIcon"
@@ -244,9 +250,11 @@ class GamePiece {
     // Second one is for if the piece has a different one for each side
     this.storage.icons = ["", ""];
     // Store the current starting icon
-    this.storage.start = createStartIconsAt(x, y, x2, y2, append);
+    this.storage.start = createStartIconsAt(x, y, x2, y2, append, bothStartSides);
     // Store the line objects of connecting lines
     this.storage.connections = [[], []];
+    // Store if both sides are start positions
+    this.bothStartSides = bothStartSides;
 
     // Store the number of pieces in the set
     this.count = 1;
@@ -452,10 +460,11 @@ function createIconAt(
 // Create a start icons at the two given positions
 // x and y are for the start side
 // x2 and y2 are for the non start side
-function createStartIconsAt(x, y, x2, y2, append = true) {
+function createStartIconsAt(x, y, x2, y2, append = true, bothStartSides = false) {
+  console.log(bothStartSides)
   return [
     createIconAt(
-      "NonStartSide",
+      (!bothStartSides ? "NonStartSide" : "StartSide"),
       getCenter(document.getElementById("X" + x2 + y2)),
       [x, y],
       !isStartSide && append,
@@ -953,6 +962,10 @@ function displayListLength() {
   totalPieceNumberElement.innerHTML = iconList.length;
 }
 
+function displaySideNumber() {
+  currentSideNumber.innerHTML = !isStartSide + 1
+}
+
 // Easy macro to create a new piece index and increment the current piece
 function createNewPiece() {
   clearBoard();
@@ -982,6 +995,7 @@ function deletePiece() {
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
   hasDifferentNames = pieceHasDifferentNames();
+  hasBothStartSides = iconList[currentPiece].bothStartSides;
   clearInputs();
   drawNonBoard();
   drawBoard();
@@ -999,6 +1013,7 @@ function switchSides() {
   drawNonBoard();
   drawBoard();
   clearInputs();
+  displaySideNumber()
 }
 
 // Move forward one piece in the piece array
@@ -1017,6 +1032,7 @@ function forwardPiece() {
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
   hasDifferentNames = pieceHasDifferentNames();
+  hasBothStartSides = iconList[currentPiece].bothStartSides;
   clearInputs();
   displayListLength();
 }
@@ -1037,6 +1053,7 @@ function backwardPiece() {
   hasDifferentPieceIcons = pieceHasDifferentIcons();
   hasDifferentStartLocations = pieceHasDifferentStartPositions();
   hasDifferentNames = pieceHasDifferentNames();
+  hasBothStartSides = iconList[currentPiece].bothStartSides;
   clearInputs();
   displayListLength();
 }
@@ -1047,6 +1064,7 @@ function clearInputs() {
   oppositeIconSideInput.checked = hasDifferentPieceIcons;
   oppositeStartSideInput.checked = hasDifferentStartLocations;
   oppositeNameSideInput.checked = hasDifferentNames;
+  bothStartSideInput.checked = hasBothStartSides
   if (hasDifferentNames) {
     if (isStartSide) {
       nameInput.value = iconList[currentPiece].name
@@ -1200,6 +1218,7 @@ function exportPieces() {
       : "";
     pieceObject.amount = iconList[i].count ? iconList[i].count : 1;
     pieceObject.type = iconList[i].type ? iconList[i].type : "normal";
+    pieceObject.bothStartSides = iconList[i].bothStartSides
     object.pieces.push(pieceObject);
   }
   downloadJSON(object);
@@ -1280,6 +1299,9 @@ function setImportedData(data) {
       false,
       data.pieces[i].type
     );
+    if (data.options.exporterVersion < 6)
+      data.pieces[i].bothStartSides = false;
+    iconList[i].bothStartSides = data.pieces[i].bothStartSides 
     iconList[i].count = data.pieces[i].amount;
     iconList[i].type = data.pieces[i].type;
     iconList[i].name = createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
@@ -1335,7 +1357,8 @@ function setImportedData(data) {
         startPos[1][1],
         startPos[0][0],
         startPos[0][1],
-        false
+        false,
+        iconList[i].bothStartSides
       );
       if (data.pieces[i].connections)
         iconList[i].connections = data.pieces[i].connections;
@@ -1363,6 +1386,7 @@ function setImportedData(data) {
   if (iconList[currentPiece].type === "singleIcon")
     singleIconPiece()
   currentPiece = 0;
+  displayListLength()
   drawBoard();
   drawNonBoard();
 }
@@ -1500,6 +1524,13 @@ function toggleOppositeStartLocation() {
   hasDifferentStartLocations = oppositeStartSideInput.checked;
 }
 
+// Toggle if the non start side has a different start location
+function toggleBothStartLocation() {
+  hasBothStartSides = bothStartSideInput.checked
+  iconList[currentPiece].bothStartSides = hasBothStartSides
+  changeStartPosition()
+}
+
 // Toggle if the non start side has a different name
 function toggleOppositeName() {
   hasDifferentNames = oppositeNameSideInput.checked;
@@ -1527,7 +1558,7 @@ function changeStartPosition() {
   y1 = iconList[currentPiece].startPos[1][1];
   x2 = iconList[currentPiece].startPos[0][0];
   y2 = iconList[currentPiece].startPos[0][1];
-  iconList[currentPiece].storage.start = createStartIconsAt(x1, y1, x2, y2);
+  iconList[currentPiece].storage.start = createStartIconsAt(x1, y1, x2, y2, false, hasBothStartSides);
   svg.appendChild(iconList[currentPiece].storage.start[+isStartSide]);
 }
 
