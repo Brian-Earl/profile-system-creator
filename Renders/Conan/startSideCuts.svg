@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="startSideCanvas" width="1130" height="226" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="202" height="202" stroke="red" fill="transparent" stroke-width="1"></rect><rect x="225" y="5" width="202" height="202" stroke="red" fill="transparent" stroke-width="1"></rect><rect x="445" y="5" width="202" height="202" stroke="red" fill="transparent" stroke-width="1"></rect><rect x="665" y="5" width="202" height="202" stroke="red" fill="transparent" stroke-width="1"></rect><defs id="exportStyles">
+      <style>
+        @font-face {
+          font-family: 'Pieces of Eight';
+          src: url('https://fonts.cdnfonts.com/s/8397/Pieces of Eight.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Lucida Blackletter';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Lucida Blackletter'), url('https://fonts.cdnfonts.com/s/14008/Lucida Blackletter Regular.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Goudy Old Style';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Goudy Old Style'), url('https://fonts.cdnfonts.com/s/14850/GOUDOS.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Xenippa';
+          font-style: normal;
+          font-weight: 500;
+          src: local('Xenippa'), url('https://fonts.cdnfonts.com/s/7902/xenippa1.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Comic Runes';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Comic Runes'), url('https://fonts.cdnfonts.com/s/71082/ComicRunes.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Hiroshige LT Medium';
+          font-style: normal;
+          font-weight: 500;
+          src: local('Hiroshige LT Medium'), url('https://fonts.cdnfonts.com/s/14336/pmn-caecilia-lt-85-heavy-5876ce1a314e8.woff') format('woff');
+        }
+
+        @font-face {
+          font-family: 'Xtra';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Xtra'), url('https://fonts.cdnfonts.com/s/5740/Xtra.woff') format('woff');
+        }
+      </style>
+    </defs></svg>
