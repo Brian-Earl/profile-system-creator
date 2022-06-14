@@ -1,895 +1,204 @@
 {
-    "options": {
-        "exporterVersion": 2,
-        "font": "musketeersFont"
+  "options": {
+    "exporterVersion": 2,
+    "font": "musketeersFont"
+  },
+  "pieces": [
+    {
+      "grid": {
+        "startSide": [
+          [[], ["jump"], [], [], ["move"]],
+          [[], ["move"], [], ["move"], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], ["move"], []],
+          [[], ["jump"], [], [], ["move"]]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["strike"], [], ["slide"], []],
+          [[], ["strike"], [], [], []],
+          [[], ["strike"], [], ["slide"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "name": "Porthos",
+      "ability": "",
+      "icon": "musketeerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
     },
-    "pieces": [
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [
-                            "slide"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [
-                            "slide"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "Porthos",
-            "ability": "",
-            "icon": "musketeerIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [
-                            "jump"
-                        ],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "Aramis",
-            "ability": "",
-            "icon": "musketeerIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [
-                            "command"
-                        ],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [
-                            "command"
-                        ],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [
-                            "command"
-                        ],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "Athos",
-            "ability": "",
-            "icon": "musketeerIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "jump"
-                        ],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "D'Artgnan",
-            "ability": "",
-            "icon": "musketeerIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "jump"
-                        ]
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "strike"
-                        ]
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "Rochefort",
-            "ability": "",
-            "icon": "rochefortIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [
-                            "jump"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "command"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        []
-                    ],
-                    [
-                        [
-                            "command"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "command"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [
-                            "jump"
-                        ],
-                        []
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "slide"
-                        ],
-                        []
-                    ],
-                    [
-                        [
-                            "move"
-                        ],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "slide"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ]
-            },
-            "name": "Richlieu",
-            "ability": 3,
-            "icon": "richlieuIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        },
-        {
-            "grid": {
-                "startSide": [
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "command"
-                        ],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "command"
-                        ],
-                        [],
-                        [
-                            "command"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [
-                            "command"
-                        ],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [],
-                        [],
-                        []
-                    ]
-                ],
-                "startNonSide": [
-                    [
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ],
-                    [
-                        [],
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "strike"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [
-                            "strike"
-                        ],
-                        [
-                            "move"
-                        ],
-                        []
-                    ],
-                    [
-                        [],
-                        [],
-                        [
-                            "move"
-                        ],
-                        [],
-                        [
-                            "move"
-                        ]
-                    ]
-                ]
-            },
-            "name": "de Winter",
-            "ability": "",
-            "icon": "deWinterIcon",
-            "altIcon": "",
-            "amount": 1,
-            "startPosition": [
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ]
-            ],
-            "connections": [
-                [],
-                []
-            ]
-        }
-    ]
+    {
+      "grid": {
+        "startSide": [
+          [[], ["jump"], [], [], ["move"]],
+          [[], ["move"], [], ["move"], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], ["move"], []],
+          [[], ["jump"], [], [], ["move"]]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["strike"], [], [], []],
+          [["jump"], ["strike"], [], ["move"], ["jump"]],
+          [[], ["strike"], [], [], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "name": "Aramis",
+      "ability": "",
+      "icon": "musketeerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], ["jump"], [], [], ["move"]],
+          [[], ["move"], [], ["move"], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], ["move"], []],
+          [[], ["jump"], [], [], ["move"]]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["strike"], [], ["command"], ["jump"]],
+          [["command"], ["strike"], [], [], []],
+          [[], ["strike"], [], ["command"], ["jump"]],
+          [[], [], [], [], []]
+        ]
+      },
+      "name": "Athos",
+      "ability": "",
+      "icon": "musketeerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], ["jump"], [], [], ["move"]],
+          [[], ["move"], [], ["move"], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], ["move"], []],
+          [[], ["jump"], [], [], ["move"]]
+        ],
+        "startNonSide": [
+          [["move"], [], [], [], []],
+          [[], ["strike"], [], [], []],
+          [[], ["strike"], [], [], ["jump"]],
+          [[], ["strike"], [], [], []],
+          [["move"], [], [], [], []]
+        ]
+      },
+      "name": "D'Artgnan",
+      "ability": "",
+      "icon": "musketeerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], [], ["move"], ["jump"]],
+          [["move"], [], [], [], []],
+          [[], [], [], ["move"], ["jump"]],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["move"], ["move"], [], []],
+          [[], [], [], ["move"], ["strike"]],
+          [[], ["move"], ["move"], [], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "name": "Rochefort",
+      "ability": "",
+      "icon": "rochefortIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], ["jump"], []],
+          [[], ["command"], ["move"], [], []],
+          [["command"], ["move"], [], [], []],
+          [[], ["command"], ["move"], [], []],
+          [[], [], [], ["jump"], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], [], ["move"], ["slide"], []],
+          [["move"], ["move"], [], [], []],
+          [[], [], ["move"], ["slide"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "name": "Richlieu",
+      "ability": 3,
+      "icon": "richlieuIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], ["move"], ["command"], ["move"], []],
+          [[], ["command"], [], ["command"], []],
+          [[], ["move"], ["command"], ["move"], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["move"], [], ["move"]],
+          [[], [], ["strike"], ["move"], []],
+          [[], ["move"], [], ["strike"], []],
+          [[], [], ["strike"], ["move"], []],
+          [[], [], ["move"], [], ["move"]]
+        ]
+      },
+      "name": "de Winter",
+      "ability": "",
+      "icon": "deWinterIcon",
+      "altIcon": "",
+      "amount": 1,
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []]
+    }
+  ]
 }

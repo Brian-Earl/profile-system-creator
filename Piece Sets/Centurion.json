@@ -1,0 +1,408 @@
+{
+  "options": { "exporterVersion": 5, "font": "centurionFont" },
+  "pieces": [
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], ["nonCaptureMove"], [], []],
+          [[], [], [], ["nonCaptureMove"], []],
+          [[], [], ["nonCaptureMove"], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["hammer"], [], ["move"], []],
+          [[], ["hammer"], [], [], []],
+          [[], ["hammer"], [], ["move"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 3],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Onager",
+      "altName": "",
+      "icon": "onagerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], ["move"]],
+          [[], [], [], ["move"], []],
+          [["nonCaptureMove"], [], [], [], []],
+          [[], [], [], ["move"], []],
+          [[], [], [], [], ["move"]]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], [], ["move"], [], []],
+          [["strike"], ["strike"], [], [], ["move"]],
+          [[], [], ["move"], [], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Slingers",
+      "altName": "",
+      "icon": "slingersIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], ["move"], [], []],
+          [["strike"], ["move"], [], [], ["move"]],
+          [[], [], ["nonCaptureMove", "fullFormation"], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["move"], ["shieldDefense"], ["nonCaptureSlide"], []],
+          [[], ["move"], [], [], []],
+          [[], ["move"], [], ["nonCaptureSlide"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": 10,
+      "abilitySide": "nonStart",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Legionnaire",
+      "altName": "",
+      "icon": "legionnaireIcon",
+      "altIcon": "",
+      "amount": 6,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], ["nonCaptureJump"], [], []],
+          [[], [], ["shieldDefense"], [], []],
+          [["jump"], ["strike"], [], ["move"], []],
+          [[], [], ["move"], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["jump"], [], []],
+          [[], [], ["shieldDefense"], [], []],
+          [["strike"], ["move"], [], ["move"], []],
+          [[], [], ["nonCaptureMove", "fullFormation"], [], []],
+          [[], [], ["jump"], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Hastati",
+      "altName": "",
+      "icon": "hastatiIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], ["fullFormation"], ["nonCaptureSlide"], []],
+          [["smash"], ["smash"], [], ["smash"], []],
+          [[], [], ["fullFormation"], ["nonCaptureSlide"], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["smash"], [], ["nonCaptureSlide"], []],
+          [[], ["fullFormation"], [], ["fullFormation"], ["smash"]],
+          [[], ["smash"], [], ["nonCaptureSlide"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Centurion",
+      "altName": "",
+      "icon": "centurionIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], [], ["slide"], []],
+          [[], ["move"], [], [], []],
+          [[], ["slide"], [], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["slide"], [], [], []],
+          [[], ["move"], [], [], []],
+          [[], [], [], ["slide"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "War Dogs",
+      "altName": "",
+      "icon": "warDogsIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], ["jump"], [], []],
+          [[], [], [], [], []],
+          [[], ["slide"], [], ["fullFormation"], []],
+          [[], [], [], [], []],
+          [[], [], ["jump"], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["jump"], [], []],
+          [[], ["move"], ["fullFormation"], [], []],
+          [[], ["move"], [], [], ["jump"]],
+          [[], ["move"], ["fullFormation"], [], []],
+          [[], [], ["jump"], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Tribune",
+      "altName": "",
+      "icon": "tribuneIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], ["nonCaptureMove"], [], []],
+          [[], ["move"], ["shieldDefense"], ["move"], []],
+          [["strike"], ["move"], [], ["move"], []],
+          [[], ["move"], [], ["move"], []],
+          [[], [], ["nonCaptureMove"], [], []]
+        ],
+        "startNonSide": [
+          [[], [], ["jump"], [], []],
+          [[], ["move"], ["singleFormation"], ["move"], []],
+          [["strike"], [], [], [], []],
+          [[], ["move"], ["singleFormation"], ["move"], []],
+          [[], [], ["jump"], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Primus Pilus",
+      "altName": "",
+      "icon": "primusPilusIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], ["jump"], []],
+          [[], ["strike"], ["nonCaptureMove"], [], []],
+          [["strike"], [], [], [], []],
+          [[], ["strike"], ["nonCaptureMove"], [], []],
+          [[], [], [], ["jump"], []]
+        ],
+        "startNonSide": [
+          [[], ["jump"], [], [], []],
+          [[], [], [], [], []],
+          [["strike"], ["move"], [], ["move"], []],
+          [[], [], [], [], []],
+          [[], ["jump"], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Velites",
+      "altName": "",
+      "icon": "velitesIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], ["move"], [], []],
+          [["smash"], [], [], ["fullFormation"], ["jump"]],
+          [[], [], ["move"], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], ["nonCaptureJump"], []],
+          [[], [], ["smash"], [], []],
+          [["jump"], ["move"], [], ["fullFormation"], []],
+          [[], [], ["smash"], [], []],
+          [[], [], [], ["nonCaptureJump"], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Optio",
+      "altName": "",
+      "icon": "optioIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], ["nonCaptureSlide"], ["move"], ["nonCaptureSlide"], []],
+          [[], ["move"], [], ["move"], []],
+          [[], ["nonCaptureSlide"], ["move"], ["nonCaptureSlide"], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["move"], ["nonCaptureSlide"], ["move"], []],
+          [[], ["nonCaptureSlide"], [], ["nonCaptureSlide"], []],
+          [[], ["move"], ["nonCaptureSlide"], ["move"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Explorator",
+      "altName": "",
+      "icon": "explorerIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], ["move"], [], []],
+          [[], ["defense"], ["move"], [], []],
+          [["move"], ["move"], [], ["move"], ["move"]],
+          [[], ["defense"], ["move"], [], []],
+          [[], [], ["move"], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], [], []],
+          [[], ["defense"], ["move"], ["move"], []],
+          [["nonCaptureJump"], ["defense"], [], ["move"], []],
+          [[], ["defense"], ["move"], ["move"], []],
+          [[], [], [], [], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Triarii",
+      "altName": "",
+      "icon": "triariiIcon",
+      "altIcon": "",
+      "amount": 1,
+      "type": "normal"
+    },
+    {
+      "grid": {
+        "startSide": [
+          [[], [], [], [], []],
+          [[], [], ["move"], [], []],
+          [["jump"], ["slide"], [], ["slide"], []],
+          [[], [], ["move"], [], []],
+          [[], [], [], [], []]
+        ],
+        "startNonSide": [
+          [[], [], [], ["jump"], []],
+          [[], [], [], [], ["jump"]],
+          [[], ["slide"], [], ["slide"], []],
+          [[], [], [], [], ["jump"]],
+          [[], [], [], ["jump"], []]
+        ]
+      },
+      "ability": "",
+      "abilitySide": "both",
+      "startPosition": [
+        [2, 2],
+        [2, 2]
+      ],
+      "connections": [[], []],
+      "name": "Equites",
+      "altName": "",
+      "icon": "equitesIcon",
+      "altIcon": "",
+      "amount": 2,
+      "type": "normal"
+    }
+  ]
+}

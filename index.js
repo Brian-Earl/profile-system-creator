@@ -430,7 +430,7 @@ function createIconAt(
   if (isRotate(icon)) {
     newIconElement.setAttribute(
       "transform",
-      rotateIcon(gridPos, cx, cy, width, height, isNintyDegrees(icon))
+      rotateIcon(gridPos, cx, cy, width, height, isNintyDegrees(icon, getCurrentName()), isSideways(icon, getCurrentName()))
     );
   }
   newIconElement.setAttribute("x", cx);
@@ -481,8 +481,19 @@ function isRotate(icon) {
 }
 
 // Returns if an icon should only be rotated by 90 degrees
-function isNintyDegrees(icon) {
-  return icon === "smash"
+function isNintyDegrees(icon, name) {
+  return icon === "smash" || 
+  (icon === "nonCaptureSlide" && (name === "Legionnaire" || name === "Centurion"))
+}
+
+// Returns if an icon should prefer being pointed upwards or sideways
+function isSideways(icon, name) {
+  return (icon === "nonCaptureSlide" && (name === "Legionnaire" || name === "Centurion"))
+}
+
+// Return the name of the current piece
+function getCurrentName() {
+  return iconList[currentPiece].name[0].getAttribute("text");
 }
 
 // Returns if the icon given is one that is full sized
@@ -496,10 +507,10 @@ function isFullSize(icon) {
 }
 
 // Return transform attribute for rotating an icon
-function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false) {
+function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, preferSideways = false) {
   return (
     "rotate(" +
-    getRotateDegrees(gridPos, nintyDegrees) +
+    getRotateDegrees(gridPos, nintyDegrees, preferSideways) +
     " " +
     (cx + width / 2) +
     " " +
@@ -539,7 +550,7 @@ function scaleFactor(icon) {
 
 // Calculate the angle in which to rotate the current movement
 // icon by depending on the start position of the piece
-function getAngle(x, y, nintyDegrees = false) {
+function getAngle(x, y, nintyDegrees = false, preferSideways = false) {
   return !nintyDegrees ? roundDownToNearest45(
     Math.abs(
       (Math.atan2(
@@ -550,8 +561,7 @@ function getAngle(x, y, nintyDegrees = false) {
       Math.PI -
       180
     )
-  ) :
-    roundDownToNearest90(
+  ) : roundDownToNearest90(
       Math.abs(
         (Math.atan2(
           y - iconList[currentPiece].startPos[+isStartSide][1],
@@ -560,7 +570,8 @@ function getAngle(x, y, nintyDegrees = false) {
           180) /
         Math.PI -
         180
-      )
+      ),
+      preferSideways
     )
 }
 
@@ -574,17 +585,21 @@ function roundDownToNearest45(num) {
 // Round the given number down to the nearest multiple of 90
 // This is used when calculating the angle in which to rotate
 // a movement icon by
-function roundDownToNearest90(num) {
+function roundDownToNearest90(num, preferSideways = false) {
   if (num < 90 && num > 0)
-    return 0;
+    return !preferSideways ? 0 : 90;
   if (num < 270 && num > 180)
-    return 180
+    return !preferSideways ? 180: 270;
+  if (preferSideways && num < 180 && num > 90)
+    return 90;
+  if (preferSideways && num > 270)
+    return 270;
   return Math.ceil(num / 90) * 90;
 }
 
 // Find the rotation degree based on the grid position
-function getRotateDegrees(gridPos, nintyDegrees = false) {
-  return getAngle(gridPos[1], gridPos[0], nintyDegrees);
+function getRotateDegrees(gridPos, nintyDegrees = false, preferSideways = false) {
+  return getAngle(gridPos[1], gridPos[0], nintyDegrees, preferSideways);
 }
 
 // Find how much to translate along the Y axis based on the grid position
@@ -1228,6 +1243,7 @@ function setImportedData(data) {
   widthInput.value = getNumberOfPieces(data.pieces)
   iconList = [];
   for (let i = 0; i < data.pieces.length; i++) {
+    currentPiece = i;
     let startPos = [
       [2, 2],
       [2, 2],
@@ -1346,6 +1362,7 @@ function setImportedData(data) {
   }
   if (iconList[currentPiece].type === "singleIcon")
     singleIconPiece()
+  currentPiece = 0;
   drawBoard();
   drawNonBoard();
 }
@@ -1960,6 +1977,9 @@ function getFontSize(length = 1, hasSpace = false, isAllCaps = false) {
       return 90;
     else if (length >= 10)
       return 130;
+  } else if(currentFont === "centurionFont") {
+    if(length >= 12)
+      return 180;
   }
   return 200;
 }
