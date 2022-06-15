@@ -961,6 +961,10 @@ function displayListLength() {
   totalPieceNumberElement.innerHTML = iconList.length;
 }
 
+// Display which side the piece is currently on
+// it will display either a "1" or a "2"
+// This is so you can tell what side you are on when a piece
+// has a starting space on both sides
 function displaySideNumber() {
   currentSideNumber.innerHTML = !isStartSide + 1
 }
@@ -1653,6 +1657,7 @@ function exportPiecesAsGrid(
         svgStartSideClone.setAttribute("height", pieceSize * scaleStartDownBy);
         svgStartSideClone.setAttribute("x", startX);
         svgStartSideClone.setAttribute("y", startY);
+        removeMouseEvents(svgStartSideClone);
         switchSides();
         let svgNonStartSideClone = svg.cloneNode(true);
         nonStartSideCanvas.append(svgNonStartSideClone);
@@ -1660,6 +1665,7 @@ function exportPiecesAsGrid(
         svgNonStartSideClone.setAttribute("height", pieceSize * scaleNonStartDownBy);
         svgNonStartSideClone.setAttribute("x", nonStartX);
         svgNonStartSideClone.setAttribute("y", nonStartY);
+        removeMouseEvents(svgNonStartSideClone);
         switchSides();
       }
       // Increment the amount of times the piece has been seen in the current render
@@ -1736,7 +1742,8 @@ function createRect(x1, y1, x2, y2, color = "red", strokeWidth = 1) {
   newRect.setAttribute("width", width);
   newRect.setAttribute("height", height);
   newRect.setAttribute("stroke", color);
-  newRect.setAttribute("fill", "transparent");
+  newRect.setAttribute("fill", "none");
+  newRect.setAttribute("fill-rule", "nonzero");
   newRect.setAttribute("stroke-width", strokeWidth);
   return newRect;
 }
@@ -2157,6 +2164,19 @@ function getNumberOfPieces(pieces) {
     count += elem.amount;
   })
   return count;
+}
+
+// Remove mouse click events from the given grid element
+// This will reduce file size as well as remove errors when using the SVG elsewhere
+// From my tests, doing this saves over 10% in file size
+function removeMouseEvents(elem) {
+  Array.from(elem.getElementById("Grid").children).forEach(child => {
+    Array.from(child.children).forEach(square => {
+      square.firstElementChild.removeAttribute("onmouseover")
+      square.firstElementChild.removeAttribute("onmouseout")
+      square.firstElementChild.removeAttribute("onclick")
+    })
+  })
 }
 
 init();
