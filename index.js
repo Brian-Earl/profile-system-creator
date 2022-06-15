@@ -1658,6 +1658,7 @@ function exportPiecesAsGrid(
         svgStartSideClone.setAttribute("x", startX);
         svgStartSideClone.setAttribute("y", startY);
         removeMouseEvents(svgStartSideClone);
+        removeHiddenElements(svgStartSideClone);
         switchSides();
         let svgNonStartSideClone = svg.cloneNode(true);
         nonStartSideCanvas.append(svgNonStartSideClone);
@@ -1666,6 +1667,7 @@ function exportPiecesAsGrid(
         svgNonStartSideClone.setAttribute("x", nonStartX);
         svgNonStartSideClone.setAttribute("y", nonStartY);
         removeMouseEvents(svgNonStartSideClone);
+        removeHiddenElements(svgNonStartSideClone);
         switchSides();
       }
       // Increment the amount of times the piece has been seen in the current render
@@ -2177,6 +2179,26 @@ function removeMouseEvents(elem) {
       square.firstElementChild.removeAttribute("onclick")
     })
   })
+}
+
+// Remove hidden elements from the given grid element to reduce file size
+function removeHiddenElements(elem) {
+  console.log(elem)
+  let outerBorder = elem.getElementById("Outer-Border");
+  if(outerBorder.getAttribute("visibility") === "hidden")
+    outerBorder.remove()
+  let singleIconBorders = elem.getElementById("SingleIconBorder");
+  let singleIconInner = singleIconBorders.children.namedItem("Inner-Border")
+  let singleIconOuter = singleIconBorders.children.namedItem("Outer-Border")
+  if(singleIconInner.getAttribute("visibility") === "hidden" 
+  && singleIconOuter.getAttribute("visibility") === "hidden")
+    singleIconBorders.remove()
+  else {
+    if(singleIconInner.getAttribute("visibility") === "hidden")
+      singleIconInner.remove()
+    if(singleIconOuter.getAttribute("visibility") === "hidden")
+      singleIconOuter.remove()
+  }
 }
 
 init();
