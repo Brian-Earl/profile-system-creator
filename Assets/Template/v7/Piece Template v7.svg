@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="svg" width="100%" height="100%" viewBox="0 0 1391 1391" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:2;">
+    <g id="Outer-Border" serif:id="Outer Border" visibility="hidden">
+        <rect x="13.975" y="13.973" width="1360.98" height="1361.01" style="fill:none;stroke:rgb(35,31,32);stroke-width:12.5px;"/>
+    </g>
+    <g id="Grid">
+        <g id="Y4">
+            <g id="X44">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="789.084" y="789.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X34">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="601.667" y="789.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X24">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="414.079" y="789.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X14">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="226.584" y="789.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X04">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="39.083" y="789.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y3">
+            <g id="X43">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="789.084" y="601.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X33">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="601.667" y="601.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X23">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="414.079" y="601.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X13">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="226.584" y="601.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X03">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="39.083" y="601.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y2">
+            <g id="X42" serif:id="X4">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="789.084" y="414.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X32" serif:id="X3">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="601.667" y="414.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X22" serif:id="X2">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="414.079" y="414.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X12" serif:id="X1">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="226.584" y="414.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X02" serif:id="X0">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="39.083" y="414.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y1">
+            <g id="X41" serif:id="X4">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="789.084" y="226.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X31" serif:id="X3">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="601.667" y="226.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X21" serif:id="X2">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="414.079" y="226.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X11" serif:id="X1">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="226.584" y="226.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X01" serif:id="X0">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="39.083" y="226.668" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+        </g>
+        <g id="Y0">
+            <g id="X40" serif:id="X4">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="789.084" y="39.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X30" serif:id="X3">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="601.667" y="39.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X20" serif:id="X2">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="414.079" y="39.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X10" serif:id="X1">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="226.584" y="39.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+            <g id="X00" serif:id="X0">
+                <rect onmouseover="mouseOverGridSquare(this)" onmouseout="mouseOutGridSquare(this)"
+              onclick="clickGridSquare(this)" x="39.083" y="39.168" width="187.5" height="187.5" style="fill:white;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+            </g>
+        </g>
+    </g>    s
+    <g id="Piece-Graphics" serif:id="Piece Graphics">
+        <g id="Piece-Icon" serif:id="Piece Icon">
+            <rect x="976.584" y="39.168" width="375" height="1312.5" style="fill:white;fill-opacity:0;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+        </g>
+        <g id="Piece-Name" serif:id="Piece Name">
+            <rect x="39.083" y="976.669" width="937.501" height="375" style="fill:white;fill-opacity:0;stroke:rgb(35,31,32);stroke-width:12.5px;stroke-linecap:round;"/>
+        </g>
+    </g>
+    <g id="SingleIconBorder" transform="matrix(3.06842,0,0,3.06842,0,0)">
+        <rect id="Outer-Border" serif:id="Outer Border" x="14" y="14" width="1361" height="1361" style="fill:none;stroke:black;stroke-width:12.68px;" visibility="hidden"/>
+        <rect id="Inner-Border" serif:id="Inner Border" x="39.25" y="39.263" width="1312.5" height="1312.5" style="fill:none;stroke:rgb(35,31,32);stroke-width:12.67px;" visibility="hidden"/>
+    </g>
+    <g id="Player-Marker" serif:id="Player Marker">
+        <g id="Non-Starting-Side" serif:id="Non Starting Side">
+            <path d="M457.925,587.755L471.084,556.692L481.488,556.692C479.096,553.605 477.659,549.813 477.659,545.672L477.659,488.426C477.659,481.855 481.225,476.097 486.555,472.817C480.517,468.084 476.555,460.909 476.555,452.771C476.555,438.576 488.359,427.055 502.871,427.055C517.409,427.055 529.188,438.576 529.188,452.771C529.188,460.909 525.225,468.084 519.188,472.817C524.517,476.097 528.084,481.855 528.084,488.426L528.084,545.672C528.084,549.813 526.646,553.605 524.28,556.692L534.688,556.692L547.846,587.755L457.925,587.755ZM414.079,601.667L601.584,601.667L601.584,414.167L414.079,414.167L414.079,601.667Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+        </g>
+        <g id="Starting-Side" serif:id="Starting Side">
+            <path d="M414.079,414.167L414.079,601.667L601.584,601.667L601.584,414.167L601.584,601.667L414.079,601.667L414.079,414.167ZM457.925,587.755L471.084,556.692L481.488,556.692C479.096,553.605 477.659,549.813 477.659,545.672L477.659,488.426C477.659,481.855 481.225,476.097 486.555,472.817C480.517,468.084 476.555,460.909 476.555,452.771C476.555,438.576 488.359,427.055 502.871,427.055C517.409,427.055 529.188,438.576 529.188,452.771C529.188,460.909 525.225,468.084 519.188,472.817C524.517,476.097 528.084,481.855 528.084,488.426L528.084,545.672C528.084,549.813 526.646,553.605 524.28,556.692L534.688,556.692L547.846,587.755L457.925,587.755Z" style="fill:rgb(35,31,32);fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

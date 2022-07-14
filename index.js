@@ -399,6 +399,7 @@ function isCenter(gridPos) {
 
 // Returns the x,y position of the center of the given SVG element
 function getCenter(item) {
+  if(!item) return;
   let bbox = item.getBBox();
   let ctm = getTransformToElement(item, item.nearestViewportElement)
   //let ctm = item.getTransformToElement(item.nearestViewportElement);
@@ -740,9 +741,9 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
   if (!isImport) {
     if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
     if (iconList[currentPiece].altName) iconList[currentPiece].altName.forEach(elem => elem.remove());
-    if ((iconList[currentPiece].type && iconList[currentPiece].type === "singleIcon")) namePos.x = getCenter(singleIconLocation).x;
+    if ((iconList[currentPiece].type && iconList[currentPiece].type === "singleIcon" && singleIconLocation)) namePos.x = getCenter(singleIconLocation).x;
   } else {
-    if (isSingleIcon) namePos.x = getCenter(singleIconLocation).x;
+    if (isSingleIcon && singleIconLocation) namePos.x = getCenter(singleIconLocation).x;
   }
   let processedText = processText(text);
   let fontSize = getFontSize(processedText[0].length, hasWhiteSpace(text), isAllCaps(processedText[0]));
