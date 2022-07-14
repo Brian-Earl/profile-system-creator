@@ -501,7 +501,7 @@ function isSideways(icon, name) {
 
 // Return the name of the current piece
 function getCurrentName() {
-  return iconList[currentPiece].name[0].getAttribute("text");
+  return iconList[currentPiece].name[0] ? iconList[currentPiece].name[0].getAttribute("text"): "";
 }
 
 // Returns if the icon given is one that is full sized
