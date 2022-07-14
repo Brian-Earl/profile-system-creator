@@ -751,7 +751,7 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
     processedText,
     text,
     namePos,
-    nameLocation.getBBox().height / 2,
+    nameLocation.getBBox().height / 8,
     fontSize,
     availableFonts.get(currentFont),
     append,
@@ -766,7 +766,7 @@ function createPieceAbilityText(text, append = true) {
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
-  iconPos.y = namePos.y + (nameLocation.getBBox().height * 1.25); // Used to be + 115
+  iconPos.y = namePos.y + (nameLocation.getBBox().height / 3);
   outerBorderLocation.setAttribute(
     "visibility",
     text !== "" ? "visible" : "hidden"
@@ -781,7 +781,7 @@ function createPieceAbilityText(text, append = true) {
     text,
     iconPos,
     0,
-    100,
+    150, // Was 100
     font,
     append)[0];
 }
@@ -789,7 +789,7 @@ function createPieceAbilityText(text, append = true) {
 // Create the piece icon of the given piece name
 function createPieceIcon(piece, append = true, type = "normal") {
   if (piece === "") return;
-  let heightAdjust = 2;
+  let heightAdjust = 1.75;
   let iconPos = getCenter(pieceIconLocation);
   let scale = 10;
   if (type === "singleIcon") {
