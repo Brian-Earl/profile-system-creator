@@ -143,7 +143,7 @@ let importFileLocation = document.getElementById("importPiecesInput");
 let currentPiece = 0;
 
 // Store the color black used for the pieces 
-let blackColor = "rgb(35, 31, 32)";
+const blackColor = "rgb(35, 31, 32)";
 
 // How much to scale down pieces by is they have abilities 
 const scaleDownFactor = (100.8 / 104.5);
@@ -705,50 +705,51 @@ async function createTextAt(
   altFontSize = 0
 ) {
   let newTexts = []
-  async function loop() {
-    textList.forEach(async(elem, index) => {
-      let svgNS = "http://www.w3.org/2000/svg";
-      let newText = document.createElementNS(svgNS, "text");
-      newText.setAttribute("font-size", fontSize);
-      newText.setAttribute("font-family", fontFamily);
-      newText.setAttribute("font-weight", getFontWeight())
-      newText.setAttribute("text", text);
-      newText.setAttribute("fill", "currentColor");
-      newText.setAttribute("text-anchor", "middle");
-      newText.setAttribute("dominant-baseline", "middle")
-      let cy = (heightJig * 2) / 3;
-      // If there are multiple lines of text, change height accordingly
-      if (textList.length > 1) {
-        if (index === 0)
-          cy = heightJig * -1;
-        else {
-          cy = heightJig * 2;
-          if (currentFont === "conanFont")
-            cy = heightJig * 2.5
-          newText.setAttribute("font-size", altFontSize);
-        }
-      } else {
-        if (currentFont === "jarlFont" || currentFont === "centurionFont")
-          cy = 0
+  let index = 0;
+  for await (const elem of textList) {
+    let svgNS = "http://www.w3.org/2000/svg";
+    let newText = document.createElementNS(svgNS, "text");
+    newText.setAttribute("font-size", fontSize);
+    newText.setAttribute("font-family", fontFamily);
+    newText.setAttribute("font-weight", getFontWeight())
+    newText.setAttribute("text", text);
+    newText.setAttribute("fill", "currentColor");
+    newText.setAttribute("text-anchor", "middle");
+    newText.setAttribute("dominant-baseline", "middle")
+    let cy = (heightJig * 2) / 3;
+    // If there are multiple lines of text, change height accordingly
+    if (textList.length > 1) {
+      if (index === 0)
+        cy = heightJig * -1;
+      else {
+        cy = heightJig * 2;
+        if (currentFont === "conanFont")
+          cy = heightJig * 2.5
+        newText.setAttribute("font-size", altFontSize);
       }
-      newText.setAttribute("x", pos.x);
-      newText.setAttribute("y", pos.y + cy);
-      newText.appendChild(document.createTextNode(elem));
-      svg.appendChild(newText);
-      let converted = await convert(newText)
-      newText = converted
-      if (!append) newText.remove();
-      newTexts.push(newText);
-    });
-    return newTexts;
-  }
-  return await loop()
+    } else {
+      if (currentFont === "jarlFont" || currentFont === "centurionFont")
+        cy = 0
+    }
+    newText.setAttribute("x", pos.x);
+    newText.setAttribute("y", pos.y + cy);
+    newText.appendChild(document.createTextNode(elem));
+    svg.appendChild(newText);
+    let converted = await convert(newText)
+    console.log(textList)
+    console.log(newText)
+    console.log(converted)
+    newText = converted
+    if (!append) newText.remove();
+    newTexts.push(newText);
+    index++;
+  };
+  return newTexts;
 }
 
 // Create a text element of the given piece name
 async function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
   let namePos = getCenter(nameLocation);
-  console.log(iconList[currentPiece].name)
   if (!isImport) {
     if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
     if (iconList[currentPiece].altName) iconList[currentPiece].altName.forEach(elem => elem.remove());
@@ -777,7 +778,7 @@ async function createPieceAbilityText(text, append = true) {
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
   let iconPos = getCenter(pieceIconLocation);
   let namePos = getCenter(nameLocation);
-  iconPos.y = namePos.y + (nameLocation.getBBox().height / 3);
+  iconPos.y = namePos.y + (nameLocation.getBBox().height / 3.1);
   outerBorderLocation.setAttribute(
     "visibility",
     text !== "" ? "visible" : "hidden"
@@ -794,7 +795,7 @@ async function createPieceAbilityText(text, append = true) {
     0,
     150, // Was 100
     font,
-    append)[0];
+    append);
 }
 
 // Create the piece icon of the given piece name
@@ -1249,12 +1250,12 @@ function downloadJSON(content) {
 }
 
 // Takes in a json file and formats it into a valid object
-function importPieces(element) {
+async function importPieces(element) {
   if (element.files.length <= 0) return;
   let fr = new FileReader();
-  fr.onload = function (e) {
+  fr.onload = async function (e) {
     let result = JSON.parse(e.target.result);
-    setImportedData(result);
+    await setImportedData(result);
     hasDifferentPieceIcons = pieceHasDifferentIcons();
     hasDifferentStartLocations = pieceHasDifferentStartPositions();
     hasDifferentNames = pieceHasDifferentNames();
@@ -1276,22 +1277,23 @@ async function setImportedData(data) {
   heightInput.value = 1;
   widthInput.value = getNumberOfPieces(data.pieces)
   iconList = [];
-  for (let i = 0; i < data.pieces.length; i++) {
+  let i = 0;
+  for await (const elem of data.pieces) {
     currentPiece = i;
     let startPos = [
       [2, 2],
       [2, 2],
     ];
     if (data.options.exporterVersion === 1) {
-      startPos = data.pieces[i].startPosition
-        ? [data.pieces[i].startPosition, data.pieces[i].startPosition]
+      startPos = elem.startPosition
+        ? [elem.startPosition, elem.startPosition]
         : [
           [2, 2],
           [2, 2],
         ];
     } else {
-      startPos = data.pieces[i].startPosition
-        ? data.pieces[i].startPosition
+      startPos = elem.startPosition
+        ? elem.startPosition
         : [
           [2, 2],
           [2, 2],
@@ -1306,35 +1308,35 @@ async function setImportedData(data) {
     );
 
     if (data.options.exporterVersion < 3)
-      data.pieces[i].type = "normal"
+      elem.type = "normal"
 
-    iconList[i].storage.icons[0] = createPieceIcon(data.pieces[i].icon, false, data.pieces[i].type);
+    iconList[i].storage.icons[0] = createPieceIcon(elem.icon, false, elem.type);
     iconList[i].storage.icons[1] = createPieceIcon(
-      data.pieces[i].altIcon,
+      elem.altIcon,
       false,
-      data.pieces[i].type
+      elem.type
     );
     if (data.options.exporterVersion < 6)
-      data.pieces[i].bothStartSides = false;
-    iconList[i].bothStartSides = data.pieces[i].bothStartSides 
-    iconList[i].count = data.pieces[i].amount;
-    iconList[i].type = data.pieces[i].type;
-    iconList[i].name = await createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
-    if (data.options.exporterVersion >= 4 && data.pieces[i].altName !== "") {
-      iconList[i].altName = await createPieceName(data.pieces[i].altName, false, true, data.pieces[i].type === "singleIcon");
+      elem.bothStartSides = false;
+    iconList[i].bothStartSides = elem.bothStartSides 
+    iconList[i].count = elem.amount;
+    iconList[i].type = elem.type;
+    iconList[i].name = await createPieceName(elem.name, false, true, elem.type === "singleIcon");
+    if (data.options.exporterVersion >= 4 && elem.altName !== "") {
+      iconList[i].altName = await createPieceName(elem.altName, false, true, elem.type === "singleIcon");
     }
-    if (data.pieces[i].type === "normal") {
-      for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
-        for (let k = 0; k < data.pieces[i].grid.startSide[j].length; k++) {
+    if (elem.type === "normal") {
+      for (let j = 0; j < elem.grid.startSide.length; j++) {
+        for (let k = 0; k < elem.grid.startSide[j].length; k++) {
           let gridPos = [j, k];
           let gridSquareElement = document.getElementById(
             "X" + gridPos[0] + gridPos[1]
           );
           let gridSquareCenter = getCenter(gridSquareElement);
-          for (let l = 0; l < data.pieces[i].grid.startSide[j][k].length; l++) {
+          for (let l = 0; l < elem.grid.startSide[j][k].length; l++) {
             iconList[i].grid[1][gridPos[0]][gridPos[1]].push(
               createIconAt(
-                data.pieces[i].grid.startSide[j][k][l],
+                elem.grid.startSide[j][k][l],
                 gridSquareCenter,
                 gridPos,
                 false
@@ -1343,12 +1345,12 @@ async function setImportedData(data) {
           }
           for (
             let l = 0;
-            l < data.pieces[i].grid.startNonSide[j][k].length;
+            l < elem.grid.startNonSide[j][k].length;
             l++
           ) {
             iconList[i].grid[0][gridPos[0]][gridPos[1]].push(
               createIconAt(
-                data.pieces[i].grid.startNonSide[j][k][l],
+                elem.grid.startNonSide[j][k][l],
                 gridSquareCenter,
                 gridPos,
                 false
@@ -1358,13 +1360,15 @@ async function setImportedData(data) {
         }
       }
 
-      iconList[i].ability = await createPieceAbilityText(
-        romanize(data.pieces[i].ability),
-        false
-      );
-
-      if (data.options.exporterVersion >= 5)
-        iconList[i].abilitySide = data.pieces[i].abilitySide;
+      if(elem.ability !== "") {
+        iconList[i].ability = await createPieceAbilityText(
+          romanize(elem.ability),
+          false
+        );
+        iconList[i].ability = iconList[i].ability[0]
+        if (data.options.exporterVersion >= 5)
+          iconList[i].abilitySide = elem.abilitySide;
+      }
 
       iconList[i].startPos = startPos;
       iconList[i].storage.start = createStartIconsAt(
@@ -1375,8 +1379,8 @@ async function setImportedData(data) {
         false,
         iconList[i].bothStartSides
       );
-      if (data.pieces[i].connections)
-        iconList[i].connections = data.pieces[i].connections;
+      if (elem.connections)
+        iconList[i].connections = elem.connections;
       iconList[i].storage.connections = [[], []];
       for (let j = 0; j < iconList[i].connections.length; j++) {
         for (let k = 0; k < iconList[i].connections[j].length; k++) {
@@ -1397,10 +1401,13 @@ async function setImportedData(data) {
         }
       }
     }
+    i++;
+    // clearBoard()
+    // clearNonBoard()
   }
+  currentPiece = 0;
   if (iconList[currentPiece].type === "singleIcon")
     singleIconPiece()
-  currentPiece = 0;
   displayListLength()
   drawBoard();
   drawNonBoard();
@@ -1491,16 +1498,15 @@ function romanToInt(s) {
 // Change the name of the current piece
 async function changeName(e) {
   if (hasDifferentNames && !isStartSide) {
-    iconList[currentPiece].altName = createPieceName(e.target.value);
+    iconList[currentPiece].altName = await createPieceName(e.target.value);
   }
   else if ((hasDifferentNames && isStartSide) || !hasDifferentNames) {
     iconList[currentPiece].name = await createPieceName(e.target.value);
-    console.log(iconList[currentPiece].name)
   }
 }
 
 // Change the ability of the current piece
-function changeAbility(e) {
+async function changeAbility(e) {
   clearNonBoard();
   if (e.target.value === "") {
     iconList[currentPiece].ability.remove();
@@ -1508,11 +1514,17 @@ function changeAbility(e) {
     return
   }
   // If the input is outside of the desired range, return
-  if (e.target.value < 0 || e.target.value > 100) return;
-  iconList[currentPiece].ability = createPieceAbilityText(
+  if (e.target.value < 1 || e.target.value > 100) {
+    iconList[currentPiece].ability = null
+    drawNonBoard();
+    outerBorderLocation.setAttribute("visibility", "hidden");
+    return;
+  }
+  iconList[currentPiece].ability = await createPieceAbilityText(
     romanize(e.target.value),
-    false
+    true
   );
+  iconList[currentPiece].ability = iconList[currentPiece].ability[0];
   drawNonBoard();
 }
 
@@ -1947,13 +1959,14 @@ function connectionExists(x1, y1, x2, y2) {
 }
 
 // Change font to the inputted value
-function changeFont() {
+async function changeFont() {
   clearNonBoard();
   currentFont = fontInput.value;
   iconList[currentPiece].name = createPieceName(nameInput.value);
   if (iconList[currentPiece].ability) {
     let abilityText = iconList[currentPiece].ability.getAttribute("text");
-    iconList[currentPiece].ability = createPieceAbilityText(abilityText);
+    iconList[currentPiece].ability = await createPieceAbilityText(abilityText);
+    iconList[currentPiece].ability = iconList[currentPiece].ability[0];
   }
   drawNonBoard();
 }
@@ -2228,13 +2241,16 @@ async function convert(textNode) {
         "400": "https://bearl.dev/profile-system-creator/Fonts/GOUDOS.otf"
       },
       "Xenippa": {
-        "500": "https://bearl.dev/profile-system-creator/Fonts/xenippa1.otf"
+        "400": "https://bearl.dev/profile-system-creator/Fonts/xenippa1.otf"
       },
       "Comic Runes": {
         "400": "https://bearl.dev/profile-system-creator/Fonts/ComicRunes.otf"
       },
       "Hiroshige LT Medium": {
-        "500": "https://bearl.dev/profile-system-creator/Fonts/pmn-caecilia-lt-85-heavy-5876ce1a314e8.otf"
+        "400": "https://bearl.dev/profile-system-creator/Fonts/pmn-caecilia-lt-85-heavy-5876ce1a314e8.otf"
+      },
+      "Xtra": {
+        "400": "https://bearl.dev/profile-system-creator/Fonts/Xtra.otf"
       }
     }
   })
