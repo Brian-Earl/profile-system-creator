@@ -736,9 +736,6 @@ async function createTextAt(
     newText.appendChild(document.createTextNode(elem));
     svg.appendChild(newText);
     let converted = await convert(newText)
-    console.log(textList)
-    console.log(newText)
-    console.log(converted)
     newText = converted
     if (!append) newText.remove();
     newTexts.push(newText);
@@ -801,7 +798,7 @@ async function createPieceAbilityText(text, append = true) {
 // Create the piece icon of the given piece name
 function createPieceIcon(piece, append = true, type = "normal") {
   if (piece === "") return;
-  let heightAdjust = 1.75;
+  let heightAdjust = 2;
   let iconPos = getCenter(pieceIconLocation);
   let scale = 10;
   if (type === "singleIcon") {
