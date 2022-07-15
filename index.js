@@ -21,6 +21,9 @@
 // https://bobbyhadz.com/blog/javascript-split-string-only-on-first-instance-of-character
 // https://www.oreilly.com/library/view/svg-text-layout/9781491933817/ch04.html
 // https://stackoverflow.com/questions/1731190/check-if-a-string-has-white-space
+// https://github.com/paulzi/svg-text-to-path
+// ^ ^ ^ ^ ^ ^
+// ^ ^ ^ ^ ^ ^
 
 // TODO:
 // Add multiple pages for renders when all of the pieces cannot fit on one
@@ -28,6 +31,11 @@
 // Revamp UI
 // Redo Icons (look at Start Side Icon Affinity File)
 // Store what peices (if any) a piece should replace such as how Arthur replaces the Duke
+// Rewrite as node project so that ever svg can be stored as its own file and can use libraries better
+// Remove unused code
+// Rewrite GamePiece class and how the GamePiece is stored
+// Allow for storing of edge cased rotations
+// Allow user to control font size for each piece and store it
 
 // Variable that keeps track all of the current pieces created
 // An array of arrays, each array contains two arrays, both are 2D arrays
@@ -204,9 +212,6 @@ let currentSideNumber = document.getElementById("currentSideNumber");
 let widthInput = document.getElementById("widthInput");
 let heightInput = document.getElementById("heightInput");
 let spacingInput = document.getElementById("spacingInput");
-
-// Get element for the styles appended onto the SVG before it is exported
-let exportStyle = document.getElementById("exportStyles");
 
 class GamePiece {
   constructor(x = 2, y = 2, x2 = 2, y2 = 2, type = "normal", append = true, bothStartSides = false) {
@@ -689,7 +694,7 @@ function restoreOppositeType(x, y, newIcon) {
 }
 
 // Creates a text element at the position given of the font size given
-function createTextAt(
+async function createTextAt(
   textList,
   text,
   pos,
@@ -700,44 +705,50 @@ function createTextAt(
   altFontSize = 0
 ) {
   let newTexts = []
-  textList.forEach((elem, index) => {
-    let svgNS = "http://www.w3.org/2000/svg";
-    let newText = document.createElementNS(svgNS, "text");
-    newText.setAttribute("font-size", fontSize);
-    newText.setAttribute("font-family", fontFamily);
-    newText.setAttribute("font-weight", getFontWeight())
-    newText.setAttribute("text", text);
-    newText.setAttribute("fill", "currentColor");
-    newText.setAttribute("text-anchor", "middle");
-    newText.setAttribute("dominant-baseline", "middle")
-    let cy = (heightJig * 2) / 3;
-    // If there are multiple lines of text, change height accordingly
-    if (textList.length > 1) {
-      if (index === 0)
-        cy = heightJig * -1;
-      else {
-        cy = heightJig * 2;
-        if (currentFont === "conanFont")
-          cy = heightJig * 2.5
-        newText.setAttribute("font-size", altFontSize);
+  async function loop() {
+    textList.forEach(async(elem, index) => {
+      let svgNS = "http://www.w3.org/2000/svg";
+      let newText = document.createElementNS(svgNS, "text");
+      newText.setAttribute("font-size", fontSize);
+      newText.setAttribute("font-family", fontFamily);
+      newText.setAttribute("font-weight", getFontWeight())
+      newText.setAttribute("text", text);
+      newText.setAttribute("fill", "currentColor");
+      newText.setAttribute("text-anchor", "middle");
+      newText.setAttribute("dominant-baseline", "middle")
+      let cy = (heightJig * 2) / 3;
+      // If there are multiple lines of text, change height accordingly
+      if (textList.length > 1) {
+        if (index === 0)
+          cy = heightJig * -1;
+        else {
+          cy = heightJig * 2;
+          if (currentFont === "conanFont")
+            cy = heightJig * 2.5
+          newText.setAttribute("font-size", altFontSize);
+        }
+      } else {
+        if (currentFont === "jarlFont" || currentFont === "centurionFont")
+          cy = 0
       }
-    } else {
-      if (currentFont === "jarlFont" || currentFont === "centurionFont")
-        cy = 0
-    }
-    newText.setAttribute("x", pos.x);
-    newText.setAttribute("y", pos.y + cy);
-    newText.appendChild(document.createTextNode(elem));
-    svg.appendChild(newText);
-    if (!append) newText.remove();
-    newTexts.push(newText);
-  });
-  return newTexts;
+      newText.setAttribute("x", pos.x);
+      newText.setAttribute("y", pos.y + cy);
+      newText.appendChild(document.createTextNode(elem));
+      svg.appendChild(newText);
+      let converted = await convert(newText)
+      newText = converted
+      if (!append) newText.remove();
+      newTexts.push(newText);
+    });
+    return newTexts;
+  }
+  return await loop()
 }
 
 // Create a text element of the given piece name
-function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
+async function createPieceName(text, append = true, isImport = false, isSingleIcon = false) {
   let namePos = getCenter(nameLocation);
+  console.log(iconList[currentPiece].name)
   if (!isImport) {
     if (iconList[currentPiece].name) iconList[currentPiece].name.forEach(elem => elem.remove());
     if (iconList[currentPiece].altName) iconList[currentPiece].altName.forEach(elem => elem.remove());
@@ -747,7 +758,7 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
   }
   let processedText = processText(text);
   let fontSize = getFontSize(processedText[0].length, hasWhiteSpace(text), isAllCaps(processedText[0]));
-  return createTextAt(
+  return await createTextAt(
     processedText,
     text,
     namePos,
@@ -760,7 +771,7 @@ function createPieceName(text, append = true, isImport = false, isSingleIcon = f
 }
 
 // Create a text element of the given ability number
-function createPieceAbilityText(text, append = true) {
+async function createPieceAbilityText(text, append = true) {
   // If no text is input, return
   if (text === "") return;
   if (iconList[currentPiece].ability) iconList[currentPiece].ability.remove();
@@ -776,7 +787,7 @@ function createPieceAbilityText(text, append = true) {
     font = availableFonts.get("jarlFont");
   if (currentFont === "centurionFont")
     font = availableFonts.get("centurionFont");
-  return createTextAt(
+  return await createTextAt(
     [text],
     text,
     iconPos,
@@ -1080,7 +1091,7 @@ function clearInputs() {
         : "";
     }
   } else {
-    nameInput.value = iconList[currentPiece].name
+    nameInput.value = iconList[currentPiece].name && iconList[currentPiece].name[0]
       ? iconList[currentPiece].name[0].getAttribute("text")
       : "";
   }
@@ -1253,7 +1264,7 @@ function importPieces(element) {
 }
 
 // Uses imported JSON object to set the correct variables
-function setImportedData(data) {
+async function setImportedData(data) {
   normalGamePiece()
   clearNonBoard();
   clearBoard();
@@ -1308,9 +1319,9 @@ function setImportedData(data) {
     iconList[i].bothStartSides = data.pieces[i].bothStartSides 
     iconList[i].count = data.pieces[i].amount;
     iconList[i].type = data.pieces[i].type;
-    iconList[i].name = createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
+    iconList[i].name = await createPieceName(data.pieces[i].name, false, true, data.pieces[i].type === "singleIcon");
     if (data.options.exporterVersion >= 4 && data.pieces[i].altName !== "") {
-      iconList[i].altName = createPieceName(data.pieces[i].altName, false, true, data.pieces[i].type === "singleIcon");
+      iconList[i].altName = await createPieceName(data.pieces[i].altName, false, true, data.pieces[i].type === "singleIcon");
     }
     if (data.pieces[i].type === "normal") {
       for (let j = 0; j < data.pieces[i].grid.startSide.length; j++) {
@@ -1347,7 +1358,7 @@ function setImportedData(data) {
         }
       }
 
-      iconList[i].ability = createPieceAbilityText(
+      iconList[i].ability = await createPieceAbilityText(
         romanize(data.pieces[i].ability),
         false
       );
@@ -1478,9 +1489,14 @@ function romanToInt(s) {
 }
 
 // Change the name of the current piece
-function changeName(e) {
-  if (hasDifferentNames && !isStartSide) iconList[currentPiece].altName = createPieceName(e.target.value);
-  else if ((hasDifferentNames && isStartSide) || !hasDifferentNames) iconList[currentPiece].name = createPieceName(e.target.value);
+async function changeName(e) {
+  if (hasDifferentNames && !isStartSide) {
+    iconList[currentPiece].altName = createPieceName(e.target.value);
+  }
+  else if ((hasDifferentNames && isStartSide) || !hasDifferentNames) {
+    iconList[currentPiece].name = await createPieceName(e.target.value);
+    console.log(iconList[currentPiece].name)
+  }
 }
 
 // Change the ability of the current piece
@@ -1705,14 +1721,6 @@ function exportPiecesAsGrid(
   startSideCanvas.setAttribute("height", canvasHeight);
   nonStartSideCanvas.setAttribute("width", canvasWidth);
   nonStartSideCanvas.setAttribute("height", canvasHeight);
-  // Add styling for fonts
-  // Export style needs to be cloned as if it isnt then the styling
-  // will only be applied to the second element that it is appended to
-  // (nonStartSideCanvas in this case). This is because if you append it without cloning
-  // then you are really just moving the single element from one place to the other. You need
-  // to clone it so that each will have their own style element 
-  startSideCanvas.append(exportStyle.cloneNode(true));
-  nonStartSideCanvas.append(exportStyle.cloneNode(true));
 }
 
 // Draw a line between the two points given
@@ -2184,7 +2192,6 @@ function removeMouseEvents(elem) {
 
 // Remove hidden elements from the given grid element to reduce file size
 function removeHiddenElements(elem) {
-  console.log(elem)
   let outerBorder = elem.getElementById("Outer-Border");
   if(outerBorder.getAttribute("visibility") === "hidden")
     outerBorder.remove()
@@ -2200,6 +2207,37 @@ function removeHiddenElements(elem) {
     if(singleIconOuter.getAttribute("visibility") === "hidden")
       singleIconOuter.remove()
   }
+}
+
+// Converts svg text into a path so that it can be used correctly and imported
+// into other programs and laser cutters.
+// This code is adapted from the example program for the https://github.com/paulzi/svg-text-to-path project
+async function convert(textNode) {
+  return SvgTextToPath.replace(textNode, 
+    {
+    handlers: [SvgTextToPath.handlers.map, SvgTextToPath.handlers.http],
+    group: true,
+    fontMap: {
+      "Pieces of Eight": {
+        "400": "https://bearl.dev/profile-system-creator/Fonts/Pieces-of-Eight.otf"
+      },
+      "Lucida Blackletter": {
+        "400": "https://bearl.dev/profile-system-creator/Fonts/Lucida-Blackletter-Regular.otf"
+      },
+      "Goudy Old Style": {
+        "400": "https://bearl.dev/profile-system-creator/Fonts/GOUDOS.otf"
+      },
+      "Xenippa": {
+        "500": "https://bearl.dev/profile-system-creator/Fonts/xenippa1.otf"
+      },
+      "Comic Runes": {
+        "400": "https://bearl.dev/profile-system-creator/Fonts/ComicRunes.otf"
+      },
+      "Hiroshige LT Medium": {
+        "500": "https://bearl.dev/profile-system-creator/Fonts/pmn-caecilia-lt-85-heavy-5876ce1a314e8.otf"
+      }
+    }
+  })
 }
 
 init();
