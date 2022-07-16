@@ -2217,6 +2217,8 @@ function removeHiddenElements(elem) {
     if(singleIconOuter.getAttribute("visibility") === "hidden")
       singleIconOuter.remove()
   }
+  let playerMarkers = elem.getElementById("Player-Marker");
+  playerMarkers.remove()
 }
 
 // Converts svg text into a path so that it can be used correctly and imported
