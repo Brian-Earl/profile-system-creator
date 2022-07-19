@@ -546,9 +546,9 @@ function scaleIcon(icon) {
 // Returns how much to scale a certain icon by
 function scaleFactor(icon) {
   if (icon === "move") return 1.05;
-  if (icon === "nonCaptureMove") return 1.05;
+  if (icon === "nonCaptureMove") return 1;
   if (icon === "jump") return 1.1;
-  if (icon === "nonCaptureJump") return 1.15;
+  if (icon === "nonCaptureJump") return 1.05;
   if (icon === "slide") return 0.95;
   if (icon === "nonCaptureSlide") return 0.95;
   if (icon === "jumpSlide") return 1.15;
