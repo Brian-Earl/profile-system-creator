@@ -551,8 +551,8 @@ function scaleFactor(icon) {
   if (icon === "nonCaptureJump") return 1.15;
   if (icon === "slide") return 0.95;
   if (icon === "nonCaptureSlide") return 0.95;
-  if (icon === "nonCaptureJumpSlide") return 1.25;
   if (icon === "jumpSlide") return 1.15;
+  if (icon === "nonCaptureJumpSlide") return 1.35;
   if (icon === "strike") return 1.1;
   if (icon === "hammer") return 1.1;
   if (icon === "defense") return 0.95;
