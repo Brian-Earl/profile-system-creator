@@ -543,7 +543,7 @@ function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, prefer
     "(" +
     (angle === 225 ? -10 : 0) +
     " " +
-    (angle % 90 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
+    (angle % 90 === 0 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
     ")"
   );
 }
