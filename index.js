@@ -441,16 +441,13 @@ function createIconAt(
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
   let cy = pos.y - height / 2;
-  console.log(width / 2)
-  console.log(height / 2)
-  console.log("END")
   if (isRotate(icon)) {
     newIconElementGroup = document.createElement("g")
     newIconElementGroup.innerHTML = newIconElement.innerHTML
     newIconElement.innerHTML = "";
     newIconElementGroup.setAttribute(
       "transform",
-      rotateIcon(gridPos, cx, cy, width, height, isNintyDegrees(icon, getCurrentName()), isSideways(icon, getCurrentName()))
+      rotateIcon(gridPos, cx, cy, width, height, icon, isNintyDegrees(icon, getCurrentName()), isSideways(icon, getCurrentName()))
     );
     newIconElement.append(newIconElementGroup);
   }
@@ -528,7 +525,7 @@ function isFullSize(icon) {
 }
 
 // Return transform attribute for rotating an icon
-function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, preferSideways = false) {
+function rotateIcon(gridPos, cx, cy, width, height, icon, nintyDegrees = false, preferSideways = false) {
   let angle = getRotateDegrees(gridPos, nintyDegrees, preferSideways)
   return (
     "rotate(" +
@@ -541,9 +538,9 @@ function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, prefer
     " " +
     "translate" +
     "(" +
-    (angle === 225 ? -10 : 0) +
+    (angle === 180 && (icon === "slide" || icon === "jumpSlide") ? -10 : angle === 225 ? -10 : 0) +
     " " +
-    (angle === 180 ? -10 : angle % 90 === 0 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
+    (angle % 90 === 0 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
     ")"
   );
 }
