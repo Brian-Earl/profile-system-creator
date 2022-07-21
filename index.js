@@ -541,9 +541,9 @@ function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, prefer
     " " +
     "translate" +
     "(" +
-    (angle === 225 ? -10 : angle === 135 ? -5 : 0) +
+    (angle === 225 ? -10 : 0) +
     " " +
-    -25 +
+    (angle === 315 ? -18 : angle === 135 ? -30 : -25) +
     ")"
   );
 }
