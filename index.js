@@ -404,7 +404,7 @@ function isCenter(gridPos) {
 
 // Returns the x,y position of the center of the given SVG element
 function getCenter(item) {
-  if(!item) return;
+  if (!item) return;
   let bbox = item.getBBox();
   let ctm = getTransformToElement(item, item.nearestViewportElement)
   //let ctm = item.getTransformToElement(item.nearestViewportElement);
@@ -441,11 +441,18 @@ function createIconAt(
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
   let cy = pos.y - height / 2;
+  console.log(width/2)
+  console.log(height/2)
+  console.log("END")
   if (isRotate(icon)) {
-    newIconElement.setAttribute(
+    newIconElementGroup = document.createElement("g")
+    newIconElementGroup.innerHTML = newIconElement.innerHTML
+    newIconElement.innerHTML = "";
+    newIconElementGroup.setAttribute(
       "transform",
       rotateIcon(gridPos, cx, cy, width, height, isNintyDegrees(icon, getCurrentName()), isSideways(icon, getCurrentName()))
     );
+    newIconElement.append(newIconElementGroup);
   }
   newIconElement.setAttribute("x", cx);
   newIconElement.setAttribute("y", cy);
@@ -496,8 +503,8 @@ function isRotate(icon) {
 
 // Returns if an icon should only be rotated by 90 degrees
 function isNintyDegrees(icon, name) {
-  return icon === "smash" || 
-  (icon === "nonCaptureSlide" && (name === "Legionnaire" || name === "Centurion"))
+  return icon === "smash" ||
+    (icon === "nonCaptureSlide" && (name === "Legionnaire" || name === "Centurion"))
 }
 
 // Returns if an icon should prefer being pointed upwards or sideways
@@ -507,7 +514,7 @@ function isSideways(icon, name) {
 
 // Return the name of the current piece
 function getCurrentName() {
-  return iconList[currentPiece].name[0] ? iconList[currentPiece].name[0].getAttribute("text"): "";
+  return iconList[currentPiece].name[0] ? iconList[currentPiece].name[0].getAttribute("text") : "";
 }
 
 // Returns if the icon given is one that is full sized
@@ -522,18 +529,21 @@ function isFullSize(icon) {
 
 // Return transform attribute for rotating an icon
 function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, preferSideways = false) {
+  let angle = getRotateDegrees(gridPos, nintyDegrees, preferSideways)
   return (
     "rotate(" +
-    getRotateDegrees(gridPos, nintyDegrees, preferSideways) +
+    angle +
     " " +
-    (cx + width / 2) +
+    (width/2) +
     " " +
-    (cy + height / 2) +
+    (height/2) +
     ")" +
-    " translate(" +
-    "0" +
     " " +
-    getYTranslation(gridPos, height, nintyDegrees) +
+    "translate" +
+    "(" +
+    (angle === 225 ? -10 : angle === 135 ? -5 : 0) +
+    " " +
+    -25 +
     ")"
   );
 }
@@ -576,17 +586,17 @@ function getAngle(x, y, nintyDegrees = false, preferSideways = false) {
       180
     )
   ) : roundDownToNearest90(
-      Math.abs(
-        (Math.atan2(
-          y - iconList[currentPiece].startPos[+isStartSide][1],
-          x - iconList[currentPiece].startPos[+isStartSide][0]
-        ) *
-          180) /
-        Math.PI -
-        180
-      ),
-      preferSideways
-    )
+    Math.abs(
+      (Math.atan2(
+        y - iconList[currentPiece].startPos[+isStartSide][1],
+        x - iconList[currentPiece].startPos[+isStartSide][0]
+      ) *
+        180) /
+      Math.PI -
+      180
+    ),
+    preferSideways
+  )
 }
 
 // Round the given number down to the nearest multiple of 45
@@ -603,7 +613,7 @@ function roundDownToNearest90(num, preferSideways = false) {
   if (num < 90 && num > 0)
     return !preferSideways ? 0 : 90;
   if (num < 270 && num > 180)
-    return !preferSideways ? 180: 270;
+    return !preferSideways ? 180 : 270;
   if (preferSideways && num < 180 && num > 90)
     return 90;
   if (preferSideways && num > 270)
@@ -619,8 +629,17 @@ function getRotateDegrees(gridPos, nintyDegrees = false, preferSideways = false)
 // Find how much to translate along the Y axis based on the grid position
 // Used for fixing issues regarding the position when translated
 function getYTranslation(gridPos, height, nintyDegrees = false) {
-  return getAngle(gridPos[1], gridPos[0]) % 90 === 0 || nintyDegrees ? 0 : -1 * (height / 6);
+  let angle = getAngle(gridPos[1], gridPos[0])
+  return (angle === 225 || angle === 45 ? -1 : angle === 135 ? -1 : 0) * (angle % 90 === 0 || nintyDegrees ? 0 : (height / 8));
 }
+
+// Find how much to translate along the X axis based on the grid position
+// Used for fixing issues regarding the position when translated
+function getXTranslation(gridPos, width, nintyDegrees = false) {
+  let angle = getAngle(gridPos[1], gridPos[0]);
+  return (angle === 45 ? -1 : angle === 315 ? 1 : angle === 135 ? -0.5 : 0) * (angle % 90 === 0 || nintyDegrees ? 0 : (width / 4));
+}
+
 
 // Remove all of the elements from view at the current grid location
 // removeFromList removes them from existence entirely
@@ -1315,7 +1334,7 @@ async function setImportedData(data) {
     );
     if (data.options.exporterVersion < 6)
       elem.bothStartSides = false;
-    iconList[i].bothStartSides = elem.bothStartSides 
+    iconList[i].bothStartSides = elem.bothStartSides
     iconList[i].count = elem.amount;
     iconList[i].type = elem.type;
     iconList[i].name = await createPieceName(elem.name, false, true, elem.type === "singleIcon");
@@ -1357,7 +1376,7 @@ async function setImportedData(data) {
         }
       }
 
-      if(elem.ability !== "") {
+      if (elem.ability !== "") {
         iconList[i].ability = await createPieceAbilityText(
           romanize(elem.ability),
           false
@@ -1627,7 +1646,7 @@ function exportPiecesAsGrid(
   // Stroke width of the cut lines
   let strokeWidth = getCutLineWidth() * scale;
   // Offset so that the grid can be fully drawn on the svg
-  let offset = (lineDistance + (strokeWidth/2) + 5);
+  let offset = (lineDistance + (strokeWidth / 2) + 5);
   // Keep track of how many times the current piece has been used in the render
   // Used for pieces that appear multiple times
   let repeatPiece = 0;
@@ -2035,8 +2054,8 @@ function getFontSize(length = 1, hasSpace = false, isAllCaps = false) {
       return 90;
     else if (length >= 10)
       return 130;
-  } else if(currentFont === "centurionFont") {
-    if(length >= 12)
+  } else if (currentFont === "centurionFont") {
+    if (length >= 12)
       return 180;
   }
   return 200;
@@ -2203,18 +2222,18 @@ function removeMouseEvents(elem) {
 // Remove hidden elements from the given grid element to reduce file size
 function removeHiddenElements(elem) {
   let outerBorder = elem.getElementById("Outer-Border");
-  if(outerBorder.getAttribute("visibility") === "hidden")
+  if (outerBorder.getAttribute("visibility") === "hidden")
     outerBorder.remove()
   let singleIconBorders = elem.getElementById("SingleIconBorder");
   let singleIconInner = singleIconBorders.children.namedItem("Inner-Border")
   let singleIconOuter = singleIconBorders.children.namedItem("Outer-Border")
-  if(singleIconInner.getAttribute("visibility") === "hidden" 
-  && singleIconOuter.getAttribute("visibility") === "hidden")
+  if (singleIconInner.getAttribute("visibility") === "hidden"
+    && singleIconOuter.getAttribute("visibility") === "hidden")
     singleIconBorders.remove()
   else {
-    if(singleIconInner.getAttribute("visibility") === "hidden")
+    if (singleIconInner.getAttribute("visibility") === "hidden")
       singleIconInner.remove()
-    if(singleIconOuter.getAttribute("visibility") === "hidden")
+    if (singleIconOuter.getAttribute("visibility") === "hidden")
       singleIconOuter.remove()
   }
   let playerMarkers = elem.getElementById("Player-Marker");
@@ -2225,34 +2244,34 @@ function removeHiddenElements(elem) {
 // into other programs and laser cutters.
 // This code is adapted from the example program for the https://github.com/paulzi/svg-text-to-path project
 async function convert(textNode) {
-  return SvgTextToPath.replace(textNode, 
+  return SvgTextToPath.replace(textNode,
     {
-    handlers: [SvgTextToPath.handlers.map, SvgTextToPath.handlers.http],
-    group: true,
-    fontMap: {
-      "Pieces of Eight": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/Pieces-of-Eight.otf"
-      },
-      "Lucida Blackletter": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/Lucida-Blackletter-Regular.otf"
-      },
-      "Goudy Old Style": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/GOUDOS.otf"
-      },
-      "Xenippa": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/xenippa1.otf"
-      },
-      "Comic Runes": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/ComicRunes.otf"
-      },
-      "Hiroshige LT Medium": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/pmn-caecilia-lt-85-heavy-5876ce1a314e8.otf"
-      },
-      "Xtra": {
-        "400": "https://bearl.dev/profile-system-creator/Fonts/Xtra.otf"
+      handlers: [SvgTextToPath.handlers.map, SvgTextToPath.handlers.http],
+      group: true,
+      fontMap: {
+        "Pieces of Eight": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/Pieces-of-Eight.otf"
+        },
+        "Lucida Blackletter": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/Lucida-Blackletter-Regular.otf"
+        },
+        "Goudy Old Style": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/GOUDOS.otf"
+        },
+        "Xenippa": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/xenippa1.otf"
+        },
+        "Comic Runes": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/ComicRunes.otf"
+        },
+        "Hiroshige LT Medium": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/pmn-caecilia-lt-85-heavy-5876ce1a314e8.otf"
+        },
+        "Xtra": {
+          "400": "https://bearl.dev/profile-system-creator/Fonts/Xtra.otf"
+        }
       }
-    }
-  })
+    })
 }
 
 init();
