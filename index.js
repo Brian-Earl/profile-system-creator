@@ -441,8 +441,8 @@ function createIconAt(
   let height = bbox.height * iconScaleFactor;
   let cx = pos.x - width / 2;
   let cy = pos.y - height / 2;
-  console.log(width/2)
-  console.log(height/2)
+  console.log(width / 2)
+  console.log(height / 2)
   console.log("END")
   if (isRotate(icon)) {
     newIconElementGroup = document.createElement("g")
@@ -534,16 +534,16 @@ function rotateIcon(gridPos, cx, cy, width, height, nintyDegrees = false, prefer
     "rotate(" +
     angle +
     " " +
-    (width/2) +
+    (width / 2) +
     " " +
-    (height/2) +
+    (height / 2) +
     ")" +
     " " +
     "translate" +
     "(" +
     (angle === 225 ? -10 : 0) +
     " " +
-    (angle % 90 === 0 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
+    (angle === 180 ? -10 : angle % 90 === 0 ? 0 : angle === 315 ? -18 : angle === 135 ? -30 : -25) +
     ")"
   );
 }
